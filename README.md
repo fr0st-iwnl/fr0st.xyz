@@ -7,8 +7,7 @@ Featuring a design inspired by old vintage terminals!
 
 ## Screenshots
 
-![App Screenshot](/assets/preview.png)
-![App Screenshot](/assets/preview_2.png)
+![App Screenshot](https://github.com/fr0st-iwnl/richardapps-web/blob/master/src/media/desc.png)
 
 ## Roadmap
 
