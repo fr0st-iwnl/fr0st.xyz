@@ -350,6 +350,22 @@ p i {
     }
 }
 
+/* GRID-CONTENT (HOME/ABOUT) */
+.grid_row, .grid {
+    display: flex;
+    gap: 1em;
+}
+
+.grid {
+    flex-direction: column;
+}
+
+.grid_row_box {
+    padding: .5em;
+    width: 100%;
+
+    border: 1px solid var(--main-color);
+}
 
 #changeEffects:hover,
 #changeEffects a:hover {
