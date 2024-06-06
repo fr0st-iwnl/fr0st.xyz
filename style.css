@@ -137,7 +137,7 @@ nav ul li {
 }
 
 nav ul li:not(:last-child) {
-    padding-right: 2.5em;
+    padding-right: 1.5em;
 }
 
 nav ul li a {
