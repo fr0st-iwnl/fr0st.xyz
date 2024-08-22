@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-image: url(../img/background.png);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin-top: 25px;
+}
+
+.container {
+  background-color: #232428;
+  border-radius: 10px;
+  width: 600px;
+}
+
+header {
+  height: 105px;
+  margin-bottom: 60px;
+}
+
+.box-top {
+  border-radius: 10px 10px 0px 0px;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.banner-profile {
+  height: 100%;
+}
+
+.box-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 130px;
+  position: relative;
+  top: -64px;
+  left: 22px;
+  border: solid 6px #232428;
+  border-radius: 50%;
+}
+
+.img-profile {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.box-main {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  color: aliceblue;
+}
+
+.data-user {
+  background-color: #111214;
+  border-radius: 5px;
+  padding: 12px;
+}
+
+.name-phrase {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 17px;
+}
+
+.name-phrase > h1 {
+  font-size: 20px;
+}
+
+.text-normal {
+  font-size: 14px;
+  color: #b5bac1;
+  line-height: 18px;
+  text-align: justify;
+}
+
+.separator {
+  border-top: solid #ffffff 1px;
+  opacity: 0.2;
+  height: 10px;
+}
+
+.data-about {
+  overflow-y: scroll;
+  height: 290px;
+  padding: 2px;
+}
+
+.bio > h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.bio > p {
+  margin-bottom: 16px;
+}
+
+.connected-accounts {
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.connected-accounts-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 48%;
+}
+
+.connected-account-container {
+  border: solid #444444 1px;
+  display: flex;
+  padding: 12px 8px;
+  border-radius: 4px;
+  width: 100%;
+  height: 50px;
+  justify-content: space-between;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.connected {
+  display: flex;
+  align-items: center;
+}
+
+.connected > a {
+  height: 16px;
+}
+
+.data-about::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+}
+
+.data-about::-webkit-scrollbar-thumb {
+  background: #232428;
+  border-radius: 4px;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 85%;
+  }
+
+  .box-top {
+    text-align: end;
+    padding-right: 40px;
+  }
+
+  .connected-accounts {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .connected-accounts-column {
+    width: 100%;
+  }
+}
