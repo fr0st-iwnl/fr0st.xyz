@@ -7,7 +7,7 @@ Featuring a design inspired by old vintage terminals!
 
 ## Screenshots
 
-![App Screenshot](https://github.com/fr0st-iwnl/richardapps-web/blob/master/src/media/desc.png)
+![App Screenshot](https://raw.githubusercontent.com/fr0st-iwnl/assets/main/thumbnails/fr0st.png)
 
 
 ## Credits
