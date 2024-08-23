@@ -1,6 +1,6 @@
 
 # fr0st's - Webpage
-Github-Repository of my personal webpage. Including news, projects, picture grid, about and contact pages
+Github-Repository of my personal webpage. Including news, projects, picture grid, about and contact pages.
 Made using Vanilla HTML/CSS and JavaScript.
 
 Featuring a design inspired by old vintage terminals!
