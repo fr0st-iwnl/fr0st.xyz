@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-----METAS----->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+	<meta name="author" content="fr0st-iwnl">
+	<meta proberty="og:title" content="fr0st-iwnl">
+	<meta property="og:site_name" content="fr0st.netlify.app">
+	<meta proberty="og:description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+	<meta proberty="og:url" content="https://fr0st.netlify.app">
+	<meta name="keywords" content="fr0st-iwnl, frost, fr0st, frostiwnl, kiyokosmacros, frostiwnldev, frost github">
+	<meta name="robots" content="index, follow">
+	<meta name="revisit-after" content="7 days">
+	<!-----TITLE------>
+	<title>fr0st-iwnl</title>
+
+	<!-----SCRIPT-JS------>
+	<script src="script.js" defer></script>
+
+    <!-----LINKS------>
+	<link rel="icon" type="image/png" href="src/media/faviconn.png">
+	<link rel="preload" as="font" href="src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+
+	<!---FONT AWESOME------->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.65;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="noise_vid"
+		src="https://files.catbox.moe/hop8wg.mp4"
+		poster="/src/media/noise_static.png"
+		>
+	</video>
+
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.85;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="rain_vid"
+		src="https://files.catbox.moe/i7le27.mp4"
+		poster="/src/media/rain_bg_static.png"
+		>
+	</video>
+
+	<div class="vignette"></div>
+
+	<div id="videohue"></div>
+	<div id="canvas">
+		<header>
+			<pre id="title">
+    ____       ____         __ 
+   / __/_____ / __ \ _____ / /_
+  / /_ / ___// / / // ___// __/
+ / __// /   / /_/ /(__  )/ /_  
+/_/  /_/    \____//____/ \__/  
+			</pre>
+			<p>Welcome, chum!</p>
+		<p>Glad you're here! Check out my online place and find cool stuff!</p>
+		<br>
+			<p id="changeEffects">Want some fancy effects? Click <a onclick="changeEffects()">HERE</a> to turn them on.</p>
+		</header>
+		<br>
+		<p>Some things you might be interested in:</p>
+		<nav id="nav_tabs">
+			<ul>
+				<li><a href="#home" class="tab_switcher" id="home_tab">Home</a></li>
+				<li><a href="#about" class="tab_switcher" id="about_tab">About</a></li>
+				<li><a href="#projects" class="tab_switcher" id="projects_tab">Projects</a></li>
+				<li><a href="#pictures" class="tab_switcher" id="pictures_tab">Pictures</a></li>
+			</ul>
+		</nav>
+		<div id="home" class="tabs">
+			<div class="grid">
+				<div class="grid_row">
+					<div class="grid_row_box">
+						<h2>My Webpage!</h2>
+						<p><em>Written on 04.12.2024</em></p>
+						<br>
+						<p>This is my personal webpage with all my projects, images, news and more! Be sure to take a look around.</p>
+						<br>
+						<p class="pr_warning">Regarding the design, I was inspired by <a
+							href="https://github.com/richard-apps" target="_blank">RichardApps</a>.
+					</p>
+					<br>
+					<p class="pr_warning">[!] Wanna contribute to his webpage? Check it out: <a
+							href="https://github.com/Richard-Apps/richardapps-web" target="_blank">richardapps-web</a>
+					</p>
+					<br>
+						<p>Don't forget to check out the different themes for the website! They are located below this post on the right.</p>
+					</div>
+				</div>
+				<div class="grid_row">
+					<div class="grid_row_box">
+						<h2>Latest Updates</h2>
+						<p><em>SEPTEMBER 25th, 2024:</em> Added a new project and changed the order of tabs: About Me is now secondary, and Projects is now third in the navbar.</p>
+						<p><em>AUGUST 22nd, 2024:</em> Reworked the entire website.</p>
+						<p><em>AUGUST 22nd, 2024:</em> Reworked the entire website.</p>
+						<p><em>JULY 14th, 2024:</em> Added a new project to the Projects tab.</p>
+						<p><em>JUNE 18th, 2024:</em> Changed the name of the News tab to Home and added some new elements, including grid row boxes, to the About Me page.</p>
+						<p><em>JUNE 6th, 2024:</em> Updated the News page, replaced a picture in the Pictures tab, and
+							removed some unnecessary content.</p>
+						<p><em>MAY 22TH, 2024:</em> Redesigned the social tab list on the About page and added a switch
+							to turn off effects if desired.</p>
+					</div>
+					<div class="grid_row_box grid_row_box_shrink">
+						<div id="theme_selector">
+							<h2>THEMES</h2>
+							<div id="theme_list">
+								<p><a onclick="changeTheme('ocean')">> ocean <</a></p>
+								<p><a onclick="changeTheme('terminal')">terminal</a></p>
+								<p><a onclick="changeTheme('cherry')">cherry</a></p>
+								<p><a onclick="changeTheme('amber')">amber</a></p>
+								<p><a onclick="changeTheme('deepsea')">deepsea</a></p>
+								<p><a onclick="changeTheme('neon')">neon</a></p>
+								&nbsp;
+								<p><a onclick="changeTheme('danger')">danger</a></p>
+								<p><a onclick="changeTheme('rainy')">rainy</a></p>
+								<p><a onclick="changeTheme('win95')">win95</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="projects" class="tabs">
+			<h2>PROJECTS</h2>
+			<br>
+			<ul id="pr_list">
+				<li>
+					<p class="pr_title">Kiyoko's Macros</p>
+					<p class="pr_desc">A project that boosts Roblox games using Autohotkey macros.</p>
+					<br>
+					<p><a href="https://kiyokosmacros.netlify.app/" target="_blank">VISIT</a></p>
+				</li>
+				<li>
+					<p class="pr_title">Tomato Delivery</p>
+					<p class="pr_desc">Full Stack Food Delivery Website In React JS, MongoDB, Express, Node JS & Stripe.</p>
+					<!---<p class="pr_info">[!] Still under development, not functional yet! You can still visit the site if you're adventurous!</p>---->
+					<br>
+					<p><a href="https://github.com/fr0st-iwnl/tomato-delivery" target="_blank">VISIT</a></p>
+				</li>
+				<li>
+					<p class="pr_title">FrostOS</p>
+					<p class="pr_desc">Terminal-Based Operating System in the Browser.</p>
+					<!---<p class="pr_info">[!] Still under development, not functional yet! You can still visit the site if you're adventurous!</p>---->
+					<br>
+					<p><a href="https://frostos.netlify.app/" target="_blank">VISIT</a></p>
+				</li>
+				<li>
+					<p class="pr_title">TabZ</p>
+					<p class="pr_desc">My first extension for easy tab management and organization.</p>
+					<!---<p class="pr_info">[!] Still under development, not functional yet! You can still visit the site if you're adventurous!</p>---->
+					<br>
+					<p><a href="https://github.com/fr0st-iwnl/tabz" target="_blank">VISIT</a></p>
+				</li>
+				<li>
+					<p class="pr_title">XPicker</p>
+					<p class="pr_desc">Slim color picker made in AutoHotkey.</p>
+					<!---<p class="pr_info">[!] Still under development, not functional yet! You can still visit the site if you're adventurous!</p>---->
+					<br>
+					<p><a href="https://xpickerapp.netlify.app/" target="_blank">VISIT</a></p>
+				</li>
+				<li>
+					<p class="pr_title">Scanify</p>
+					<p class="pr_desc">A webpage to make a QR Code from text using API.</p>
+					<!---<p class="pr_info">[!] Still under development, not functional yet! You can still visit the site if you're adventurous!</p>---->
+					<br>
+					<p><a href="https://scanifynow.netlify.app/" target="_blank">VISIT</a></p>
+				</li>
+				<li>
+					<p class="pr_title">Echo.FM</p>
+					<p class="pr_desc">A free music player with a variety of songs.</p>
+					<!---<p class="pr_info">[!] Still under development, not functional yet! You can still visit the site if you're adventurous!</p>---->
+					<br>
+					<p><a href="https://echofm.netlify.app/" target="_blank">VISIT</a></p>
+				</li>
+				<li>
+					<p class="pr_title">PassGenQ</p>
+					<p class="pr_desc">A random password generator with a terminal-inspired design.</p>
+					<!---<p class="pr_info">[!] Still under development, not functional yet! You can still visit the site if you're adventurous!</p>---->
+					<br>
+					<p><a href="https://passgenq.netlify.app/" target="_blank">VISIT</a></p>
+				</li>
+			</ul>
+			
+			<!---<p>...</p>
+			<br>
+			<p><em>(This list is currently limited. I will update it as soon as I get more projects online! :) )</em></p>---->
+		</div>
+
+		<div id="pictures" class="tabs">
+			<h2>PICTURES</h2>
+			<br>
+			<p>Here's a collection of photos I like!</p>
+			<div id="pictures_list">
+				<div class="row">
+					<img src="https://cdna.artstation.com/p/assets/images/images/061/703/488/large/richardapps-spaceship-testrender-widescreen.jpg?1681422196" onclick="window.open('https://www.artstation.com/artwork/qe0eo2', '_blank')">
+					<img src="https://cdnb.artstation.com/p/assets/images/images/061/703/817/large/richardapps-cinematic-space-render3.jpg?1681423969" onclick="window.open('https://www.artstation.com/artwork/rJzJOe', '_blank')">
+				</div>
+				<div class="row">
+					<img src="./src/media/cyberpunk4.png"onclick="window.open('https://in.pinterest.com/pin/38632509292426981/', '_blank')">
+					<img src="./src/media/cyberpunk.png" onclick="window.open('https://blenderartists.org/t/quadra-cyberpunk-2077-render-fan-art/1241261', '_blank')">
+				</div>
+			</div>
+			<p>Click on one of the pictures to see information about it.</p>
+		</div>
+		
+		<div id="about" class="tabs">
+			<div class="grid">
+				<div class="grid_row">
+					<div class="grid_row_box">
+						<h2>ABOUT ME</h2>
+						<br>
+						<p>Hey there! Thanks for checking out my website! Happy to have you here.</p>
+						<br>
+						<p>As to me, I'm Frost. I love all things computer-related! I've played around with coding and stuff. <em>Not an expert, but it's fun!</em></p>
+						<br>
+						<p>I really enjoy making websites. It’s fun to design and build something that people can use and see online. Whether it’s creating a neat layout or figuring out how to make things work smoothly, I find it really satisfying to see a website come together.</p>
+						<br>
+						<p>In my free time, I enjoy working on various tech projects. Whether it's creating a small script to automate a task or developing a full-blown web application.</p>
+						<br>
+						<p>Furthermore, I love listening to music! <em>(Before you ask, I listen to all genres :P)</em> Take a listen here: <em><a href="https://www.youtube.com/watch?v=MbXWrmQW-OE" target="_blank">🔊</a></em></p>			
+					</div>
+					<div class="grid_row_box">
+						<h2>Skills</h2>
+						<p>Some things I learned during my journey:</p>
+				<p>-> HTML/CSS/JS <em>Obviously used to create this site.</em></p>
+				<p>-> Python <em>Useful for a lot of projects. Still in the process of learning it, though.</em></p>
+				<p>-> Autohotkey (AHK) <em>A scripting language used for automating the Windows GUI.</em></p>
+				<p>-> React <em>A JavaScript library for building user interfaces.</em></p>
+				<p>-> Bootstrap <em>A CSS framework directed at responsive, mobile-first front-end web development.</em></p>
+				<p>-> Linux <em>An open-source operating system kernel that's popular for its flexibility and security.</em></p>
+						<br>
+			<h3>Things I Want to Learn :</h3>
+                <p>-> C++ <em>A powerful programming language often used in systems and game development.</em></p>
+				<p>-> TypeScript <em>A strict syntactical superset of JavaScript, adding static types.</em></p>
+                <p>-> Bash/Shell Scripting <em>A command-line scripting language used for automating tasks in Unix-like operating systems.</em></p>
+                <p>-> More frameworks for web development <em>To enhance my skills in building modern web applications.</em></p>
+                <p>-> Go <em>A statically typed programming language designed for simplicity and efficiency.</em></p>
+					</div>
+				</div>
+				<div class="grid_row">
+					<div class="grid_row_box">
+						<h2>Favourite Movies/Shows:</h2>
+						<table>
+							<tr>
+								<td>⭐ Interstellar</td>
+							<tr>
+								<td>⭐ Blade Runner 2049</td>
+							<tr>
+								<td>⭐ Fight Club</td>
+							<tr>
+								<td>⭐ Mr. Robot</td>
+							<tr>
+								<td>⭐ Dune 1/2</td>
+							<tr>
+								<td>⭐ Fallout</td>
+						</table>
+					</div>
+					<div class="grid_row_box">
+						<h2>Site Goals</h2>
+						<br>
+						<p><em>Why did I made this site you may ask?</em></p>
+						<br>
+						<p>It's just nice to have a personal space where I can host and show whatever I want, while having full control over it.</p>
+						<p>Long live the indie-web!</p>
+					</div>
+					<div class="grid_row_box">
+						<h2>Contact & Social Media</h2>
+						<p class="contact_link"><i class="fa-brands fa-github"></i> <a
+								href="https://github.com/fr0st-iwnl" target="_blank"
+								title="My Github account.">Github</a></p>
+						<p class="contact_link"><i class="fa-brands fa-youtube"></i> <a
+								href="https://www.youtube.com/c/fr0stiwnl" target="_blank"
+								title="My YouTube account.">YouTube</a></p>
+						<p class="contact_link"><i class="fa-brands fa-discord"></i> <a
+								href="https://frostiwnl.netlify.app/discord/index2" target="_blank" title="My Discord.">Discord</a>
+						</p>
+						<br>
+						<p><em>(I mostly prefer Discord for contact!)</em></p>
+						<br>
+						<p>Questions, wishes, inquiries, problems, and everything else can go to:</p>
+						<p><a href="mailto:frostiwnl0@mailo.com" target="_blank">frostiwnl0@mailo.com</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
