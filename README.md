@@ -10,6 +10,11 @@ Featuring a design inspired by old vintage terminals!
 ![App Screenshot](https://raw.githubusercontent.com/fr0st-iwnl/assets/main/thumbnails/fr0st.png)
 
 
+## Roadmap / TODOs
+
+- [ ] Create a working dynamic page for blogs
+
+
 ## Credits
 
 #### - richardapps-web: [web-page](https://github.com/Richard-Apps/richardapps-web) 
