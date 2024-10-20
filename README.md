@@ -12,7 +12,7 @@ Featuring a design inspired by old vintage terminals!
 
 ## Roadmap / TODOs
 
-- [ ] Create a working dynamic page for blogs
+- [x] Create a working dynamic page for blogs
 
 
 ## Credits
