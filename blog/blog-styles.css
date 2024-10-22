@@ -200,7 +200,7 @@ a:link:not(.tab_active, a:hover), a:visited:not(.tab_active, a:visited:hover), e
 
 .article-date {
     font-size: 0.9em;
-    color: rgba(255, 255, 255, 0.6);
+    color: white;
     white-space: nowrap;
     text-align: center;
     display: block;

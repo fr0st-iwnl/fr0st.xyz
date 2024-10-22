@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Terminus';
-    src: url('src/fonts/terminus-webfont.woff2') format('woff2');
+    src: url('/src/fonts/terminus-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -21,6 +21,11 @@
 pre:not(#title), code {
     white-space: pre-wrap;
 }
+
+.privacy_title{
+    text-align: center;
+}
+
 
 body {
     font-family: 'Terminus', sans-serif;
@@ -47,12 +52,40 @@ a:link:not(.tab_active, a:hover), a:visited:not(.tab_active, a:visited:hover), e
 
 #title {
     width: 100%;
-    font-size: 1.3em;
+    font-size: 1.0em;
     font-family: 'Courier New', Courier, monospace;
     -webkit-user-select: none;
     user-select: none;
-
+    text-align: center;
     margin-bottom: 1em;
+}
+
+
+.privacy-policy-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.privacy-policy-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+p::before {
+    content: "· "; /* adds a dot before each paragraph */
+    color: #ffffff;
+}
+
+
+
+
+/* /////////////////////////// OTHERS /////////////////////////// */
+
+
+.effects {
+    text-align: center;
 }
 
 pre, p, li, h1, h2, h3, h4, td{
@@ -114,6 +147,7 @@ pre, p, li, h1, h2, h3, h4, td{
 /* NAV BAR */
 nav ul {
     list-style-type: none;
+    text-align: center;
     padding: 0;
 }
 
@@ -122,8 +156,9 @@ nav ul li {
 }
 
 nav ul li:not(:last-child) {
-    padding-right: 2.5em;
+    padding-right: 0.5em;
 }
+
 
 nav ul li a {
     display: block;
@@ -133,6 +168,18 @@ nav ul li a {
 
     transition: background-color 0.1s ease-out;
 }
+
+@media (max-width: 600px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 0.5em; /* Add space between items when stacked */
+    }
+
+    nav ul li:not(:last-child) {
+        padding-right: 0; /* Remove padding for small screens */
+    }
+}
+
 
 .tab_active {
     background-color: var(--main-color);
@@ -153,17 +200,12 @@ nav ul li a {
 
 @media (hover: hover) {
     a:hover {
-        background-color: var(--main-color);
+        background-color: var(--main-color); /* Background color when hovering */
         cursor: pointer;
-        color: rgba(24, 45, 75, 0.616);
+        color: rgba(24, 45, 75, 0.616); /* Text or icon color change on hover */
         
-        transition: color box-shadow 0.1s;
-
-        text-decoration: none;
-    }
-    a:hover:not(.tab_switcher, .pic_coll_tabs) {
-        border-radius: 2.5px;
-        box-shadow: 0 0 18px 0px var(--main-color);
+        /* Smooth transition */
+        transition: background-color 0.1s ease, color 0.1s ease;
     }
 }
 
@@ -213,198 +255,9 @@ a{
     background-color: var(--selection);
 }
 
-/* PAGES */ 
-.invisible {
-    display: none;
-}
-
-.tabs:not(:target) {
-    display: none;
-}
-
-.tabs {
-    border: solid var(--main-color);
-    padding: 1.5em;
-    backdrop-filter: blur(100px);
-    background: linear-gradient(45deg, rgba(var(--bg-color), 0.05) 70%, rgba(var(--bg-color), 0.2) 110%);
-}
-
-/* GRID-CONTENT (HOME/ABOUT) */
-.grid_row, .grid {
-    display: flex;
-    gap: 1em;
-}
-
-.grid {
-    flex-direction: column;
-}
-
-.grid_row_box {
-    padding: .5em;
-    width: 100%;
-
-    border: 1px solid var(--main-color);
-}
 
 
-.grid_row_box_shrink {
-    flex-shrink: 5;
-}
 
-/* PROJECTS */
-#pr_list {
-    padding-left: 0;
-}
-
-#pr_list li {
-    list-style: none;
-    border: solid var(--main-color);
-    border-width: 1px;
-    padding: .5em;
-    
-    background: linear-gradient(45deg, rgba(var(--bg-color), 0.05) 70%, rgba(var(--bg-color), 0.2) 110%);
-}
-
-#pr_list li:not(:last-child) {
-    margin-bottom: 1.5em;
-}
-
-#pr_list li a {
-    padding: 0.1em 0;
-}
-
-.pr_title {
-    font-size: 1.2em;
-}
-
-.pr_warning, .pr_warning em{
-    color: var(--warning-color);
-}
-
-.pr_info, .pr_info em{
-    color: var(--info-color);
-}
-
-
-.pr_privacy {
-    color: #50C878;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.pr_privacy em {
-    font-weight: bold; /* Bold for emphasis */
-}
-
-.pr_privacy a {
-    font-weight: bold; 
-}
-
-/* PICTURES */
-.row, .img_container {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    
-    display: flex;
-    justify-content: space-between;
-    gap: 1.5em;
-    
-    width: 100%;
-}
-
-.row img, .img_container {
-    flex: 1 1 auto;
-    -webkit-user-select: none;
-    user-select: none;
-
-    transition: filter 0.3s ease-in-out;
-
-    width: 0; /* Needed to make it work in Chrome, for some reason */
-}
-
-.img_desc {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    vertical-align: bottom;
-}
-
-.img_desc {
-    align-items: end;
-    filter: opacity(0%);
-    transition: .3s;
-}
-
-.img_desc:hover {
-    filter: opacity(100%);
-    background: linear-gradient(transparent 50%, black);
-}
-
-.img_container {
-    position: relative;
-}
-
-.row img:hover {
-    filter: brightness(1.5);
-    cursor: pointer;
-}
-
-#photography .row img:hover {
-    filter: brightness(1.2);
-    cursor: default;
-}
-
-.pic_coll:not(:first-of-type) {
-    display: none;
-}
-
-.pic_coll div img {
-    filter: brightness(1.2)
-}
-
-#pictures_list nav ul li a {
-    padding: 0.2em 0.3em;
-    user-select: none;
-}
-
-#pictures_list nav {
-    margin-top: -.5em;
-}
-
-/* ABOUT */
-table {
-    width: 100%;
-}
-
-.desc {
-    padding-left: 1.em;
-    width: max-content;
-    display: flex;
-    justify-content: left;
-    text-align: left;
-}
-
-p em {
-    opacity: 0.7;
-}
-
-em a {
-    transition: background-color 0.4s ease-out;
-}
-
-i {
-    margin-right: .75em;
-    vertical-align: middle;
-}
-
-.contact_link {
-    margin-bottom: .25em;
-}
-
-/* CONTACT */
-#contact p a {
-    text-decoration: underline;
-}
 
 /* MOBILE */
 @media screen and (max-width: 50em) {
@@ -446,22 +299,28 @@ i {
 @media screen and (max-width: 600px) {
     .contact_link {
         margin-top: .5em;
+        margin-bottom: .75em; /* Combine if necessary */
     }
-    .contact_link {
-        margin-bottom: .75em;
-    }
+    
     .contact_link a {
-        padding: 0.25em 0 0.25em 0;
+        padding: 0.25em 0; /* Adjust padding */
     }
-    #nav_tabs ul li:not(:last-child) {
-        padding-right: 0;
-    }
+
     #nav_tabs ul {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
+        width: 100%; /* Full width */
+        display: flex; /* Use flexbox */
+        justify-content: center; /* Center the items */
+        padding: 0; /* Remove padding */
+        margin: 0; /* Remove margin */
     }
+
+    #nav_tabs ul li {
+        margin: 0 0.5em; /* Add horizontal margin between items */
+    }
+
+   
 }
+
 
 @media screen and (max-width: 1050px) {
     #title {
