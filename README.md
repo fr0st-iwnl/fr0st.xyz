@@ -13,7 +13,8 @@ Featuring a design inspired by old vintage terminals!
 ## Roadmap / TODOs
 
 - [x] Create a working dynamic page for blogs
-- [ ] Add view counts for the blog and improve the design
+- [x] Add view counts for the blog and improve the design
+- [x] Added Analytics for the website 
 
 
 ## Credits
