@@ -60,6 +60,15 @@ pre, p, li, h1, h2, h3, h4, td{
     font-weight: normal;
 }
 
+/* FIX FOR MOVIES/SHOWS ICONS */
+.fav-icon {
+    font-size: 16px;
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+  }
+
 #sub_title, h4 {
     font-size: 1em;
 }
