@@ -225,6 +225,18 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
+// show more for latest updates
+
+document.getElementById("show-more-btn").addEventListener("click", function() {
+    const hiddenUpdates = document.querySelectorAll(".hidden-update");
+    hiddenUpdates.forEach(update => {
+        update.style.display = "block"; // show hidden updates
+    });
+    this.style.display = "none"; // hide the show more button after clicking it
+});
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
