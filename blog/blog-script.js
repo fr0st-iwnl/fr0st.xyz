@@ -19,7 +19,8 @@ document.documentElement.style.setProperty('--bg-color', getComputedStyle(docume
     "01000100010011",
     "just another day in the void.",
     "another day, another line of code. :[",
-    "now in beta :P"
+    "now in beta :P",
+    "close the world. open the next."
 ];
 
 // FUNCTION
