@@ -53,7 +53,7 @@ const articles = [
         description: "Journey of a Linux newbie.",
         link: "articles/article2.html", 
         class: "article-two",
-        thumbnail: "./src/media/linux.png",
+        thumbnail: "./src/media/blog-thumbnails/linux.png",
         date: "October 22, 2024" // Add date field here
     },
     {
@@ -61,7 +61,7 @@ const articles = [
         description: "The blog is now here with updates about my journey.",
         link: "articles/article1.html", 
         class: "article-one",
-        thumbnail: "./src/media/lain.jpg",
+        thumbnail: "./src/media/blog-thumbnails/lain.jpg",
         date: "October 20, 2024" // Add date field here
     }
 ];

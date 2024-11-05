@@ -161,7 +161,7 @@ a:link:not(.tab_active, a:hover), a:visited:not(.tab_active, a:visited:hover), e
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/src/media/lain.jpg');
+    background-image: url('/src/media/blog-thumbnails/lain.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -188,7 +188,7 @@ a:link:not(.tab_active, a:hover), a:visited:not(.tab_active, a:visited:hover), e
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/src/media/linux.png');
+    background-image: url('/src/media/blog-thumbnails/linux.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
