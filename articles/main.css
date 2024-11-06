@@ -36,6 +36,49 @@ a:link:not(.tab_active, a:hover), a:visited:not(.tab_active, a:visited:hover), e
     color: var(--main-color);
 }
 
+b{
+    color: #ff0;
+}
+
+/*---------------------------- CODE CONTAINER ----------------------------*/
+
+.code-container {
+    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.5), rgba(0, 0, 0, 0.9));
+    padding: 20px;
+    border-radius: 12px;
+    overflow-x: auto;
+    color: #f8f8f2;
+    position: relative;
+    background-image: radial-gradient(circle at center, rgb(28, 30, 59), rgba(0, 0, 0, 0.8)); /* glowing background for the code */
+    border: 2px solid #00ffff; 
+  }
+  
+  
+  /* style for the code itself */
+  .code-container code {
+    display: block;
+    padding: 10px;
+    background: #111111;
+    color: #f8f8f2; 
+    border-radius: 4px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+code span.html-tag {
+    color: #7FAFF3; 
+    font-style: italic;
+  }
+  
+  code span.class-name {
+    color: #fbbf24;
+    font-weight: bold;
+  }
+  
+/*---------------------------- CODE CONTAINER ENDS HERE ----------------------------*/
+
 #canvas {
     font-size: 1.75em;
     padding: 1.8em;
@@ -195,6 +238,36 @@ a:link:not(.tab_active, a:hover), a:visited:not(.tab_active, a:visited:hover), e
     opacity: 0.3;
     z-index: 0;
 }
+
+.article-container3 {
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    color: #ffffff;
+    text-align: left;
+    overflow: hidden;
+}
+
+.article-container3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/src/media/blog-thumbnails/tailwind.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+
+/* END OF ARTICLES */
 
 
 .article-title {

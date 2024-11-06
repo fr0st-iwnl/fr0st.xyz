@@ -49,6 +49,14 @@ if (randomPhrase === "01000100010011") {
 
 const articles = [
     {
+        title: "Why Tailwind CSS Isn't for Me",
+        description: "Sharing my thoughts on why I just don't like Tailwind CSS.",
+        link: "articles/article3.html", 
+        class: "article-one",
+        thumbnail: "./src/media/blog-thumbnails/tailwind2.png",
+        date: "November 6, 2024" // Add date field here
+    },
+    {
         title: "My first Linux experience",
         description: "Journey of a Linux newbie.",
         link: "articles/article2.html", 

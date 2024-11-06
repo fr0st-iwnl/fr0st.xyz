@@ -168,6 +168,8 @@ a:link:not(.tab_active, a:hover), a:visited:not(.tab_active, a:visited:hover), e
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
 }
 
+
+/* u could put a special background for ur blog if u want  */
 .article-one,
 .article-two {
     background-color: rgba(0, 153, 255, 0.2);
