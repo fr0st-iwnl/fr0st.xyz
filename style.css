@@ -385,6 +385,12 @@ a{
     margin-top: -.5em;
 }
 
+#pictures_list img {
+    border: 0.5px solid var(--main-color); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); 
+}
+
+
 /* ABOUT */
 table {
     width: 100%;
