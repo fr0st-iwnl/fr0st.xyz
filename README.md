@@ -15,7 +15,9 @@ Featuring a design inspired by old vintage terminals!
 - [x] Create a working dynamic page for blogs
 - [x] Add view counts for the blog and improve the design
 - [x] Remake the view counts and add a different way to store them
-- [x] Added Analytics for the website 
+- [x] Added Analytics for the website
+- [ ] Improve website performance
+- [ ] Improve ASCII text to fit on the starting page.
 
 
 ## Credits
