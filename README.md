@@ -18,6 +18,7 @@ Featuring a design inspired by old vintage terminals!
 - [x] Added Analytics for the website
 - [ ] Improve website performance
 - [ ] Improve ASCII text to fit on the starting page.
+- [ ] Add a new category Resources
 
 
 ## Credits
