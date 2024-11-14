@@ -459,6 +459,12 @@ nav ul li a {
     white-space: nowrap;
 }
 
+img.views[alt] {
+    font-weight: bold;
+    font-size: 14px;
+    padding-top: 4px;
+  }
+
 
 
 a{
