@@ -1,3 +1,4 @@
 RewriteEngine On
 RewriteBase /
 ErrorDocument 404 /404.html 
+Redirect 301 /winconfigs https://raw.githubusercontent.com/fr0st-iwnl/WinConfigs/refs/heads/master/Scripts/install.ps1
