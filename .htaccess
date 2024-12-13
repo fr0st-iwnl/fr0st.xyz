@@ -1,4 +1,3 @@
 RewriteEngine On
 RewriteBase /
 ErrorDocument 404 /404.html 
-Redirect 301 /test https://www.google.com
