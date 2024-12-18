@@ -7,7 +7,18 @@ Featuring a design inspired by old vintage terminals!
 
 ## Screenshots
 
-![App Screenshot](https://raw.githubusercontent.com/fr0st-iwnl/assets/main/thumbnails/fr0st.png)
+<div align="center">
+  <table>
+    <tr>
+      <td>Desktop</td>
+      <td>Mobile</td>
+    </tr>
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/fr0st-iwnl/assets/main/thumbnails/fr0st.png" alt="Desktop"/></td>
+      <td><img src="https://raw.githubusercontent.com/fr0st-iwnl/assets/main/thumbnails/fr0st-mobile.png" alt="Mobile"/></td>
+    </tr>
+  </table>
+</div>
 
 
 ## Roadmap / TODOs
