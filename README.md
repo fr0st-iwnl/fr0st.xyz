@@ -16,9 +16,6 @@ Featuring a design inspired by old vintage terminals!
 - [x] Add view counts for the blog and improve the design
 - [x] Remake the view counts and add a different way to store them
 - [x] Added Analytics for the website
-- [ ] Improve website performance
-- [ ] Improve ASCII text to fit on the starting page.
-- [ ] Add a new category Resources
 
 
 ## Credits
