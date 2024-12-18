@@ -3,7 +3,7 @@
 <head>
 	<!-----METAS----->
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<meta name="description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
 	<meta name="author" content="fr0st-iwnl">
 	<meta name="theme-color" content="#72B6FF">
@@ -18,7 +18,7 @@
 	<title>fr0st-iwnl - My first Linux experience</title>
 
 	<!-----SCRIPT-JS------>
-	<script src="/articles/main.js" defer></script>
+	<script src="/src/js/components/base.js" type="module" defer></script>
 
     <!-----LINKS------>
 	<link rel="icon" type="image/x-icon" href="../src/media/favicons/favicon.ico">
@@ -57,8 +57,8 @@
 		>
 	</video>
 
+	<div id="snow-container"></div>
 	<div class="vignette"></div>
-
 	<div id="videohue"></div>
 	<div id="canvas">
 		<header>
@@ -72,7 +72,7 @@
             <div>
 			<p class="welcome"></p>
 		<br>
-			<p class="effects" id="changeEffects">Want some fancy effects? Click <a onclick="changeEffects()">HERE</a> to turn them on.</p>
+		<p class="effects" id="changeEffects">Want some fancy effects? Click <a id="changeEffectsLink">HERE</a> to turn them on.</p>
 		</header>
 		<br>
 
@@ -87,29 +87,30 @@
         <!--------- SECOND ARTICLE ------------->
         <div class="article-container2">
             <h1 class="article-title">My first Linux experience</h1>
-			<p><i class="fa-solid fa-eye"></i> ‒ Views: <img class="views" src="https://www.cutercounter.com/hits.php?id=hrvxqknck&nd=1&style=10" title="if you see this cutercounter.com is down.. :(" border="0" alt="404: Connection Lost :("></p>
+			<p><i class="fa-solid fa-eye"></i> ‒ Views: <script type='text/javascript' src='https://freehitcounters.org/count/gv8z'></script></p>
+			<br>
 			<br>
             <p class="article-date">Published on: October 22, 2024</p>
             <div class="article-content">
                 <p>For my future self and anyone curious about GNU/Linux, I want to share my journey as a newbie. I first got into Linux because of “Mr. Robot” (still my favorite show!).
                 I started with “Kali Linux,” which I later realized is mainly for penetration testing.
-                It comes with over 600 hacking tools, most of which I’ll probably never use.</p>
+                It comes with over 600 hacking tools, most of which I'll probably never use.</p>
                 <p>Before switching, I was still using Windows until my friend told me about Linux and all the amazing things it could do. I thought I should give it a try since it sounded interesting.
                 After researching and watching hours of YouTube videos, I narrowed it down to four options: 
-                <b style="font-size: 20px;">Arch</b> (some people think it’s hard for beginners, but in my opinion I believe it’s easy if you know the basics.),
+                <b style="font-size: 20px;">Arch</b> (some people think it's hard for beginners, but in my opinion I believe it's easy if you know the basics.),
                 <b style="font-size: 20px;">Fedora</b>, <b style="font-size: 20px;">Ubuntu</b>, and <b style="font-size: 20px;">Debian</b>.</p> 
-                <p> I heard that Debian is mostly used for servers, which didn’t really fit what I needed. I never really tried using Fedora as my main distro for some reason, and 
-                I also tried Ubuntu but didn’t like it at all; it’s my least favorite distro. In the end, I chose <b style="font-size: 20px;">Arch</b> I heard that it might not be very stable,
+                <p> I heard that Debian is mostly used for servers, which didn't really fit what I needed. I never really tried using Fedora as my main distro for some reason, and 
+                I also tried Ubuntu but didn't like it at all; it's my least favorite distro. In the end, I chose <b style="font-size: 20px;">Arch</b> I heard that it might not be very stable,
                 but I wanted to give it a try anyway because everyone was talking about it, and it seemed like a good option.
-                The installation was pretty easy thanks to the archinstall script. I didn’t know what I was doing at first, but I got it to work,
+                The installation was pretty easy thanks to the archinstall script. I didn't know what I was doing at first, but I got it to work,
                 and I picked <b style="font-size: 20px;">KDE</b> as my main desktop environment. I loved the package manager tho!</p>
-                <p>After 2-3 days of customizing and playing around, I ran into some bugs with <b style="font-size: 20px;">KDE</b>. For some reason, my desktop folders kept changing locations, and I couldn’t rename them. I got frustrated and went back to Windows, but I didn’t want to give up.
+                <p>After 2-3 days of customizing and playing around, I ran into some bugs with <b style="font-size: 20px;">KDE</b>. For some reason, my desktop folders kept changing locations, and I couldn't rename them. I got frustrated and went back to Windows, but I didn't want to give up.
                 So, I decided to try <b style="font-size: 20px;">Hyprland</b>, and it turned out to be the best desktop environment ever! I loved it.</p> 
                 <p>I found some random configurations on GitHub that I liked, and I started customizing them. In the end, I made my own fork, which you can check out here: <a href="https://github.com/fr0st-iwnl/fr0st-hyprdots" target="_blank">fr0st-hyprdots</a>.
                 My experience with <b style="font-size: 20px;">Hyprland</b> was amazing! it felt like I had full control over my PC, and the customization options were great. <b style="font-size: 20px;">Hyprland</b> and Arch Linux have become my favorites.</p>
                 <h2>＠ Final Thoughts</h2>
                 <br> 
-                <p>Everyone should try Linux at least once. It gives you full access to your PC and lets you customize it however you like. Linux keeps me interested in web design, programming, and the open source community. For me, GNU/Linux is more than just an operating system; it’s about freedom and making your computer truly your own. As a newbie in the Linux community, I’m excited to be a part of it! I appreciate all the time and effort others put in to make software available for everyone.</p>
+                <p>Everyone should try Linux at least once. It gives you full access to your PC and lets you customize it however you like. Linux keeps me interested in web design, programming, and the open source community. For me, GNU/Linux is more than just an operating system; it's about freedom and making your computer truly your own. As a newbie in the Linux community, I'm excited to be a part of it! I appreciate all the time and effort others put in to make software available for everyone.</p>
                 <p>＃ Last updated on: <b style="font-weight: 1000x;">October 22, 2024</b></p>
             </div>
         </div>

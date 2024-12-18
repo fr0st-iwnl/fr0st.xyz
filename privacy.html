@@ -3,7 +3,7 @@
 <head>
 	<!-----METAS----->
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<meta name="description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
 	<meta name="author" content="fr0st-iwnl">
 	<meta name="theme-color" content="#72B6FF">
@@ -18,12 +18,12 @@
 	<title>fr0st-iwnl - Privacy</title>
 
 	<!-----SCRIPT-JS------>
-	<script src="/privacy/main.js" defer></script>
+	<script src="/src/js/components/base.js" type="module" defer></script>
 
     <!-----LINKS------>
 	<link rel="icon" type="image/x-icon" href="/src/media/favicons/favicon.ico">
 	<link rel="preload" as="font" href="/src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
-	<link rel="stylesheet" href="/privacy/main.css">
+	<link rel="stylesheet" href="/src/css/components/base.css">
 
 	<!---FONT AWESOME------->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -57,15 +57,15 @@
 		>
 	</video>
 
+	<div id="snow-container"></div>
 	<div class="vignette"></div>
-
 	<div id="videohue"></div>
 	<div id="canvas">
 		<header>
             <div>
 			<h1 class="privacy_title">PRIVACY</h1>
 		<br>
-			<p class="effects" id="changeEffects">Want some fancy effects? Click <a onclick="changeEffects()">HERE</a> to turn them on.</p>
+		<p class="effects" id="changeEffects">Want some fancy effects? Click <a id="changeEffectsLink">HERE</a> to turn them on.</p>
 		</header>
 		<br>
 
@@ -84,9 +84,9 @@
             <p>I use <a href="https://litlyx.com/" target="_blank" rel="noopener noreferrer">Litlyx Analytics</a> to analyze traffic and usage patterns on my site. These are anonymous, privacy-conscious analytics that give me basic metrics. To view what kinds of data I collect, see the <a href="https://dashboard.litlyx.com/live_demo" target="_blank" rel="noopener noreferrer">Litlyx Demo</a></p>
             <br>
             <h2>Blog Views Tracking</h2>
-            <p>I use <a href="https://www.cutercounter.com/" target="_blank" rel="noopener noreferrer">Cute Counter</a> to track the number of views on my blog posts. This service allows me to monitor traffic without collecting any personal data or requiring a complex backend system, keeping the experience simple and user-friendly.</p>
+            <p>I use <a href="https://freehitcounters.org/" target="_blank" rel="noopener noreferrer">FreeHitCounters</a> to track the number of views on my blog posts. This service allows me to monitor traffic without collecting any personal data or requiring a complex backend system, keeping the experience simple and user-friendly.</p>
             <br>
-            <h4>＃ Last updated on: October 22, 2024</h4>
+            <h4>＃ Last updated on: December 18, 2024</h4>
         </div>
         
 

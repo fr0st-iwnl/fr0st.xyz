@@ -3,7 +3,7 @@
 <head>
 	<!-----METAS----->
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<meta name="description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
 	<meta name="author" content="fr0st-iwnl">
 	<meta name="theme-color" content="#72B6FF">
@@ -18,7 +18,7 @@
 	<title>fr0st-iwnl - Blog</title>
 
 	<!-----SCRIPT-JS------>
-	<script src="/blog/blog-script.js" defer></script>
+	<script src="/blog/blog-script.js" type="module" defer></script>
 
     <!-----LINKS------>
     
@@ -58,8 +58,8 @@
 		>
 	</video>
 
+	<div id="snow-container"></div>
 	<div class="vignette"></div>
-
 	<div id="videohue"></div>
 	<div id="canvas">
 		<header>
@@ -73,7 +73,7 @@
             <div>
 			<p class="welcome"></p>
 		<br>
-			<p class="effects" id="changeEffects">Want some fancy effects? Click <a onclick="changeEffects()">HERE</a> to turn them on.</p>
+			<p class="effects" id="changeEffects">Want some fancy effects? Click <a id="changeEffectsLink">HERE</a> to turn them on.</p>
 		</header>
 		<br>
 

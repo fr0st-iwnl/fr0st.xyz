@@ -1,12 +1,11 @@
-
 const fade_in_delay = 27 // lower values makes the elements show faster on site loading and while changing tabs
 
 let effectsDisabled = localStorage.getItem('effectsDisabled') === 'true';
 
+
+
 // remove 'rgb' and brackets from --bg-value so the color can be used in combination with individual opacity-values (rgba)
 document.documentElement.style.setProperty('--bg-color', getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim().replace(/rgb\(|\)/g, ''));
-
-
 
 ////////////////////////////// WELCOME || RANDOM WORDS ////////////////////////////// 
 
@@ -19,7 +18,8 @@ document.documentElement.style.setProperty('--bg-color', getComputedStyle(docume
     "01000100010011",
     "just another day in the void.",
     "another day, another line of code. :[",
-    "now in beta :P"
+    "now in beta :P",
+    "close the world. open the next."
 ];
 
 // FUNCTION
@@ -32,18 +32,28 @@ function getRandomPhrase() {
 const welcomeText = document.querySelector('.welcome');
 const randomPhrase = getRandomPhrase();
 
-if (randomPhrase === "01000100010011") {
-    // create a span animation for this number
-    const numberSpan = document.createElement('span');
-    numberSpan.classList.add('glitch'); // glitch class
-    numberSpan.setAttribute('data-text', randomPhrase);
-    numberSpan.textContent = randomPhrase;
-    welcomeText.appendChild(numberSpan); 
-} else {
-    welcomeText.textContent = randomPhrase;
+
+// Only proceed with this part of the code if `welcomeText` exists
+if (welcomeText) {
+    const randomPhrase = getRandomPhrase();
+
+    if (randomPhrase === "01000100010011") {
+        // create a span animation for this number
+        const numberSpan = document.createElement('span');
+        numberSpan.classList.add('glitch'); // glitch class
+        numberSpan.setAttribute('data-text', randomPhrase);
+        numberSpan.textContent = randomPhrase;
+        welcomeText.appendChild(numberSpan);
+    } else {
+        welcomeText.textContent = randomPhrase;
+    }
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * EFFECTS
+ */
 
 // Load effects if not disabled
 let link = document.createElement('link');
@@ -55,14 +65,26 @@ let nfbText = document.getElementById('changeEffects');
 
 // Turn off major effects on default for mobile devices (performance issues on some mobile browsers)
 if (window.matchMedia("(max-width: 767px)").matches && !('effectsDisabled' in localStorage)) { effectsDisabled = true;}
-if (!effectsDisabled) { document.head.appendChild(link); nfbText.innerHTML = 'Don\'t like the effects? Click <a onclick="changeEffects()">HERE</a> to turn them off.';}
+if (!effectsDisabled) { document.head.appendChild(link); nfbText.innerHTML = 'Don\'t like the effects? Click <a id="changeEffectsLink">HERE</a> to turn them off.';}
 
+// FUNCTION to change effects
 function changeEffects() {
-    localStorage.setItem('effectsDisabled', !effectsDisabled);
-    location.reload();
+    effectsDisabled = !effectsDisabled;
+    localStorage.setItem('effectsDisabled', effectsDisabled);
+    location.reload();  // Reload page to apply new effect settings
 }
 
-// Themes
+// Ensure event listener is added after DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+    const changeEffectsLink = document.getElementById('changeEffectsLink');
+    if (changeEffectsLink) {
+        changeEffectsLink.addEventListener('click', changeEffects);  // Add click event listener to the link
+    }
+});
+
+/**
+ * THEMES
+ */
 if ('theme' in localStorage) {
     changeTheme(localStorage.getItem('theme'));
 } // PUT DEFAULT THEME HERE // else {
@@ -83,6 +105,13 @@ function changeTheme(theme) {
             a.innerHTML = a.innerHTML.replace(/(&gt|&lt|;|\s)/g, '');
         }
     })
+
+    // Hide any existing snowflakes
+    const snowflakeContainer = document.getElementById('snow-container');
+    if (snowflakeContainer) {
+        snowflakeContainer.innerHTML = ''; // Remove all snowflakes
+    }
+
     // default values
     document.documentElement.style.setProperty('--bg-opacity', '0.31');
     rain_vid.style.display = 'none';
@@ -141,74 +170,64 @@ function changeTheme(theme) {
             noise_vid.style.opacity = 0;
             document.head.removeChild(link);
             break;
+        case 'winter':
+        // Darker winter theme styles
+        document.documentElement.style.setProperty('--bg-color', '30, 40, 60'); // Darker background (dark blue-gray)
+        document.documentElement.style.setProperty('--main-color', '#a9c8d8');   // Lighter snowflake color (frosty)
+        document.documentElement.style.setProperty('--selection', '#536f85');    // Darker selection color (frosty blue)
+        document.documentElement.style.setProperty('--bg-opacity', '0.85');      // Slightly darker background opacity
+        
+        // Trigger the snow animation (as before)
+        snowAnimation();
+        break;
     }
     if (effectsDisabled) {rain_vid.style.display = 'none';}
 }
 
 
+function snowAnimation() {
+    const effectsDisabled = false; // Set this flag to `false` to ensure snowflakes are enabled.
 
+    // Ensure snowflake container exists
+    const snowflakeContainer = document.getElementById('snow-container');
+    if (!snowflakeContainer) {
+        console.error("Snow container not found!");
+        return;
+    }
 
-/////////////////////////////////////// PROJECT CATEGORIES ///////////////////////////////////////
+    const snowflakeCount = 90;  // Number of snowflakes to create
+    const snowflakeSize = 6;    // Maximum size of the snowflakes
+    const snowflakeDuration = 15;  // Duration of snowflake fall animation
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize with Web Dev projects displayed
-    changeColl('webdev');
-});
+    // Clear any previous snowflakes before adding new ones
+    snowflakeContainer.innerHTML = '';
 
-function changeColl(category) {
-    // Get all project list items
-    const projects = document.querySelectorAll('#pr_list li');
+    // Generate snowflakes
+    for (let i = 0; i < snowflakeCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
 
-    // Loop through each project item
-    projects.forEach(project => {
-        // Check if the project belongs to the selected category
-        if (project.getAttribute('data-category') === category) {
-            project.style.display = ''; // Show the project
-        } else {
-            project.style.display = 'none'; // Hide the project
+        let size = Math.random() * snowflakeSize + 0.25; // Random size between 0.25 and 6
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+
+        snowflake.style.left = `${Math.random() * 100}vw`;  // Random horizontal position
+        snowflake.style.top = `${Math.random() * -20}vh`;  // Start off-screen above
+
+        snowflake.style.opacity = Math.random() * 0.6 + 0.1;  // Random opacity for snowflakes
+
+        snowflake.style.animation = `snowflake-fall ${snowflakeDuration + Math.random() * 10}s linear infinite`;
+
+        // Randomize horizontal movement for a more natural look
+        if (Math.random() > 0.3) {
+            const horizontalAnimation = Math.random() > 0.5 ? 'snowflake-fall-horizontal-1' : 'snowflake-fall-horizontal-2';
+            snowflake.style.animation = `${horizontalAnimation} ${snowflakeDuration + Math.random() * 10}s linear infinite`;
         }
-    });
 
-    // Update the active class on the tabs
-    const tabs = document.querySelectorAll('.pic_coll_tabs');
-    tabs.forEach(tab => {
-        tab.classList.remove('tab_active'); // Remove active class from all tabs
-    });
-    
-    // Add active class to the currently selected tab
-    const activeTab = document.querySelector(`.pic_coll_tabs[onclick="changeColl('${category}')"]`);
-    if (activeTab) {
-        activeTab.classList.add('tab_active');
+        snowflake.style.animationDelay = `-${(snowflakeDuration + Math.random() * 50) / 4}s`;  // Randomize start delay
+
+        snowflakeContainer.appendChild(snowflake);
     }
 }
 
-// Add event listener to the links
-document.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', function() {
-        // Check if the clicked link is the projects link
-        if (this.getAttribute('href') === '#projects') {
-            // Ensure the webdev category is shown
-            changeColl('webdev');
-        }
-    });
-});
 
-// Also handle the hash change for back/forward navigation
-window.addEventListener('hashchange', function() {
-    if (location.hash === '#projects') {
-        changeColl('webdev');
-    }
-});
-
-// Initialize with Web Dev projects displayed on load
-document.addEventListener('DOMContentLoaded', function() {
-    if (location.hash === '#projects') {
-        changeColl('webdev');
-    }
-});
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-console.log('%c Designed and Developed by Kiyoko / fr0st-iwnl ', 'background-image: linear-gradient(90deg,#8000ff,#660066); color: white;font-weight:900;font-size:1rem; padding:20px;');

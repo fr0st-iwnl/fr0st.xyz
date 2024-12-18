@@ -3,7 +3,7 @@
 <head>
 	<!-----METAS----->
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<meta name="description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
 	<meta name="author" content="fr0st-iwnl">
 	<meta name="theme-color" content="#72B6FF">
@@ -18,7 +18,7 @@
 	<title>fr0st-iwnl</title>
 
 	<!-----SCRIPT-JS------>
-	<script src="script.js" defer></script>
+	<script src="/src/js/script.js" defer></script>
 	<script defer data-project="6717a0715070bb77bf000f0d"
 	src="https://cdn.jsdelivr.net/gh/litlyx/litlyx-js/browser/litlyx.js">
 	</script>
@@ -26,7 +26,7 @@
     <!-----LINKS------>
 	<link rel="icon" type="image/x-icon" href="/src/media/favicons/favicon.ico">
 	<link rel="preload" as="font" href="src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="/src/css/style.css">
 
 	<!---FONT AWESOME------->
 	<link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v6.4.0/css/pro.min.css ">
@@ -63,8 +63,8 @@
 		>
 	</video>
 
+	<div id="snow-container"></div>
 	<div class="vignette"></div>
-
 	<div id="videohue"></div>
 	<div id="canvas">
 		<header>
@@ -81,58 +81,75 @@
 			<p id="changeEffects">Want some fancy effects? Click <a onclick="changeEffects()">HERE</a> to turn them on.</p>
 		</header>
 		<br>
-		<p>Some things you might be interested in:</p>
+		<p class="ptag1">Some things you might be interested in:</p>
+		<div id="hamburger-menu" onclick="toggleMenu()">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</div>
 		<nav id="nav_tabs">
 			<ul>
 				<li><a href="#home" class="tab_switcher" id="home_tab">Home</a></li>
 				<li><a href="#about" class="tab_switcher" id="about_tab">About</a></li>
 				<li><a href="#projects" class="tab_switcher" id="projects_tab">Projects</a></li>
 				<li><a href="#pictures" class="tab_switcher" id="pictures_tab">Pictures</a></li>
-				<!--The navbar styling is already in the style.css uncomment it--<li><a href="#home" class="tab_switcher" id="pictures_tab">Resources</a></li>---->
 				<li><a href="./blog.html" class="tab_switcher" id="blog_tab">Blog</a></li>
 			</ul>
 		</nav>
 		<div id="home" class="tabs">
 			<div class="grid">
 				<div class="grid_row">
-					<div class="grid_row_box">
+					<div class="grid_row_box_dotted">
 						<h2>My Webpage!</h2>
 						<p><em>Written on 04.12.2024</em></p>
 						<br>
 						<p>This is my personal webpage with all my projects, images, news and more! Be sure to take a look around.</p>
 						<br>
-					<p class="pr_warning">[!] Regarding the design, I was inspired by <a href="https://github.com/richard-apps" target="_blank">RichardApps</a>. Wanna contribute to his webpage? Check it out: <a
-							href="https://github.com/Richard-Apps/richardapps-web" target="_blank">richardapps-web</a>
+					<p class="pr_warning">[!] Regarding the design, I was inspired by <a href="https://github.com/richard-apps" target="_blank">RichardApps</a>. Wanna contribute to his webpage? Check it out: <a href="https://github.com/Richard-Apps/richardapps-web" target="_blank">richardapps-web</a>
 					</p>
 					<br>
 					<p class="pr_privacy">
-						[🔒] For information on how I handle your traffic data, please check my <a href="/privacy.html">Privacy Policy</a>.
+						[🔒] For information on how I handle your traffic data, please check my <a href='/privacy.html'>Privacy Policy</a>.
 					</p>
 					<br>
 						<p>Don't forget to check out the different themes for the website! They are located below this post.</p>
 					</div>
 				</div>
 				<div class="grid_row">
-					<div class="grid_row_box">
+					<div class="grid_row_box_dotted">
 						<div class="latest-updates">
 							<h2>Latest Updates</h2>
 							<div id="update-list">
+								<p><em title="Updated at 11:46 AM">DECEMBER 18th, 2024:</em> Redesigned the entire website and fixed many issues.</p>
 								<p><em title="Updated at 12:23 AM">NOVEMBER 12th, 2024:</em> Added a border for the pictures in the "Pictures" category.</p>
 								<p><em title="Updated at 4:03 AM">NOVEMBER 6th, 2024:</em> Posted a new blog + fixed the views counter.</p>
 								<p><em title="Updated at 2:26 AM">NOVEMBER 5th, 2024:</em> Updated the site domain to <strong>fr0st.xyz</strong>.</p>
-								<p><em title="Updated at 2:15 AM">OCTOBER 27th, 2024:</em> Redesigned the favorite movies and shows section and added a "Show More" button for the latest updates.</p>
+								<p class="hidden-update"><em title="Updated at 2:15 AM">OCTOBER 27th, 2024:</em> Redesigned the favorite movies and shows section and added a "Show More" button for the latest updates.</p>
 								<p class="hidden-update"><em title="Updated at 8:52 PM">✖ OCTOBER 22nd, 2024:</em> Added view tracking for blog posts. A new privacy policy notice is now displayed on the homepage, and the site uses Litlyx Analytics.</p>
 								<p class="hidden-update"><em title="Updated at 1:47 PM">✖ OCTOBER 20th, 2024:</em> <b style="color:white;">[BETA]</b> Launched the blog, featuring updates on my ongoing, past, and future projects.</p>
 								<p class="hidden-update"><em title="Updated at 7:48 AM">✖ OCTOBER 17th, 2024:</em> Updated the project Neofetch into Neo-Fastfetch due to repository changes and added a note in the Pictures tab about my wallpapers.</p>
 								<p class="hidden-update"><em title="Updated at 9:17 AM">✖ OCTOBER 16th, 2024:</em> Updated project organization: projects are sorted into three categories—Web Development, Linux Tools, and AHK Macros—to enhance user experience.</p>
 								<p class="hidden-update"><em title="Updated at 9:00 PM">✖ SEPTEMBER 25th, 2024:</em> Added a new project and changed the order of tabs: About Me is now secondary, and Projects is now third in the navbar.</p>
 								<p class="hidden-update"><em title="Updated at 4:20 PM">✖ AUGUST 22nd, 2024:</em> Reworked the entire website.</p>
-								<p class="hidden-update"><em title="Updated at 1:05 PM">✖ JULY 14th, 2024:</em> Added a new project to the Projects tab.</p>
 							</div>
 							<p class="show-more-btn"><a id="show-more-btn"> < Show More ></a></p>
 						</div>						
 					</div>
-					<div class="grid_row_box grid_row_box_shrink">
+					<!---- Not adding this ATM [WIP] ----
+					<div class="grid_row">
+						<div class="grid_row_box_dotted">
+							<div class="latest-updates">
+								<h2>My Button!</h2>
+								<br>
+								<div>
+									<p>If you'd like to add my button, copy and paste the code below.</p>
+									<br>
+									<img src="/src/media/button.png">
+									<textarea readonly="readonly" cols="14" rows="2" onclick="this.setSelectionRange(0, this.value.length)" style="resize: none;">&lt;a href="https://fr0st.xyz/" target="_blank"&gt;&lt;img src="https://fr0st.xyz/src/media/button.png"&gt;&lt;/a&gt;</textarea>
+								</div>
+							</div>						
+						</div>-->
+					<div class="grid_row_box_dotted grid_row_box_shrink">
 						<div id="theme_selector">
 							<h2>THEMES</h2>
 							<div id="theme_list">
@@ -146,96 +163,135 @@
 								<p><a onclick="changeTheme('danger')">danger</a></p>
 								<p><a onclick="changeTheme('rainy')">rainy</a></p>
 								<p><a onclick="changeTheme('win95')">win95</a></p>
+								<p><a onclick="changeTheme('winter')">winter</a></p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id="projects" class="tabs">
+	<div id="projects" class="tabs">
 			<h2>PROJECTS</h2>
     <nav>
         <ul>
             <li><a onclick="changeColl('webdev')" class="tab_active pic_coll_tabs"> ≡ Web Development</a></li>
-            <li><a onclick="changeColl('linux')" class="pic_coll_tabs"> ≡ Linux Tools </a></li>
+            <li><a onclick="changeColl('configs&scripts')" class="pic_coll_tabs"> ≡ Configs & Scripts </a></li>
             <li><a onclick="changeColl('macros')" class="pic_coll_tabs">≡ AHK Macros</a></li>
         </ul>
     </nav>
-    
+    <hr class="dotted">
     <ul id="pr_list">
         <!-- Web Development Projects -->
         <li data-category="webdev">
             <p class="pr_title">Tomato Delivery</p>
             <p class="pr_desc">Full Stack Food Delivery Website in React JS, MongoDB, Express, Node JS & Stripe.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag active">Done</p>
+			</div>
             <br>
             <p><a href="https://github.com/fr0st-iwnl/tomato-delivery" target="_blank">VISIT</a></p>
         </li>
         <li data-category="webdev">
             <p class="pr_title">FrostOS</p>
             <p class="pr_desc">Terminal-Based Operating System in the Browser.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag inactive" data-tooltip="not currently being worked on">On Hold</p>
+			</div>
             <br>
             <p><a href="https://frostos.netlify.app/" target="_blank">VISIT</a></p>
         </li>
         <li data-category="webdev">
-            <p class="pr_title">TabZ</p>
-            <p class="pr_desc">My first extension for easy tab management and organization.</p>
-            <br>
-            <p><a href="https://github.com/fr0st-iwnl/tabz" target="_blank">VISIT</a></p>
-        </li>
-        <li data-category="webdev">
             <p class="pr_title">Scanify</p>
             <p class="pr_desc">A webpage to make a QR Code from text using an API.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag active">Done</p>
+			</div>
             <br>
             <p><a href="https://scanifynow.netlify.app/" target="_blank">VISIT</a></p>
         </li>
         <li data-category="webdev">
             <p class="pr_title">Echo.FM</p>
             <p class="pr_desc">A free music player with a variety of songs.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag active">Done</p>
+			</div>
             <br>
             <p><a href="https://echofm.netlify.app/" target="_blank">VISIT</a></p>
         </li>
         <li data-category="webdev">
             <p class="pr_title">PassGenQ</p>
             <p class="pr_desc">A random password generator with a terminal-inspired design.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag active">Done</p>
+			</div>
             <br>
             <p><a href="https://passgenq.netlify.app/" target="_blank">VISIT</a></p>
         </li>
 		<li data-category="webdev">
-			<p class="pr_title">FrostAI</p>
-			<p class="pr_desc">A frontend AI web design project created in ReactJS for my portfolio. My first React project, though it's not responsive yet.</p>
-			<br>
-			<p><a href="https://github.com/fr0st-iwnl/FrostAI" target="_blank">VISIT</a></p>
-		</li>
-		<li data-category="webdev">
 			<p class="pr_title">fr0st.xyz</p>
 			<p class="pr_desc">My personal webpage/portfolio with a design inspired by old terminals.</p>
 			<p class="pr_info">[?] If you spot any bugs or have ideas for new features, let me know! Contributions are welcome! :)</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag active">Ongoing</p>
+			</div>
 			<br>
-			<p><a href="https://github.com/fr0st-iwnl/fr0st.netlify.app" target="_blank">VISIT</a></p>
+			<p><a href="https://github.com/fr0st-iwnl/fr0st.xyz" target="_blank">VISIT</a></p>
 		</li>
 
-        <!-- Linux Tools Projects -->
-		<li data-category="linux">
+        <!-- Configs&Scripts Projects -->
+		<li data-category="configs&scripts">
+            <p class="pr_title">WinConfigs</p>
+            <p class="pr_desc">A script designed to simplify the Windows setup process by automating software installation and system tweaks.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag active">Ongoing</p>
+			</div>
+            <br>
+            <p><a href="https://github.com/fr0st-iwnl/WinConfigs" target="_blank">VISIT</a></p>
+        </li>
+		<li data-category="configs&scripts">
             <p class="pr_title">fr0st-hyprdots</p>
             <p class="pr_desc">Aesthetic, dynamic, and minimal dots for Arch hyprland.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag inactive" data-tooltip="not currently being worked on">On Hold</p>
+			</div>
             <br>
             <p><a href="https://github.com/fr0st-iwnl/fr0st-hyprdots" target="_blank">VISIT</a></p>
         </li>
-        <li data-category="linux">
+        <li data-category="configs&scripts">
             <p class="pr_title">xremap-tools</p>
             <p class="pr_desc">A Bash script for persistent custom key bindings on Linux.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag active">Done</p>
+			</div>
             <br>
             <p><a href="https://github.com/fr0st-iwnl/xremap-tools" target="_blank">VISIT</a></p>
         </li>
-        <li data-category="linux">
+        <li data-category="configs&scripts">
             <p class="pr_title">arch-update</p>
             <p class="pr_desc">A simple bash script for managing system updates on Arch-based distributions.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag active">Done</p>
+			</div>
             <br>
             <p><a href="https://github.com/fr0st-iwnl/arch-update" target="_blank">VISIT</a></p>
         </li>
-		<li data-category="linux">
+		<li data-category="configs&scripts">
 			<p class="pr_title">neo-fastfetch</p>
 			<p class="pr_desc">A custom configuration for Neofetch and Fastfetch to personalize my terminal's appearance.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag active">Done</p>
+			</div>
 			<br>
 			<p><a href="https://github.com/fr0st-iwnl/neo-fastfetch" target="_blank">VISIT</a></p>
 		</li>
@@ -244,52 +300,43 @@
 		<li data-category="macros">
             <p class="pr_title">Kiyoko's Macro</p>
             <p class="pr_desc">AutoHotkey macro for the game Mighty Omega on Roblox.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag active">Ongoing</p>
+			</div>
             <br>
             <p><a href="https://kiyokosmacros.netlify.app/" target="_blank">VISIT</a></p>
         </li>
 		<li data-category="macros">
             <p class="pr_title">WinMacros</p>
             <p class="pr_desc">Windows macros for faster, easier system control and task automation.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag active">Ongoing</p>
+			</div>
             <br>
             <p><a href="https://github.com/fr0st-iwnl/WinMacros" target="_blank">VISIT</a></p>
-        </li>
-        <li data-category="macros">
-            <p class="pr_title">CS2-BHOP</p>
-            <p class="pr_desc">AutoHotkey macro for the game Counter-Strike 2.</p>
-            <br>
-            <p><a href="https://github.com/fr0st-iwnl/cs2-bhop" target="_blank">VISIT</a></p>
         </li>
 		<li data-category="macros">
             <p class="pr_title">XPicker</p>
             <p class="pr_desc">Slim color picker made in AutoHotkey.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag active">Done</p>
+			</div>
             <br>
             <p><a href="https://github.com/fr0st-iwnl/XPicker" target="_blank">VISIT</a></p>
         </li>
         <li data-category="macros">
-            <p class="pr_title">Autocook</p>
-            <p class="pr_desc">A macro for Mighty Omega that autocooks for you.</p>
+            <p class="pr_title">CS2-BHOP</p>
+            <p class="pr_desc">AutoHotkey macro for the game Counter-Strike 2.</p>
+			<div class="tag-list">
+				<p class="tag open-source">Open-Source</p>
+				<p class="tag active">Done</p>
+			</div>
             <br>
-            <p><a href="https://github.com/fr0st-iwnl/AutoCook" target="_blank">VISIT</a></p>
+            <p><a href="https://github.com/fr0st-iwnl/cs2-bhop" target="_blank">VISIT</a></p>
         </li>
-        <li data-category="macros">
-            <p class="pr_title">Speed</p>
-            <p class="pr_desc">A macro for Mighty Omega that helps you fight.</p>
-            <br>
-            <p><a href="https://github.com/fr0st-iwnl/Speed" target="_blank">VISIT</a></p>
-        </li>
-		<li data-category="macros">
-			<p class="pr_title">AutoRun</p>
-			<p class="pr_desc">A macro for Mighty Omega that allows you to run automatically by pressing the "W" key once.</p>
-			<br>
-			<p><a href="https://github.com/fr0st-iwnl/AutoRun" target="_blank">VISIT</a></p>
-		</li>
-		
-		<li data-category="macros">
-			<p class="pr_title">AutoDash</p>
-			<p class="pr_desc">A macro for Mighty Omega that automatically jumps and dashes when you press the "E" button.</p>
-			<br>
-			<p><a href="https://github.com/fr0st-iwnl/AutoDash" target="_blank">VISIT</a></p>
-		</li>		
     </ul>
 			
 			<!---<p>...</p>
@@ -319,30 +366,30 @@
 		<div id="about" class="tabs">
 			<div class="grid">
 				<div class="grid_row">
-					<div class="grid_row_box">
+					<div class="grid_row_box_dotted">
 						<h2>ABOUT ME</h2>
 						<br>
 						<p>Hey there! Thanks for checking out my website! Happy to have you here.</p>
 						<br>
 						<p>As to me, I'm Frost. I love all things computer-related! I've played around with coding and stuff. <em>Not an expert, but it's fun!</em></p>
 						<br>
-						<p>I really enjoy making websites. It’s fun to design and build something that people can use and see online. Whether it’s creating a neat layout or figuring out how to make things work smoothly, I find it really satisfying to see a website come together.</p>
+						<p>I really enjoy making websites. It's fun to design and build something that people can use and see online. Whether it's creating a neat layout or figuring out how to make things work smoothly, I find it really satisfying to see a website come together.</p>
 						<br>
 						<p>In my free time, I enjoy working on various tech projects. Whether it's creating a small script to automate a task or developing a full-blown web application.</p>
 						<br>
 						<p>Furthermore, I love listening to music! <em>(Before you ask, I listen to all genres :P)</em> Take a listen here: <em><a href="https://www.youtube.com/watch?v=Q04k4hXDb6A&list=PLd-sqk5FKXrIV_HgmtDVgD_tok3B9IF57" target="_blank">🔊</a></em></p>			
 					</div>
-					<div class="grid_row_box">
+					<div class="grid_row_box_dotted">
 						<h2>Skills</h2>
 						<p>Some things I learned during my journey:</p>
 				<p>-> HTML/CSS/JS <em>Obviously used to create this site.</em></p>
 				<p>-> Python <em>Useful for a lot of projects. Still in the process of learning it, though.</em></p>
-				<p>-> Autohotkey (AHK) <em>A scripting language used for automating the Windows GUI.</em></p>
-				<p>-> React <em>A JavaScript library for building user interfaces.</em></p>
+				<p>-> Autohotkey (AHK) <em>A scripting language for automating Windows tasks and creating macros.</em></p>
+				<p>-> React & Vue <em>JavaScript tools for building user interfaces. I'm still learning both.</em></p>
 				<p>-> Bootstrap <em>A CSS framework directed at responsive, mobile-first front-end web development.</em></p>
 				<p>-> Linux <em>An open-source operating system kernel that's popular for its flexibility and security.</em></p>
-				<p>-> Bash/Shell Scripting <em>A command-line scripting language used for automating tasks in Unix-like operating systems.</em></p>
-						<br>
+				<p>-> Bash/Shell/Batch Scripting <em>Command-line scripting languages used for automating tasks in Unix-like (Bash/Shell) and Windows (Batch) operating systems.</em></p>
+				<br>
 			<h3>Things I Want to Learn :</h3>
                 <p>-> C/C++ <em>Fast and powerful languages used to build games, software, and high-performance systems.</em></p>
 				<p>-> TypeScript <em>A strict syntactical superset of JavaScript, adding static types.</em></p>
@@ -351,7 +398,7 @@
 					</div>
 				</div>
 				<div class="grid_row">
-					<div class="grid_row_box">
+					<div class="grid_row_box_dotted">
 						<h2>Favourite Movies/Shows:</h2>
 						<table>
 							<tr><td><i class="fas fa-brain fav-icon"></i>－ Pi (1998) - [Movie]</td></tr>
@@ -364,7 +411,7 @@
 						</table>
 												
 					</div>
-					<div class="grid_row_box">
+					<div class="grid_row_box_dotted">
 						<h2>Site Goals</h2>
 						<br>
 						<p><em>Why did I made this site you may ask?</em></p>
@@ -372,7 +419,7 @@
 						<p>It's just nice to have a personal space where I can host and show whatever I want, while having full control over it.</p>
 						<p>Long live the indie-web!</p>
 					</div>
-					<div class="grid_row_box">
+					<div class="grid_row_box_dotted">
 						<h2>Contact & Social Media</h2>
 						<p class="contact_link"><i class="fa-brands fa-github"></i> <a
 								href="https://github.com/fr0st-iwnl" target="_blank"

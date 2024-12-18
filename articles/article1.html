@@ -3,7 +3,7 @@
 <head>
 	<!-----METAS----->
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<meta name="description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
 	<meta name="author" content="fr0st-iwnl">
 	<meta name="theme-color" content="#72B6FF">
@@ -18,7 +18,7 @@
 	<title>fr0st-iwnl - Hello World, may I say?</title>
 
 	<!-----SCRIPT-JS------>
-	<script src="/articles/main.js" defer></script>
+	<script src="/src/js/components/base.js" type="module" defer></script>
 
     <!-----LINKS------>
 	<link rel="icon" type="image/x-icon" href="../src/media/favicons/favicon.ico">
@@ -57,8 +57,8 @@
 		>
 	</video>
 
+	<div id="snow-container"></div>
 	<div class="vignette"></div>
-
 	<div id="videohue"></div>
 	<div id="canvas">
 		<header>
@@ -72,7 +72,7 @@
             <div>
 			<p class="welcome"></p>
 		<br>
-			<p class="effects" id="changeEffects">Want some fancy effects? Click <a onclick="changeEffects()">HERE</a> to turn them on.</p>
+		<p class="effects" id="changeEffects">Want some fancy effects? Click <a id="changeEffectsLink">HERE</a> to turn them on.</p>
 		</header>
 		<br>
 
@@ -87,7 +87,8 @@
         <!--------- FIRST ARTICLE ------------->
         <div class="article-container">
             <h1 class="article-title">Hello World, may I say?</h1>
-			<p><i class="fa-solid fa-eye"></i> ‒ Views: <img class="views" src="https://www.cutercounter.com/hits.php?id=hrxqknca&nd=1&style=10" title="if you see this cutercounter.com is down.. :(" border="0" alt="404: Connection Lost :("></p>
+			<p><i class="fa-solid fa-eye"></i> ‒ Views: <script type='text/javascript' src='https://freehitcounters.org/count/gv90'></script></p>
+			<br>
 			<br>
             <p class="article-date">Published on: October 20, 2024</p>
             <div class="article-content">

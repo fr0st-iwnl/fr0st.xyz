@@ -3,6 +3,10 @@ const fade_in_delay = 27 // lower values makes the elements show faster on site 
 
 let effectsDisabled = localStorage.getItem('effectsDisabled') === 'true';
 
+document.addEventListener('DOMContentLoaded', function() {
+    initTooltips();
+});
+
 // remove 'rgb' and brackets from --bg-value so the color can be used in combination with individual opacity-values (rgba)
 document.documentElement.style.setProperty('--bg-color', getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim().replace(/rgb\(|\)/g, ''));
 
@@ -100,6 +104,13 @@ function changeTheme(theme) {
             a.innerHTML = a.innerHTML.replace(/(&gt|&lt|;|\s)/g, '');
         }
     })
+
+    // HIDE SNOWFLAKES
+    const snowflakeContainer = document.getElementById('snow-container');
+    if (snowflakeContainer) {
+        snowflakeContainer.innerHTML = ''; // Remove all snowflakes
+    }
+
     // default values
     document.documentElement.style.setProperty('--bg-opacity', '0.31');
     rain_vid.style.display = 'none';
@@ -158,11 +169,66 @@ function changeTheme(theme) {
             noise_vid.style.opacity = 0;
             document.head.removeChild(link);
             break;
+        case 'winter':
+            document.documentElement.style.setProperty('--bg-color', '30, 40, 60');
+            document.documentElement.style.setProperty('--main-color', '#a9c8d8');
+            document.documentElement.style.setProperty('--selection', '#536f85');
+            document.documentElement.style.setProperty('--bg-opacity', '0.85');
+        snowAnimation();
+        break;
     }
     if (effectsDisabled) {rain_vid.style.display = 'none';}
 }
 
 
+/**
+ * SNOWFLAKES ANIMATION
+ */
+
+function snowAnimation() {
+    const effectsDisabled = false; // Set this flag to `false` to ensure snowflakes are enabled.
+
+    // Ensure snowflake container exists
+    const snowflakeContainer = document.getElementById('snow-container');
+    if (!snowflakeContainer) {
+        console.error("Snow container not found!");
+        return;
+    }
+
+    const snowflakeCount = 90;  // Number of snowflakes to create
+    const snowflakeSize = 6;    // Maximum size of the snowflakes
+    const snowflakeDuration = 15;  // Duration of snowflake fall animation
+
+    // Clear any previous snowflakes before adding new ones
+    snowflakeContainer.innerHTML = '';
+
+    // Generate snowflakes
+    for (let i = 0; i < snowflakeCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+
+        let size = Math.random() * snowflakeSize + 0.25; // Random size between 0.25 and 6
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+
+        snowflake.style.left = `${Math.random() * 100}vw`;  // Random horizontal position
+        snowflake.style.top = `${Math.random() * -20}vh`;  // Start off-screen above
+
+        snowflake.style.opacity = Math.random() * 0.6 + 0.1;  // Random opacity for snowflakes
+
+        snowflake.style.animation = `snowflake-fall ${snowflakeDuration + Math.random() * 10}s linear infinite`;
+
+        // Randomize horizontal movement for a more natural look
+        if (Math.random() > 0.3) {
+            const horizontalAnimation = Math.random() > 0.5 ? 'snowflake-fall-horizontal-1' : 'snowflake-fall-horizontal-2';
+            snowflake.style.animation = `${horizontalAnimation} ${snowflakeDuration + Math.random() * 10}s linear infinite`;
+        }
+
+        snowflake.style.animationDelay = `-${(snowflakeDuration + Math.random() * 50) / 4}s`;  // Randomize start delay
+
+        snowflakeContainer.appendChild(snowflake);
+    }
+}
 
 
 /////////////////////////////////////// PROJECT CATEGORIES ///////////////////////////////////////
@@ -237,7 +303,81 @@ document.getElementById("show-more-btn").addEventListener("click", function() {
 });
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * HAMBURGER / NAVBAR
+ */
 
 
-console.log('%c Designed and Developed by Kiyoko / fr0st-iwnl ', 'background-image: linear-gradient(90deg,#8000ff,#660066); color: white;font-weight:900;font-size:1rem; padding:20px;');
+function toggleMenu() {
+    const menu = document.getElementById("nav_tabs");
+    const hamburger = document.getElementById("hamburger-menu");
+    
+    menu.classList.toggle("active");
+    hamburger.classList.toggle("active"); 
+}
+
+const menuItems = document.querySelectorAll("#nav_tabs li a");
+menuItems.forEach(item => {
+    item.addEventListener("click", () => {
+        toggleMenu();
+    });
+});
+
+// Close the menu if the user clicks anywhere outside the navbar or hamburger
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById("nav_tabs");
+    const hamburger = document.getElementById("hamburger-menu");
+    
+    // Check if the click happened outside the menu and hamburger
+    if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+        // Close the menu
+        if (menu.classList.contains("active")) {
+            toggleMenu();
+        }
+    }
+});
+
+
+function initTooltips() {
+    // Create tooltip container
+    const tooltipElement = document.createElement('div');
+    tooltipElement.classList.add('tooltip');
+    document.body.appendChild(tooltipElement);
+
+    const OFFSET_X = 12; // Horizontal offset from cursor
+    const OFFSET_Y = 12; // Vertical offset from cursor
+
+    const tooltips = document.querySelectorAll('[data-tooltip]');
+
+    tooltips.forEach((tooltip) => {
+        tooltip.addEventListener('mouseenter', () => {
+            const tooltipText = tooltip.getAttribute('data-tooltip');
+            tooltipElement.textContent = tooltipText;
+            tooltipElement.style.opacity = '1'; // Make it visible
+        });
+
+        tooltip.addEventListener('mousemove', (event) => {
+            // Use event.pageX and event.pageY to fix the scroll bug
+            let x = event.pageX + OFFSET_X;
+            let y = event.pageY + OFFSET_Y;
+
+            // Prevent tooltip from leaving the right edge
+            if (x + tooltipElement.offsetWidth > document.documentElement.clientWidth + window.scrollX) {
+                x = document.documentElement.clientWidth + window.scrollX - tooltipElement.offsetWidth - OFFSET_X;
+            }
+
+            // Prevent tooltip from leaving the bottom edge
+            if (y + tooltipElement.offsetHeight > document.documentElement.clientHeight + window.scrollY) {
+                y = event.pageY - tooltipElement.offsetHeight - OFFSET_Y; // Move above if no space below
+            }
+
+            tooltipElement.style.left = `${x}px`;
+            tooltipElement.style.top = `${y}px`;
+        });
+
+        tooltip.addEventListener('mouseleave', () => {
+            tooltipElement.style.opacity = '0';
+        });
+    });
+}

@@ -22,11 +22,6 @@ pre:not(#title), code {
     white-space: pre-wrap;
 }
 
-.privacy_title{
-    text-align: center;
-}
-
-
 body {
     font-family: 'Terminus', sans-serif;
 
@@ -35,6 +30,31 @@ body {
     overflow-x: hidden;
 
     color: var(--main-color);
+}
+
+b{
+    color: #ff0;
+}
+
+.privacy_title{
+    text-align: center;
+}
+
+.privacy-policy-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.privacy-policy-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.privacy-policy-container p::before {
+    content: "· "; /* adds a dot before each paragraph */
+    color: #ffffff;
 }
 
 a:link:not(.tab_active, a:hover), a:visited:not(.tab_active, a:visited:hover), em a:visited {
@@ -60,29 +80,150 @@ a:link:not(.tab_active, a:hover), a:visited:not(.tab_active, a:visited:hover), e
     margin-bottom: 1em;
 }
 
-
-.privacy-policy-container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    text-align: left;
+.welcome {
+    text-align: center;
 }
 
-.privacy-policy-title {
-    font-size: 2em;
-    margin-bottom: 20px;
+.snowflake {
+    position: fixed;
+    animation-timing-function: linear;
+    z-index: 1000;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(1px);
 }
 
-p::before {
-    content: "· "; /* adds a dot before each paragraph */
-    color: #ffffff;
+@keyframes snowflake-fall {
+    0% {
+        transform: translateY(-10vh);
+    }
+    100% {
+        transform: translateY(110vh);
+    }
+}
+
+@keyframes snowflake-fall-horizontal-1 {
+    0% {
+        transform: translateX(0) translateY(-10vh);
+    }
+    100% {
+        transform: translateX(20vw) translateY(110vh);
+    }
+}
+
+@keyframes snowflake-fall-horizontal-2 {
+    0% {
+        transform: translateX(0) translateY(-10vh);
+    }
+    100% {
+        transform: translateX(-20vw) translateY(110vh);
+    }
 }
 
 
+/*--------------------------------------------------------------
+# SCROLLBAR
+--------------------------------------------------------------*/
+
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--bg-color); /* Background of the track */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--main-color); /* Color of the scrollbar thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--selection); /* Slightly different on hover */
+}
+
+
+/* /////////////////////////// GLITCH ANIMATION /////////////////////////// */
+
+.glitch {
+    display: inline-block;
+    position: relative;
+    color: #0ff;
+    font-size: 1em;
+}
+
+.glitch:before,
+.glitch:after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ff0;
+    opacity: 0;
+    overflow: hidden;
+    animation: glitch-anim 1s infinite;
+}
+
+.glitch:after {
+    color: #f0f;
+    animation-delay: 0.1s;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(0, 9999px, 100%, 0);
+        transform: translate(0);
+        opacity: 1;
+    }
+    10% {
+        clip: rect(0, 9999px, 10px, 0);
+        transform: translate(-2px, 2px);
+        opacity: 1;
+    }
+    20% {
+        clip: rect(10px, 9999px, 20px, 0);
+        transform: translate(2px, -2px);
+        opacity: 1;
+    }
+    30% {
+        clip: rect(20px, 9999px, 30px, 0);
+        transform: translate(-1px, 1px);
+        opacity: 1;
+    }
+    40% {
+        clip: rect(30px, 9999px, 40px, 0);
+        transform: translate(1px, -1px);
+        opacity: 0.7;
+    }
+    50% {
+        clip: rect(40px, 9999px, 50px, 0);
+        transform: translate(-2px, -2px);
+        opacity: 0.5;
+    }
+    60% {
+        clip: rect(50px, 9999px, 60px, 0);
+        transform: translate(2px, 2px);
+        opacity: 0.8;
+    }
+    70% {
+        clip: rect(60px, 9999px, 70px, 0);
+        transform: translate(0);
+        opacity: 1;
+    }
+    80% {
+        clip: rect(70px, 9999px, 80px, 0);
+        transform: translate(1px, -1px);
+        opacity: 0.6;
+    }
+    100% {
+        clip: rect(0, 9999px, 100%, 0);
+        transform: translate(0);
+        opacity: 1;
+    }
+}
 
 
 /* /////////////////////////// OTHERS /////////////////////////// */
-
 
 .effects {
     text-align: center;
@@ -211,6 +352,9 @@ nav ul li a {
 
 
 
+
+
+
 a{
     border-radius: 2.5px;
 }
@@ -254,10 +398,6 @@ a{
 ::selection {
     background-color: var(--selection);
 }
-
-
-
-
 
 /* MOBILE */
 @media screen and (max-width: 50em) {
