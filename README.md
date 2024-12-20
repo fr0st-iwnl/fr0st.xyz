@@ -27,6 +27,7 @@ Featuring a design inspired by old vintage terminals!
 - [x] Add view counts for the blog and improve the design
 - [x] Remake the view counts and add a different way to store them
 - [x] Added Analytics for the website
+- [ ] Fix Responsiveness + make a new page called `"Status"`
 
 
 ## Credits
