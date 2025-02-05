@@ -4,6 +4,14 @@ import '/src/js/components/base.js';
 
 const articles = [
     {
+        title: "WinConfigs: Simplifying Windows Setup",
+        description: "How I created a script to simplify Windows setup with automation and system tweaks.",
+        link: "articles/article4.html", 
+        class: "article-one",
+        thumbnail: "./src/media/blog-thumbnails/winconfigs.png",
+        date: "February 5, 2025" // Add date field here
+    },
+    {
         title: "Why Tailwind CSS Isn't for Me",
         description: "Sharing my thoughts on why I just don't like Tailwind CSS.",
         link: "articles/article3.html", 

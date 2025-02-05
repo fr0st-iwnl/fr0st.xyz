@@ -12,13 +12,20 @@ document.documentElement.style.setProperty('--bg-color', getComputedStyle(docume
  const phrases = [
     "this text is random.",
     "a nerd's basement.",
-    "a blog..",
+    "a blog.",
     "i code sometimes.",
     "made with a keyboard.",
     "01000100010011",
     "just another day in the void.",
     "another day, another line of code. :[",
-    "now in beta :P",
+    "Smoked Out, Scoped Out",
+    "Not Even Ghosts Are This Empty",
+    "Newport Reds",
+    "Aphrodite (The Aquatic Ape Theory)",
+    "Jon Voight (Live Fast, Die Young)",
+    "Aokigahara",
+    "Am/Pm",
+    "#1 Stunna",
     "close the world. open the next."
 ];
 

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-----METAS----->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+	<meta name="author" content="fr0st-iwnl">
+	<meta name="theme-color" content="#72B6FF">
+	<meta proberty="og:title" content="fr0st-iwnl">
+	<meta property="og:site_name" content="fr0st.xyz">
+	<meta proberty="og:description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+	<meta proberty="og:url" content="https://fr0st.xyz">
+	<meta name="keywords" content="fr0st-iwnl, frost, fr0st, frostiwnl, kiyokosmacros, frostiwnldev, frost github, winconfigs, win-configs, win configs">
+	<meta name="robots" content="index, follow">
+	<meta name="revisit-after" content="7 days">
+	<!-----TITLE------>
+	<title>fr0st-iwnl - WinConfigs: Simplifying Windows Setup</title>
+
+	<!-----SCRIPT-JS------>
+	<script src="/src/js/components/base.js" type="module" defer></script>
+
+    <!-----LINKS------>
+	<link rel="icon" type="image/x-icon" href="../src/media/favicons/favicon.ico">
+	<link rel="stylesheet" href="/articles/main.css">
+
+	<!---FONT AWESOME------->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+</head>
+
+<body>
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.65;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="noise_vid"
+		src="https://files.catbox.moe/hop8wg.mp4"
+		poster="/src/media/noise_static.png"
+		>
+	</video>
+
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.85;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="rain_vid"
+		src="https://files.catbox.moe/i7le27.mp4"
+		poster="/src/media/rain_bg_static.png"
+		>
+	</video>
+
+	<div id="snow-container"></div>
+	<div class="vignette"></div>
+	<div id="videohue"></div>
+	<div id="canvas">
+		<header>
+			<pre id="title">
+    ____       ____         __ 
+   / __/_____ / __ \ _____ / /_
+  / /_ / ___// / / // ___// __/
+ / __// /   / /_/ /(__  )/ /_  
+/_/  /_/    \____//____/ \__/  
+			</pre>
+            <div>
+			<p class="welcome"></p>
+		<br>
+		<p class="effects" id="changeEffects">Want some fancy effects? Click <a id="changeEffectsLink">HERE</a> to turn them on.</p>
+		</header>
+		<br>
+
+        <!--------- NAVBAR ------------->
+        <nav id="nav_tabs">
+			<ul>
+				<li><a href="/blog.html"><i class="fa-solid fa-less-than-equal"></i></a></li>
+                <li><a href="https://github.com/fr0st-iwnl" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+			</ul>
+		</nav>
+
+        <!--------- SECOND ARTICLE ------------->
+        <div class="article-container4">
+            <h1 class="article-title">WinConfigs: Simplifying Windows Setup</h1>
+			<p><i class="fa-solid fa-eye"></i> ‒ Views: <script type="text/javascript" src="https://freehitcounters.org/count/h775"></script><br></p>
+			<br>
+			<br>
+            <p class="article-date">Published on: February 5, 2025</p>
+            <div class="article-content">
+                <p>One day, I was thinking, what if I create my own automation tool/script that simplifies Windows setup with tweaks, package managers, and custom repositories? I decided to give it a try because I already knew <b>batch</b> scripting.</p>
+                <p>The script I created is primarily written in <b>batch</b>, and while it was exciting, the process wasn't easy. I had to set up several virtual machines to test all of the tweaks and processes on Windows 10 and 11. It was a bit frustrating, but I stuck with it, and the result is something I'm really proud of.
+                </p>
+				<h2>#1 Why I Recommend WinConfigs</h2>
+				<br>
+				<p>First of all, it's incredibly user-friendly. If you've ever tried setting up a new system or tweaking your Windows setup, you know how much of a hassle it can be. With WinConfigs, you get to see all of the tweaks and installations in real time, and it's so easy to follow. I even made a <a href="https://winconfigs.netlify.app/" target="_blank">website</a> for the tool, which is also designed to be user-friendly. If you want to see what the tweaks do, you can check out the photos in the site's <a href="https://winconfigs.netlify.app/docs" target="_blank">docs</a> to make the setup process easier.</p>
+                <p>WinConfigs also helps remove bloat from your system, making it run faster and more efficiently. It removes unnecessary apps and tweaks settings for better performance. Plus, you can also manage software easily with custom repositories and package managers. I really recommend it because it makes what would normally be a long and boring process much quicker and easier.</p>
+                <p>The tool comes with a simple command that you can run in PowerShell to install it on your desktop. You can see it below. However, the command might be blocked by <b>Windows Defender</b>, so if you run into any errors, you can either open an <a href="https://github.com/fr0st-iwnl/WinConfigs/issues" target="_blank">issue</a> for help or <a href="https://winconfigs.netlify.app/" target="_blank">install it manually</a>.</p>
+                <div class="code-container">
+                    <code><span class="html-tag">iwr</span> <span class="class-name">"https://fr0st.xyz/winconfigs"</span> | <span class="class-name">iex</span><br></code>
+                  </div>
+                  <br>
+                <h2>#2 It Supports Multiple Versions of Windows</h2>
+				<br>
+				<p>One of the biggest reasons I'm proud of WinConfigs is that it works on both Windows 10 and 11. I spent a lot of time making sure the script was compatible across both versions, and I tested everything on virtual machines to make sure there were no issues. It was a challenge, but seeing it work smoothly on both made it all worth it.</p>
+				<br>
+				<h2>#3 Custom Repositories and Package Managers</h2>
+				<br>
+                <p>WinConfigs isn't just about system tweaks. It also makes installing software easier with package managers like <b>Scoop</b> and <b>Custom Repositories</b>. Instead of setting up each app manually, WinConfigs handles it for you. You can choose where to install custom repositories, like on your <b>Desktop</b> or in <b>Documents</b> etc. If you want to customize your package setup, just add your apps to <a href="https://github.com/fr0st-iwnl/WinConfigs/blob/master/Configuration/scoop-packages/packages-list.txt" target="_blank">Configuration\scoop-packages\packages-list.txt</a>. The same goes for custom repositories. You can manage them in <a href="https://github.com/fr0st-iwnl/WinConfigs/blob/master/Configuration/custom-repos/repos-list.txt" target="_blank">Configuration\custom-repos\repos-list.txt</a>. If you have a useful app or tool, you can submit a <a href="https://github.com/fr0st-iwnl/WinConfigs/pulls" target="_blank">pull request</a> to add it.</p>
+				
+                <!---<div class="article-image-container">
+                <img class src="https://i.postimg.cc/HLVr48dK/final2.png" class="article-image" alt="Description of Image">
+                </div>--->
+            <br>
+                <h2>＠ Final Thoughts</h2>
+                <br> 
+                <p>If you're tired of setting up Windows manually or want to make your PC run better with less effort, WinConfigs is a great choice. It automates installs, tweaks your system, and helps manage software all in one simple tool.</p>
+                <p>Check out the <a href="https://winconfigs.netlify.app/" target="_blank">Website</a> or <a href="https://github.com/fr0st-iwnl/WinConfigs" target="_blank">GitHub</a> for more details, and try it out if you're interested. If you like it, consider giving it a ⭐ on GitHub, it really helps me out!</p>
+                <p>＃ Last updated on: <b style="font-weight: 1000x;">February 5, 2025</b></p>
+            </div>
+        </div>
+
+
+
+
+        <!---------THEMES------------->
+						<div id="theme_selector">
+							<div id="theme_list"></div>
+						</div>
+        
+</body>
+</html>
