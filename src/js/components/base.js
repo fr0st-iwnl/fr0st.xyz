@@ -47,23 +47,24 @@ document.documentElement.style.setProperty('--bg-color', getComputedStyle(docume
     "close the world. open the next."
 ];
 
-// FUNCTION
 function getRandomPhrase() {
-    const randomIndex = Math.floor(Math.random() * phrases.length);
-    return phrases[randomIndex];
+    let lastPhrase = localStorage.getItem('lastPhrase');
+    let newPhrase;
+
+    do {
+        newPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+    } while (newPhrase === lastPhrase); // Ensure a new phrase is chosen
+
+    localStorage.setItem('lastPhrase', newPhrase); // Store the new phrase
+    return newPhrase;
 }
 
-// random text will appear for .welcome
 const welcomeText = document.querySelector('.welcome');
-const randomPhrase = getRandomPhrase();
 
-
-// Only proceed with this part of the code if `welcomeText` exists
 if (welcomeText) {
     const randomPhrase = getRandomPhrase();
 
     if (randomPhrase === "01000100010011") {
-        // create a span animation for this number
         const numberSpan = document.createElement('span');
         numberSpan.classList.add('glitch'); // glitch class
         numberSpan.setAttribute('data-text', randomPhrase);
