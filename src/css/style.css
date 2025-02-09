@@ -772,6 +772,20 @@ i {
     margin-bottom: .25em;
 }
 
+
+.personality {
+    text-decoration: underline;
+    position: relative;
+    
+    box-shadow: none !important;
+    background: transparent !important;   
+}
+
+.personality:hover{
+    text-decoration: underline;
+    color: var(--main-color);
+}
+
 .music {
     text-decoration: none;
     position: relative;
