@@ -167,7 +167,11 @@ function changeTheme(theme) {
             document.documentElement.style.setProperty('--selection', '#3b6d8b');
             document.documentElement.style.setProperty('--bg-opacity', '1.0');
             noise_vid.style.opacity = 0;
-            document.head.removeChild(link);
+            // ✅ Check if the effects.css link exists before removing
+            let effectsLink = document.querySelector('link[href="effects.css"]');
+            if (effectsLink) {
+                document.head.removeChild(effectsLink);
+            }
             break;
         case 'winter':
             document.documentElement.style.setProperty('--bg-color', '30, 40, 60');

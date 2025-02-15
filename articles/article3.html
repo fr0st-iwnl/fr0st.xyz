@@ -21,9 +21,10 @@
 	<script src="/src/js/components/base.js" type="module" defer></script>
 
     <!-----LINKS------>
-	<link rel="icon" type="image/x-icon" href="../src/media/favicons/favicon.ico">
+	<link rel="icon" type="image/png" href="../src/media/favicons/favicon.png">
 	<link rel="preload" as="font" href="src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
 	<link rel="stylesheet" href="/articles/main.css">
+	<link rel="alternate" type="application/rss+xml" title="fr0st&#39;s Webpage RSS" href="https://fr0st.xyz/rss.xml">
 
 	<!---FONT AWESOME------->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -134,9 +135,18 @@
                 <h2>＠ Final Thoughts</h2>
                 <br> 
                 <p>If you like Tailwind, go ahead and use it! But please don't try to convince me it's the future of web design. It works for some, but it's not the solution for everyone. Everyone has their own preferences, and that's okay. Just remember, there are other ways to write clean and maintainable CSS too.</p>
-                <p>＃ Last updated on: <b style="font-weight: 1000x;">November 6, 2024</b></p>
-            </div>
-        </div>
+                <div class="article-footer">
+					<p>＃ Last updated on: <b>November 6, 2024</b></p>
+					<div class="button-container">
+					  <button onclick="shareLink(this)" class="share-button">
+						<i class="fa-solid fa-share"></i>
+						Share
+					  </button>
+					  <a href="/rss.xml" target="_blank" class="rss-icon">
+						<i class="fa-solid fa-rss"></i>
+					  </a>
+					</div>
+				  </div>
 
 
 

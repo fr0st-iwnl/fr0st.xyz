@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+        <title>fr0st.xyz</title>
+        <link>https://fr0st.xyz</link>
+        <description>Recent content in fr0st's Webpage</description>
+        <language>en-us</language>
+        <lastBuildDate>Sat, 15 Feb 2025 10:30:00 GMT</lastBuildDate>
+        <managingEditor>frostiwnl@tutamail.com (fr0st)</managingEditor>
+        <webMaster>frostiwnl@tutamail.com (fr0st)</webMaster>
+
+        <item>
+            <title>WinConfigs: Simplifying Windows Setup</title>
+            <link>https://fr0st.xyz/articles/article4.html</link>
+            <description>How I created a script to simplify Windows setup with automation and system tweaks.</description>
+            <author>frostiwnl@tutamail.com (fr0st)</author>
+            <pubDate>Wed, 5 Feb 2025 08:30:00 GMT</pubDate>
+            <guid>https://fr0st.xyz/articles/article4.html</guid>
+        </item>
+
+        <item>
+            <title>Why Tailwind CSS Isn't for Me</title>
+            <link>https://fr0st.xyz/articles/article3.html</link>
+            <description>Sharing my thoughts on why I just don't like Tailwind CSS.</description>
+            <author>frostiwnl@tutamail.com (fr0st)</author>
+            <pubDate>Wed, 6 Nov 2024 10:35:00 GMT</pubDate>
+            <guid>https://fr0st.xyz/articles/article3.html</guid>
+        </item>
+
+        <item>
+            <title>My first Linux experience</title>
+            <link>https://fr0st.xyz/articles/article2.html</link>
+            <description>Journey of a Linux newbie.</description>
+            <author>frostiwnl@tutamail.com (fr0st)</author>
+            <pubDate>Tue, 22 Oct 2024 14:11:00 GMT</pubDate>
+            <guid>https://fr0st.xyz/articles/article2.html</guid>
+        </item>
+
+        <item>
+            <title>Hello World, may I say?</title>
+            <link>https://fr0st.xyz/articles/article1.html</link>
+            <description>The blog is now here with updates about my journey.</description>
+            <author>frostiwnl@tutamail.com (fr0st)</author>
+            <pubDate>Sun, 20 Oct 2024 04:05:00 GMT</pubDate>
+            <guid>https://fr0st.xyz/articles/article1.html</guid>
+        </item>
+
+    </channel>
+</rss>
