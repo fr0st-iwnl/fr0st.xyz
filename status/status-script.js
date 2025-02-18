@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             title: "fr0st - ",
             emoji: "😭",
-            message: "man i just love my life!",
+            message: "man i just love my life.",
             image: "https://i.postimg.cc/wMnzvKPD/Untitled.png",
             datetime: "2025-02-18T20:15:00+02:00", // Fixed datetime in ISO format with timezone
         },
