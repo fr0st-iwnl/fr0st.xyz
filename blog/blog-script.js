@@ -4,6 +4,14 @@ import '/src/js/components/base.js';
 
 const articles = [
     {
+        title: "WinMacros: Custom Windows Macros",
+        description: "How I created a tool to automate tasks and make system control easier with simple macros.",
+        link: "articles/article5.html", 
+        class: "article-one",
+        thumbnail: "./src/media/blog-thumbnails/winmacros.png",
+        date: "February 26, 2025" // Add date field here
+    },
+    {
         title: "WinConfigs: Simplifying Windows Setup",
         description: "How I created a script to simplify Windows setup with automation and system tweaks.",
         link: "articles/article4.html", 

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-----METAS----->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+	<meta name="author" content="fr0st-iwnl">
+	<meta name="theme-color" content="#72B6FF">
+	<meta proberty="og:title" content="fr0st-iwnl">
+	<meta property="og:site_name" content="fr0st.xyz">
+	<meta proberty="og:description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+	<meta proberty="og:url" content="https://fr0st.xyz">
+	<meta name="keywords" content="fr0st-iwnl, frost, fr0st, frostiwnl, kiyokosmacros, frostiwnldev, frost github, winmacros, win-macros, win macros">
+	<meta name="robots" content="index, follow">
+	<meta name="revisit-after" content="7 days">
+	<!-----TITLE------>
+	<title>fr0st-iwnl - WinMacros: Custom Windows Macros</title>
+
+	<!-----SCRIPT-JS------>
+	<script src="/src/js/components/base.js" type="module" defer></script>
+
+    <!-----LINKS------>
+	<link rel="icon" href="../src/media/favicons/favicon.ico">
+	<link rel="preload" as="font" href="src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
+	<link rel="stylesheet" href="/articles/main.css">
+	<link rel="alternate" type="application/rss+xml" title="fr0st&#39;s Webpage RSS" href="https://fr0st.xyz/rss.xml">
+	<!---FONT AWESOME------->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+</head>
+
+<body>
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.65;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="noise_vid"
+		src="https://files.catbox.moe/hop8wg.mp4"
+		poster="/src/media/noise_static.png"
+		>
+	</video>
+
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.85;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="rain_vid"
+		src="https://files.catbox.moe/i7le27.mp4"
+		poster="/src/media/rain_bg_static.png"
+		>
+	</video>
+
+	<div id="snow-container"></div>
+	<div class="vignette"></div>
+	<div id="videohue"></div>
+	<div id="canvas">
+		<header>
+			<pre id="title">
+    ____       ____         __ 
+   / __/_____ / __ \ _____ / /_
+  / /_ / ___// / / // ___// __/
+ / __// /   / /_/ /(__  )/ /_  
+/_/  /_/    \____//____/ \__/  
+			</pre>
+            <div>
+			<p class="welcome"></p>
+		<br>
+		<p class="effects" id="changeEffects">Want some fancy effects? Click <a id="changeEffectsLink">HERE</a> to turn them on.</p>
+		</header>
+		<br>
+
+        <!--------- NAVBAR ------------->
+        <nav id="nav_tabs">
+			<ul>
+				<li><a href="/blog.html"><i class="fa-solid fa-less-than-equal"></i></a></li>
+                <li><a href="https://github.com/fr0st-iwnl" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+			</ul>
+		</nav>
+
+        <!--------- SECOND ARTICLE ------------->
+        <div class="article-container5">
+            <h1 class="article-title">WinMacros: Custom Windows Macros</h1>
+			<p><i class="fa-solid fa-eye"></i> ‒ Views: <script type="text/javascript" src="https://freehitcounters.org/count/hct3"></script><br></p>
+			<br>
+			<br>
+            <p class="article-date">Published on: February 26, 2025</p>
+            <div class="article-content">
+                <p>I couldn't find any lightweight automation tools for keybindings at all, plus I wanted one that was open source, so I decided to create my own. Since I already liked <b>automation</b> and knew <b>Autohotkey</b>, I had some macros I made in the past, but they were hard to customize and not great. So, I decided to create a simpler script for everyone.</p>
+                <p>I started with AHK v2 instead of v1 because I wanted to try something new and build a tool for custom keybindings. I also wanted something similar to the keybinding system I had on Hyprland in Linux, where I could easily assign keys to different functions. It was tricky at first since I wasn't familiar with v2, but after a week of work, I finally got it right, and I'm happy with the result.
+                </p>
+				<h2>#1 Why I Recommend WinMacros</h2>
+				<br>
+				<p>First of all, it's incredibly easy to use. If you've ever struggled with creating or managing macros, you'll appreciate how simple this script is to set up and use. You can quickly assign custom keybindings to any app you want. The script includes a feature called <b>"Hotkey Settings" (Ctrl + Alt + K)</b> where you can customize keybindings for apps like your Default Browser, File Explorer, PowerShell, Code Editor (VSCode or VSCodium), and more. Plus, I made sure the script is easy to customize, so you can tweak it to suit your needs.</p>
+                <p>If that's not enough, the script also includes a <b>"Launcher Settings" feature (Ctrl + Alt + L)</b> where you can add your own <b>.exe</b> files and assign them to any key you want. There's also a <b>"Power Menu" (Alt + Backspace)</b> that allows you to quickly <b>Shut Down, Restart, Sleep, or Log Off</b> your computer.</p>
+                <p>It's lightweight, so it won't slow down your system like other heavy automation tools. Whether you want to speed up your tasks or organize your system, this script can help. You can control sound settings, open apps, toggle system tools, and manage your power options easily.</p>
+                  <br>
+                <h2>#2 Speed Up Your Workflow</h2>
+				<br>
+				<p>This script saves you time. No more searching through menus or clicking to open apps or change settings. Just set up your keybindings once, and everything you need will be right at your fingertips, making your tasks quicker.</p>
+				<br>
+                <p>I also created a user-friendly website for the tool, where you can easily see how it works and explore its features. It's clean, simple, and showcases all the capabilities of the script, so you can quickly get started. Check out the <a href="https://winmacros.netlify.app/" target="_blank">website</a> to see the <a href="https://winmacros.netlify.app/#showcase" target="_blank">full showcase</a> of what the tool can do!</p>
+                <br>
+                <h2>＠ Final Thoughts</h2>
+                <br> 
+                <p>If you need an easy way to set up keybindings and automate tasks, this script is perfect for you. It's light, flexible, and gives you full control over your system without being complicated. Whether you want to work faster, organize your setup, or create custom shortcuts, this script does it all. Try it out and see how much time you can save!</p>
+                <p>Feel free to visit the <a href="https://winmacros.netlify.app/" target="_blank">website</a> or check out the <a href="https://github.com/fr0st-iwnl/WinMacros" target="_blank">GitHub</a> to see more details, and if you find it useful, don't forget to give it a ⭐!</p>
+                <div class="article-footer">
+					<p class="lastupdated">＃ Last updated on: <b>February 26, 2025</b></p>
+					<div class="button-container">
+					  <button onclick="shareLink(this)" class="share-button">
+						<i class="fa-solid fa-share"></i>
+						Share
+					  </button>
+					  <a href="/rss.xml" target="_blank" class="rss-icon">
+						<i class="fa-solid fa-rss"></i>
+					  </a>
+					</div>
+				  </div>
+
+
+        <!---------THEMES------------->
+						<div id="theme_selector">
+							<div id="theme_list"></div>
+						</div>
+        
+</body>
+</html>
