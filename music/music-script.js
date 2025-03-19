@@ -820,12 +820,10 @@ function initializeMusicPage() {
         ${spotifyFooter}
     `;
     
-    // Initialize filter and navigation functionality
     initializeFilters();
 }
 
 function createFilterMenu() {
-    // Create artist dropdown options
     const artistOptions = artistData.map(artist => 
         `<option value="${artist.name}">${artist.name}</option>`
     ).join('');
@@ -880,7 +878,6 @@ function applyFilters() {
     const viewSelectedBtn = document.getElementById('view-selected-artist');
     const artistSelect = document.getElementById('artist-select');
     
-    // If in "Selected Artist Only" mode, only apply to that artist
     if (viewSelectedBtn && viewSelectedBtn.classList.contains('active')) {
         const selectedArtist = artistSelect.value;
         const artistElements = document.querySelectorAll('.artist-name');
@@ -894,7 +891,6 @@ function applyFilters() {
             }
         }
     } else {
-        // Otherwise apply to all artists
         document.querySelectorAll('.artist-section').forEach(section => {
             applyFiltersToSection(section, selectedFilters);
         });
@@ -902,7 +898,6 @@ function applyFilters() {
 }
 
 function applyFiltersToSection(section, selectedFilters) {
-    // If no filters are selected, hide all songs
     if (selectedFilters.length === 0) {
         section.querySelectorAll('.song-item').forEach(song => {
             song.style.display = 'none';
@@ -910,12 +905,10 @@ function applyFiltersToSection(section, selectedFilters) {
         return;
     }
     
-    // Hide all songs in this section initially
     section.querySelectorAll('.song-item').forEach(song => {
         song.style.display = 'none';
     });
     
-    // Show songs based on selected filters
     selectedFilters.forEach(filter => {
         if (filter === 'favorite') {
             section.querySelectorAll('.song-item:has(.favorite-badge)').forEach(song => {
@@ -938,7 +931,6 @@ function applyFiltersToSection(section, selectedFilters) {
 }
 
 function initializeFilters() {
-    // Artist navigation
     const artistSelect = document.getElementById('artist-select');
     const viewAllBtn = document.getElementById('view-all-artists');
     const viewSelectedBtn = document.getElementById('view-selected-artist');
@@ -947,19 +939,15 @@ function initializeFilters() {
         artistSelect.addEventListener('change', function() {
             const selectedArtist = this.value;
             
-            // Enable/disable "Selected Artist Only" button
             if (viewSelectedBtn) {
                 if (selectedArtist) {
                     viewSelectedBtn.disabled = false;
                     
-                    // If already in "Selected Artist Only" mode, update the view
                     if (viewSelectedBtn.classList.contains('active')) {
-                        // Hide all artists first
                         document.querySelectorAll('.artist-section').forEach(section => {
                             section.style.display = 'none';
                         });
                         
-                        // Show only the newly selected artist
                         const artistElements = document.querySelectorAll('.artist-name');
                         for (let element of artistElements) {
                             if (element.textContent.trim() === selectedArtist) {
@@ -967,7 +955,6 @@ function initializeFilters() {
                                 if (artistSection) {
                                     artistSection.style.display = 'block';
                                     
-                                    // Apply tag filters within this artist only
                                     applyFilters();
                                 }
                                 break;
@@ -976,7 +963,6 @@ function initializeFilters() {
                     }
                 } else {
                     viewSelectedBtn.disabled = true;
-                    // If no artist is selected, switch to "All Artists" view
                     if (viewAllBtn && !viewAllBtn.classList.contains('active')) {
                         viewAllBtn.click();
                     }
@@ -1052,15 +1038,11 @@ function initializeFilters() {
     }
 }
 
-// Replace the jQuery contains selector with a simpler approach
 function scrollToArtist(artistName) {
-    // Find all artist name elements
     const artistElements = document.querySelectorAll('.artist-name');
     
-    // Find the one that matches our artist
     for (let element of artistElements) {
         if (element.textContent.trim() === artistName) {
-            // Find the parent artist section
             const artistSection = element.closest('.artist-section');
             if (artistSection) {
                 artistSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1071,11 +1053,13 @@ function scrollToArtist(artistName) {
     return false;
 }
 
+/* I don't know why this doesn't work I tried to disable scrolling 
+   with the help of AI but it didn't help me. :( */ 
+
 // Variables to store scroll state
 let scrollPosition = 0;
 let scrollingDisabled = false;
 
-// Function to disable scrolling
 function disableScroll() {
     if (scrollingDisabled) return;
     
