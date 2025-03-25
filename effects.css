@@ -23,3 +23,7 @@ pre, p, li, h1, h2, h3, h4, td {
 #noise_vid {
     display: block;
 }
+
+.current-status h3{
+    text-shadow: 0 0 5px var(--main-color);
+}

@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         statusBox.innerHTML = `
             <div class="latest-status">
-                <a href="status.html"><h3>Current Status:</h3></a>
+                <a class="current-status" href="status.html"><h3>Current Status:</h3></a>
                 <h3>${status.title}<span class="emoji-container">${status.emoji}</span></h3>
                 ${content}
                 <small class="time-ago">Posted on: ${formatDatetime(status.datetime)}</small>
