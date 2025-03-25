@@ -35,14 +35,16 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/track/0VhUQrbIn4lgmWyJVtZnzV",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273388fbcd53f6d4647cbf10451?format=webp&width=573&height=573",
                 duration: "4:12",
-                isFavorite: true
+                isFavorite: true,
+                isObsessed: true,
             },
             {
                 title: "The Mission",
                 spotifyUrl: "https://open.spotify.com/track/1hNfSHVnBPd5GCFSqqA6Zo",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273388fbcd53f6d4647cbf10451?format=webp&width=573&height=573",
                 duration: "3:11",
-                isFavorite: true
+                isFavorite: true,
+                isObsessed: true,
             },
             {
                 title: "Gotham",
@@ -65,7 +67,8 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/track/3NSBOLzrxMri9OEyxYeWov?si=d72f7a326a094480",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273388fbcd53f6d4647cbf10451?format=webp&width=573&height=573",
                 duration: "3:53",
-                isFavorite: true
+                isFavorite: true,
+                isObsessed: true,
             },
             {
                 title: "Alive!",
@@ -79,21 +82,24 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/track/3HsZxv09GQxyratt8cmvcd?si=e029b2717b0f4481",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2736f61ea5fff15872b314468e8",
                 duration: "3:40",
-                isFavorite: true
+                isFavorite: true,
+                isObsessed: true,
             },
             {
                 title: "Unhealthy",
                 spotifyUrl: "https://open.spotify.com/track/7ewFgEaH0wII9QmpcTCkcA?si=dab438106a0947cd",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273fe7dd6de1fa0853b5a0701a9",
                 duration: "2:33",
-                isFavorite: true
+                isFavorite: true,
+                isObsessed: true   
             },
             {
                 title: "All In",
                 spotifyUrl: "https://open.spotify.com/track/1gdTL35aKcrz1J5qGTqznF?si=fc7661f16c0c4259",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273fe7dd6de1fa0853b5a0701a9",
                 duration: "2:49",
-                isFavorite: true
+                isFavorite: true,
+                isObsessed: true,
             }
             // Add more songs for this artist
         ]
@@ -569,7 +575,7 @@ const artistData = [
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273f77d480051d88f39704504df",
                 duration: "1:48",
                 isFavorite: true,
-                isObsessed: false,
+                isObsessed: true,
                 isNostalgic: false
             },
             {
@@ -578,6 +584,7 @@ const artistData = [
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273501f5069a13c20b0a83a8116",
                 duration: "2:58",
                 isFavorite: true,
+                isObsessed: true,
                 isNostalgic: false
             },
             {
@@ -603,7 +610,8 @@ const artistData = [
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2735ae597b5af582fd1a75baafd",
                 duration: "2:31",
                 isFavorite: true,
-                isNostalgic: false
+                isNostalgic: false,
+                isObsessed: true
             },
         ]
     },
@@ -829,6 +837,17 @@ function createFilterMenu() {
     ).join('');
     
     return `
+        <div class="welcome-section">
+            <div class="welcome-content">
+                <div class="welcome-title">
+                    <h2>Welcome to my Music Page!</h2>
+                </div>
+                <p>This is where I share my favorite artists and songs. You'll find a mix of different genres and styles that I enjoy listening to. Feel free to explore my music taste and discover some great tunes!</p>
+                <div class="last-updated">
+                    Last updated: March 25th 2025
+                </div>
+            </div>
+        </div>
         <div class="filter-menu">
             <div class="filter-section">
                 <label class="section-title">Jump to Artist</label>

@@ -13,7 +13,7 @@
 /* Stats Section */
 .stats-container {
     background: rgba(0, 0, 0, 0.7);
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(----main-color);
     padding: 1.5rem;
     border-radius: 4px;
     margin-bottom: 2rem;
@@ -33,7 +33,7 @@
 
 .stats-number {
     font-size: 2rem;
-    color: var(--accent-color);
+    color: var(----main-color);
     font-weight: bold;
     white-space: nowrap;
     letter-spacing: 0.5px;
@@ -51,13 +51,13 @@
 .artist-section {
     margin-bottom: 3rem;
     background: rgba(0, 0, 0, 0.7);
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(----main-color);
     padding: 1.5rem;
     border-radius: 4px;
 }
 
 .artist-header {
-    border-bottom: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(----main-color);
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     display: flex;
@@ -72,7 +72,7 @@
 }
 
 .artist-name {
-    color: var(--accent-color);
+    color: var(----main-color);
     font-size: 1.8rem;
     margin: 0;
 }
@@ -120,7 +120,7 @@
 }
 
 .song-number {
-    color: var(--accent-color);
+    color: var(----main-color);
     font-size: 1.2rem;
     min-width: 30px;
 }
@@ -352,7 +352,7 @@
 
 .popular-songs-trigger {
     cursor: pointer;
-    color: var(--accent-color);
+    color: var(----main-color);
     padding: 0.5rem;
     border-radius: 4px;
     transition: all 0.3s ease;
@@ -600,7 +600,7 @@
 /* Improved filter menu organization */
 .filter-menu {
     background: rgba(0, 0, 0, 0.7);
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(----main-color);
     padding: 1.5rem;
     border-radius: 4px;
     margin-bottom: 2rem;
@@ -623,7 +623,7 @@
 }
 
 .filter-section label.section-title {
-    color: var(--accent-color);
+    color: var(----main-color);
     font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 0.3rem;
@@ -651,7 +651,7 @@
 }
 
 #artist-select:hover, #artist-select:focus {
-    border-color: var(--accent-color);
+    border-color: var(----main-color);
     background: rgba(255, 255, 255, 0.15);
     outline: none;
 }
@@ -683,7 +683,7 @@
 
 .tag-filter-item input {
     cursor: pointer;
-    accent-color: var(--accent-color);
+    --main-color: var(----main-color);
 }
 
 .filter-badge {
@@ -747,12 +747,12 @@
 
 .view-mode-btn:hover:not(:disabled) {
     background: rgba(255, 255, 255, 0.15);
-    border-color: var(--accent-color);
+    border-color: var(----main-color);
 }
 
 .view-mode-btn.active {
-    background: var(--accent-color);
-    border-color: var(--accent-color);
+    background: var(----main-color);
+    border-color: var(----main-color);
     font-weight: 500;
 }
 
@@ -820,4 +820,80 @@
 
 .spotify-link:hover i {
     color: #1DB954; /* Explicitly set the same icon color on hover */
+}
+
+.welcome-section {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 40px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--main-color), transparent);
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-content h2 {
+    color: var(--main-color);
+    margin: 0 0 15px 0;
+    font-size: 32px;
+    font-family: 'Terminus', monospace;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(114, 182, 255, 0.3);
+}
+
+.welcome-content p {
+    color: #fff;
+    margin: 0 0 25px 0;
+    line-height: 1.6;
+    font-size: 16px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.last-updated {
+    color: var(--main-color);
+    font-size: 14px;
+    opacity: 0.7;
+    font-family: 'Terminus', monospace;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 480px) {
+    .welcome-section {
+        padding: 35px;
+    }
+
+    .welcome-content h2 {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    .welcome-content p {
+        font-size: 0.9em;
+        line-height: 1.4;
+        margin-bottom: 20px;
+    }
+
+    .last-updated {
+        white-space: nowrap;
+        font-size: 0.8em;
+    }
 }

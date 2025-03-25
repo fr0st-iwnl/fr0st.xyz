@@ -19,6 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const statuses = [
         {
             title: "fr0st - ",
+            emoji: "😔",
+            message: "tired and sad",
+            datetime: "2025-03-25T06:34:00+02:00", // Fixed datetime in ISO format with timezone
+        },
+        {
+            title: "fr0st - ",
             emoji: "😭",
             message: "man i just love my life.",
             image: "https://i.postimg.cc/wMnzvKPD/Untitled.png",
