@@ -94,12 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-document.querySelector("a").addEventListener("click", function(e) {
-    e.preventDefault();  // Prevent default anchor behavior
-    window.location.href = "/status";  // Manually change the location to /status
-});
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const statusBox = document.querySelector(".grid_row_box_dotted_status");
