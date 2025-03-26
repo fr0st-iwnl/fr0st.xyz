@@ -615,6 +615,115 @@ const artistData = [
             },
         ]
     },
+    {
+        name: "Joji",
+        popularSongs: [
+            {
+                title: "SLOW DANCING IN THE DARK",
+                videoUrl: "https://files.catbox.moe/u39p0t.mp4"
+            },
+            {
+                title: "Glimpse Of Us",
+                videoUrl: "https://files.catbox.moe/3am1kw.mp4"
+            },
+            {
+                title: "Sanctuary",
+                videoUrl: "https://files.catbox.moe/siauj8.mp4"
+            },
+        ],
+        songs: [
+            {
+                title: "Will He",
+                spotifyUrl: "https://open.spotify.com/track/4apZVURUvTrT9S51LBuXON?si=c45bce964caf4dea",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2733a927e16c14f2aeb7c004e19",
+                duration: "3:22",
+                isFavorite: true,
+                isObsessed: true,
+                isNostalgic: false
+            },
+            {
+                title: "Demons",
+                spotifyUrl: "https://open.spotify.com/track/3IsOr4fNjL24DtkNIBqjKz?si=4965813914774851",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2733a927e16c14f2aeb7c004e19",
+                duration: "2:56",
+                isFavorite: true,
+                isObsessed: true,
+                isNostalgic: false
+            },
+            {
+                title: "Window",
+                spotifyUrl: "https://open.spotify.com/track/7kdhk2tiGUgIPwZRd2if6I?si=2cc4b12a3f0946ad",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2733a927e16c14f2aeb7c004e19",
+                duration: "2:32",
+                isFavorite: true,
+                isObsessed: false,
+                isNostalgic: false
+            },
+            {
+                title: "Bitter Fuck",
+                spotifyUrl: "https://open.spotify.com/track/3LKgZUoFX1c4uT1CPDoOhz?si=047c344590134fb9",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2733a927e16c14f2aeb7c004e19",
+                duration: "2:34",
+                isFavorite: true,
+                isObsessed: true,
+                isNostalgic: false
+            },
+            {
+                title: "WANTED U",
+                spotifyUrl: "https://open.spotify.com/track/4rf7Mjit1TCiNaDgdn6peQ?si=ed87d68dc8844cfb",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734cc52cd7a712842234e4fce2",
+                duration: "4:11",
+                isFavorite: true,
+                isObsessed: true,
+                isNostalgic: false
+            },
+            {
+                title: "CAN'T GET OVER YOU",
+                spotifyUrl: "https://open.spotify.com/track/1c4qQG0WFrhSZxWGHjN1qA?si=161932fbea4a4f5b",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734cc52cd7a712842234e4fce2",
+                duration: "1:47",
+                isFavorite: true,
+                isObsessed: true,
+                isNostalgic: false
+            },
+            {
+                title: "YEAH RIGHT",
+                spotifyUrl: "https://open.spotify.com/track/52ooD6LHuXFubM6d1CDD93?si=7772eca49f6a4bee",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734cc52cd7a712842234e4fce2",
+                duration: "2:54",
+                isFavorite: true,
+                isObsessed: true,
+                isNostalgic: false
+            },
+            {
+                title: "WHY AM I STILL IN LA",
+                spotifyUrl: "https://open.spotify.com/track/6gdwDKR1y2qERKi2CHpxqq?si=a6360521a4c04cff",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734cc52cd7a712842234e4fce2",
+                duration: "3:19",
+                isFavorite: true,
+                isObsessed: true,
+                isNostalgic: false
+            },
+            {
+                title: "NO FUN",
+                spotifyUrl: "https://open.spotify.com/track/3nNjA76lO6zbLKugA0tdOw?si=e562f148ad9243d6",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734cc52cd7a712842234e4fce2",
+                duration: "2:48",
+                isFavorite: true,
+                isObsessed: true,
+                isNostalgic: false
+            },
+            {
+                title: "I'LL SEE YOU IN 40",
+                spotifyUrl: "https://open.spotify.com/track/2YTNma2z5qiOWYPMBGBFES?si=622b37e44f914fc6",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734cc52cd7a712842234e4fce2",
+                duration: "4:13",
+                isFavorite: true,
+                isObsessed: true,
+                isNostalgic: false
+            },
+        ]
+    },
     // Add more artists here
     
 ];
@@ -844,7 +953,7 @@ function createFilterMenu() {
                 </div>
                 <p>This is where I share my favorite artists and songs. You'll find a mix of different genres and styles that I enjoy listening to. Feel free to explore my music taste and discover some great tunes!</p>
                 <div class="last-updated">
-                    Last updated: March 25th 2025
+                    Last updated: March 26th 2025
                 </div>
             </div>
         </div>
