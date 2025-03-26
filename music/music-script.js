@@ -125,7 +125,7 @@ const artistData = [
                 title: "#1 Stunna",
                 spotifyUrl: "https://open.spotify.com/track/0DB5hjYLs8uL9KtE0immhi",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273828e3c89d67979fc678be0bb",
-                duration: "2:51",
+                duration: "2:41",
                 isFavorite: true,
                 isObsessed: true,
             },
@@ -149,7 +149,7 @@ const artistData = [
                 title: "Kill Yourself",
                 spotifyUrl: "https://open.spotify.com/track/4Gy5kycvHxatuBiNQBCPA6",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2739f84f46d5f97a954ded6d079",
-                duration: "2:45",
+                duration: "2:54",
                 isFavorite: true,
                 isObsessed: true,
             },
@@ -157,14 +157,14 @@ const artistData = [
                 title: "..And So It Was",
                 spotifyUrl: "https://open.spotify.com/track/5P45rIpV682KkvtZjZtuwB?si=45d450f6fdcc48d0",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273d060318e0c8cb5730a215386",
-                duration: "4:58",
+                duration: "4:57",
                 isFavorite: true
             },
             {
                 title: "Soul",
                 spotifyUrl: "https://open.spotify.com/track/2XlfXMpWi3d07qmfmouX6x?si=a6e9abb1ac614bde",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2731bd6fcff112891502437b2c0",
-                duration: "3:47",
+                duration: "3:46",
                 isFavorite: true,
                 isObsessed: true,
             },
@@ -172,7 +172,7 @@ const artistData = [
                 title: "122 Days",
                 spotifyUrl: "https://open.spotify.com/track/77o41Py1xkwaxs3200SKhW?si=75c9dc93ca544052",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2739db03c8368f127291ced4263",
-                duration: "2:26",
+                duration: "3:04",
                 isFavorite: true
             },
             {
@@ -361,7 +361,7 @@ const artistData = [
                 title: "JE$us",
                 spotifyUrl: "https://open.spotify.com/track/523ktOFsOiMbiRKlCpci3O?si=7d25e813883d4e75",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273679fc2b0f6fb5f000805ef77",
-                duration: "5:49",
+                duration: "5:48",
                 isFavorite: false,
                 isObsessed: true,
                 isNostalgic: true
@@ -395,7 +395,7 @@ const artistData = [
                 title: "9 Ciori",
                 spotifyUrl: "https://open.spotify.com/track/5X2kx9dd6cMLJUHbVemEoF?si=1b2e928a3f854ca2",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2735b9e5f222ba2dd6f8944c1d4",
-                duration: "3:05",
+                duration: "3:04",
                 isFavorite: true,
                 isNostalgic: true
             },
@@ -431,7 +431,7 @@ const artistData = [
                 title: "Sail",
                 spotifyUrl: "https://open.spotify.com/track/57Nez0yOaE9h7HuPObxDJP?si=0e373995ef0b43cd",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b27384de0e7589ec2b06f3df4d84",
-                duration: "2:43",
+                duration: "2:42",
                 isFavorite: true,
                 isObsessed: false,
                 isNostalgic: false
@@ -440,7 +440,7 @@ const artistData = [
                 title: "Leech",
                 spotifyUrl: "https://open.spotify.com/track/1E6AyRgbhDllNzYQXeS4iL?si=df028eb6e2c94993",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273088e9fde007c85411435b38e",
-                duration: "4:31",
+                duration: "4:30",
                 isFavorite: true,
                 isObsessed: false,
                 isNostalgic: false
@@ -449,7 +449,7 @@ const artistData = [
                 title: "Hurt",
                 spotifyUrl: "https://open.spotify.com/track/2zwMa9uUtUToEcBw6Iu5Pv?si=be256fa40bef4dd9",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2737cd3768fecefe743c5465b57",
-                duration: "3:19",
+                duration: "3:18",
                 isFavorite: false,
                 isObsessed: true,
                 isNostalgic: false
@@ -458,7 +458,7 @@ const artistData = [
                 title: "Diosa",
                 spotifyUrl: "https://open.spotify.com/track/0riw5or60woTnxgEtsBZFt?si=e2b61ad835b2415f",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2737cd3768fecefe743c5465b57",
-                duration: "4:22",
+                duration: "4:21",
                 isFavorite: true,
                 isObsessed: false,
                 isNostalgic: false
@@ -467,7 +467,7 @@ const artistData = [
                 title: "Little Lies",
                 spotifyUrl: "https://open.spotify.com/track/2BdnDERIrouwEuNDx1fxOg?si=07734dc75816467c",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2737cd3768fecefe743c5465b57",
-                duration: "4:15",
+                duration: "4:14",
                 isFavorite: true,
                 isObsessed: false,
                 isNostalgic: false
@@ -537,7 +537,7 @@ const artistData = [
                 title: "Save My Soul!",
                 spotifyUrl: "https://open.spotify.com/track/6jWe7hYUnTDsG7Mdm1uDUJ?si=98e7822a72a8455d",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b27350bee8cc558140c08f0e8e5e",
-                duration: "2:37",
+                duration: "2:36",
                 isFavorite: true,
                 isObsessed: false,
                 isNostalgic: false
@@ -564,7 +564,7 @@ const artistData = [
                 title: "EMBRAC3",
                 spotifyUrl: "https://open.spotify.com/track/2EpPsuXAGL6cZkM3pbcrD8?si=04b3843862ec4845",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2737b61f66a17d93d2a6a167de0",
-                duration: "4:22",
+                duration: "2:40",
                 isFavorite: true,
                 isObsessed: false,
                 isNostalgic: false
@@ -591,7 +591,7 @@ const artistData = [
                 title: "NOVEMBERR",
                 spotifyUrl: "https://open.spotify.com/track/62HnBMEdZjeFCd2T8g37T8?si=1936e7e6e7104bd0",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2739ad10104c60fb9deff5b7f34",
-                duration: "2:51",
+                duration: "2:50",
                 isFavorite: true,
                 isObsessed: false,
                 isNostalgic: false
