@@ -897,3 +897,60 @@
         font-size: 0.8em;
     }
 }
+
+/* Go Up Button */
+.go-up-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(----main-color);
+    border-radius: 50%;
+    color: var(----main-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.go-up-btn.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.go-up-btn i {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 580px) {
+    .go-up-btn {
+        width: 30px;
+        height: 30px;
+        bottom: 15px;
+        right: 4px;
+    }
+    
+    .go-up-btn i {
+        font-size: 1rem;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .go-up-btn {
+        width: 30px;
+        height: 30px;
+        bottom: 15px;
+        right: 4px;
+    }
+    
+    .go-up-btn i {
+        font-size: 1rem;
+    }
+}

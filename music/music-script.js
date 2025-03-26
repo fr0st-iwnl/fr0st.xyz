@@ -1306,9 +1306,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Go Up Button Functionality
+function initGoUpButton() {
+    const goUpBtn = document.createElement('button');
+    goUpBtn.className = 'go-up-btn';
+    goUpBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    document.body.appendChild(goUpBtn);
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            goUpBtn.classList.add('visible');
+        } else {
+            goUpBtn.classList.remove('visible');
+        }
+    });
+
+    goUpBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
 // Initialize everything when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initializeMusicPage();
     initializeVideoPlayer();
+    initGoUpButton();
 });
 
