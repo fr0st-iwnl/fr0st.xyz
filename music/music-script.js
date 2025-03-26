@@ -656,7 +656,7 @@ const artistData = [
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2733a927e16c14f2aeb7c004e19",
                 duration: "2:32",
                 isFavorite: true,
-                isObsessed: false,
+                isObsessed: true,
                 isNostalgic: false
             },
             {
