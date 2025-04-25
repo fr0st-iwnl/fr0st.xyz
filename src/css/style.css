@@ -273,6 +273,83 @@ nav ul li a {
 #hamburger-menu.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
+/*--------------------------------------------------------------
+# DROPDOWN MENU
+--------------------------------------------------------------*/
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--main-color);
+    border-radius: 4px;
+    z-index: 100;
+    margin-top: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--main-color);
+    border-radius: 0px;
+    text-align: left;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--main-color);
+    color: rgba(24, 45, 75, 0.616);
+}
+
+/* Fix for when dropdown menu disappears too easily */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Add an invisible bridge to prevent gaps */
+.dropdown::after {
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 100%;
+    top: 100%;
+    left: 0;
+}
+
+/* Keep the menu visible when hover over the dropdown-menu itself */
+.dropdown-menu:hover {
+    display: block;
+}
+
+.dropdown-toggle i {
+    margin-left: 4px;
+    font-size: 0.8em;
+    margin-right: 0;
+    transition: transform 0.2s ease;
+}
+
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+.dropdown-toggle {
+    border-radius: 10px !important;
+    padding: 0.2em 0.3em !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 
 /*--------------------------------------------------------------
 # Responsive Navbar
@@ -333,6 +410,12 @@ nav ul li a {
     #nav_tabs li:nth-child(5) {
         animation-delay: 0.6s;
     }
+    #nav_tabs li:nth-child(6) {
+        animation-delay: 0.7s;
+    }
+    #nav_tabs li:nth-child(7) {
+        animation-delay: 0.8s;
+    }
 
     /* Menu links */
     #nav_tabs li a {
@@ -355,7 +438,38 @@ nav ul li a {
         color: black;
         text-decoration: none;
     }
+    
+/*--------------------------------------------------------------
+# DROPDOWN MENU (MOBILE)
+--------------------------------------------------------------*/
+
+    /* Hide dropdown but show direct links for mobile */
+    .dropdown > .dropdown-toggle {
+        display: none;
+    }
+    
+    .dropdown > .dropdown-menu {
+        display: block;
+        position: static;
+        background: none;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        animation: none;
+    }
+
+    /* Add spacing between dropdown menu items */
+    .dropdown > .dropdown-menu a {
+        margin-bottom: 12px;
+    }
+    
+    /* Make the last dropdown item have the same spacing as regular nav items */
+    .dropdown > .dropdown-menu a:last-child {
+        margin-bottom: 0;
+    }
 }
+
 
 /* Slide-up animation for the dropdown */
 @keyframes slideUp {
@@ -748,6 +862,50 @@ hr.dotted {
 /*--------------------------------------------------------------
 # ABOUT
 --------------------------------------------------------------*/
+#about h2 {
+    font-size: 1.3em;
+    margin-bottom: 1em;
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+#home h2 {
+    font-size: 1.3em;
+    margin-bottom: 0.5em;
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+#home h2::before, #about h2::before {
+    content: "//";
+    color: var(--main-color);
+    opacity: 0.7;
+}
+
+#home h2::after, #about h2::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: var(--main-color);
+    opacity: 0.3;
+    flex-grow: 1;
+    margin-left: 0.5em;
+}
+
+#home .pr_warning {
+    padding: 0.3em;
+    border-left: 3px solid var(--warning-color);
+}
+
+#home .pr_privacy {
+    padding: 0.3em;
+    border-left: 3px solid #50C878;
+}
+
 table {
     width: 100%;
 }
@@ -914,6 +1072,27 @@ i {
     }
 }
 
+/* ABOUT/HOME HEADINGS */
+@media screen and (max-width: 1024px) {
+    #home h2, #about h2 {
+        display: block;
+        margin-bottom: 0.8em;
+        border-bottom: 1px dotted var(--main-color);
+        padding-bottom: 0.6em;
+        padding-left: 1.5em;
+        position: relative;
+    }
+    
+    #home h2::before, #about h2::before {
+        position: absolute;
+        left: 0;
+    }
+    
+    #home h2::after, #about h2::after {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 1050px) {
     #title {
         font-size: 2.3vw;
@@ -953,3 +1132,5 @@ i {
 #noise_vid, #rain_vid {
     display: none;
 }
+
+

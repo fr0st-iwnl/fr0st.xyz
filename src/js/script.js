@@ -5,6 +5,22 @@ let effectsDisabled = localStorage.getItem('effectsDisabled') === 'true';
 
 document.addEventListener('DOMContentLoaded', function() {
     initTooltips();
+    // Get all hidden update elements
+    const hiddenUpdates = document.querySelectorAll('.hidden-update');
+    
+    // Process each hidden update
+    hiddenUpdates.forEach(update => {
+        // Get the em element that contains the date
+        const dateEm = update.querySelector('em');
+        
+        if (dateEm) {
+            // Check if it already has the ✖ symbol
+            if (!dateEm.textContent.includes('✖')) {
+                // Add the ✖ symbol at the beginning
+                dateEm.innerHTML = '✖ ' + dateEm.innerHTML;
+            }
+        }
+    });
 });
 
 // remove 'rgb' and brackets from --bg-value so the color can be used in combination with individual opacity-values (rgba)
@@ -300,10 +316,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.getElementById("show-more-btn").addEventListener("click", function() {
     const hiddenUpdates = document.querySelectorAll(".hidden-update");
-    hiddenUpdates.forEach(update => {
-        update.style.display = "block"; // show hidden updates
-    });
-    this.style.display = "none"; // hide the show more button after clicking it
+    const button = this;
+    
+    // Check if updates are currently hidden
+    const areUpdatesHidden = hiddenUpdates[0] && hiddenUpdates[0].style.display !== "block";
+    
+    if (areUpdatesHidden) {
+        // Show hidden updates
+        hiddenUpdates.forEach(update => {
+            update.style.display = "block";
+        });
+        button.textContent = " < Show Less >"; // Change button text
+    } else {
+        // Hide updates
+        hiddenUpdates.forEach(update => {
+            update.style.display = "none";
+        });
+        button.textContent = " < Show More >"; // Restore button text
+    }
 });
 
 
@@ -385,3 +415,27 @@ function initTooltips() {
         });
     });
 }
+
+/**
+ * Mobile Dropdown Toggle
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdown = document.querySelector('.dropdown');
+    
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+                dropdownToggle.classList.remove('active');
+            }
+        });
+    }
+});

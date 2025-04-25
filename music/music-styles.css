@@ -13,7 +13,6 @@
 /* Stats Section */
 .stats-container {
     background: rgba(0, 0, 0, 0.7);
-    border: 1px solid var(----main-color);
     padding: 1.5rem;
     border-radius: 4px;
     margin-bottom: 2rem;

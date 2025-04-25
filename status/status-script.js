@@ -4,6 +4,25 @@
 
 import '/src/js/components/base.js';
 
+// Function to fix timezone offset issue when creating dates
+// DO NOT MODIFY THE formatDatetime FUNCTION
+function fixedDatetime(year, month, day, hour, minute) {
+    // Convert month to number for easier comparison
+    const monthNum = parseInt(month);
+    
+    // Adjust for DST (Daylight Saving Time)
+    // In Europe, DST typically starts in March (month 3) and ends in October (month 10)
+    let adjustedHour = hour;
+    
+    // During DST months (April to October), subtract 1 hour
+    if (monthNum >= 4 && monthNum <= 10) {
+        adjustedHour = String(parseInt(hour) - 1).padStart(2, '0');
+    }
+    
+    // Create ISO string with fixed +02:00 timezone
+    return `${year}-${month}-${day}T${adjustedHour}:${minute}:00+02:00`;
+}
+
 // Function to format the datetime
 function formatDatetime(dateTimeString) {
     const postDate = new Date(dateTimeString);
@@ -15,33 +34,38 @@ function formatDatetime(dateTimeString) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Your statuses with optional messages and images
     const statuses = [
+        {
+            title: "fr0st - ",
+            emoji: "✨",
+            message: "hope yall like the new design :P",
+            datetime: fixedDatetime("2025", "04", "25", "21", "22"),
+        },
         {
             title: "fr0st - ",
             emoji: "😔",
             message: "tired and sad",
-            datetime: "2025-03-25T06:34:00+02:00", // Fixed datetime in ISO format with timezone
+            datetime: fixedDatetime("2025", "03", "25", "06", "34"),
         },
         {
             title: "fr0st - ",
             emoji: "😭",
             message: "man i just love my life.",
             image: "https://i.postimg.cc/wMnzvKPD/Untitled.png",
-            datetime: "2025-02-18T20:15:00+02:00", // Fixed datetime in ISO format with timezone
+            datetime: fixedDatetime("2025", "02", "18", "20", "15"),
         },
         {
             title: "fr0st - ",
             emoji: "😿",
             message: "man i hate js :(",
-            datetime: "2025-02-05T00:16:00+02:00", // Fixed datetime in ISO format with timezone
+            datetime: fixedDatetime("2025", "02", "05", "00", "16"),
         },
         {
             title: "fr0st - ",
             emoji: "😼",
             message: "yes.",
             image: "https://i.kym-cdn.com/photos/images/newsfeed/002/336/299/918.jpg",
-            datetime: "2025-02-04T15:45:00+02:00", // Fixed datetime in ISO format with timezone
+            datetime: fixedDatetime("2025", "02", "04", "15", "45"),
         },
     ];
 
@@ -94,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
 document.addEventListener("DOMContentLoaded", () => {
     const statusBox = document.querySelector(".grid_row_box_dotted_status");
 
@@ -123,4 +146,4 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         statusBox.innerHTML = "<p>No status available.</p>";
     }
-})
+});

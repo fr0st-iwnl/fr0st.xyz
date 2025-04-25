@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-----METAS----->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description"
+        content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+    <meta name="author" content="fr0st-iwnl">
+    <meta name="theme-color" content="#72B6FF">
+    <meta proberty="og:title" content="fr0st-iwnl">
+    <meta property="og:site_name" content="fr0st.xyz/resources">
+    <meta proberty="og:description"
+        content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+    <meta proberty="og:url" content="https://fr0st.xyz">
+    <meta name="keywords" content="fr0st-iwnl, frost, fr0st, frostiwnl, kiyokosmacros, frostiwnldev, frost github">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <!-----TITLE------>
+	<title>fr0st-iwnl - Resources</title>
+
+    <!-----SCRIPT-JS------>
+    <script src="/resources/resources-script.js" type="module" defer></script>
+
+
+    <!-----LINKS------>
+    <link rel="preload" as="font" href="src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
+    <link rel="icon" href="/src/media/favicons/favicon.ico">
+    <link rel="stylesheet" href="/resources/resources-styles.css">
+
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+    <!---FONT AWESOME------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <video preload="none" onloadstart="this.playbackRate = 0.65;" autoplay muted loop playsinline id="noise_vid"
+        src="https://files.catbox.moe/hop8wg.mp4" poster="/src/media/noise_static.png">
+    </video>
+
+    <video preload="none" onloadstart="this.playbackRate = 0.85;" autoplay muted loop playsinline id="rain_vid"
+        src="https://files.catbox.moe/i7le27.mp4" poster="/src/media/rain_bg_static.png">
+    </video>
+
+    <div id="snow-container"></div>
+    <div class="vignette"></div>
+    <div id="videohue"></div>
+    <div id="canvas">
+        <header>
+            <div>
+                <h1 class="privacy_title">RESOURCES</h1>
+                <br>
+                <p class="effects" id="changeEffects">Want some fancy effects? Click <a id="changeEffectsLink">HERE</a> to turn them on.</p>
+            </div>
+        </header>
+        <br>
+
+        <!-- NAVBAR -->
+        <nav id="nav_tabs">
+            <ul>
+                <li><a href="/index.html"><i class="fa-solid fa-less-than-equal"></i></a></li>
+                <li><a href="https://github.com/fr0st-iwnl" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+            </ul>
+        </nav>
+        <br>
+        <!-- Welcome Message -->
+        <div class="welcome-message">
+            <p>Here you'll find all the tools and apps that I personally use and recommend. Check out each category to find helpful resources.</p>
+        </div>
+
+        <!-- Category Navigation -->
+        <div class="category-nav">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="design">Design</button>
+            <button class="category-btn" data-category="recording">Recording & Editing</button>
+            <button class="category-btn" data-category="development">Development</button>
+            <button class="category-btn" data-category="automation">Automation & System Tools</button>
+            <button class="category-btn" data-category="misc">Miscellaneous</button>
+        </div>
+
+        <!-- Search -->
+        <div class="search-container">
+            <div class="search-bar">
+                <i class="fa-solid fa-search search-icon"></i>
+                <input type="text" id="resource-search" placeholder="Search Resources">
+            </div>
+        </div>
+
+        <!-- RESOURCES CONTENT -->
+        <main class="resources-container">
+            <!-- Design Resources -->
+            <div class="resource-group" data-category="design">
+                <h2><i class="fa-solid fa-palette"></i> Design</h2>
+                <div class="resource-grid">
+                    <div class="resource-card" data-tags="design photo editor image editing">
+                        <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <div class="card-content">
+                            <h3>Pixlr</h3>
+                            <p>Quick, free photo editing in browser.</p>
+                            <div class="card-tags">
+                                <span class="tag">photo</span>
+                                <span class="tag">editor</span>
+                            </div>
+                        </div>
+                        <a href="https://pixlr.com/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card" data-tags="design photoshop editor image editing">
+                        <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="card-content">
+                            <h3>Photopea</h3>
+                            <p>Photoshop-like editor, right in browser.</p>
+                            <div class="card-tags">
+                                <span class="tag">photoshop</span>
+                                <span class="tag">editor</span>
+                            </div>
+                        </div>
+                        <a href="https://www.photopea.com/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="design diagram sketch whiteboard drawing">
+                        <div class="card-icon"><i class="fa-solid fa-pen"></i></div>
+                        <div class="card-content">
+                            <h3>Excalidraw</h3>
+                            <p>Easy sketching tool for quick diagrams.​​</p>
+                            <div class="card-tags">
+                                <span class="tag">diagrams</span>
+                                <span class="tag">sketch</span>
+                            </div>
+                        </div>
+                        <a href="https://excalidraw.com/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="design digital painting drawing illustration">
+                        <div class="card-icon"><i class="fa-solid fa-paintbrush"></i></div>
+                        <div class="card-content">
+                            <h3>Krita</h3>
+                            <p>Free and open source painting program.</p>
+                            <div class="card-tags">
+                                <span class="tag">painting</span>
+                                <span class="tag">drawing</span>
+                            </div>
+                        </div>
+                        <a href="https://krita.org/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="design image ai enhance photo quality">
+                        <div class="card-icon"><i class="fa-solid fa-brush"></i></div>
+                        <div class="card-content">
+                            <h3>PicsArt Image Enhancer</h3>
+                            <p>Free AI image enhancer.</p>
+                            <div class="card-tags">
+                                <span class="tag">ai</span>
+                                <span class="tag">enhancer</span>
+                            </div>
+                        </div>
+                        <a href="https://picsart.com/ai-image-enhancer/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+
+                    <div class="resource-card" data-tags="design image background removal photo editing">
+                        <div class="card-icon"><i class="fa-solid fa-object-ungroup"></i></div>
+                        <div class="card-content">
+                            <h3>PicsArt Background Changer</h3>
+                            <p>Free Background Changer.</p>
+                            <div class="card-tags">
+                                <span class="tag">background</span>
+                                <span class="tag">removal</span>
+                            </div>
+                        </div>
+                        <a href="https://picsart.com/background-changer/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <!--<div class="resource-card" data-tags="design photo effects filters image editing">
+                        <div class="card-icon"><i class="fa-solid fa-brush"></i></div>
+                        <div class="card-content">
+                            <h3>PixelFX</h3>
+                            <p>Simple photo effects, more coming soon (made by me).</p>
+                            <div class="card-tags">
+                                <span class="tag">photo</span>
+                                <span class="tag">effects</span>
+                            </div>
+                        </div>
+                        <a href="https://pixelfx.netlify.app/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>-->
+
+
+                    <div class="resource-card" data-tags="design svg background shapes generator">
+                        <div class="card-icon"><i class="fa-solid fa-shapes"></i></div>
+                        <div class="card-content">
+                            <h3>Haikei</h3>
+                            <p>Generate unique SVG backgrounds and shapes.​</p>
+                            <div class="card-tags">
+                                <span class="tag">svg</span>
+                                <span class="tag">background</span>
+                            </div>
+                        </div>
+                        <a href="https://haikei.app/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+
+                    <div class="resource-card" data-tags="design icons library symbol graphics">
+                        <div class="card-icon"><i class="fa-solid fa-icons"></i></div>
+                        <div class="card-content">
+                            <h3>RemixIcons</h3>
+                            <p>A set of icons for your projects.</p>
+                            <div class="card-tags">
+                                <span class="tag">icons</span>
+                                <span class="tag">library</span>
+                            </div>
+                        </div>
+                        <a href="https://remixicon.com/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+
+                    <div class="resource-card" data-tags="design fonts typography text library">
+                        <div class="card-icon"><i class="fa-solid fa-font"></i></div>
+                        <div class="card-content">
+                            <h3>FontShare</h3>
+                            <p>Free fonts for your projects.</p>
+                            <div class="card-tags">
+                                <span class="tag">fonts</span>
+                                <span class="tag">typography</span>
+                            </div>
+                        </div>
+                        <a href="https://www.fontshare.com/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="design fonts typography text library">
+                        <div class="card-icon"><i class="fa-solid fa-italic"></i></div>
+                        <div class="card-content">
+                            <h3>DaFont</h3>
+                            <p>Free fonts for your projects.</p>
+                            <div class="card-tags">
+                                <span class="tag">fonts</span>
+                                <span class="tag">typography</span>
+                            </div>
+                        </div>
+                        <a href="https://www.dafont.com/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Recording/Streaming Resources -->
+            <div class="resource-group" data-category="recording">
+                <h2><i class="fa-solid fa-video"></i> Recording & Editing</h2>
+                <div class="resource-grid">
+                    <div class="resource-card" data-tags="recording streaming video capture">
+                        <div class="card-icon"><i class="fa-solid fa-video"></i></div>
+                        <div class="card-content">
+                            <h3>OBS Studio</h3>
+                            <p>Free and open source software for video recording and streaming</p>
+                            <div class="card-tags">
+                                <span class="tag">streaming</span>
+                                <span class="tag">recording</span>
+                            </div>
+                        </div>
+                        <a href="https://obsproject.com/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card" data-tags="recording video editing post-production">
+                        <div class="card-icon"><i class="fa-solid fa-film"></i></div>
+                        <div class="card-content">
+                            <h3>CapCut</h3>
+                            <p>Video editing made easy for everyone, free.</p>
+                            <div class="card-tags">
+                                <span class="tag">video</span>
+                                <span class="tag">editing</span>
+                            </div>
+                        </div>
+                        <a href="https://www.capcut.com/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="recording video editing post-production">
+                        <div class="card-icon"><i class="fa-solid fa-circle-notch"></i></div>
+                        <div class="card-content">
+                            <h3>Screen Studio</h3>
+                            <p>Screen recording and editing tool for Mac.</p>
+                            <div class="card-tags">
+                                <span class="tag">recording</span>
+                                <span class="tag">editing</span>
+                            </div>
+                        </div>
+                        <a href="https://screen.studio/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="recording video editing post-production">
+                        <div class="card-icon"><i class="fa-solid fa-arrow-pointer"></i></div>
+                        <div class="card-content">
+                            <h3>Cursorful</h3>
+                            <p>Great Browser alternative to Screen Studio, free.</p>
+                            <div class="card-tags">
+                                <span class="tag">recording</span>
+                                <span class="tag">editing</span>
+                            </div>
+                        </div>
+                        <a href="https://cursorful.com/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="recording video editing post-production">
+                        <div class="card-icon"><i class="fa-solid fa-camera"></i></div>
+                        <div class="card-content">
+                            <h3>Screenity</h3>
+                            <p>A screen recorder in the browser that's free and friendly.</p>
+                            <div class="card-tags">
+                                <span class="tag">recording</span>
+                                <span class="tag">editing</span>
+                            </div>
+                        </div>
+                        <a href="https://screenity.io/en/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Development Resources -->
+            <div class="resource-group" data-category="development">
+                <h2><i class="fa-solid fa-code"></i> Development</h2>
+                <div class="resource-grid">
+                    <div class="resource-card" data-tags="development code editor ide">
+                        <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+                        <div class="card-content">
+                            <h3>VSCodium</h3>
+                            <p>VS Code without Microsoft tracking.</p>
+                            <div class="card-tags">
+                                <span class="tag">editor</span>
+                                <span class="tag">extensions</span>
+                            </div>
+                        </div>
+                        <a href="https://vscodium.com/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card" data-tags="development git repository">
+                        <div class="card-icon"><i class="fa-solid fa-cube"></i></div>
+                        <div class="card-content">
+                            <h3>Cursor</h3>
+                            <p>AI-powered code editor for faster development.​</p>
+                            <div class="card-tags">
+                                <span class="tag">ai</span>
+                                <span class="tag">editor</span>
+                            </div>
+                        </div>
+                        <a href="https://cursor.com" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card" data-tags="development documentation web">
+                        <div class="card-icon"><i class="fa-brands fa-firefox-browser"></i></div>
+                        <div class="card-content">
+                            <h3>MDN Web Docs</h3>
+                            <p>Resources for web developers</p>
+                            <div class="card-tags">
+                                <span class="tag">docs</span>
+                                <span class="tag">reference</span>
+                            </div>
+                        </div>
+                        <a href="https://developer.mozilla.org/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card" data-tags="development documentation web">
+                        <div class="card-icon"><i class="fa-brands fa-github"></i></div>
+                        <div class="card-content">
+                            <h3>Github</h3>
+                            <p>Platform for version control and collaboration</p>
+                            <div class="card-tags">
+                                <span class="tag">git</span>
+                                <span class="tag">hub</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="development documentation web">
+                        <div class="card-icon"><i class="fa-solid fa-cloud-arrow-down"></i></div>
+                        <div class="card-content">
+                            <h3>Netlify</h3>
+                            <p>Host your website for free.</p>
+                            <div class="card-tags">
+                                <span class="tag">hosting</span>
+                                <span class="tag">website</span>
+                            </div>
+                        </div>
+                        <a href="https://netlify.com" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="development documentation web">
+                        <div class="card-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                        <div class="card-content">
+                            <h3>Vercel</h3>
+                            <p>Deploy your website for free.</p>
+                            <div class="card-tags">
+                                <span class="tag">hosting</span>
+                                <span class="tag">website</span>
+                            </div>
+                        </div>
+                        <a href="https://vercel.com" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="development documentation web">
+                        <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="card-content">
+                            <h3>Litlyx</h3>
+                            <p>Lightweight, open-source analytics built with privacy in mind.</p>
+                            <div class="card-tags">
+                                <span class="tag">analytics</span>
+                                <span class="tag">privacy</span>
+                            </div>
+                        </div>
+                        <a href="https://litlyx.com/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <!-- Automation Resources -->
+            <div class="resource-group" data-category="automation">
+                <h2><i class="fa-solid fa-gear"></i> Automation & System Tools</h2>
+                <div class="resource-grid">
+                    <div class="resource-card" data-tags="automation windows system install">
+                        <div class="card-icon"><i class="fa-solid fa-terminal"></i></div>
+                        <div class="card-content">
+                            <h3>WinConfigs</h3>
+                            <p>A script to simplify Windows setup by automating software installation and system tweaks. </p>
+                            <div class="card-tags">
+                                <span class="tag">automation</span>
+                                <span class="tag">windows</span>
+                            </div>
+                        </div>
+                        <a href="https://winconfigs.netlify.app/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card" data-tags="automation windows macros productivity">
+                        <div class="card-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
+                        <div class="card-content">
+                            <h3>WinMacros</h3>
+                            <p>Custom Windows macros for faster tasks and easy system control.​</p>
+                            <div class="card-tags">
+                                <span class="tag">automation</span>
+                                <span class="tag">macro</span>
+                            </div>
+                        </div>
+                        <a href="https://winmacros.netlify.app/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card" data-tags="automation windows os system performance">
+                        <div class="card-icon"><i class="fa-solid fa-computer"></i></div>
+                        <div class="card-content">
+                            <h3>AtlasOS</h3>
+                            <p>A modification of Windows, made for enthusiasts.</p>
+                            <div class="card-tags">
+                                <span class="tag">automation</span>
+                                <span class="tag">system</span>
+                            </div>
+                        </div>
+                        <a href="https://atlasos.net/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="automation system usb boot">
+                        <div class="card-icon"><i class="fa-brands fa-usb"></i></div>
+                        <div class="card-content">
+                            <h3>Ventoy</h3>
+                            <p>Create bootable USB drives with multiple OS installations.</p>
+                            <div class="card-tags">
+                                <span class="tag">boot</span>
+                                <span class="tag">usb</span>
+                            </div>
+                        </div>
+                        <a href="https://ventoy.net/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                  
+
+
+                </div>
+            </div>
+
+            <!-- Miscellaneous Resources -->
+            <div class="resource-group" data-category="misc">
+                <h2><i class="fa-solid fa-toolbox"></i> Miscellaneous</h2>
+                <div class="resource-grid">
+                    <div class="resource-card" data-tags="misc music sharing download">
+                        <div class="card-icon"><i class="fa-solid fa-music"></i></div>
+                        <div class="card-content">
+                            <h3>Nicotine+</h3>
+                            <p>A modern Soulseek client for sharing and downloading music easily.</p>
+                            <div class="card-tags">
+                                <span class="tag">music</span>
+                                <span class="tag">sharing</span>
+                            </div>
+                        </div>
+                        <a href="https://nicotine-plus.org/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="misc file hosting upload share">
+                        <div class="card-icon"><i class="fa-solid fa-cat"></i></div>
+                        <div class="card-content">
+                            <h3>Catbox</h3>
+                            <p>Simple, anonymous file hosting</p>
+                            <div class="card-tags">
+                                <span class="tag">file</span>
+                                <span class="tag">hosting</span>
+                            </div>
+                        </div>
+                        <a href="https://catbox.moe/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="misc images hosting upload share">
+                        <div class="card-icon"><i class="fa-solid fa-image"></i></div>
+                        <div class="card-content">
+                            <h3>PostImages</h3>
+                            <p>Free image hosting for your projects.</p>
+                            <div class="card-tags">
+                                <span class="tag">images</span> 
+                                <span class="tag">hosting</span>
+                            </div>
+                        </div>
+                        <a href="https://postimages.org/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="misc converter file format utility">
+                        <div class="card-icon"><i class="fa-solid fa-arrow-up"></i></div>
+                        <div class="card-content">
+                            <h3>FreeConvert</h3>
+                            <p>Probably one of the best free online converters out there.</p>
+                            <div class="card-tags">
+                                <span class="tag">file</span>
+                                <span class="tag">converter</span>
+                            </div>
+                        </div>
+                        <a href="https://www.freeconvert.com/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="misc youtube downloader converter audio video">
+                        <div class="card-icon"><i class="fa-brands fa-youtube"></i></div>
+                        <div class="card-content">
+                            <h3>Yout</h3>
+                            <p>Easily convert YouTube videos to MP3 or MP4.</p>
+                            <div class="card-tags">
+                                <span class="tag">youtube</span>
+                                <span class="tag">converter</span>
+                            </div>
+                        </div>
+                        <a href="https://yout.pw/en1" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="misc browser extension tab productivity">
+                        <div class="card-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <div class="card-content">
+                            <h3>MTab</h3>
+                            <p>Lightweight new tab browser page extension</p>
+                            <div class="card-tags">
+                                <span class="tag">automation</span>
+                                <span class="tag">system</span>
+                            </div>
+                        </div>
+                        <a href="https://get-mtab.vercel.app/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="misc browser extension privacy adblock">
+                        <div class="card-icon"><i class="fa-solid fa-ad"></i></div>
+                        <div class="card-content">
+                            <h3>UBlock Origin</h3>
+                            <p>Lightweight ad blocker for your browser</p>
+                            <div class="card-tags">
+                                <span class="tag">adblock</span>
+                                <span class="tag">privacy</span>
+                            </div>
+                        </div>
+                        <a href="https://ublockorigin.com/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card" data-tags="misc browser extension youtube privacy">
+                        <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="card-content">
+                            <h3>SponsorBlock</h3>
+                            <p>Lightweight Sponsor Blocker Extension for YouTube</p>
+                            <div class="card-tags">
+                                <span class="tag">youtube</span>
+                                <span class="tag">sponsor</span>
+                            </div>
+                        </div>
+                        <a href="https://sponsor.ajay.app/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card" data-tags="misc privacy notes secure encryption">
+                        <div class="card-icon"><i class="fa-solid fa-lock"></i></div>
+                        <div class="card-content">
+                            <h3>Enclosed</h3>
+                            <p>Minimalistic web app built for sending private and secure notes.</p>
+                            <div class="card-tags">
+                                <span class="tag">notes</span>
+                                <span class="tag">privacy</span>
+                            </div>
+                        </div>
+                        <a href="https://enclosed.cc/" target="_blank" class="resource-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                   
+
+                </div>
+            </div>
+        </main>
+        
+        <!-- No Results Message -->
+        <div id="no-results" class="no-results" style="display: none;">
+            <i class="fa-solid fa-face-sad-tear"></i>
+            <p>No resources found matching your search.</p>
+        </div>
+
+    <!---------THEMES------------->
+    <div id="theme_selector">
+        <div id="theme_list"></div>
+    </div>
+</body>
+
+</html>
