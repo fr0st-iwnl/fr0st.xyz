@@ -21,6 +21,7 @@
 :root {
     /* Will be overwritten if theme is selected (theme-selections are saved in localStorage) */
     --main-color: #72b6ff;
+    --dropdown-color: 114, 182, 255;
     --bg-color: rgb(15, 129, 236); /* needs to be in rgb format */
     --bg-opacity: 0.31;
     --selection: #3b6d8b;
@@ -330,10 +331,20 @@ nav ul li a {
 }
 
 .dropdown-toggle i {
-    margin-left: 4px;
+    margin-left: 6px;
     font-size: 0.8em;
     margin-right: 0;
     transition: transform 0.2s ease;
+    background-color: rgba(var(--dropdown-color), 0.2);
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    position: relative;
+    top: 0;
 }
 
 .dropdown:hover .dropdown-toggle i {
