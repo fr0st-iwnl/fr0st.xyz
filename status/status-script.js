@@ -37,6 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const statuses = [
         {
             title: "fr0st - ",
+            emoji: "🎶",
+            message: "finally revamped the music page",
+            datetime: fixedDatetime("2025", "06", "05", "2", "13"),
+        },
+        {
+            title: "fr0st - ",
             emoji: "😑",
             message: "hate being lazy when i wanna build things :/",
             datetime: fixedDatetime("2025", "05", "26", "10", "20"),

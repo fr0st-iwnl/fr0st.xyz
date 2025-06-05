@@ -32,6 +32,13 @@
     font-size: 10px;
 }
 
+html {
+    /* For Firefox */
+    overflow-y: scroll;
+    scrollbar-width: thin; /* Options: auto | thin | none */
+    scrollbar-color: var(--main-color) #222; /* thumb | track */
+}
+
 pre:not(#title), code {
     white-space: pre-wrap;
 }

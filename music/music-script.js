@@ -4,106 +4,17 @@
 
 import '/src/js/components/base.js';
 
+const ARTIST_CONFIG = {
+    "$uicideboy$": 248,
+    "Stromae": 38,
+    "Bakar": 45,
+    "Artemas": 36,
+    "Killa Fonic": 116,
+    "Mareux": 17,
+    "Joji": 37
+};
+
 const artistData = [
-    {
-        name: "Bakar",
-        popularSongs: [
-            {
-                title: "Hell N Back",
-                videoUrl: "https://files.catbox.moe/si3pb8.mp4"
-            },
-            {
-                title: "Big Dreams",
-                videoUrl: "https://files.catbox.moe/pmxt92.mp4"
-            },
-            {
-                title: "The Mission",
-                videoUrl: "https://files.catbox.moe/3p7r99.mp4"
-            },
-        ],
-        songs: [
-            {
-                title: "Youthenasia",
-                spotifyUrl: "https://open.spotify.com/track/21yECssJG7tIwZ06EwTZEC",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273388fbcd53f6d4647cbf10451?format=webp&width=573&height=573",
-                duration: "4:05",
-                isFavorite: true,
-                isObsessed: true,
-            },
-            {
-                title: "Not From Here",
-                spotifyUrl: "https://open.spotify.com/track/0VhUQrbIn4lgmWyJVtZnzV",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273388fbcd53f6d4647cbf10451?format=webp&width=573&height=573",
-                duration: "4:12",
-                isFavorite: true,
-                isObsessed: true,
-            },
-            {
-                title: "The Mission",
-                spotifyUrl: "https://open.spotify.com/track/1hNfSHVnBPd5GCFSqqA6Zo",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273388fbcd53f6d4647cbf10451?format=webp&width=573&height=573",
-                duration: "3:11",
-                isFavorite: true,
-                isObsessed: true,
-            },
-            {
-                title: "Gotham",
-                spotifyUrl: "https://open.spotify.com/track/4UkGSEwcxFW3FvtekdKoRm?si=4e41551dba274c26",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273388fbcd53f6d4647cbf10451?format=webp&width=573&height=573",
-                duration: "4:19",
-                isFavorite: true,
-                isObsessed: true,
-            },
-            {
-                title: "Alone Again",
-                spotifyUrl: "https://open.spotify.com/track/7loZhAtONLruIFyaVNVab7?si=dbbd650bc41345df",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273388fbcd53f6d4647cbf10451?format=webp&width=573&height=573",
-                duration: "3:39",
-                isFavorite: true,
-                isObsessed: true,
-            },
-            {
-                title: "NW3",
-                spotifyUrl: "https://open.spotify.com/track/3NSBOLzrxMri9OEyxYeWov?si=d72f7a326a094480",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273388fbcd53f6d4647cbf10451?format=webp&width=573&height=573",
-                duration: "3:53",
-                isFavorite: true,
-                isObsessed: true,
-            },
-            {
-                title: "Alive!",
-                spotifyUrl: "https://open.spotify.com/track/4Yf2S4ArywzowFQZmesSI9?si=a5b335a340374a65",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2736f61ea5fff15872b314468e8",
-                duration: "3:52",
-                isFavorite: true
-            },
-            {
-                title: "To Open My Heart",
-                spotifyUrl: "https://open.spotify.com/track/3HsZxv09GQxyratt8cmvcd?si=e029b2717b0f4481",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2736f61ea5fff15872b314468e8",
-                duration: "3:40",
-                isFavorite: true,
-                isObsessed: true,
-            },
-            {
-                title: "Unhealthy",
-                spotifyUrl: "https://open.spotify.com/track/7ewFgEaH0wII9QmpcTCkcA?si=dab438106a0947cd",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273fe7dd6de1fa0853b5a0701a9",
-                duration: "2:33",
-                isFavorite: true,
-                isObsessed: true   
-            },
-            {
-                title: "All In",
-                spotifyUrl: "https://open.spotify.com/track/1gdTL35aKcrz1J5qGTqznF?si=fc7661f16c0c4259",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273fe7dd6de1fa0853b5a0701a9",
-                duration: "2:49",
-                isFavorite: true,
-                isObsessed: true,
-            }
-            // Add more songs for this artist
-        ]
-    },
     {
         name: "$uicideboy$",
         popularSongs: [
@@ -122,81 +33,433 @@ const artistData = [
         ],
         songs: [
             {
-                title: "#1 Stunna",
-                spotifyUrl: "https://open.spotify.com/track/0DB5hjYLs8uL9KtE0immhi",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273828e3c89d67979fc678be0bb",
-                duration: "2:41",
+                title: "New World Depression",
+                spotifyUrl: "https://open.spotify.com/album/1lKWIQuLHxdlifTuudutTl?si=bSqMB7I-TyO_oVYcCu_04g",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27335d777c5fa4a353b87ad62bd",
+                duration: "34:15",
                 isFavorite: true,
+                isObsessed: false,
+                isAlbum: true
+            },
+            {
+                title: "Sing Me a Lullaby, My Sweet Temptation",
+                spotifyUrl: "https://open.spotify.com/album/3elJRIffdqvypuxoDND2Q3?si=Px-YbeMqS9G5sR4AtzJIMQ",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273db20089661aff3a8070600ca",
+                duration: "36:06",
+                isFavorite: false,
                 isObsessed: true,
+                isAlbum: true
             },
             {
-                title: "Am/Pm",
-                spotifyUrl: "https://open.spotify.com/track/23fF9E89dWW5ZnmRfsB5Kb?si=6eade21c86654943",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b27354c0c1ea300d471e9eb90ae9",
-                duration: "2:04",
-                isFavorite: true,
+                title: "Long Term Effects of SUFFERING",
+                spotifyUrl: "https://open.spotify.com/album/3dgsCZMswt6TWbsKcMgoO2?si=ms58UH3OQnew4GiNreUa_g",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273b25093d7ccdce4a848988f9e",
+                duration: "33:02",
                 isObsessed: true,
+                isAlbum: true
             },
             {
-                title: "Novus Ordo Seclorum",
-                spotifyUrl: "https://open.spotify.com/track/1Hs7kaqR19n681bs3GdpK4?si=24f96d0140004c4d",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b27354c0c1ea300d471e9eb90ae9",
-                duration: "1:36",
-                isFavorite: true,
+                title: "Stop Staring At the Shadows",
+                spotifyUrl: "https://open.spotify.com/album/7rKmLxCFlmtIxGpX4HYgs4?si=otKn7o6NTm2QKexZdRZJSw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273e2bab14ce82f78a4160376a1",
+                duration: "26:07",
                 isObsessed: true,
+                isAlbum: true
             },
             {
-                title: "Kill Yourself",
-                spotifyUrl: "https://open.spotify.com/track/4Gy5kycvHxatuBiNQBCPA6",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2739f84f46d5f97a954ded6d079",
-                duration: "2:54",
-                isFavorite: true,
-                isObsessed: true,
-            },
-            {
-                title: "..And So It Was",
-                spotifyUrl: "https://open.spotify.com/track/5P45rIpV682KkvtZjZtuwB?si=45d450f6fdcc48d0",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273d060318e0c8cb5730a215386",
-                duration: "4:57",
-                isFavorite: true
-            },
-            {
-                title: "Soul",
-                spotifyUrl: "https://open.spotify.com/track/2XlfXMpWi3d07qmfmouX6x?si=a6e9abb1ac614bde",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2731bd6fcff112891502437b2c0",
-                duration: "3:46",
-                isFavorite: true,
-                isObsessed: true,
-            },
-            {
-                title: "122 Days",
-                spotifyUrl: "https://open.spotify.com/track/77o41Py1xkwaxs3200SKhW?si=75c9dc93ca544052",
+                title: "I Want to Die In New Orleans",
+                spotifyUrl: "https://open.spotify.com/album/2ivOxIKDHxEo6WMD9m3ytn?si=9XV3uzX-TK6u5e9QBKf6cQ",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2739db03c8368f127291ced4263",
-                duration: "3:04",
-                isFavorite: true
+                duration: "42:29",
+                isObsessed: true,
+                isAlbum: true
             },
             {
-                title: "Peso",
-                spotifyUrl: "https://open.spotify.com/track/0fhpUfg3hPSafKZKY9HubU?si=bb871c9249e840fa",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273fbc974279c3da95e37a6fae1",
-                duration: "2:35",
-                isFavorite: true
+                title: "Eternal Grey",
+                spotifyUrl: "https://open.spotify.com/album/2hAoB9uIsHVFABuuOREFmB?si=XzhaDkJ7Q_-a0RnbSfkQYw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27309c67f4a00626c5dfacbdf6f",
+                duration: "31:06",
+                isObsessed: true,
+                isAlbum: true
             },
             {
-                title: "Sleepy Hollow - Slopped & Chewed",
-                spotifyUrl: "https://open.spotify.com/track/3Ni6hQT6y66krcdYl1Hv3L?si=40424b63e62b4109",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273fbc974279c3da95e37a6fae1",
-                duration: "3:38",
+                title: "Dark Side of the Clouds",
+                spotifyUrl: "https://open.spotify.com/album/3blujlZ2W1BZAM9KcHrbP8?si=CJ5YjIC_ROeH9qcmq2K_xA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27354c0c1ea300d471e9eb90ae9",
+                duration: "25:31",
+                isObsessed: true,
+                isAlbum: true
+            },
+            
+            {
+                title: "Grey Sheep II",
+                spotifyUrl: "https://open.spotify.com/album/1aVnxqszPG45yn2nFsVQRS?si=USs-O-5QQ4-P9-l6pQe4-Q",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2738abb1b7abadd031c551aaa8c",
+                duration: "16:15",
+                isObsessed: true,
+                isAlbum: true
+            },
+            {
+                title: "Now the Moon's Rising",
+                spotifyUrl: "https://open.spotify.com/album/12RWpV5WUjYo4SisuFWMNK?si=o6XMttVYQKShed5LZZSN8g",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273eede8ca62134dd7bdecb6085",
+                duration: "20:07",
                 isFavorite: true,
+                isAlbum: true
+            },
+            {
+                title: "My Liver Will Handle What My Heart Can't",
+                spotifyUrl: "https://open.spotify.com/album/2VrpzWjnsiELWKXOJAFhme?si=-XovTpmARoSfnqDX8zY5YA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273dcff3103179d992594a227db",
+                duration: "29:22",
+                isObsessed: true,
+                isAlbum: true
+            },
+            {
+                title: "Grey Sheep",
+                spotifyUrl: "https://open.spotify.com/album/3bZ9pTGwh1vPskRRf9uymq?si=e8pRCax1RQS5BIrJfiqFgA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2737e977572c5271666dc76cb9a",
+                duration: "14:51",
+                isObsessed: true,
+                isAlbum: true
+            },
+            {
+                title: "High Tide in the Snake's Nest",
+                spotifyUrl: "https://open.spotify.com/album/7gMzKwKAsbooGeKgDlX2TL?si=2-2cCMUASguifBu6Qkkvnw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2739170408b39b66a6185f6534a",
+                duration: "25:51",
+                isObsessed: true,
+                isAlbum: true
+            },
+            {
+                title: "YUNGDEATHLILLIFE",
+                spotifyUrl: "https://open.spotify.com/album/4CUUYKJvxsH5E18kkPQofa?si=AOw1ahp_QC63go24KkpDkg",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27308459c90026555f846559fcc",
+                duration: "28:03",
+                isObsessed: true,
+                isAlbum: true
+            },
+            {
+                title: "7th or St. Tammany",
+                spotifyUrl: "https://open.spotify.com/album/4BqLJSu0S1KEsA6DBbJ9L4?si=tU7kB5xMRVyQLD0jqNgZOw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2732417400ddf7445276814eeb6",
+                duration: "27:40",
+                isObsessed: true,
+                isAlbum: true
+            },
+            {
+                title: "Gray/Grey",
+                spotifyUrl: "https://open.spotify.com/album/3uOjCKXJFyF5hbWz7mGYrr?si=vi9Bpy5qRvmcXzHt8L5rQQ",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273828e3c89d67979fc678be0bb",
+                duration: "39:33",
+                isObsessed: true,
+                isAlbum: true
+            },
+            {
+                title: "YIN YANG TAPES: Summer Season (1989-1990)",
+                spotifyUrl: "https://open.spotify.com/album/6hRJl2spj8CQ7PRLdyNc3f?si=0W_tPYYOSn2HJd_HCzY1Vw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2732889122750969ea1da920379",
+                duration: "12:24",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "I No Longer Fear The Razor Guarding My Heel (V)",
+                spotifyUrl: "https://open.spotify.com/album/5HV1423uFq5uNui7tZBBas?si=WGndD6Q9Q7uBOzdGHym_Aw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2739ae2d5f3220065aaf33ad145",
+                duration: "7:34",
+                isFavorite: true,
+                isAlbum: false
+            },
+            {
+                title: "KILL YOURSELF Part I: The $uicide Saga",
+                spotifyUrl: "https://open.spotify.com/album/4g8hUhboWsPGn0mzRWtneS?si=xUbcLgfHTTqwLUKEakD5sg",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2739f84f46d5f97a954ded6d079",
+                duration: "17:29",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "KILL YOURSELF Part II: The Black Suede Saga",
+                spotifyUrl: "https://open.spotify.com/album/160wKL8ToSj86SmU6yF9bQ?si=10DW6zLtSxWx8YrQZpdkGg",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27375404246c0f6d2f9985355cb",
+                duration: "7:53",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "KILL YOURSELF Part III: The Budd Dwyer Saga",
+                spotifyUrl: "https://open.spotify.com/album/763MgGtSgjC4mRxGKU7MPX?si=7Mh-m5tYSLmTA7YVN5qmHA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2731ff638d8a65327699aa79dba",
+                duration: "18:13",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "KILL YOURSELF Part IV: The Trill Clinton Saga",
+                spotifyUrl: "https://open.spotify.com/album/1CfmjMXQtYDHMN3MzkTCkP?si=FCbZh_6vSmKCMxMYN-Smww",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273fbc974279c3da95e37a6fae1",
+                duration: "16:05",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "KILL YOURSELF Part V: The Fuck Bitches, Get Death Saga",
+                spotifyUrl: "https://open.spotify.com/album/3u6Hj5bT6hDGQyJFTY3H5O?si=majSyCWVQqGi17JibwUiag",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27318fd4eff60ddd70c3fdc67d8",
+                duration: "11:33",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "KILL YOURSELF Part VI: The Tsunami Saga",
+                spotifyUrl: "https://open.spotify.com/album/6I7fZ1MfvXz38j2qSmxshv?si=QxE7fNiVTIuIDkAxX_a33g",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273547dd05a3c59de38fe62dd32",
+                duration: "17:12",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "KILL YOURSELF Part VII: The Fuck God Saga",
+                spotifyUrl: "https://open.spotify.com/album/76xmioDynjnDufXs3KUmdP?si=3q9ns1utSH2fvcxautBwRQ",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273a7c1f1dca26c7ccf25d26cb9",
+                duration: "18:41",
+                isObsessed: true,
+                isAlbum: true
+            },
+            {
+                title: "KILL YOURSELF Part VIII: The Seppuku Saga",
+                spotifyUrl: "https://open.spotify.com/album/5zM8f8uilt4a77oZUZ4zVp?si=mRhJ84lZQJeVFRy9SjOLDg",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273ceca1161551919e6c572292d",
+                duration: "9:53",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "KILL YOURSELF Part XII: The Dark Glacier Saga",
+                spotifyUrl: "https://open.spotify.com/album/0Jbf4eYSaqLj4OW0xCrJlj?si=8JtSVk4_QOGP53v77aAwaA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273b53ec3f3f09f8b19a5e0235d",
+                duration: "6:15",
+                isFavorite: true,
+                isAlbum: false
+            },
+            {
+                title: "KILL YOURSELF Part XIII: The Atlantis Saga",
+                spotifyUrl: "https://open.spotify.com/album/1jDAnHgqCfYMNsRj63Dd7u?si=rvNxF1V9R16BaqwiFQowbA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27307bba1f8abbeb68e5d0c3477",
+                duration: "6:57",
+                isFavorite: true,
+                isAlbum: false
+            },
+            {
+                title: "KILL YOURSELF Part XVI: The Faded Stains Saga",
+                spotifyUrl: "https://open.spotify.com/album/1VJbqV5tHd4wP7n5iJhYIY?si=z07FWj42RI23FUQ2fe4BsA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273af1033945c0e113118ec5e05",
+                duration: "7:12",
+                isFavorite: true,
+                isAlbum: false
+            },
+            {
+                title: "KILL YOURSELF Part XIX: The Deep End Saga",
+                spotifyUrl: "https://open.spotify.com/album/6zFDOD1SXs27ERSlm1q7kY?si=FA1TZ6n9TDC1fkUQZuGy0w",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273949dea13d2de4215e8c16314",
+                duration: "6:03",
+                isFavorite: true,
+                isAlbum: false
+            },
+            {
+                title: "I No Longer Fear the Razor Guarding My Heel",
+                spotifyUrl: "https://open.spotify.com/album/5QvM8XR1GooXrA7TgIr6Ok?si=BWy1FgQARKSGw1gfQINg3g",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273774096669395b9d64fa2fcbe",
+                duration: "7:08",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "I No Longer Fear the Razor Guarding My Heel (II)",
+                spotifyUrl: "https://open.spotify.com/album/4mPlRdH5ZL0BppctJqjVoR?si=cBccvEvlTdS2YFjl1Okq_Q",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273bf0108d97740e68e4d4c4b49",
+                duration: "6:59",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "$outh $ide $uicide",
+                spotifyUrl: "https://open.spotify.com/album/1p8YahLiju8skFYWBJTEOl?si=zeILctIfTqWihD2rZ6dgDA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273a3abea866819645928a0b3f2",
+                duration: "16:01",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "Black $uicide",
+                spotifyUrl: "https://open.spotify.com/album/3ZGK4y6cOXAsWYO9bYAYDm?si=25HIAVKOTWqlDGXBiB51kg",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273d060318e0c8cb5730a215386",
+                duration: "18:40",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "Black $uicide Side C: The Seventh Seal",
+                spotifyUrl: "https://open.spotify.com/album/2kx2zE6RYdyZ1IRhVz70xC?si=kj1C0oAGRd2ezjYfOn04mg",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27348fc9636a3877a1f9bf7e39f",
+                duration: "15:23",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "Scrape",
+                spotifyUrl: "https://open.spotify.com/album/3sgiP6GpKFy0Vo1TzVjcDo?si=jUIVk51HTj26ExZeHbOvrA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2738bd49fc9d49f8251ba58b1a2",
+                duration: "1:43",
                 isObsessed: true,
             },
             {
                 title: "HUNG UP ON THE COME UP",
-                spotifyUrl: "https://open.spotify.com/track/20hfQW5iHNaFRo6toP9jF4?si=83ca93778f5d4908",
+                spotifyUrl: "https://open.spotify.com/album/3EfQ14xG8NNIakzIn8h2ar?si=Kqb1W79DT0WNudIP8bmRxA",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273eeb83ddd0fcfe67cb08284b7",
                 duration: "1:29",
-                isFavorite: true
+                isObsessed: true,
             },
+            {
+                title: "Either Hated or Ignored",
+                spotifyUrl: "https://open.spotify.com/album/3EjT7eLhdQ4VqlJFSJVHOZ?si=iDocb8s-Trmrl_pwe7MfjQ",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273d7fa82ff4010814fac7c3170",
+                duration: "2:33",
+                isObsessed: true,
+            },
+            {
+                title: "FUCKALLOFYOU2K18",
+                spotifyUrl: "https://open.spotify.com/album/5tNhTXfldKPoTERG8BUoXa?si=RjYG3BvtTJuXdXFDSqvL-A",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273ffa5895a19d8b40082967f54",
+                duration: "1:58",
+                isObsessed: true,
+            },
+            {
+                title: "Suicide Bay",
+                spotifyUrl: "https://open.spotify.com/album/1ySIijavk4gdqDTeBPiVOz?si=y5CXcAmeScGenIysWaWQsQ",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27332a223ef2d3552ce538b4697",
+                duration: "3:40",
+                isObsessed: true,
+            },
+            {
+                title: "G Double O D",
+                spotifyUrl: "https://open.spotify.com/track/3AFjeh1izw06u17JBeRoej?si=a0305eaed3e14708",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273af484517eba8aba63d95c894",
+                duration: "5:54",
+                isObsessed: true,
+            },
+        ]
+    },
+    {
+        name: "Stromae",
+        popularSongs: [
+            {
+                title: "Papaoutai",
+                videoUrl: "https://files.catbox.moe/rascbo.mp4"
+            },
+            {
+                title: "Alors on danse",
+                videoUrl: "https://files.catbox.moe/ycp9xr.mp4"
+            },
+            {
+                title: "tous les mêmes",
+                videoUrl: "https://files.catbox.moe/anbbl6.mp4"
+            },
+        ],
+        songs: [
+            {
+                title: "Cheese (2010)",
+                spotifyUrl: "https://open.spotify.com/album/4kEbcH3VT6NYfpv8Wkkk80?si=WfLz0kPnS7SA3pPcvH5Apw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273ae373174b14e3eac81554402",
+                duration: "41:55",
+                isObsessed: true,
+                isAlbum: true,
+            },
+            {
+                title: "Racine Carrée (2013)",
+                spotifyUrl: "https://open.spotify.com/album/6uyslsVGFsHKzdGUosFwBM?si=YjVtBXvbRICIciGcKoQwgw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273ab580fab750cc9baf0d52b5c",
+                duration: "45:31",
+                isObsessed: true,
+                isNostalgic: true,
+                isAlbum: true
+            },
+            {
+                title: "Multitude (2022)",
+                spotifyUrl: "https://open.spotify.com/album/6EwTLRHMROD853Kv1lAMex?si=RBMfZFvnTyyenywowgLG1Q",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2736af3a93773dcb59a67ab2953",
+                duration: "38:53",
+                isObsessed: true,
+                isAlbum: true
+            }
+        ]
+    },
+    {
+        name: "Bakar",
+        popularSongs: [
+            {
+                title: "Hell N Back",
+                videoUrl: "https://files.catbox.moe/si3pb8.mp4"
+            },
+            {
+                title: "Big Dreams",
+                videoUrl: "https://files.catbox.moe/pmxt92.mp4"
+            },
+            {
+                title: "The Mission",
+                videoUrl: "https://files.catbox.moe/3p7r99.mp4"
+            },
+        ],
+        songs: [
+            {
+                title: "Halo",
+                spotifyUrl: "https://open.spotify.com/album/3xGVAgbCAxl2c40vRVRjoe?si=1pj4fmk4TCuV77avcXlLRw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2736f61ea5fff15872b314468e8",
+                duration: "34:04",
+                isObsessed: true,
+                isAlbum: true,
+            },
+            {
+                title: "Nobody's Home",
+                spotifyUrl: "https://open.spotify.com/album/231jpal5NKt2c1QFN1D6AZ?si=uqTrq5FpTBGFssi6uzCviA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273388fbcd53f6d4647cbf10451",
+                duration: "47:40",
+                isObsessed: true,
+                isAlbum: true,
+            },
+            {
+                title: "Badkid",
+                spotifyUrl: "https://open.spotify.com/album/2QaQGxQuEV9hZYMhpS6Zax?si=bCLrennDTX-ZQgffMyixTQ",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273fe7dd6de1fa0853b5a0701a9",
+                duration: "29:38",
+                isObsessed: true,
+                isAlbum: true,
+            },
+            {
+                title: "Will You Be My Yellow?",
+                spotifyUrl: "https://open.spotify.com/album/12nH1R4NqEtaOQ5M7RA63p?si=ml9UywqfS-yRaELDYCiJOw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2735bbe47313dfc5a6d6249a487",
+                duration: "15:54",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "Chill",
+                spotifyUrl: "https://open.spotify.com/album/4Pj5Ytw6QtM5lPJSZnpII7?si=A-b-14Z2TWOcw4T7FbENMA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2737c1ca5a38521b23b0c15f99c",
+                duration: "6:00",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "Small Town Girl",
+                spotifyUrl: "https://open.spotify.com/track/7tbpHQMGcySPP07HlhWcBQ?si=88d374fb2f004a44",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273a86d416227e9aeb68255e9f0",
+                duration: "3:05",
+                isFavorite: true,
+                isAlbum: false
+            }
         ]
     },
     {
@@ -217,81 +480,84 @@ const artistData = [
         ],
         songs: [
             {
-                title: "i always kinda knew you'd be the death of me",
-                spotifyUrl: "https://open.spotify.com/track/3iUDHA6FGAKfHX2jmgF0vO?si=828edde22b3e4bb0",
+                title: "yustyna",
+                spotifyUrl: "https://open.spotify.com/album/5nzSCZ7NhKvAysI0tmNOdD?si=M0EZRBCUSua9H75nwewu5g",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2738fe69d8df304ff053693653e",
-                duration: "2:16",
-                isFavorite: false,
-                isObsessed: true
+                duration: "34:29",
+                isObsessed: true,
+                isAlbum: true
             },
             {
-                title: "you've been a bad girl",
-                spotifyUrl: "https://open.spotify.com/track/6Gron8VFcNPwj7ZamJe7Pt?si=bf4ddb58fb914fa7",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2738fe69d8df304ff053693653e",
-                duration: "2:23",
-                isFavorite: false,
-                isObsessed: true
-            },
-            {
-                title: "stupid head",
-                spotifyUrl: "https://open.spotify.com/track/5CcGu19vM6KONpXTyn44zd?si=26a4d40ae19b489f",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2738fe69d8df304ff053693653e",
-                duration: "2:31",
-                isFavorite: false,
-                isObsessed: true
-            },
-            {
-                title: "dirty little secret",
-                spotifyUrl: "https://open.spotify.com/track/1lau6K2YSP5APtkzNJxVyB?si=9c1a3f3767e84286",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2738fe69d8df304ff053693653e",
-                duration: "3:01",
-                isFavorite: false,
-                isObsessed: true
-            },
-            {
-                title: "my babydoll",
-                spotifyUrl: "https://open.spotify.com/track/592myufKPcidAJLT2P8QXw?si=b4792768e99b4f40",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2738fe69d8df304ff053693653e",
-                duration: "2:31",
-                isFavorite: false,
-                isObsessed: true
-            },
-            {
-                title: "i love you regardless",
-                spotifyUrl: "https://open.spotify.com/track/1TZGvrmcn8cvRQioBRjuMR?si=78462e40c3c648ef",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2738fe69d8df304ff053693653e",
-                duration: "2:56",
-                isFavorite: false,
-                isObsessed: true
-            },
-            {
-                title: "wet dreams",
-                spotifyUrl: "https://open.spotify.com/track/6Q57LMIIjmbOBkvXe8ADW4?si=5beda12c98194956",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2738fe69d8df304ff053693653e",
-                duration: "1:39",
-                isFavorite: false,
-                isObsessed: true
-            },
-            {
-                title: "shall we celebrate?",
-                spotifyUrl: "https://open.spotify.com/track/5xKHORmwcry4AsHMEfDE98?si=468229f32baa40e1",
+                title: "pretty",
+                spotifyUrl: "https://open.spotify.com/album/2xpgb8R0BXVS2e1XnXI9xZ?si=eygM_mECR-OWnO7SXRD7Wg",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273fabe0943f6dd962a792b42a1",
-                duration: "2:06",
-                isFavorite: true
+                duration: "30:13",
+                isObsessed: true,
+                isAlbum: true
             },
             {
-                title: "ur special to me",
-                spotifyUrl: "https://open.spotify.com/track/2rYXXYRrP3qOOPkUsUTsal?si=95d3ea39e2634aa5",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273fabe0943f6dd962a792b42a1",
-                duration: "1:54",
-                isFavorite: true
+                title: "southbound / test drive",
+                spotifyUrl: "https://open.spotify.com/album/4Uh9XOh5hmX0Cw7JREc0AU?si=6PmDrvWZT8yLo9uC5dqC3A",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2738ae0235c22283aa1a54ddfb2",
+                duration: "5:26 ",
+                isObsessed: true,
+                isAlbum: false
             },
             {
-                title: "fucked up kinda dream",
-                spotifyUrl: "https://open.spotify.com/track/6XBC0YeyL43dDVjPSdWUEw?si=29b9978df3b74a77",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273fabe0943f6dd962a792b42a1",
-                duration: "2:33",
-                isFavorite: true
+                title: "Don't You Start",
+                spotifyUrl: "https://open.spotify.com/album/1BMINfqQpH1PD4fEecGQfc?si=iGy6UpZPQgWinuWkUuEKpw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273315ed2288941faafa7bb29c0",
+                duration: "3:03",
+                isFavorite: false,
+                isObsessed: true
+            },
+            {
+                title: "You Were a Dream",
+                spotifyUrl: "https://open.spotify.com/album/3TguXmUsKx3W6JUrQ2du3E?si=YHZSFWS5TU2lTIKjzf5k7A",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2739b82900f73c2393e53a73709",
+                duration: "2:28",
+                isFavorite: false,
+                isObsessed: true
+            },
+            {
+                title: "Tattoos",
+                spotifyUrl: "https://open.spotify.com/album/2tp9gMf7LcerH6OK5pFWIe?si=mqo1XYdITGuSv8chQYw_8w",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27350f924e816266728a069f5e9",
+                duration: "2:45",
+                isFavorite: false,
+                isObsessed: true
+            },
+            {
+                title: "I'll Make You Miss Me",
+                spotifyUrl: "https://open.spotify.com/album/3yRIVBkRxCMyhkwklUk25Z?si=41w9dRbuTtWZL1ygjGBH0g",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27307ca2674866ff3bcc4ac7342",
+                duration: "3:00",
+                isFavorite: false,
+                isObsessed: true
+            },
+            {
+                title: "Sink or Swim",
+                spotifyUrl: "https://open.spotify.com/album/0QHzmTrTtLggERAjEX70CY?si=Qa21SZY1SRyySErsBsQOrw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2737ab403e717752dcf3b1468e8",
+                duration: "3:09",
+                isFavorite: false,
+                isObsessed: true
+            },
+            {
+                title: "Can't Stop Loving You",
+                spotifyUrl: "https://open.spotify.com/album/5cljaSxDCinxKScVYnFzXe?si=clBPsaAHR3WviN2XS3ClTg",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273c6237a022a47caf73b67eb8d",
+                duration: "3:49",
+                isFavorite: false,
+                isObsessed: true
+            },
+            {
+                title: "Me n My Girl",
+                spotifyUrl: "https://open.spotify.com/album/5zod1g9FgDO4eNNpjLMDPT?si=e1KvvDu2TFK35d_qXWEAfA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27332ff4230fd62db9e62d260dd",
+                duration: "2:10",
+                isFavorite: false,
+                isObsessed: true
             },
         ]
     },
@@ -313,82 +579,83 @@ const artistData = [
         ],
         songs: [
             {
-                title: "Rim$e$",
-                spotifyUrl: "https://open.spotify.com/track/4w4W7y8GrtmSUrR00oWEa3?si=4525b1a3c37349f9",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b27331cb97ed068ca83619513aa9",
-                duration: "2:22",
-                isFavorite: false,
-                isObsessed: true,
-                isNostalgic: true
-            },
-            {
-                title: "Iti Scriu Inapoi",
-                spotifyUrl: "https://open.spotify.com/track/2owpozRdpdzE63iFwGhsC7?si=30a487bef9ef40af",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b27331cb97ed068ca83619513aa9",
-                duration: "2:44",
-                isFavorite: false,
-                isObsessed: true,
-                isNostalgic: true
-            },
-            {
-                title: "Pietrificat",
-                spotifyUrl: "https://open.spotify.com/track/5uAjE7OR7eipAZI7cA2UVm?si=61b7390a75f14679",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b27331cb97ed068ca83619513aa9",
-                duration: "3:44",
-                isFavorite: false,
-                isObsessed: true,
-                isNostalgic: true
-            },
-            {
-                title: "4 Dimineata",
-                spotifyUrl: "https://open.spotify.com/track/54um8CoIJFE3E3TxvOTpmG?si=269af2b80fe34055",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b27331cb97ed068ca83619513aa9",
-                duration: "3:08",
-                isFavorite: false,
-                isObsessed: true,
-                isNostalgic: true
-            },
-            {
-                title: "Somnambul",
-                spotifyUrl: "https://open.spotify.com/track/5Yqg9kjCas74kNBV3c0dNt?si=db78da53ba614209",
+                title: "Ramses 1989",
+                spotifyUrl: "https://open.spotify.com/album/5h65FxZ1eUm9ib3MHGL07U?si=HtpbR4uTTw6VRl1Tyxi4zg",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273679fc2b0f6fb5f000805ef77",
-                duration: "2:55",
-                isFavorite: false,
+                duration: "57:49",
                 isObsessed: true,
-                isNostalgic: true
+                isNostalgic: true,
+                isAlbum: true
             },
             {
-                title: "JE$us",
-                spotifyUrl: "https://open.spotify.com/track/523ktOFsOiMbiRKlCpci3O?si=7d25e813883d4e75",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273679fc2b0f6fb5f000805ef77",
-                duration: "5:48",
-                isFavorite: false,
+                title: "Lama Crima",
+                spotifyUrl: "https://open.spotify.com/album/34KJBztKyAou1TfOyt2TQM?si=PihOzAJPTwuyRVOy587oLA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27331cb97ed068ca83619513aa9",
+                duration: "1:09:00",
                 isObsessed: true,
-                isNostalgic: true
+                isNostalgic: true,
+                isAlbum: true
             },
             {
-                title: "Toti Sub Acelasi Cer",
-                spotifyUrl: "https://open.spotify.com/track/3YGfX2CI4SAzqv6DVsnkPF?si=dd7d670544a34e22",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273679fc2b0f6fb5f000805ef77",
-                duration: "2:02",
-                isFavorite: false,
-                isObsessed: true,
-                isNostalgic: true
-            },
-            {
-                title: "Misterios",
-                spotifyUrl: "https://open.spotify.com/track/6lOWoytmNWxKIb7ODl2KOG?si=db6a10acb3ff4b93",
+                title: "Emotiv Munteana",
+                spotifyUrl: "https://open.spotify.com/album/5tXcDWPG3RI80OFInNx9h2?si=EGVl9ZDwRg6Wjq0V4DOI9w",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2732f4c03c4b8885bb5f7867d96",
-                duration: "3:42",
+                duration: "22:21",
+                isObsessed: true,
+                isNostalgic: true,
+                isAlbum: true
+            },
+            {
+                title: "2089",
+                spotifyUrl: "https://open.spotify.com/album/6ke5zdv0C3F1GAKVdjFIhk?si=bN1FwedPRNaZGuE_eI6ppw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2735633b411498d84061a3b290c",
+                duration: "31:40",
                 isFavorite: true,
-                isNostalgic: true
+                isNostalgic: false,
+                isAlbum: true
+            },
+            {
+                title: "Terra Vista",
+                spotifyUrl: "https://open.spotify.com/album/2QscibxUEEmNLVfSi1b2mo?si=MeJh4V3eRoKQvefpSYBEtA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273348cf9323fd43e3bc384d628",
+                duration: "30:32",
+                isObsessed: true,
+                isNostalgic: false,
+                isAlbum: true
+            },
+            {
+                title: "Osvaldo",
+                spotifyUrl: "https://open.spotify.com/album/6dupAMHCVqLmjNxIHJlfPV?si=xG-7nZ7LQ2K5VcNsAmPuWQ",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734682c8ad2c586c7b25406ab8",
+                duration: "52:44",
+                isObsessed: true,
+                isNostalgic: false,
+                isAlbum: true
+            },
+            {
+                title: "RADIOFONIC",
+                spotifyUrl: "https://open.spotify.com/album/28TjBMndTDtdBNWHbgtcbL?si=1DjBe46aQIeFcFRAyDFi1A",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734fd341bc0f2e3935f10c85a0",
+                duration: "1:00:00",
+                isFavorite: true,
+                isObsessed: false,
+                isNostalgic: false,
+                isAlbum: true
+            },
+            {
+                title: "2milinblunt",
+                spotifyUrl: "https://open.spotify.com/album/2H0iTVABQYxdu9MUWCbkSt?si=1B5FAym3Rb-yC4ZNejI7tg",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273b2442e4001a6f4b71d883d8c",
+                duration: "2:17",
+                isObsessed: true,
+                isNostalgic: true,
             },
             {
                 title: "Exodus",
                 spotifyUrl: "https://open.spotify.com/track/1lrNlXAROp03pnJ24sc2Z0?si=f77ac53aa8a245d8",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273082a215136db5f64c09c49d9",
                 duration: "4:28",
-                isFavorite: true,
+                isObsessed: true,
                 isNostalgic: true
             },
             {
@@ -398,6 +665,22 @@ const artistData = [
                 duration: "3:04",
                 isFavorite: true,
                 isNostalgic: true
+            },
+            {
+                title: "Adorm",
+                spotifyUrl: "https://open.spotify.com/track/4dKIj32okCArIY5w12O9Xg?si=bcbbfe5b5a8841a3",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2738f4a423a90544cfbf276f6b5",
+                duration: "3:28",
+                isObsessed: true,
+                isNostalgic: true
+            },
+            {
+                title: "Lolita",
+                spotifyUrl: "https://open.spotify.com/album/0YU2RBv1qulav4l9aUGFMo?si=MtmtZvK2QhyvtXGzvGwuVg",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273a0a058d4de8ccf322f9074d2",
+                duration: "2:42",
+                isFavorite: true,
+                isNostalgic: false
             },
         ]
     },
@@ -419,21 +702,20 @@ const artistData = [
         ],
         songs: [
             {
-                title: "Cold Summer",
-                spotifyUrl: "https://open.spotify.com/track/2xRmuKQYdruqHCC8hY4OHB?si=0f17975ff29b4ffd",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b27384de0e7589ec2b06f3df4d84",
-                duration: "4:43",
-                isFavorite: false,
+                title: "Lovers From The Past",
+                spotifyUrl: "https://open.spotify.com/album/6Z4eMptTUBwtdJHQeNV91N?si=bwulXjxySAm53ry6NwLsQg",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2737cd3768fecefe743c5465b57",
+                duration: "34:58",
                 isObsessed: true,
-                isNostalgic: false
+                isAlbum: true
             },
             {
-                title: "Sail",
-                spotifyUrl: "https://open.spotify.com/track/57Nez0yOaE9h7HuPObxDJP?si=0e373995ef0b43cd",
+                title: "Decade",
+                spotifyUrl: "https://open.spotify.com/album/5nVWi9N2LrOLIZ1aKBmqwe?si=-gis0Cv9SnWxuHPKIYKEzw",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b27384de0e7589ec2b06f3df4d84",
-                duration: "2:42",
-                isFavorite: true,
-                isObsessed: false,
+                duration: "10:57",
+                isFavorite: false,
+                isObsessed: true,
                 isNostalgic: false
             },
             {
@@ -441,43 +723,7 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/track/1E6AyRgbhDllNzYQXeS4iL?si=df028eb6e2c94993",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273088e9fde007c85411435b38e",
                 duration: "4:30",
-                isFavorite: true,
-                isObsessed: false,
-                isNostalgic: false
-            },
-            {
-                title: "Hurt",
-                spotifyUrl: "https://open.spotify.com/track/2zwMa9uUtUToEcBw6Iu5Pv?si=be256fa40bef4dd9",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2737cd3768fecefe743c5465b57",
-                duration: "3:18",
-                isFavorite: false,
                 isObsessed: true,
-                isNostalgic: false
-            },
-            {
-                title: "Diosa",
-                spotifyUrl: "https://open.spotify.com/track/0riw5or60woTnxgEtsBZFt?si=e2b61ad835b2415f",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2737cd3768fecefe743c5465b57",
-                duration: "4:21",
-                isFavorite: true,
-                isObsessed: false,
-                isNostalgic: false
-            },
-            {
-                title: "Little Lies",
-                spotifyUrl: "https://open.spotify.com/track/2BdnDERIrouwEuNDx1fxOg?si=07734dc75816467c",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2737cd3768fecefe743c5465b57",
-                duration: "4:14",
-                isFavorite: true,
-                isObsessed: false,
-                isNostalgic: false
-            },
-            {
-                title: "Lovers From The Past",
-                spotifyUrl: "https://open.spotify.com/track/0Mf3S3C47hxQlLEqFGjlOJ?si=75c8b0824dfb4250",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2737cd3768fecefe743c5465b57",
-                duration: "3:19",
-                isFavorite: true,
                 isNostalgic: false
             },
             {
@@ -485,8 +731,15 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/track/7HMPSmje7Q1wu4XvfuvJZp?si=3f45d326ccd04f59",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b27322de2f10c176dc8152047c17",
                 duration: "5:17",
-                isFavorite: true,
-                isObsessed: false,
+                isObsessed: true,
+                isNostalgic: false
+            },
+            {
+                title: "Dance Floor Dolor",
+                spotifyUrl: "https://open.spotify.com/track/0ocImbYiDNIiayVE2nE6PA?si=cd6dff20dfce4d68",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2738e2950353b3867e559a6d308",
+                duration: "5:09",
+                isObsessed: true,
                 isNostalgic: false
             },
             {
@@ -496,122 +749,6 @@ const artistData = [
                 duration: "3:13",
                 isFavorite: true,
                 isNostalgic: false
-            },
-            {
-                title: "Dance Floor Dolor",
-                spotifyUrl: "https://open.spotify.com/track/0ocImbYiDNIiayVE2nE6PA?si=cd6dff20dfce4d68",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2738e2950353b3867e559a6d308",
-                duration: "5:09",
-                isFavorite: true,
-                isNostalgic: false
-            },
-        ]
-    },
-    {
-        name: "Miguel Angeles",
-        popularSongs: [
-            {
-                title: "PROTECTION CHARM",
-                videoUrl: "https://files.catbox.moe/4m27gb.mp4"
-            },
-            {
-                title: "DEATH RATTLE",
-                videoUrl: "https://files.catbox.moe/ulmooi.mp4"
-            },
-            {
-                title: "FORGOTTEN CHILD",
-                videoUrl: "https://files.catbox.moe/76ltv3.mp4"
-            },
-        ],
-        songs: [
-            {
-                title: "lil horn's theme",
-                spotifyUrl: "https://open.spotify.com/track/5rcD6SgDvss0ja4N0DumJ2?si=d4764591d9fa4a2e",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273f844cc9215c92368783ebb2c",
-                duration: "2:48",
-                isFavorite: true,
-                isObsessed: false,
-                isNostalgic: false
-            },
-            {
-                title: "Save My Soul!",
-                spotifyUrl: "https://open.spotify.com/track/6jWe7hYUnTDsG7Mdm1uDUJ?si=98e7822a72a8455d",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b27350bee8cc558140c08f0e8e5e",
-                duration: "2:36",
-                isFavorite: true,
-                isObsessed: false,
-                isNostalgic: false
-            },
-            {
-                title: "DOGEATDOG",
-                spotifyUrl: "https://open.spotify.com/track/02SO66qOplgOMm3r2fuG0m?si=61d51ea833a84229",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b27380780883be115fc9bfb33590",
-                duration: "3:08",
-                isFavorite: true,
-                isObsessed: false,
-                isNostalgic: false
-            },
-            {
-                title: "CRUSHER",
-                spotifyUrl: "https://open.spotify.com/track/3Y4bOsMmv25B3XPVPfrcVF?si=26522949b3de4742",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2737b61f66a17d93d2a6a167de0",
-                duration: "2:20",
-                isFavorite: true,
-                isObsessed: false,
-                isNostalgic: false
-            },
-            {
-                title: "EMBRAC3",
-                spotifyUrl: "https://open.spotify.com/track/2EpPsuXAGL6cZkM3pbcrD8?si=04b3843862ec4845",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2737b61f66a17d93d2a6a167de0",
-                duration: "2:40",
-                isFavorite: true,
-                isObsessed: false,
-                isNostalgic: false
-            },
-            {
-                title: "DON'T JUMP!",
-                spotifyUrl: "https://open.spotify.com/track/7LqFcAqmDaKGlQSrc5NFez?si=994aff2643974126",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273f77d480051d88f39704504df",
-                duration: "1:48",
-                isFavorite: true,
-                isObsessed: true,
-                isNostalgic: false
-            },
-            {
-                title: "INNOCENCE",
-                spotifyUrl: "https://open.spotify.com/track/5n7ten5j7Xep6rVyoPYCFW?si=ad45dabe42ad4ecd",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b273501f5069a13c20b0a83a8116",
-                duration: "2:58",
-                isFavorite: true,
-                isObsessed: true,
-                isNostalgic: false
-            },
-            {
-                title: "NOVEMBERR",
-                spotifyUrl: "https://open.spotify.com/track/62HnBMEdZjeFCd2T8g37T8?si=1936e7e6e7104bd0",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2739ad10104c60fb9deff5b7f34",
-                duration: "2:50",
-                isFavorite: true,
-                isObsessed: false,
-                isNostalgic: false
-            },
-            {
-                title: "BLOOD ON MY HANDS",
-                spotifyUrl: "https://open.spotify.com/track/5JXcoOrZVS1GPjUKEdl0xM?si=12b3b0bc234f4686",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b27374cb92e3c428c806af039ba2",
-                duration: "3:18",
-                isFavorite: true,
-                isNostalgic: false
-            },
-            {
-                title: "a home in the sky",
-                spotifyUrl: "https://open.spotify.com/track/4BiI1XZaEhjr4V77JNABO3?si=1f1348f22ad74f2b",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2735ae597b5af582fd1a75baafd",
-                duration: "2:31",
-                isFavorite: true,
-                isNostalgic: false,
-                isObsessed: true
             },
         ]
     },
@@ -633,107 +770,55 @@ const artistData = [
         ],
         songs: [
             {
-                title: "Will He",
-                spotifyUrl: "https://open.spotify.com/track/4apZVURUvTrT9S51LBuXON?si=c45bce964caf4dea",
+                title: "BALLADS 1",
+                spotifyUrl: "https://open.spotify.com/album/5mIImcsuqpiSXg8XvFr81I?si=vv2uhnuSTMG1_ioZus9qHg",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734cc52cd7a712842234e4fce2",
+                duration: "35:11",
+                isObsessed: true,
+                isAlbum: true
+            },
+            {
+                title: "Nectar",
+                spotifyUrl: "https://open.spotify.com/album/65edimIChzNNK8VGn56pIK?si=LsGeQmqfRH6F4MOMkx_mVQ",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2738da6404284573219a9b1e2f4",
+                duration: "53:14",
+                isObsessed: true,
+                isAlbum: true
+            },
+            {
+                title: "In Tongues",
+                spotifyUrl: "https://open.spotify.com/album/3dtSst4EXjGeZVQ5Sco315?si=vaR3QD6OSheZfZ4oN5jWXQ",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2733a927e16c14f2aeb7c004e19",
-                duration: "3:22",
-                isFavorite: true,
+                duration: "16:39",
+                isFavorite: false,
                 isObsessed: true,
                 isNostalgic: false
             },
             {
-                title: "Demons",
-                spotifyUrl: "https://open.spotify.com/track/3IsOr4fNjL24DtkNIBqjKz?si=4965813914774851",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2733a927e16c14f2aeb7c004e19",
-                duration: "2:56",
+                title: "Think About U (feat. Joji)",
+                spotifyUrl: "https://open.spotify.com/track/3tZZvB5AlpLyZ378K4iC44?si=e41d53218a3c40b7",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273f2bb993c6c4a85f74ecca0b6",
+                duration: "2:49",
                 isFavorite: true,
-                isObsessed: true,
-                isNostalgic: false
-            },
-            {
-                title: "Window",
-                spotifyUrl: "https://open.spotify.com/track/7kdhk2tiGUgIPwZRd2if6I?si=2cc4b12a3f0946ad",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2733a927e16c14f2aeb7c004e19",
-                duration: "2:32",
-                isFavorite: true,
-                isObsessed: true,
-                isNostalgic: false
-            },
-            {
-                title: "Bitter Fuck",
-                spotifyUrl: "https://open.spotify.com/track/3LKgZUoFX1c4uT1CPDoOhz?si=047c344590134fb9",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2733a927e16c14f2aeb7c004e19",
-                duration: "2:34",
-                isFavorite: true,
-                isObsessed: true,
-                isNostalgic: false
-            },
-            {
-                title: "WANTED U",
-                spotifyUrl: "https://open.spotify.com/track/4rf7Mjit1TCiNaDgdn6peQ?si=ed87d68dc8844cfb",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734cc52cd7a712842234e4fce2",
-                duration: "4:11",
-                isFavorite: true,
-                isObsessed: true,
-                isNostalgic: false
-            },
-            {
-                title: "CAN'T GET OVER YOU",
-                spotifyUrl: "https://open.spotify.com/track/1c4qQG0WFrhSZxWGHjN1qA?si=161932fbea4a4f5b",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734cc52cd7a712842234e4fce2",
-                duration: "1:47",
-                isFavorite: true,
-                isObsessed: true,
-                isNostalgic: false
-            },
-            {
-                title: "YEAH RIGHT",
-                spotifyUrl: "https://open.spotify.com/track/52ooD6LHuXFubM6d1CDD93?si=7772eca49f6a4bee",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734cc52cd7a712842234e4fce2",
-                duration: "2:54",
-                isFavorite: true,
-                isObsessed: true,
-                isNostalgic: false
-            },
-            {
-                title: "WHY AM I STILL IN LA",
-                spotifyUrl: "https://open.spotify.com/track/6gdwDKR1y2qERKi2CHpxqq?si=a6360521a4c04cff",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734cc52cd7a712842234e4fce2",
-                duration: "3:19",
-                isFavorite: true,
-                isObsessed: true,
-                isNostalgic: false
-            },
-            {
-                title: "NO FUN",
-                spotifyUrl: "https://open.spotify.com/track/3nNjA76lO6zbLKugA0tdOw?si=e562f148ad9243d6",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734cc52cd7a712842234e4fce2",
-                duration: "2:48",
-                isFavorite: true,
-                isObsessed: true,
-                isNostalgic: false
-            },
-            {
-                title: "I'LL SEE YOU IN 40",
-                spotifyUrl: "https://open.spotify.com/track/2YTNma2z5qiOWYPMBGBFES?si=622b37e44f914fc6",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734cc52cd7a712842234e4fce2",
-                duration: "4:13",
-                isFavorite: true,
-                isObsessed: true,
-                isNostalgic: false
             },
         ]
     },
-    // Add more artists here
-    
 ];
 
 function calculateTotalDuration() {
     let totalMinutes = 0;
     artistData.forEach(artist => {
         artist.songs.forEach(song => {
-            const [minutes, seconds] = song.duration.split(':').map(Number);
-            totalMinutes += minutes + (seconds / 60);
+            // Handle all durations in the format "MM:SS" or "HH:MM:SS"
+            const parts = song.duration.split(':').map(Number);
+            
+            if (parts.length === 2) {
+                // Format is MM:SS
+                totalMinutes += parts[0] + (parts[1] / 60);
+            } else if (parts.length === 3) {
+                // Format is HH:MM:SS
+                totalMinutes += (parts[0] * 60) + parts[1] + (parts[2] / 60);
+            }
         });
     });
     
@@ -749,7 +834,17 @@ function calculateTotalDuration() {
 
 function createArtistStats() {
     const totalArtists = artistData.length;
-    const totalSongs = artistData.reduce((sum, artist) => sum + artist.songs.length, 0);
+    
+    // Calculate total songs using the ARTIST_CONFIG
+    const totalSongs = artistData.reduce((sum, artist) => {
+        // If the artist has a configured song count, use that
+        if (ARTIST_CONFIG[artist.name]) {
+            return sum + ARTIST_CONFIG[artist.name];
+        }
+        // Otherwise use the actual count of songs in the array
+        return sum + artist.songs.length;
+    }, 0);
+    
     const duration = calculateTotalDuration();
     
     return `
@@ -771,6 +866,14 @@ function createArtistStats() {
 }
 
 function createArtistSection(artist) {
+    // Get song count from configuration or use actual song count
+    let songCount;
+    if (ARTIST_CONFIG[artist.name]) {
+        songCount = `${ARTIST_CONFIG[artist.name]} songs`;
+    } else {
+        songCount = `${artist.songs.length} songs`;
+    }
+    
     return `
         <section class="artist-section">
             <div class="artist-header">
@@ -783,7 +886,7 @@ function createArtistSection(artist) {
                         </div>` 
                     : ''}
                 </div>
-                <span class="song-count">${artist.songs.length} songs</span>
+                <span class="song-count">${songCount}</span>
             </div>
             <ul class="song-list">
                 ${artist.songs.map((song, index) => `
@@ -793,9 +896,10 @@ function createArtistSection(artist) {
                             <img src="${song.thumbnail}" alt="${song.title}" class="song-thumbnail">
                             <div class="song-info">
                                 <span class="song-title">${song.title}</span>
-                                ${song.isFavorite ? '<span class="favorite-badge"><i class="fas fa-star"></i> Favourite</span>' : ''}
+                                ${song.isFavorite ? '<span class="favorite-badge"><i class="fas fa-star"></i> Solid</span>' : ''}
                                 ${song.isObsessed ? '<span class="obsessed-badge">❤️ Obsessed</span>' : ''}
                                 ${song.isNostalgic ? '<span class="nostalgic-badge">🕰️ Nostalgic</span>' : ''}
+                                ${song.isAlbum ? '<span class="album-badge">💿 Album</span>' : ''}
                             </div>
                         </div>
                         <div class="song-item-right">
@@ -953,7 +1057,7 @@ function createFilterMenu() {
                 </div>
                 <p>This is where I share my favorite artists and songs. You'll find a mix of different genres and styles that I enjoy listening to. Feel free to explore my music taste and discover some great tunes!</p>
                 <div class="last-updated">
-                    Last updated: March 26th 2025
+                    Last updated: June 5th 2025
                 </div>
             </div>
         </div>
@@ -970,7 +1074,7 @@ function createFilterMenu() {
                 <div class="tag-filters">
                     <label class="tag-filter-item">
                         <input type="checkbox" value="favorite" checked> 
-                        <span class="filter-badge favorite-badge"><i class="fas fa-star"></i> Favourite</span>
+                        <span class="filter-badge favorite-badge"><i class="fas fa-star"></i> Solid</span>
                     </label>
                     <label class="tag-filter-item">
                         <input type="checkbox" value="obsessed" checked> 
@@ -981,9 +1085,13 @@ function createFilterMenu() {
                         <span class="filter-badge nostalgic-badge">🕰️ Nostalgic</span>
                     </label>
                     <label class="tag-filter-item">
+                        <input type="checkbox" value="album" checked> 
+                        <span class="filter-badge album-badge">💿 Album</span>
+                    </label>
+                    <!-- <label class="tag-filter-item">
                         <input type="checkbox" value="untagged" checked> 
                         <span class="filter-badge untagged-badge">Untagged</span>
-                    </label>
+                    </label> -->
                 </div>
             </div>
             <div class="filter-section">
@@ -1021,6 +1129,14 @@ function applyFilters() {
     } else {
         document.querySelectorAll('.artist-section').forEach(section => {
             applyFiltersToSection(section, selectedFilters);
+            
+            // Hide entire artist section if no songs are visible
+            const visibleSongs = section.querySelectorAll('.song-item[style*="display: flex"]');
+            if (visibleSongs.length === 0) {
+                section.style.display = 'none';
+            } else {
+                section.style.display = 'block';
+            }
         });
     }
 }
@@ -1050,11 +1166,16 @@ function applyFiltersToSection(section, selectedFilters) {
             section.querySelectorAll('.song-item:has(.nostalgic-badge)').forEach(song => {
                 song.style.display = 'flex';
             });
-        } else if (filter === 'untagged') {
+        } else if (filter === 'album') {
+            section.querySelectorAll('.song-item:has(.album-badge)').forEach(song => {
+                song.style.display = 'flex';
+            });
+        } 
+        /* else if (filter === 'untagged') {
             section.querySelectorAll('.song-item:not(:has(.favorite-badge)):not(:has(.obsessed-badge)):not(:has(.nostalgic-badge))').forEach(song => {
                 song.style.display = 'flex';
             });
-        }
+        } */
     });
 }
 
@@ -1181,7 +1302,7 @@ function scrollToArtist(artistName) {
     return false;
 }
 
-/* I don't know why this doesn't work I tried to disable scrolling 
+/* I don't know why this doesn't work I even tried to disable scrolling 
    with the help of AI but it didn't help me. :( */ 
 
 // Variables to store scroll state
@@ -1334,5 +1455,16 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeMusicPage();
     initializeVideoPlayer();
     initGoUpButton();
+    initializeScrollbars();
 });
+
+// Function to initialize scrollbars for lists with more than 10 items
+function initializeScrollbars() {
+    // Apply the scrollable-list class to any song list with more than 10 items
+    document.querySelectorAll('.song-list').forEach(list => {
+        if (list.children.length > 10) {
+            list.classList.add('scrollable-list');
+        }
+    });
+}
 
