@@ -10,7 +10,7 @@ const ARTIST_CONFIG = {
     "Bakar": 45,
     "Artemas": 36,
     "Killa Fonic": 116,
-    "Mareux": 17,
+    "Mareux": 26,
     "Joji": 37
 };
 
@@ -708,6 +708,16 @@ const artistData = [
                 duration: "34:58",
                 isObsessed: true,
                 isAlbum: true
+            },
+            {
+                title: "Nonstop Romance",
+                spotifyUrl: "https://open.spotify.com/album/15NaFl1G4oj4aP6x7o7Tza?si=V6wzDh-qSu2NpKg67VnqdQ",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273b885da0e907572ed8f1e9da0",
+                duration: "26:20",
+                isFavorite: false,
+                isAlbum: true,
+                isObsessed: true,
+                isNostalgic: false
             },
             {
                 title: "Decade",
