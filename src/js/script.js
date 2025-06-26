@@ -21,6 +21,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    
+    // COMMENTED: SO IF I DONT LIKE IT I CAN REMOVE IT
+    // ADD: SMALL DELAY TO ENSURE ELEMENTS ARE LOADED BEFORE SCROLLING
+    setTimeout(function() {
+        const currentHash = location.hash || default_hash;
+        const targetElement = document.getElementById(currentHash.slice(1));
+        
+        if (targetElement) {
+            targetElement.scrollIntoView();
+        }
+    }, 100);
+    // END OF THE COMMENT: SMALL DELAY TO ENSURE ELEMENTS ARE LOADED BEFORE SCROLLING
 });
 
 // remove 'rgb' and brackets from --bg-value so the color can be used in combination with individual opacity-values (rgba)
@@ -48,7 +60,12 @@ function changeTab(tab) {
 
         // Activate the selected tab
         document.getElementById(tab + '_tab').classList.add('tab_active');
-
+        
+        // COMMENTED: SO IF I DONT LIKE IT I CAN REMOVE IT
+        setTimeout(function() {
+            document.getElementById(tab).scrollIntoView({behavior: 'smooth', block: 'start'});
+        }, 100);
+        
         // Show elements of the selected tab
         let elements = document.getElementById(tab).querySelectorAll('*');
         
