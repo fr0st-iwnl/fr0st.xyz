@@ -1067,7 +1067,7 @@ function createFilterMenu() {
                 </div>
                 <p>This is where I share my favorite artists and songs. You'll find a mix of different genres and styles that I enjoy listening to. Feel free to explore my music taste and discover some great tunes!</p>
                 <div class="last-updated">
-                    Last updated: June 5th 2025
+                    Last updated: June 27th 2025
                 </div>
             </div>
         </div>
