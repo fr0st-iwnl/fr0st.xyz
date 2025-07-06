@@ -112,7 +112,16 @@ if (window.matchMedia("(max-width: 767px)").matches && !('effectsDisabled' in lo
 if (!effectsDisabled) { document.head.appendChild(link); nfbText.innerHTML = 'Don\'t like the effects? Click <a onclick="changeEffects()">HERE</a> to turn them off.';}
 
 function changeEffects() {
-    localStorage.setItem('effectsDisabled', !effectsDisabled);
+    effectsDisabled = !effectsDisabled;
+    localStorage.setItem('effectsDisabled', effectsDisabled);
+    
+    // Update body class immediately before reload
+    if (effectsDisabled) {
+        document.body.classList.add('effects-disabled');
+    } else {
+        document.body.classList.remove('effects-disabled');
+    }
+    
     location.reload();
 }
 
@@ -456,3 +465,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Add 'effects-disabled' class to body if effects are disabled
+if (effectsDisabled) {
+    document.body.classList.add('effects-disabled');
+} else {
+    document.body.classList.remove('effects-disabled');
+}

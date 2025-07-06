@@ -181,6 +181,34 @@ code span.html-tag {
 }
 
 
+.article-container6 {
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    color: #ffffff;
+    text-align: left;
+    overflow: hidden;
+}
+
+.article-container6::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #c26712, #C88B54);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+
 
 .article-title {
     font-size: 2.5em;

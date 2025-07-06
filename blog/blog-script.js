@@ -4,6 +4,14 @@ import '/src/js/components/base.js';
 
 const articles = [
     {
+        title: "Appreciation Is Rare, and That's the Problem",
+        description: "This isn't life advice. Just me sharing how it feels when people act like they don't care. Support and appreciation matter more than most people realize.",
+        link: "articles/article6.html", 
+        class: "article-one",
+        thumbnail: "./src/media/blog-thumbnails/appreciationisrare.png",
+        date: "July 6, 2025" // Add date field here
+    },
+    {
         title: "WinMacros: Custom Windows Macros",
         description: "How I created a tool to automate tasks and make system control easier with simple macros.",
         link: "articles/article5.html", 
@@ -56,13 +64,17 @@ articles.forEach((article) => {
     articleDiv.className = `article ${article.class}`;
 
     articleDiv.innerHTML = `
-        <img src="${article.thumbnail}" alt="${article.title} thumbnail" class="article-thumbnail">
-        <div class="article-header">
-            <h2 class="article-title">${article.title}</h2>
-            <span class="article-date">${article.date}</span> <!-- Insert the date here -->
+        <div class="article-thumbnail-container">
+            <img src="${article.thumbnail}" alt="${article.title} thumbnail" class="article-thumbnail">
         </div>
-        <p class="article-description">${article.description}</p>
-        <a href="${article.link}" class="read-more">Read More</a>
+        <div class="article-content">
+            <h2 class="article-title">${article.title}</h2>
+            <span class="article-date">${article.date}</span>
+            <p class="article-description">${article.description}</p>
+        </div>
+        <div class="read-more-container">
+            <a href="${article.link}" class="read-more">Read More</a>
+        </div>
     `;
 
     articleSection.appendChild(articleDiv);

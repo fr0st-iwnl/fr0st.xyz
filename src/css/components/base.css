@@ -9,6 +9,7 @@
 :root {
     /* Will be overwritten if theme is selected (theme-selections are saved in localStorage) */
     --main-color: #72b6ff;
+    --main-color-rgb: 114, 182, 255; /* RGB version of main color for rgba usage */
     --bg-color: rgb(15, 129, 236); /* needs to be in rgb format */
     --bg-opacity: 0.31;
     --selection: #3b6d8b;
