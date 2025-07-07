@@ -3,21 +3,21 @@ import '/src/js/components/base.js';
 /////////////////////////////////////////////// ARTICLES ///////////////////////////////////////////////
 
 const articles = [
-    {
+    /*{
         title: "Appreciation Is Rare, and That's the Problem",
         description: "This isn't life advice. Just me sharing how it feels when people act like they don't care. Support and appreciation matter more than most people realize.",
         link: "articles/article6.html", 
         class: "article-one",
         thumbnail: "./src/media/blog-thumbnails/appreciationisrare.png",
-        date: "July 6, 2025" // Add date field here
-    },
+        date: "July 6, 2025"
+    },*/
     {
         title: "WinMacros: Custom Windows Macros",
         description: "How I created a tool to automate tasks and make system control easier with simple macros.",
         link: "articles/article5.html", 
         class: "article-one",
         thumbnail: "./src/media/blog-thumbnails/winmacros.png",
-        date: "February 26, 2025" // Add date field here
+        date: "February 26, 2025"
     },
     {
         title: "WinConfigs: Simplifying Windows Setup",
@@ -25,7 +25,7 @@ const articles = [
         link: "articles/article4.html", 
         class: "article-one",
         thumbnail: "./src/media/blog-thumbnails/winconfigs.png",
-        date: "February 5, 2025" // Add date field here
+        date: "February 5, 2025"
     },
     {
         title: "Why Tailwind CSS Isn't for Me",
@@ -33,7 +33,7 @@ const articles = [
         link: "articles/article3.html", 
         class: "article-one",
         thumbnail: "./src/media/blog-thumbnails/tailwind2.png",
-        date: "November 6, 2024" // Add date field here
+        date: "November 6, 2024"
     },
     {
         title: "My first Linux experience",
@@ -41,7 +41,7 @@ const articles = [
         link: "articles/article2.html", 
         class: "article-two",
         thumbnail: "./src/media/blog-thumbnails/linux.png",
-        date: "October 22, 2024" // Add date field here
+        date: "October 22, 2024"
     },
     {
         title: "Hello World, may I say?",
@@ -49,7 +49,7 @@ const articles = [
         link: "articles/article1.html", 
         class: "article-one",
         thumbnail: "./src/media/blog-thumbnails/lain.jpg",
-        date: "October 20, 2024" // Add date field here
+        date: "October 20, 2024"
     }
 ];
 
