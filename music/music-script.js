@@ -5,7 +5,7 @@
 import '/src/js/components/base.js';
 
 const ARTIST_CONFIG = {
-    "$uicideboy$": 248,
+    "$uicideboy$": 257,
     "Stromae": 38,
     "Bakar": 45,
     "Artemas": 36,
@@ -304,6 +304,38 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/album/2kx2zE6RYdyZ1IRhVz70xC?si=kj1C0oAGRd2ezjYfOn04mg",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b27348fc9636a3877a1f9bf7e39f",
                 duration: "15:23",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "G.R.E.Y.G.O.D.S.I.I.",
+                spotifyUrl: "https://open.spotify.com/album/5JPMrbyhWdReHLXNa0V1Vs?si=4kXn1P5HRCSG0udZxnGaDQ",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273cca7bd4bd84247cbe790ca3b",
+                duration: "15:54",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "Soul",
+                spotifyUrl: "https://open.spotify.com/track/2XlfXMpWi3d07qmfmouX6x?si=7d32e0bb15d54f4d",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2731bd6fcff112891502437b2c0",
+                duration: "3:47",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "Dipped In Gold",
+                spotifyUrl: "https://open.spotify.com/track/1ZPyyeKeh7rhHNS7A9jdUC?si=c4b7f70705b9480b",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273d52f151073399d6f02a5a265",
+                duration: "2:32",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "I Can't Fold (feat. $uicideboy$)",
+                spotifyUrl: "https://open.spotify.com/track/6tFF3vvVVYSHJahwBEQwly?si=d0ccc150062a40c0",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734f18aa99bf9119df5acf6fdc",
+                duration: "3:10",
                 isObsessed: true,
                 isAlbum: false
             },
@@ -1067,7 +1099,7 @@ function createFilterMenu() {
                 </div>
                 <p>This is where I share my favorite artists and songs. You'll find a mix of different genres and styles that I enjoy listening to. Feel free to explore my music taste and discover some great tunes!</p>
                 <div class="last-updated">
-                    Last updated: June 27th 2025
+                    Last updated: July 18th 2025
                 </div>
             </div>
         </div>
