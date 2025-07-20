@@ -35,13 +35,35 @@
 </head>
 
 <body>
-    <video preload="none" onloadstart="this.playbackRate = 0.65;" autoplay muted loop playsinline id="noise_vid"
-        src="https://files.catbox.moe/hop8wg.mp4" poster="/src/media/noise_static.png">
-    </video>
+    <!----noise.mp4---->
+	<!---src="https://files.catbox.moe/hop8wg.mp4"--->
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.65;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="noise_vid"
+		src="/src/media/noise.mp4"
+		poster="/src/media/noise_static.png"
+		>
+	</video>
 
-    <video preload="none" onloadstart="this.playbackRate = 0.85;" autoplay muted loop playsinline id="rain_vid"
-        src="https://files.catbox.moe/i7le27.mp4" poster="/src/media/rain_bg_static.png">
-    </video>
+	<!----rain_bg.mp4---->
+	<!---src="https://files.catbox.moe/i7le27.mp4"--->
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.85;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="rain_vid"
+		src="/src/media/rain_bg.mp4"
+		poster="/src/media/rain_bg_static.png"
+		>
+	</video>
 
     <div id="snow-container"></div>
     <div class="vignette"></div>
