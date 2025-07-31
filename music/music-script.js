@@ -5,7 +5,7 @@
 import '/src/js/components/base.js';
 
 const ARTIST_CONFIG = {
-    "$uicideboy$": 257,
+    "$uicideboy$": 267,
     "Stromae": 38,
     "Bakar": 45,
     "Artemas": 36,
@@ -33,12 +33,21 @@ const artistData = [
         ],
         songs: [
             {
+                title: "THY KINGDOM COME",
+                spotifyUrl: "https://open.spotify.com/album/7HxLze2RiYrM9f2un8HZUp?si=M8-Do8eNSgiGVAOE9DodaA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273f5ce8190f3b88f7825dad11d",
+                duration: "29:02",
+                isFavorite: false,
+                isObsessed: true,
+                isAlbum: true
+            },
+            {
                 title: "New World Depression",
                 spotifyUrl: "https://open.spotify.com/album/1lKWIQuLHxdlifTuudutTl?si=bSqMB7I-TyO_oVYcCu_04g",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b27335d777c5fa4a353b87ad62bd",
                 duration: "34:15",
-                isFavorite: true,
-                isObsessed: false,
+                isFavorite: false,
+                isObsessed: true,
                 isAlbum: true
             },
             {
@@ -104,7 +113,8 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/album/12RWpV5WUjYo4SisuFWMNK?si=o6XMttVYQKShed5LZZSN8g",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273eede8ca62134dd7bdecb6085",
                 duration: "20:07",
-                isFavorite: true,
+                isFavorite: false,
+                isObsessed: true,
                 isAlbum: true
             },
             {
@@ -240,7 +250,8 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/album/0Jbf4eYSaqLj4OW0xCrJlj?si=8JtSVk4_QOGP53v77aAwaA",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273b53ec3f3f09f8b19a5e0235d",
                 duration: "6:15",
-                isFavorite: true,
+                isFavorite: false,
+                isObsessed: true,
                 isAlbum: false
             },
             {
@@ -248,7 +259,7 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/album/1jDAnHgqCfYMNsRj63Dd7u?si=rvNxF1V9R16BaqwiFQowbA",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b27307bba1f8abbeb68e5d0c3477",
                 duration: "6:57",
-                isFavorite: true,
+                isObsessed: true,
                 isAlbum: false
             },
             {
@@ -256,7 +267,7 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/album/1VJbqV5tHd4wP7n5iJhYIY?si=z07FWj42RI23FUQ2fe4BsA",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273af1033945c0e113118ec5e05",
                 duration: "7:12",
-                isFavorite: true,
+                isObsessed: true,
                 isAlbum: false
             },
             {
@@ -264,7 +275,7 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/album/6zFDOD1SXs27ERSlm1q7kY?si=FA1TZ6n9TDC1fkUQZuGy0w",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273949dea13d2de4215e8c16314",
                 duration: "6:03",
-                isFavorite: true,
+                isObsessed: true,
                 isAlbum: false
             },
             {
