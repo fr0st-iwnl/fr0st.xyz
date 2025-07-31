@@ -768,11 +768,17 @@ textarea {
 	--bg-alpha: rgba(200, 95, 241, 0.3);
 }
 
+.tag[class*='self-hosted'] {
+    --tag-color: rgb(76, 175, 80);
+    --bg-alpha: rgba(76, 175, 80, 0.2);
+}
+
 
 
 .tag[class*='active'],
 .tag[class*='inactive'],
-.tag[class*='open-source'] {
+.tag[class*='open-source'],
+.tag[class*='self-hosted'] {
 	border-color: var(--tag-color);
 	color: var(--tag-color);
 	background: linear-gradient(90deg, transparent -5%, var(--bg-alpha) 120%);
