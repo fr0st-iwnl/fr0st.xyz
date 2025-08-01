@@ -1,5 +1,5 @@
 
-# fr0st's - Webpage
+# ❄️ \\\ fr0st's - Webpage
 Github-Repository of my personal webpage. Including news, projects, picture grid, about and contact pages.
 Made using Vanilla HTML/CSS and JavaScript.
 
@@ -23,12 +23,9 @@ Featuring a design inspired by old vintage terminals!
 
 ## Roadmap / TODOs
 
-- [x] Create a working dynamic page for blogs
-- [x] Add view counts for the blog and improve the design
-- [x] Remake the view counts and add a different way to store them
-- [x] Added Analytics for the website
+- [ ] Remake blogs to use markdown -  *This will take some time because I’m not sure if I want to do it yet. Right now, I’m working with HTML because it feels easier.*
 
 
 ## Credits
 
-#### - richardapps-web: [web-page](https://github.com/Richard-Apps/richardapps-web) 
+- richardapps-web: [web-page](https://github.com/Richard-Apps/richardapps-web) 
