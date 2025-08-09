@@ -1002,6 +1002,42 @@ i {
     transform: scaleX(1);
 }
 
+/* Age for about me */
+.age-display {
+    color: var(--main-color);
+    background: rgba(114, 182, 255, 0.1);
+    padding: 1px 3px;
+    font-size: 0.99em;
+    border-radius: 1.5px;
+    letter-spacing: 0.2px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    vertical-align: text-bottom;
+    line-height: 1;
+    user-select: none;
+}
+
+.age-display::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(114, 182, 255, 0.3), transparent);
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    50% { left: -100%; }
+    100% { left: 100%; }
+}
+
+
 /*--------------------------------------------------------------
 # CONTACT
 --------------------------------------------------------------*/
@@ -1156,5 +1192,4 @@ i {
 #noise_vid, #rain_vid {
     display: none;
 }
-
 

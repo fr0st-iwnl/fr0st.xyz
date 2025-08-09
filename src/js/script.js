@@ -472,3 +472,33 @@ if (effectsDisabled) {
 } else {
     document.body.classList.remove('effects-disabled');
 }
+
+
+// Real-time age calculator
+function calculateAge() {
+    const birthDate = new Date(2007, 11, 25); // December 25, 2007 (month is 0-indexed btw so 11 is correct)
+    const now = new Date();
+    
+    // Calculate the difference in milliseconds
+    const diffInMs = now.getTime() - birthDate.getTime();
+    
+    // Convert to years with high precision
+    const ageInYears = diffInMs / (365.25 * 24 * 60 * 60 * 1000);
+    
+    return ageInYears;
+}
+
+function updateAge() {
+    const ageElement = document.getElementById('realtime-age');
+    if (ageElement) {
+        const age = calculateAge();
+        // i want 8 decimals cuz it fits the best if u want it with more decimals 11 is the best ig
+        ageElement.textContent = age.toFixed(8);
+    }
+}
+
+// Update age immediately and then every second
+document.addEventListener('DOMContentLoaded', function() {
+    updateAge();
+    setInterval(updateAge, 1); // Update every 1ms (0.001 seconds)
+});

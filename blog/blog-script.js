@@ -13,7 +13,7 @@ const articles = [
     },*/
     {
         title: "WinMacros: Custom Windows Macros",
-        description: "How I created a tool to automate tasks and make system control easier with simple macros.",
+        description: "A tool I made to automate tasks and control my system with simple macros.",
         link: "articles/article5.html", 
         class: "article-one",
         thumbnail: "./src/media/blog-thumbnails/winmacros.png",
@@ -21,7 +21,7 @@ const articles = [
     },
     {
         title: "WinConfigs: Simplifying Windows Setup",
-        description: "How I created a script to simplify Windows setup with automation and system tweaks.",
+        description: "A script that I made to simplify Windows setup using automation and system tweaks.",
         link: "articles/article4.html", 
         class: "article-one",
         thumbnail: "./src/media/blog-thumbnails/winconfigs.png",

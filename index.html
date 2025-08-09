@@ -49,7 +49,7 @@
 		loop
 		playsinline
 		id="noise_vid"
-		src="https://files.catbox.moe/hop8wg.mp4"
+		src="/src/media/noise.mp4"
 		poster="/src/media/noise_static.png"
 		>
 	</video>
@@ -64,7 +64,7 @@
 		loop
 		playsinline
 		id="rain_vid"
-		src="https://files.catbox.moe/i7le27.mp4"
+		src="/src/media/rain_bg.mp4"
 		poster="/src/media/rain_bg_static.png"
 		>
 	</video>
@@ -132,10 +132,11 @@
 						<div class="latest-updates">
 							<h2>Latest Updates</h2>
 							<div id="update-list">
+								<p><em title="Updated at 5:34 AM">AUGUST 9th, 2025:</em> Added a real-time age calculator of my age on the <a style="color: yellow; background-color: transparent; box-shadow: none; text-decoration: underline;" href="index.html#about">About Page</a> and improved the page loading speed.</p>
 								<p><em title="Updated at 3:16 PM">JULY 6th, 2025:</em> Redesigned the <a style="color: yellow; background-color: transparent; box-shadow: none; text-decoration: underline;" href="blog.html">Blog Page</a>.</p>
 								<p><em title="Updated at 2:00 AM">JUNE 5th, 2025:</em> Gave the <a style="color: yellow; background-color: transparent; box-shadow: none; text-decoration: underline;" href="music.html">Music Page</a> a small revamp, added more resources, and made a few small changes across the site.</p>
 								<p><em title="Updated at 9:22 PM">APRIL 25th, 2025:</em> Added a new <a style="color: yellow; background-color: transparent; box-shadow: none; text-decoration: underline;" href="resources.html">Resources Page</a> for useful links, redesigned the homepage, organized the site better, fixed some bugs, and added a "More" tab to the navbar.</p>
-								<p><em title="Updated at 6:38 AM">MARCH 25th, 2025:</em> Added a welcome message to the <a style="color: yellow; background-color: transparent; box-shadow: none; text-decoration: underline;" href="music.html">Music page</a> and updated the <a style="color: yellow; background-color: transparent; box-shadow: none; text-decoration: underline;" href="status.html">status</a>.</p>
+								<p class="hidden-update"><em title="Updated at 6:38 AM">MARCH 25th, 2025:</em> Added a welcome message to the <a style="color: yellow; background-color: transparent; box-shadow: none; text-decoration: underline;" href="music.html">Music page</a> and updated the <a style="color: yellow; background-color: transparent; box-shadow: none; text-decoration: underline;" href="status.html">status</a>.</p>
 								<p class="hidden-update"><em title="Updated at 7:43 PM">MARCH 19th, 2025:</em> Created a new page called <a style="color: yellow; background-color: transparent; box-shadow: none; text-decoration: underline;" href="music.html">Music</a>, where users can see the artists I like and the songs I listen to.</p>
 								<p class="hidden-update"><em title="Updated at 11:34 AM">FEBRUARY 15th, 2025:</em> Added a share button and RSS feeds for blogs, and fixed some minor issues.</p>
 								<p class="hidden-update"><em title="Updated at 2:08 AM">FEBRUARY 5th, 2025:</em> Created a new page called Status where I'll share updates. I also created a new blog post and changed the appearance of the sound emoji from the About tab when you hover over it.</p>
@@ -293,7 +294,7 @@
             <p class="pr_desc">A collection of useful shell tools with simple macros using sxhkd </p>
 			<div class="tag-list">
 				<p class="tag open-source">Open-Source</p>
-				<p class="tag active">Ongoing</p>
+				<p class="tag inactive" data-tooltip="not currently being worked on">On Hold</p>
 			</div>
             <br>
             <p><a href="https://sh-toolbox.netlify.app/" target="_blank">VISIT</a></p>
@@ -383,7 +384,7 @@
 						<h2>About Me</h2>
 						<p>Hey there! Thanks for checking out my website! Happy to have you here.</p>
 						<br>
-						<p>As to me, I'm Frost. I love all things computer-related! I've played around with coding and stuff. <em>Not an expert, but it's fun!</em></p>
+						<p>As to me, I'm Frost and I'm <span id="realtime-age" class="age-display">17</span> years old. I love all things computer-related! I've played around with coding and stuff. <em>Not an expert, but it's fun!</em></p>
 						<br>
 						<p>I really enjoy making websites. It's fun to design and build something that people can use and see online. Whether it's creating a neat layout or figuring out how to make things work smoothly, I find it really satisfying to see a website come together.</p>
 						<br>
@@ -391,7 +392,7 @@
 						<br>
 						<p>I'm also an <em><a class="personality" href="https://enneagramtest.com/blog/isfp-4w5" target="_blank">ISFP 4w5</a></em>, so I enjoy doing my own thing and making stuff that feels personal and unique to me.</p> <!---<em>Small fun fact I didn't even know, but I've had this <a class="personality" href="/src/media/pfp.jpg" target="_blank">profile pic</a> of Roxas from Kingdom Hearts for years, and he has the same MBTI and Enneagram as me. Didn't expect that at all. :)</em></p>--->
 						<br>
-						<p>Furthermore, I love listening to music! <em>(Before you ask, I listen to all genres :P)</em> Check it out here: <a class="music" href="music.html" target="_blank">🔊</a></p>			
+						<p>Furthermore, I love listening to music! <em>(Before you ask, I listen to all genres :P)</em> Here are some of the artists I love. Listen here: <a class="music" href="music.html" target="_blank">🔊</a></p>			
 					</div>
 					<div class="grid_row_box_dotted">
 						<h2>Skills</h2>
