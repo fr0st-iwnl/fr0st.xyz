@@ -3,6 +3,14 @@ import '/src/js/components/base.js';
 /////////////////////////////////////////////// ARTICLES ///////////////////////////////////////////////
 
 const articles = [
+    {
+        title: "My Music Setup on PC and Phone",
+        description: "The music apps I use on PC and phone, how I make them work for me, and what I think about them.",
+        link: "articles/article6.html", 
+        class: "article-one",
+        thumbnail: "./src/media/blog-thumbnails/music-setup.png",
+        date: "August 18, 2025"
+    },
     /*{
         title: "Appreciation Is Rare, and That's the Problem",
         description: "This isn't life advice. Just me sharing how it feels when people act like they don't care. Support and appreciation matter more than most people realize.",

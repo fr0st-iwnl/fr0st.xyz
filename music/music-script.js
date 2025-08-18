@@ -8,7 +8,7 @@ const ARTIST_CONFIG = {
     "$uicideboy$": 267,
     "Stromae": 38,
     "Bakar": 45,
-    "Artemas": 36,
+    "Artemas": 40,
     "Killa Fonic": 116,
     "Mareux": 26,
     "Joji": 37
@@ -543,6 +543,30 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/album/4Uh9XOh5hmX0Cw7JREc0AU?si=6PmDrvWZT8yLo9uC5dqC3A",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2738ae0235c22283aa1a54ddfb2",
                 duration: "5:26 ",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "i guess u never really cared about me",
+                spotifyUrl: "https://open.spotify.com/track/2hyyp0mZc5QFY5YQeyv7oP?si=aced79247a6a4bac",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27350dc97f510a52976be03de1f",
+                duration: "3:11 ",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "fancy / xvideos",
+                spotifyUrl: "https://open.spotify.com/album/073p1oabjQBPOYrAMWOrge?si=Gr9ZL-wkQTW3Tr0K3zQSiQ",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273a5d1584c74776a69ad4991cc",
+                duration: "4:04 ",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "So Stunning",
+                spotifyUrl: "https://open.spotify.com/track/0U2h15q7cbWWzVJjFPnWxY?si=6520705a47f04666",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273b86bb44d0c0f7fcfc460c4e0",
+                duration: "2:18 ",
                 isObsessed: true,
                 isAlbum: false
             },
@@ -1110,7 +1134,7 @@ function createFilterMenu() {
                 </div>
                 <p>This is where I share my favorite artists and songs. You'll find a mix of different genres and styles that I enjoy listening to. Feel free to explore my music taste and discover some great tunes!</p>
                 <div class="last-updated">
-                    Last updated: August 1st 2025
+                    Last updated: August 18th 2025
                 </div>
             </div>
         </div>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-----METAS----->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+	<meta name="author" content="fr0st-iwnl">
+	<meta name="theme-color" content="#72B6FF">
+	<meta proberty="og:title" content="fr0st-iwnl">
+	<meta property="og:site_name" content="fr0st.xyz">
+	<meta proberty="og:description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+	<meta proberty="og:url" content="https://fr0st.xyz">
+	<meta name="keywords" content="fr0st-iwnl, frost, fr0st, frostiwnl, kiyokosmacros, frostiwnldev, frost github, songs, my music setup, my music setup on pc and phone, music, setup">
+	<meta name="robots" content="index, follow">
+	<meta name="revisit-after" content="7 days">
+	<!-----TITLE------>
+	<title>fr0st-iwnl - My Music Setup on PC and Phone</title>
+
+	<!-----SCRIPT-JS------>
+	<script src="/src/js/components/base.js" type="module" defer></script>
+
+    <!-----LINKS------>
+	<link rel="icon" href="../src/media/favicons/favicon.ico">
+	<link rel="preload" as="font" href="src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
+	<link rel="stylesheet" href="/articles/main.css">
+	<link rel="alternate" type="application/rss+xml" title="fr0st&#39;s Webpage RSS" href="https://fr0st.xyz/rss.xml">
+	<!---FONT AWESOME------->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+</head>
+
+<body>
+	<!----noise.mp4---->
+	<!---src="https://files.catbox.moe/hop8wg.mp4"--->
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.65;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="noise_vid"
+		src="/src/media/noise.mp4"
+		poster="/src/media/noise_static.png"
+		>
+	</video>
+
+	<!----rain_bg.mp4---->
+	<!---src="https://files.catbox.moe/i7le27.mp4"--->
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.85;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="rain_vid"
+		src="/src/media/rain_bg.mp4"
+		poster="/src/media/rain_bg_static.png"
+		>
+	</video>
+
+	<div id="snow-container"></div>
+	<div class="vignette"></div>
+	<div id="videohue"></div>
+	<div id="canvas">
+		<header>
+			<pre id="title">
+    ____       ____         __ 
+   / __/_____ / __ \ _____ / /_
+  / /_ / ___// / / // ___// __/
+ / __// /   / /_/ /(__  )/ /_  
+/_/  /_/    \____//____/ \__/  
+			</pre>
+            <div>
+			<p class="welcome"></p>
+		<br>
+		<p class="effects" id="changeEffects">Want some fancy effects? Click <a id="changeEffectsLink">HERE</a> to turn them on.</p>
+		</header>
+		<br>
+
+        <!--------- NAVBAR ------------->
+        <nav id="nav_tabs">
+			<ul>
+				<li><a href="/blog.html"><i class="fa-solid fa-less-than-equal"></i></a></li>
+                <li><a href="https://github.com/fr0st-iwnl" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+			</ul>
+		</nav>
+
+        <!--------- SECOND ARTICLE ------------->
+        <div class="article-container7">
+            <h1 class="article-title">My Music Setup on PC and Phone</h1>
+			<p><i class="fa-solid fa-eye"></i> ‒ Views: <script type="text/javascript" src="https://freehitcounters.org/count/iflu"></script><br></p>
+			<br>
+			<br>
+            <p class="article-date">Published on: August 18, 2025</p>
+            <div class="article-content">
+                <p>If you really enjoy listening to music like I do all the time or just like having your favorite songs ready, 
+                I wanted to share the apps I actually use, what I like about them, and what I don't. <!----Most of the tips and setups here are for <b>Android</b>, <b>Windows</b>, <b>macOS</b>, and <b>Linux</b>.-----></p>
+				<h2>#1. <i class="fa-brands fa-spotify brands-icon"></i> Spotify</h2>
+				<br>
+				<p><b>Spotify</b> has a great UI and is pretty lightweight as a music app, in my opinion. It's great for playlists, popular music, and keeping all my liked songs in one place.
+                    But it does have downsides like ads and premium-only features. 
+                    In the past, you could patch Spotify with apps like <a href="https://github.com/Team-xManager/xManager" target="_blank">XManager</a> or <a href="https://revanced.app/" target="_blank">ReVanced</a> to remove ads. 
+                    XManager patches still exist but don't work anymore, and I think XManager has the same problem as ReVanced, where songs sometimes skip to another track when you try to play them.</p>
+                <p>I still use Spotify on both <b>PC</b> and <b>Phone</b> because I have tons of liked songs and playlists. 
+                I've even transferred some playlists to <b>YouTube Music</b>, but I still have way too many songs to switch fully right now.</p>
+				
+                <div class="terminal-feature-list">
+                    <p class="feature-intro"><em>HOW I USE IT:</em></p>
+                    
+                    <p><b>PC:</b> I use <a href="https://github.com/SpotX-Official/SpotX" target="_blank">SpotX (Windows)</a> and <a href="https://github.com/SpotX-Official/SpotX-Bash" target="_blank">SpotX-Bash (MacOS / Linux)</a>. On my Windows and Linux machines, these let me use Spotify without ads.</p>
+                    <p><b>Phone:</b> I use Spotify in the <a href="https://brave.com/" target="_blank">Brave browser</a>. 
+                        You need to enable <b>"desktop site"</b> in the browser menu to make it work, and then it's gonna let you listen to Spotify songs without ads. 
+                        The UI can be tricky on mobile when using the desktop site setting, but it's still manageable. 
+                        I'll also upload a pic showing how to enable it. You can check it <a href="https://i.postimg.cc/k5yyNWzv/desktop-site.png" target="_blank">here</a></p>
+
+                    
+                    <h3>Downsides:</h3>
+                    <p>Free version has ads</p>
+                    <p>Premium costs money</p>
+                    <p>Limited skips: You're allowed up to six skips per hour</p>
+                </div>
+
+                <p>Even with the downsides, <b>Spotify</b> is my daily music app because all my songs are already there. 
+                I've also seen people say that version <b>"9.0.46.496"</b> of <b>Spotify</b> can be patched with <b>ReVanced</b> or <b>XManager</b>, but I've only tried it once with ReVanced patches and it didn't work. 
+                Maybe I was doing something wrong, or maybe it only works with XManager. 
+                If you know how to get it working and want to share, you can <a href="mailto:fr0st.xyz@tuta.io" target="_blank">Email me</a> or DM me on <a href="https://frostiwnl.netlify.app/discord" target="_blank">Discord</a>.</p>
+                
+                <h2>#2. <i class="fa-solid fa-circle-play brands-icon"></i> YouTube Music</h2>
+				<br>
+
+                <p><b>YouTube Music's</b> UI isn't perfect, and in my opinion, it's a bit heavier than Spotify, but I like it because I can patch it with <a href="https://revanced.app/" target="_blank">ReVanced</a> to remove ads. 
+                It also lets you watch the music video when available, which is a nice extra feature.</p>
+				
+                <div class="terminal-feature-list">
+                    <p class="feature-intro"><em>HOW I USE IT:</em></p>
+                    
+                    <p><b>PC:</b> I use an open-source desktop app for <a href="https://github.com/th-ch/youtube-music" target="_blank">YouTube Music</a> which has plugins like Discord Rich Presence and ad blocking.</p>
+                    <p><b>Phone:</b> I use the patched app with <a href="https://revanced.app/" target="_blank">ReVanced</a>. You could also try it on Brave, but I stick with the patched version for now.</p>
+                    
+                    <h3>Downsides:</h3>
+                    <p>Free version has ads</p>
+                    <p>Premium costs money</p>
+                    <p>Sometimes you need to provide your own ID to play a song, which is crazy in my opinion (this is <b>server-side</b>, so no patch / bypass for <b>ReVanced</b> exists, see issue <a href="https://github.com/ReVanced/revanced-patches/issues/5453" target="_blank">#5453</a>)</p>
+                </div>
+
+                <p>So yeah, I usually turn to YouTube Music if something stops working on Spotify.</p>
+
+
+                <h2>#3. <i class="fa-brands fa-soundcloud brands-icon"></i> SoundCloud</h2>
+				<br>
+
+                <p><b>SoundCloud</b> was actually the first music app I used. It's free and has tons of music content. 
+                Some songs might not be available in your country, but usually you can find another version uploaded by someone else.
+                I've heard some people get ads on the free version depending on their region, but I've never had ads in my entire time using SoundCloud.
+                </p>
+				
+                <div class="terminal-feature-list">
+                    <p class="feature-intro"><em>HOW I USE IT:</em></p>
+                    
+                    <p><b>PC:</b> I mainly use the browser version.</p>
+                    <p><b>Phone:</b> I use the SoundCloud app. I think you can also patch it with <a href="https://revanced.app/" target="_blank">ReVanced</a> to remove ads, but I've never tried it myself.</p>
+                    
+                    <h3>Downsides:</h3>
+                    <p>Free version may have ads, depending on your region</p>
+                    <p>Premium costs money</p>
+                    <p>Some tracks might be restricted in your country</p>
+                </div>
+
+                <p>I still enjoy SoundCloud, though some songs aren't available in my country.</p>
+
+                <h2>＠ Final Thoughts</h2>
+                <br> 
+                <p><b>Spotify</b> is my main app for <b>daily listening</b>. Ads and country restrictions are annoying, but all my music is already there.
+                <b>YouTube Music</b> is a great backup, especially patched with <a href="https://revanced.app/" target="_blank">ReVanced</a> or used on <b>PC</b>, and it's nice to have the video feature.
+                But of course, YouTube could change things in the future and make it unpatchable. 
+                If that ever happened, I think I'd end up going with <b>SoundCloud</b> in the end. <b>SoundCloud</b> is perfect for free music and discovering new artists, but yeah, like I said, some songs may be unavailable depending on your location. 
+                <p>That's how I manage my music between <b>PC</b> and <b>phone</b>. It might not be perfect, but it keeps me listening to the songs I like.</p>
+                <div class="article-footer">
+					<p class="lastupdated">＃ Last updated on: <b>August 18, 2025</b></p>
+					<div class="button-container">
+					  <button onclick="shareLink(this)" class="share-button">
+						<i class="fa-solid fa-share"></i>
+						Share
+					  </button>
+					  <a href="/rss.xml" target="_blank" class="rss-icon">
+						<i class="fa-solid fa-rss"></i>
+					  </a>
+					</div>
+				  </div>
+
+                  <style>
+                    .brands-icon {
+                        font-size: 24px;
+                    }
+                    .fa-spotify{
+                        color: #1ED760;
+                        text-shadow: 0 0 0px;
+                    }
+
+                    .fa-circle-play{
+                        color: #FF0030;
+                        text-shadow: 0 0 0px;
+                    }
+                    .fa-soundcloud{
+                        color: #FF5400;
+                        text-shadow: 0 0 0px;
+                    }
+                </style>
+
+
+        <!---------THEMES------------->
+						<div id="theme_selector">
+							<div id="theme_list"></div>
+						</div>
+        
+</body>
+</html>
