@@ -484,3 +484,51 @@ a[href*="freehitcounters.org"] {
         font-size: 0.9em;
     }
 }
+
+
+/*--------------------------------------------------------------
+# ARTICLE IMAGES
+--------------------------------------------------------------*/
+.article-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px 0;
+    display: block;
+}
+
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+    .article-content img {
+        margin: 15px 0;
+        border-radius: 8px;
+    }
+}
+
+.image-container img {
+  max-width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.image-container img:hover {
+  opacity: 0.8;
+}
+
+
+/* Some GLightBox Settings that i changed */
+.glightbox-container {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.glightbox-wrapper {
+  display: inline-block;       /* keeps the wrapper tight around image */
+  margin: 10px;                /* spacing between images */
+}
+
+
+
+
+

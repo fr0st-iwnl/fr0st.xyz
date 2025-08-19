@@ -28,6 +28,10 @@
 	<!---FONT AWESOME------->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
+	<!-- GLIGHTBOX CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+
 </head>
 
 <body>
@@ -112,13 +116,31 @@
                     
                     <p><b>PC:</b> I use <a href="https://github.com/SpotX-Official/SpotX" target="_blank">SpotX (Windows)</a> and <a href="https://github.com/SpotX-Official/SpotX-Bash" target="_blank">SpotX-Bash (MacOS / Linux)</a>, which let me use Spotify without ads on my Windows and Linux machines.</p>
                     <p><b>Phone:</b> I use Spotify in the <a href="https://brave.com/" target="_blank">Brave browser</a>. 
-                        Brave has a built-in ad blocker, and if you enable "Desktop Site" in the browser menu, it lets you listen to Spotify songs without ads. The UI can be tricky on mobile when using the desktop site setting, but it's still manageable. I'll also upload a pic showing how to enable it. You can check it <a href="https://i.postimg.cc/k5yyNWzv/desktop-site.png" target="_blank">here</a></p>
+                        Brave has a built-in ad blocker, and if you enable <b>"Desktop Site"</b> in the browser menu,
+						it lets you listen to Spotify songs without ads. The UI can be tricky on mobile when using the desktop site setting,
+						but it's still manageable. I'll also upload a pic showing how to enable it.
+
+						<div class="glightbox-wrapper">
+						<a href="https://i.postimg.cc/k5yyNWzv/desktop-site.png" class="glightbox" data-gallery="gallery1">
+							<img src="https://i.postimg.cc/k5yyNWzv/desktop-site.png" width="200">
+						</a>
+						</div>
+						<br>
+						Oh and also, if you're struggling to change songs in the browser UI, 
+						you can just use your <b>phone's media controls</b> (the little player that shows up in the notification/lock screen). 
+						It's way easier than dealing with the web browser controls. I'll upload a pic so you can see more clearly.
+						
+						<div class="glightbox-wrapper">
+						<a href="https://i.postimg.cc/66dJf801/phone-media-controls.png" class="glightbox" data-gallery="gallery1">
+							<img src="https://i.postimg.cc/66dJf801/phone-media-controls.png" width="300">
+						</a>
+						</div>
 
                     
                     <h3>Downsides:</h3>
                     <p>Free version has ads</p>
                     <p>Premium costs money</p>
-                    <p>Limited skips: You're allowed up to six skips per hour</p>
+                    <p>Free version has limited skips: you're allowed up to six per hour.</p>
                 </div>
 
                 <p>Even with the downsides, <b>Spotify</b> is my daily music app because all of my songs are already there. 
@@ -177,7 +199,7 @@
                 If that ever happened, I think I'd end up going with <b>SoundCloud</b> in the end. <b>SoundCloud</b> is perfect for free music and discovering new artists, but yeah, like I said, some songs may be unavailable depending on your location. 
                 <p>That's how I manage my music between <b>PC</b> and <b>phone</b>. It might not be perfect, but it keeps me listening to the songs I like.</p>
                 <div class="article-footer">
-					<p class="lastupdated">＃ Last updated on: <b>August 18, 2025</b></p>
+					<p class="lastupdated">＃ Last updated on: <b>August 19, 2025</b></p>
 					<div class="button-container">
 					  <button onclick="shareLink(this)" class="share-button">
 						<i class="fa-solid fa-share"></i>
@@ -207,6 +229,12 @@
                         text-shadow: 0 0 0px;
                     }
                 </style>
+
+		<!-- GLIGHTBOX LIBRARY -->
+			<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+			<script>
+			const lightbox = GLightbox({ selector: '.glightbox' });
+			</script>
 
 
         <!---------THEMES------------->

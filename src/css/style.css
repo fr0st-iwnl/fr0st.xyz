@@ -959,6 +959,27 @@ i {
     margin-bottom: .25em;
 }
 
+.discord {
+    margin-left: 3px;
+    letter-spacing: 1px;
+}
+
+.github {
+    margin-left: 6px;
+    letter-spacing: 2px;
+}
+
+.youtube {
+    margin-left: 4px;
+    letter-spacing: 2px;
+}
+
+.ko-fi {
+    margin-left: 6px;
+    letter-spacing: 2px;
+}
+
+
 
 .personality {
     text-decoration: underline;
