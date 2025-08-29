@@ -8,7 +8,7 @@ const ARTIST_CONFIG = {
     "$uicideboy$": 267,
     "Stromae": 38,
     "Bakar": 45,
-    "Artemas": 40,
+    "Artemas": 42,
     "Killa Fonic": 116,
     "Mareux": 26,
     "Joji": 37
@@ -559,6 +559,14 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/album/073p1oabjQBPOYrAMWOrge?si=Gr9ZL-wkQTW3Tr0K3zQSiQ",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273a5d1584c74776a69ad4991cc",
                 duration: "4:04 ",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "eat me alive / u don't have to tell me",
+                spotifyUrl: "https://open.spotify.com/album/3mxQzFNEhn2XAr2UvCt2bI?si=I6M0yJGJTXuuCi0ZdPLkTg",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b27362466a87d21d5cb7435f9e4c",
+                duration: "4:37 ",
                 isObsessed: true,
                 isAlbum: false
             },
@@ -1134,7 +1142,7 @@ function createFilterMenu() {
                 </div>
                 <p>This is where I share my favorite artists and songs. You'll find a mix of different genres and styles that I enjoy listening to. Feel free to explore my music taste and discover some great tunes!</p>
                 <div class="last-updated">
-                    Last updated: August 18th 2025
+                    Last updated: August 29th 2025
                 </div>
             </div>
         </div>
