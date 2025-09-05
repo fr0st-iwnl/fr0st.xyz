@@ -22,13 +22,13 @@ document.documentElement.style.setProperty('--bg-color', getComputedStyle(docume
     "made with a keyboard.",
     "man i jus realized i added so many $uicideboy$ songs in here 😭",
     "honestly, who reads this stuff?",
-    "you ever just… stare at the screen?",
+    "you ever just.. stare at the screen?",
     "me, pretending to be productive.",
     "wrote this instead of sleeping.",
     "i'm not a professional writer.",
     "i'm just a guy who likes to write sometimes.",
     "just me messing around with text.",
-    "01000100010011",
+    "00101110011110000111100101111010", /* dont forget to update this too... :( */
     "just another day in the void.",
     "another day, another line of code. :[",
     "Smoked Out, Scoped Out",
@@ -77,7 +77,7 @@ const welcomeText = document.querySelector('.welcome');
 if (welcomeText) {
     const randomPhrase = getRandomPhrase();
 
-    if (randomPhrase === "01000100010011") {
+    if (randomPhrase === "00101110011110000111100101111010") {
         const numberSpan = document.createElement('span');
         numberSpan.classList.add('glitch'); // glitch class
         numberSpan.setAttribute('data-text', randomPhrase);
