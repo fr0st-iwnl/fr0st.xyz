@@ -30,7 +30,8 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    height: 500px; /* Fixed height for consistency */
+    height: auto; /* blog article image height */
+    min-height: 500px;
     overflow: hidden;
     border: 1px solid rgba(var(--main-color-rgb, 114, 182, 255), 0.4);
     position: relative;
@@ -69,7 +70,8 @@
 
 .article-thumbnail-container {
     width: 100%;
-    height: 200px;
+    height: 200px;  /* fixed image height */
+    flex-shrink: 0; /* prevents image from shrinking */
     overflow: hidden;
     position: relative;
     z-index: 2;
@@ -99,6 +101,7 @@
     padding-bottom: 15px;
     color: var(--main-color);
     text-shadow: 0 0 8px rgba(var(--main-color-rgb, 114, 182, 255), 0.4);
+    word-wrap: break-word;
 }
 
 .article-title::after {
@@ -135,6 +138,7 @@
     text-overflow: ellipsis;
     margin-bottom: 15px;
     color: rgba(255, 255, 255, 0.9);
+    word-wrap: break-word;
 }
 
 .read-more-container {
