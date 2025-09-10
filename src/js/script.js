@@ -1,3 +1,9 @@
+/**
+ * SCRIPT.JS
+ * --------------------------------------------------------
+ * Primarily used for the functionality of index.html.
+*/
+
 const default_hash = '#home';
 const fade_in_delay = 27 // lower values makes the elements show faster on site loading and while changing tabs
 
@@ -91,7 +97,9 @@ function changeTab(tab) {
 }
 
 
-// Picture-Collection
+/**
+ * PICTURE COLLECTION
+*/
 function changeColl(coll) {
     document.querySelectorAll('.pic_coll').forEach(element => { element.style.display = 'none';});
     document.getElementById(coll).style.display = 'block';
@@ -99,185 +107,12 @@ function changeColl(coll) {
     this.event.target.classList.add('tab_active');
 }
 
-// Load effects if not disabled
-let link = document.createElement('link');
-link.rel = 'stylesheet';
-link.type = 'text/css';
-link.href = 'effects.css';
 
-let nfbText = document.getElementById('changeEffects');
-
-// Turn off major effects on default for mobile devices (performance issues on some mobile browsers)
-if (window.matchMedia("(max-width: 767px)").matches && !('effectsDisabled' in localStorage)) { effectsDisabled = true;}
-if (!effectsDisabled) { document.head.appendChild(link); nfbText.innerHTML = 'Don\'t like the effects? Click <a onclick="changeEffects()">HERE</a> to turn them off.';}
-
-function changeEffects() {
-    effectsDisabled = !effectsDisabled;
-    localStorage.setItem('effectsDisabled', effectsDisabled);
-    
-    // Update body class immediately before reload
-    if (effectsDisabled) {
-        document.body.classList.add('effects-disabled');
-    } else {
-        document.body.classList.remove('effects-disabled');
-    }
-    
-    location.reload();
-}
-
-// Themes
-if ('theme' in localStorage) {
-    changeTheme(localStorage.getItem('theme'));
-} // PUT DEFAULT THEME HERE // else {
-//     changeTheme('ocean'); // Setting 'ocean' as the default theme
-// }
-
-function changeTheme(theme) {
-    localStorage.setItem('theme', theme);
-    let noise_vid = document.getElementById('noise_vid');
-    let rain_vid = document.getElementById('rain_vid');
-    // show > and < on selected theme
-    let theme_list_items = document.getElementById('theme_list').children;
-    Array.from(theme_list_items).forEach(item => {
-        let a = item.firstChild
-        if (a.innerHTML.includes(theme)) {
-            a.innerHTML = '> ' + theme + ' <'
-        } else {
-            a.innerHTML = a.innerHTML.replace(/(&gt|&lt|;|\s)/g, '');
-        }
-    })
-
-    // HIDE SNOWFLAKES
-    const snowflakeContainer = document.getElementById('snow-container');
-    if (snowflakeContainer) {
-        snowflakeContainer.innerHTML = ''; // Remove all snowflakes
-    }
-
-    // default values
-    document.documentElement.style.setProperty('--bg-opacity', '0.31');
-    rain_vid.style.display = 'none';
-    noise_vid.style.opacity = 0.5;
-    if (!document.head.contains(link) && !effectsDisabled) {document.head.appendChild(link);}
-    switch (theme) { 
-        case 'ocean':
-            document.documentElement.style.setProperty('--bg-color', '15, 129, 236');
-            document.documentElement.style.setProperty('--main-color', '#72b6ff');
-            document.documentElement.style.setProperty('--selection', '#3b6d8b');
-            noise_vid.style.opacity = 0.3;
-            break;
-        case 'terminal':
-            document.documentElement.style.setProperty('--bg-color', '61, 150, 51');
-            document.documentElement.style.setProperty('--main-color', '#6dfd60');
-            document.documentElement.style.setProperty('--selection', '#3b8b42');
-            break;
-        case 'cherry':
-            document.documentElement.style.setProperty('--bg-color', '192, 63, 63');
-            document.documentElement.style.setProperty('--main-color', '#fd6060');
-            document.documentElement.style.setProperty('--selection', '#8b3b3b');
-            break;
-        case 'amber':
-            document.documentElement.style.setProperty('--bg-color', '179, 105, 21');
-            document.documentElement.style.setProperty('--main-color', '#fda93c');
-            document.documentElement.style.setProperty('--selection', '#946612');
-            break;
-        case 'deepsea':
-            document.documentElement.style.setProperty('--bg-color', '9, 95, 92');
-            document.documentElement.style.setProperty('--main-color', '#cbe9d1');
-            document.documentElement.style.setProperty('--selection', '#56705a');
-            break;
-        case 'danger':
-            document.documentElement.style.setProperty('--bg-color', '121, 6, 2');
-            document.documentElement.style.setProperty('--main-color', '#e62b2b');
-            document.documentElement.style.setProperty('--selection', '#941212');
-            document.documentElement.style.setProperty('--bg-opacity', '0.494');
-            break;
-        case 'rainy':
-            document.documentElement.style.setProperty('--bg-color', '15, 129, 236');
-            document.documentElement.style.setProperty('--main-color', '#a4cdf8');
-            document.documentElement.style.setProperty('--selection', '#3b6d8b');
-            rain_vid.style.display = 'block';
-            break;
-        case 'neon':
-            document.documentElement.style.setProperty('--bg-color', '62, 73, 232'); // The background color in RGB format
-            document.documentElement.style.setProperty('--main-color', '#5662F6'); // Main color
-            document.documentElement.style.setProperty('--selection', '#A8B2FF'); // Selection color
-            // No specific actions needed for `noise_vid` or `rain_vid` in this theme
-            break;
-        case 'win95':
-            document.documentElement.style.setProperty('--bg-color', '0, 128, 129');
-            document.documentElement.style.setProperty('--main-color', '#ffffff');
-            document.documentElement.style.setProperty('--selection', '#3b6d8b');
-            document.documentElement.style.setProperty('--bg-opacity', '1.0');
-            noise_vid.style.opacity = 0;
-            // ✅ Check if the effects.css link exists before removing
-            let effectsLink = document.querySelector('link[href="effects.css"]');
-            if (effectsLink) {
-                document.head.removeChild(effectsLink);
-            }
-            break;
-        case 'winter':
-            document.documentElement.style.setProperty('--bg-color', '30, 40, 60');
-            document.documentElement.style.setProperty('--main-color', '#a9c8d8');
-            document.documentElement.style.setProperty('--selection', '#536f85');
-            document.documentElement.style.setProperty('--bg-opacity', '0.85');
-        snowAnimation();
-        break;
-    }
-    if (effectsDisabled) {rain_vid.style.display = 'none';}
-}
 
 
 /**
- * SNOWFLAKES ANIMATION
- */
-
-function snowAnimation() {
-    const effectsDisabled = false; // Set this flag to `false` to ensure snowflakes are enabled.
-
-    // Ensure snowflake container exists
-    const snowflakeContainer = document.getElementById('snow-container');
-    if (!snowflakeContainer) {
-        console.error("Snow container not found!");
-        return;
-    }
-
-    const snowflakeCount = 90;  // Number of snowflakes to create
-    const snowflakeSize = 6;    // Maximum size of the snowflakes
-    const snowflakeDuration = 15;  // Duration of snowflake fall animation
-
-    // Clear any previous snowflakes before adding new ones
-    snowflakeContainer.innerHTML = '';
-
-    // Generate snowflakes
-    for (let i = 0; i < snowflakeCount; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-
-        let size = Math.random() * snowflakeSize + 0.25; // Random size between 0.25 and 6
-        snowflake.style.width = `${size}px`;
-        snowflake.style.height = `${size}px`;
-
-        snowflake.style.left = `${Math.random() * 100}vw`;  // Random horizontal position
-        snowflake.style.top = `${Math.random() * -20}vh`;  // Start off-screen above
-
-        snowflake.style.opacity = Math.random() * 0.6 + 0.1;  // Random opacity for snowflakes
-
-        snowflake.style.animation = `snowflake-fall ${snowflakeDuration + Math.random() * 10}s linear infinite`;
-
-        // Randomize horizontal movement for a more natural look
-        if (Math.random() > 0.3) {
-            const horizontalAnimation = Math.random() > 0.5 ? 'snowflake-fall-horizontal-1' : 'snowflake-fall-horizontal-2';
-            snowflake.style.animation = `${horizontalAnimation} ${snowflakeDuration + Math.random() * 10}s linear infinite`;
-        }
-
-        snowflake.style.animationDelay = `-${(snowflakeDuration + Math.random() * 50) / 4}s`;  // Randomize start delay
-
-        snowflakeContainer.appendChild(snowflake);
-    }
-}
-
-
-/////////////////////////////////////// PROJECT CATEGORIES ///////////////////////////////////////
+ * PROJECT CATEGORIES
+*/
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize with Web Dev projects displayed
@@ -338,7 +173,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// show more for latest updates
+/**
+ * SHOW MORE FOR LATEST UPDATES
+*/
 
 document.getElementById("show-more-btn").addEventListener("click", function() {
     const hiddenUpdates = document.querySelectorAll(".hidden-update");
@@ -366,7 +203,7 @@ document.getElementById("show-more-btn").addEventListener("click", function() {
 
 /**
  * HAMBURGER / NAVBAR
- */
+*/
 
 
 function toggleMenu() {
@@ -398,7 +235,34 @@ document.addEventListener('click', function(event) {
     }
 });
 
+/**
+ * Mobile Dropdown Toggle
+*/
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdown = document.querySelector('.dropdown');
+    
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+                dropdownToggle.classList.remove('active');
+            }
+        });
+    }
+});
 
+
+/**
+ * "NOT CURRENTLY BEING WORKED ON" HOVER OVER TAG
+*/
 function initTooltips() {
     // Create tooltip container
     const tooltipElement = document.createElement('div');
@@ -442,47 +306,16 @@ function initTooltips() {
     });
 }
 
+
 /**
- * Mobile Dropdown Toggle
- */
-document.addEventListener('DOMContentLoaded', function() {
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const dropdown = document.querySelector('.dropdown');
-    
-    if (dropdownToggle) {
-        dropdownToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            dropdown.classList.toggle('active');
-            this.classList.toggle('active');
-        });
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('active');
-                dropdownToggle.classList.remove('active');
-            }
-        });
-    }
-});
+ * REAL TIME AGE CALCULATOR
+*/
 
-// Add 'effects-disabled' class to body if effects are disabled
-if (effectsDisabled) {
-    document.body.classList.add('effects-disabled');
-} else {
-    document.body.classList.remove('effects-disabled');
-}
-
-
-// Real-time age calculator
 function calculateAge() {
-    const birthDate = new Date(2007, 11, 25); // December 25, 2007 (month is 0-indexed btw so 11 is correct)
+    const birthDate = new Date(2007, 11, 25); // December 25, 2007 (Replace this with urs)
     const now = new Date();
     
-    // Calculate the difference in milliseconds
     const diffInMs = now.getTime() - birthDate.getTime();
-    
-    // Convert to years with high precision
     const ageInYears = diffInMs / (365.25 * 24 * 60 * 60 * 1000);
     
     return ageInYears;
@@ -492,13 +325,153 @@ function updateAge() {
     const ageElement = document.getElementById('realtime-age');
     if (ageElement) {
         const age = calculateAge();
-        // i want 8 decimals cuz it fits the best if u want it with more decimals 11 is the best ig
         ageElement.textContent = age.toFixed(8);
     }
 }
 
+/**
+ * POPUP FOR BIRTHDAY
+*/
+
+function isBirthday() {
+    const today = new Date();
+    return today.getMonth() === 11 && today.getDate() === 25; // December 25 POPUP BIRTHDAY (Replace this with urs)
+}
+
+let scrollPosition = 0;
+
+function createBirthdayPopup(age) {
+    const existingPopup = document.getElementById('birthday-popup');
+    if (existingPopup) existingPopup.remove();
+
+    // Lock body scroll
+    scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+
+    // Create popup
+    const popup = document.createElement('div');
+    popup.id = 'birthday-popup';
+    popup.innerHTML = `
+        <div class="birthday-popup-overlay">
+            <div class="birthday-popup-content">
+                <div class="birthday-popup-header">
+                    <h2>🎉 It's fr0st's Birthday! 🎉</h2>
+                    <button class="birthday-close-btn" onclick="closeBirthdayPopup()">×</button>
+                </div>
+                <div class="birthday-popup-body">
+                    <p class="birthday-age">fr0st is now <span class="age-highlight">${age}</span> years old!</p>
+                    <p class="birthday-message">Want to send a birthday message?</p>
+                    <div class="birthday-buttons">
+                        <a href="mailto:fr0st.xyz@tuta.io?subject=Happy Birthday!" class="birthday-btn email-btn">
+                            <i class="fa-solid fa-envelope"></i>
+                            Send Email
+                        </a>
+                        <a onclick="copyDiscord()" class="birthday-btn discord-btn">
+                            <i class="fa-brands fa-discord"></i>
+                            Copy Discord
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(popup);
+}
+
+function closeBirthdayPopup() {
+    const popup = document.getElementById('birthday-popup');
+    if (popup) {
+        popup.style.animation = 'popupFadeOut 0.3s ease-out';
+        setTimeout(() => popup.remove(), 300);
+    }
+
+    // Restore scrolling
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0, scrollPosition);
+}
+
+
+// Discord copy with spam protection
+let discordCopyCount = 0;
+let isDiscordButtonLocked = false;
+let discordLockTimeout = null;
+
+const discordSpamMessages = [
+   
+];
+
+function copyDiscord() {
+    const btn = document.querySelector('.discord-btn');
+    
+    // If button is locked, show spam message
+    if (isDiscordButtonLocked) {
+        if (discordCopyCount < discordSpamMessages.length) {
+            btn.innerHTML = `<i class="fa-brands fa-discord"></i> ${discordSpamMessages[discordCopyCount]}`;
+            discordCopyCount++;
+        }
+        
+        // Reset the timeout to extend the lock
+        if (discordLockTimeout) {
+            clearTimeout(discordLockTimeout);
+        }
+        
+        discordLockTimeout = setTimeout(() => {
+            btn.innerHTML = '<i class="fa-brands fa-discord"></i> Copy Discord';
+            btn.classList.remove('copied');
+            isDiscordButtonLocked = false;
+            discordCopyCount = 0;
+            discordLockTimeout = null;
+        }, 3000);
+        
+        return;
+    }
+
+    // Lock the button and start spam counter
+    isDiscordButtonLocked = true;
+    discordCopyCount = 0;
+    
+    navigator.clipboard.writeText('fr0st.xyz').then(() => {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+        btn.classList.add('copied');
+        
+        discordLockTimeout = setTimeout(() => {
+            btn.innerHTML = '<i class="fa-brands fa-discord"></i> Copy Discord';
+            btn.classList.remove('copied');
+            isDiscordButtonLocked = false;
+            discordCopyCount = 0;
+            discordLockTimeout = null;
+        }, 3000);
+        
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+        isDiscordButtonLocked = false;
+        discordCopyCount = 0;
+    });
+}
+
+// Global functions for popup
+window.closeBirthdayPopup = closeBirthdayPopup;
+window.copyDiscord = copyDiscord;
+
 // Update age immediately and then every second
 document.addEventListener('DOMContentLoaded', function() {
     updateAge();
-    setInterval(updateAge, 1); // Update every 1ms (0.001 seconds)
+    setInterval(updateAge, 1);
+    
+    // Check if it's birthday and show popup
+    if (isBirthday()) {
+        const currentAge = Math.floor(calculateAge());
+        setTimeout(() => createBirthdayPopup(currentAge), 1000);
+    }
 });

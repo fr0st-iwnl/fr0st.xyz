@@ -1,3 +1,9 @@
+/**
+ * BASE.JS
+ * ----------------------------------------------------------------------
+ * Mainly handles the effects and themes displayed on the website.
+*/
+
 const fade_in_delay = 27 // lower values makes the elements show faster on site loading and while changing tabs
 
 let effectsDisabled = localStorage.getItem('effectsDisabled') === 'true';
@@ -12,87 +18,11 @@ if (effectsDisabled) {
 // remove 'rgb' and brackets from --bg-value so the color can be used in combination with individual opacity-values (rgba)
 document.documentElement.style.setProperty('--bg-color', getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim().replace(/rgb\(|\)/g, ''));
 
-////////////////////////////// WELCOME || RANDOM WORDS ////////////////////////////// 
-
- const phrases = [
-    "this text is random.",
-    "a nerd's basement.",
-    "a blog.",
-    "i code sometimes.",
-    "made with a keyboard.",
-    "man i jus realized i added so many $uicideboy$ songs in here 😭",
-    "honestly, who reads this stuff?",
-    "you ever just.. stare at the screen?",
-    "me, pretending to be productive.",
-    "wrote this instead of sleeping.",
-    "i'm not a professional writer.",
-    "i'm just a guy who likes to write sometimes.",
-    "just me messing around with text.",
-    "00101110011110000111100101111010", /* dont forget to update this too... :( */
-    "just another day in the void.",
-    "another day, another line of code. :[",
-    "Smoked Out, Scoped Out",
-    "Not Even Ghosts Are This Empty",
-    "Newport Reds",
-    "Aphrodite (The Aquatic Ape Theory)",
-    "Prettyleaf",
-    "Noxygen",
-    "Grey Boys",
-    "Mega Zeph",
-    "Meet Mr. NICEGUY",
-    "122 Days",
-    "King Tulip",
-    "CLYDE (I Hope At Least One Of My Ex-Girlfriends Hears This)",
-    "In Constant Sorrow",
-    "Shattered Amethyst",
-    "Fold",
-    "Flodgin'",
-    "I Can't Fold (feat. $uicideboy$)",
-    "Runnin' Thru the 7th with My Woadies",
-    "I Miss My Dead Friends",
-    "Paper Bag Mask",
-    "Mannequins Are My Best of Friends",
-    "Handzum $uicide",
-    "Jon Voight (Live Fast, Die Young)",
-    "Aokigahara",
-    "Am/Pm",
-    "#1 Stunna",
-    "close the world. open the next."
-];
-
-function getRandomPhrase() {
-    let lastPhrase = localStorage.getItem('lastPhrase');
-    let newPhrase;
-
-    do {
-        newPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-    } while (newPhrase === lastPhrase); // Ensure a new phrase is chosen
-
-    localStorage.setItem('lastPhrase', newPhrase); // Store the new phrase
-    return newPhrase;
-}
-
-const welcomeText = document.querySelector('.welcome');
-
-if (welcomeText) {
-    const randomPhrase = getRandomPhrase();
-
-    if (randomPhrase === "00101110011110000111100101111010") {
-        const numberSpan = document.createElement('span');
-        numberSpan.classList.add('glitch'); // glitch class
-        numberSpan.setAttribute('data-text', randomPhrase);
-        numberSpan.textContent = randomPhrase;
-        welcomeText.appendChild(numberSpan);
-    } else {
-        welcomeText.textContent = randomPhrase;
-    }
-}
-
 
 
 /**
  * EFFECTS
- */
+*/
 
 // Load effects if not disabled
 let link = document.createElement('link');
@@ -132,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /**
  * THEMES
  */
+
 if ('theme' in localStorage) {
     changeTheme(localStorage.getItem('theme'));
 } // PUT DEFAULT THEME HERE // else {
@@ -162,7 +93,7 @@ function changeTheme(theme) {
     // default values
     document.documentElement.style.setProperty('--bg-opacity', '0.31');
     rain_vid.style.display = 'none';
-    noise_vid.style.opacity = 0.5;
+    noise_vid.style.opacity = 0.5; // Normal opacity for noise_vid
     if (!document.head.contains(link) && !effectsDisabled) {document.head.appendChild(link);}
     switch (theme) { 
         case 'ocean':
@@ -208,13 +139,13 @@ function changeTheme(theme) {
             document.documentElement.style.setProperty('--main-color', '#a4cdf8');
             document.documentElement.style.setProperty('--main-color-rgb', '164, 205, 248');
             document.documentElement.style.setProperty('--selection', '#3b6d8b');
-            rain_vid.style.display = 'block';
+            rain_vid.style.display = 'block'; // This adds the rain background
             break;
         case 'neon':
-            document.documentElement.style.setProperty('--bg-color', '62, 73, 232'); // The background color in RGB format
-            document.documentElement.style.setProperty('--main-color', '#5662F6'); // Main color
+            document.documentElement.style.setProperty('--bg-color', '62, 73, 232');
+            document.documentElement.style.setProperty('--main-color', '#5662F6');
             document.documentElement.style.setProperty('--main-color-rgb', '86, 98, 246');
-            document.documentElement.style.setProperty('--selection', '#A8B2FF'); // Selection color
+            document.documentElement.style.setProperty('--selection', '#A8B2FF');
             // No specific actions needed for `noise_vid` or `rain_vid` in this theme
             break;
         case 'win95':
@@ -245,7 +176,9 @@ function changeTheme(theme) {
     if (effectsDisabled) {rain_vid.style.display = 'none';}
 }
 
-
+/**
+ * SNOW ANIMATION FOR THEMES
+ */
 function snowAnimation() {
     const effectsDisabled = false; // Set this flag to `false` to ensure snowflakes are enabled.
 
@@ -291,17 +224,6 @@ function snowAnimation() {
     }
 }
 
-
-window.shareLink = function(button) {
-    const currentUrl = window.location.href;
-    navigator.clipboard.writeText(currentUrl).then(() => {
-        button.innerHTML = 'Link copied!';
-        button.classList.add('copied');
-        
-        setTimeout(() => {
-            button.innerHTML = '<i class="fa-solid fa-share"></i> Share';
-            button.classList.remove('copied');
-        }, 2000);
-    });
-};
-
+// Make functions globally available
+window.changeEffects = changeEffects;
+window.changeTheme = changeTheme;

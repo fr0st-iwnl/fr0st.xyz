@@ -8,6 +8,7 @@
 	<meta name="author" content="fr0st-iwnl, fr0st">
 	<meta name="theme-color" content="#72B6FF">
 	<meta proberty="og:title" content="fr0st">
+	<meta property="og:image" content="https://fr0st.xyz/src/media/blog-thumbnails/tailwind2.png">
 	<meta property="og:site_name" content="fr0st.xyz">
 	<meta proberty="og:description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
 	<meta proberty="og:url" content="https://fr0st.xyz">
@@ -19,11 +20,13 @@
 
 	<!-----SCRIPT-JS------>
 	<script src="/src/js/components/base.js" type="module" defer></script>
+	<script src="/blog/blog-script.js" type="module" defer></script>
+	<script src="/articles/articles-script.js" type="module" defer></script>
 
     <!-----LINKS------>
 	<link rel="icon" href="../src/media/favicons/favicon.ico">
 	<link rel="preload" as="font" href="src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
-	<link rel="stylesheet" href="/articles/main.css">
+	<link rel="stylesheet" href="/articles/articles-styles.css">
 	<link rel="alternate" type="application/rss+xml" title="fr0st&#39;s Webpage RSS" href="https://fr0st.xyz/rss.xml">
 
 	<!---FONT AWESOME------->
@@ -89,6 +92,48 @@
 			</ul>
 		</nav>
 
+<!--
+		📌 Blog Classes Reference
+
+		General:
+		- article-container-normal → main container for each article
+		- article-title → big title of the blog
+		- article-date → publish date
+		- article-content → wraps all article text and elements
+		- article-footer → footer area with share buttons / last updated date
+
+		Views:
+		- fa-solid fa-eye → views icon
+
+		Headings:
+		- h2 → section titles
+		- h3 with <a class="anchor"> → sub-section with an anchor link
+
+		Code Blocks:
+		- blog-code-block → wrapper for code sections
+		- code-header → top bar of the code box
+		- code-title → text "Code"
+		- copy-btn → copy button for code
+		- code-content → the actual code block
+		- language-bash / language-yaml → code highlighting types
+
+		Notes / Features:
+		- feature-list → list with features or prerequisites
+		- feature-intro → intro text for the feature list
+		- note-block → whole note block
+		- note-block-header → header of the note
+		- note-block-icon → info icon
+		- note-block-title → title text
+		- note-block-content → content of the note
+
+		Images:
+		- glightbox-wrapper → wrapper for screenshots/images with Lightbox
+		- glightbox → image popup/lightbox class
+
+		Other:
+		- bold → makes text bold (used inline)
+-->
+
         <!--------- SECOND ARTICLE ------------->
         <div class="article-container3">
             <h1 class="article-title">Why Tailwind CSS Isn't for Me</h1>
@@ -102,12 +147,9 @@
                 As someone with a lot of experience in web development, that doesn't feel right. I may not be the best, but I love the web and I value simplicity over complicated frameworks and all of this stuff.
                 </p>
 				<h2>#1 You Have to Learn a Different Way to Write CSS</h2>
-				<br>
 				<p>Like Bootstrap, Tailwind uses short and awkward class names. This means you'll need to learn its specific syntax before you can use it easily. When you first start, it can feel slow, and you'll find yourself constantly looking up which classes to use. So, the promise of <b>"fast development"</b> doesn't really kick in until you get familiar with it and honestly, that's harder than just using regular CSS.</p>
                 <h2>#2 Tailwind makes HTML look ugly and Difficult to Read.</h2>
-				<br>
 				<p>A lot of people don't like Tailwind because it makes HTML harder to read. I agree with that point because, if you care about clean and readable code, it can make things harder to follow.</p>
-                <br>
 				<h3>Here's an example of Tailwind CSS code :</h3>
 				<br>
                 <div class="code-container">
@@ -121,12 +163,10 @@
                   </div>
 				  <br>
 				  <p>If you think this code doesn't look that bad, I suggest you check out <a href="https://www.aleksandrhovhannisyan.com/blog/why-i-dont-like-tailwind-css/#its-difficult-to-read" target="_blank">Aleksandr Hovhannisyan's</a> blog post too!</p>
-                <br>
+                
                 <p>I know some of you are probably saying, <b>"Just use @apply to keep your HTML clean!"</b> And yes, that's a possible solution.
 				In fact, that's what I've done.</p>
-				<br>
 				<h2>#3 @apply is not a standard solution and has some issues.</h2>
-				<br>
                 <p>Some Tailwind fans don't agree with me, so let me explain it simply:</p>
 				<ul>
 					<li>Using <b>@apply p-4</b> in a CSS file only works if you have Tailwind set up in your project. If you remove Tailwind, that CSS won't work, and your site will break.</li>
@@ -135,9 +175,7 @@
 					<br>
 					<li>Also, when you write <b>@apply</b> everywhere in your CSS, you're not really learning CSS. You're writing Tailwind-specific code. For example, writing <b>@apply grid</b> isn't the same as learning to use <b>display: grid;</b> in plain CSS.</li>
 				</ul>
-				<br>
                 <h2>＠ Final Thoughts</h2>
-                <br> 
                 <p>If you like Tailwind, go ahead and use it! But please don't try to convince me it's the future of web design. It works for some, but it's not the solution for everyone. Everyone has their own preferences, and that's okay. Just remember, there are other ways to write clean and maintainable CSS too.</p>
                 <div class="article-footer">
 					<p>＃ Last updated on: <b>November 6, 2024</b></p>

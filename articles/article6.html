@@ -8,6 +8,7 @@
 	<meta name="author" content="fr0st-iwnl, fr0st">
 	<meta name="theme-color" content="#72B6FF">
 	<meta proberty="og:title" content="fr0st">
+	<meta property="og:image" content="https://fr0st.xyz/src/media/blog-thumbnails/music-setup.png">
 	<meta property="og:site_name" content="fr0st.xyz">
 	<meta proberty="og:description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
 	<meta proberty="og:url" content="https://fr0st.xyz">
@@ -19,11 +20,13 @@
 
 	<!-----SCRIPT-JS------>
 	<script src="/src/js/components/base.js" type="module" defer></script>
+	<script src="/blog/blog-script.js" type="module" defer></script>
+	<script src="/articles/articles-script.js" type="module" defer></script>
 
     <!-----LINKS------>
 	<link rel="icon" href="../src/media/favicons/favicon.ico">
 	<link rel="preload" as="font" href="src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
-	<link rel="stylesheet" href="/articles/main.css">
+	<link rel="stylesheet" href="/articles/articles-styles.css">
 	<link rel="alternate" type="application/rss+xml" title="fr0st&#39;s Webpage RSS" href="https://fr0st.xyz/rss.xml">
 	<!---FONT AWESOME------->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -92,6 +95,49 @@
 			</ul>
 		</nav>
 
+<!--
+		📌 Blog Classes Reference
+
+		General:
+		- article-container-normal → main container for each article
+		- article-title → big title of the blog
+		- article-date → publish date
+		- article-content → wraps all article text and elements
+		- article-footer → footer area with share buttons / last updated date
+
+		Views:
+		- fa-solid fa-eye → views icon
+
+		Headings:
+		- h2 → section titles
+		- h3 with <a class="anchor"> → sub-section with an anchor link
+
+		Code Blocks:
+		- blog-code-block → wrapper for code sections
+		- code-header → top bar of the code box
+		- code-title → text "Code"
+		- copy-btn → copy button for code
+		- code-content → the actual code block
+		- language-bash / language-yaml → code highlighting types
+
+		Notes / Features:
+		- feature-list → list with features or prerequisites
+		- feature-intro → intro text for the feature list
+		- note-block → whole note block
+		- note-block-header → header of the note
+		- note-block-icon → info icon
+		- note-block-title → title text
+		- note-block-content → content of the note
+
+		Images:
+		- glightbox-wrapper → wrapper for screenshots/images with Lightbox
+		- glightbox → image popup/lightbox class
+
+		Other:
+		- bold → makes text bold (used inline)
+-->
+
+
         <!--------- SECOND ARTICLE ------------->
         <div class="article-container7">
             <h1 class="article-title">My Music Setup on PC and Phone</h1>
@@ -103,7 +149,6 @@
                 <p>If you really enjoy listening to music like I do all the time or just like having your favorite songs ready, 
                 I wanted to share the apps I actually use, what I like about them, and what I don't. <!----Most of the tips and setups here are for <b>Android</b>, <b>Windows</b>, <b>macOS</b>, and <b>Linux</b>.-----></p>
 				<h2>#1. <i class="fa-brands fa-spotify brands-icon"></i> Spotify</h2>
-				<br>
 				<p><b>Spotify</b> has a great UI and is pretty lightweight as a music app, in my opinion. It's great for playlists, popular music, and keeping all my liked songs in one place.
                     But it does have downsides like ads and premium-only features. 
                     In the past, you could patch Spotify with apps like <a href="https://github.com/Team-xManager/xManager" target="_blank">XManager</a> or <a href="https://revanced.app/" target="_blank">ReVanced</a> to remove ads. <b>(They're basically apps that patch other apps to unlock some features.)</b>
@@ -111,7 +156,7 @@
                 <p>I still use Spotify on both <b>PC</b> and <b>Phone</b> because I have tons of liked songs and playlists. 
                 I've even transferred some playlists to <b>YouTube Music</b>, but I still have a huge library on Spotify, so switching fully isn't an option right now.</p>
 				
-                <div class="terminal-feature-list">
+                <div class="feature-list">
                     <p class="feature-intro"><em>HOW I USE IT:</em></p>
                     
                     <p><b>PC:</b> I use <a href="https://github.com/SpotX-Official/SpotX" target="_blank">SpotX (Windows)</a> and <a href="https://github.com/SpotX-Official/SpotX-Bash" target="_blank">SpotX-Bash (MacOS / Linux)</a>, which let me use Spotify without ads on my Windows and Linux machines.
@@ -151,12 +196,11 @@
                 If you know how to get it working and want to share, you can <a href="mailto:fr0st.xyz@tuta.io" target="_blank">Email me</a> or DM me on <a href="https://frostiwnl.netlify.app/discord" target="_blank">Discord</a>.</p>
                 
                 <h2>#2. <i class="fa-solid fa-circle-play brands-icon"></i> YouTube Music</h2>
-				<br>
 
                 <p><b>YouTube Music's</b> UI isn't perfect, and in my opinion, it's a bit heavier than Spotify, but I like it because I can patch it with <a href="https://revanced.app/" target="_blank">ReVanced</a> to remove ads.
                 It also lets you watch the music video when available, which is a nice extra feature.</p>
 				
-                <div class="terminal-feature-list">
+                <div class="feature-list">
                     <p class="feature-intro"><em>HOW I USE IT:</em></p>
                     
                     <p><b>PC:</b> I use an open-source desktop app for <a href="https://github.com/th-ch/youtube-music" target="_blank">YouTube Music</a> which supports plugins like Discord Rich Presence, ad blocking, and many others.</p>
@@ -172,14 +216,13 @@
 
 
                 <h2>#3. <i class="fa-brands fa-soundcloud brands-icon"></i> SoundCloud</h2>
-				<br>
 
                 <p><b>SoundCloud</b> was actually the first music app I used. It's free and has tons of music content. 
                 Some songs might not be available in your country, but usually you can find another version uploaded by someone else.
                 I've heard some people get ads on the free version depending on their region, but I've never had ads in my entire time using SoundCloud.
                 </p>
 				
-                <div class="terminal-feature-list">
+                <div class="feature-list">
                     <p class="feature-intro"><em>HOW I USE IT:</em></p>
                     
                     <p><b>PC:</b> I mainly use the browser version.</p>
@@ -194,7 +237,6 @@
                 <p>I still enjoy SoundCloud, though some songs aren't available in my country.</p>
 
                 <h2>＠ Final Thoughts</h2>
-                <br> 
                 <p><b>Spotify</b> is my main app for <b>daily listening</b>. Ads and country restrictions are annoying, but all my music is already there.
                 <b>YouTube Music</b> is a great backup, especially patched with <a href="https://revanced.app/" target="_blank">ReVanced</a> or used on <b>PC</b>, and it's nice to have the video feature.
                 But of course, YouTube could change things in the future and make it unpatchable. 

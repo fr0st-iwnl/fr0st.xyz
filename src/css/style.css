@@ -1,5 +1,7 @@
 /*--------------------------------------------------------------
 #                         STYLE.CSS
+#---------------------------------------------------------------
+#       Handles the styling for index.html and 404.html
 --------------------------------------------------------------*/
 
 
@@ -1051,6 +1053,201 @@ i {
     pointer-events: none;
     z-index: -1;
 }
+
+/* Birthday Popup Styles */
+#birthday-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+}
+
+.birthday-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: popupFadeIn 0.5s ease-out;
+}
+
+.birthday-popup-content {
+    background: rgba(0, 0, 0, 0.95);
+    border: 2px solid var(--main-color);
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
+                0 0 50px rgba(var(--main-color-rgb), 0.3);
+    animation: popupSlideIn 0.5s ease-out;
+}
+
+.birthday-popup-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(var(--main-color-rgb), 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(var(--main-color-rgb), 0.1), transparent);
+}
+
+.birthday-popup-header h2 {
+    color: var(--main-color);
+    font-size: 1.8em;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(var(--main-color-rgb), 0.5);
+    text-align: center;
+    flex: 1;
+}
+
+.birthday-close-btn {
+    background: none;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.birthday-close-btn:hover {
+    background: var(--main-color);
+    color: #000;
+    box-shadow: 0 0 10px rgba(var(--main-color-rgb), 0.6);
+}
+
+
+.birthday-popup-body {
+    padding: 25px;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+.birthday-age {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.age-highlight {
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 1.2em;
+    text-shadow: 0 0 8px rgba(var(--main-color-rgb), 0.5);
+}
+
+.birthday-message {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+
+.birthday-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.birthday-btn {
+    background: rgba(var(--main-color-rgb), 0.1);
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    border-radius: 1px;
+    padding: 12px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    font-size: 1.5em;
+}
+
+.birthday-btn:hover {
+    background: rgba(var(--main-color-rgb), 0.2);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(var(--main-color-rgb), 0.4);
+    transform: translateY(-2px);
+}
+
+.birthday-btn:focus{
+    outline: none;
+}
+
+
+/* Animations */
+@keyframes popupFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popupFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes popupSlideIn {
+    from { 
+        opacity: 0; 
+        transform: scale(0.8) translateY(-50px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .birthday-popup-content {
+        margin: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .birthday-popup-header {
+        padding: 15px;
+    }
+
+    .birthday-popup-header h2 {
+        font-size: 1.3em;
+    }
+
+    .birthday-popup-body {
+        padding: 20px;
+    }
+
+    .birthday-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .birthday-btn {
+        justify-content: center;
+    }
+
+    .birthday-age {
+        font-size: 1.5em;
+    }
+
+    .birthday-message {
+        font-size: 1.3em;
+    }
+}
+
 
 @keyframes shimmer {
     0% { left: -100%; }

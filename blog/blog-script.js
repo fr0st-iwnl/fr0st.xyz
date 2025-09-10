@@ -1,8 +1,23 @@
+/**
+ * BLOG-SCRIPT.JS
+ * ------------------------------------------------------------------------------------------------------
+ * Mainly handles functionality for blog.html, but also manages certain features for article pages.
+*/
+
 import '/src/js/components/base.js';
 
-/////////////////////////////////////////////// ARTICLES ///////////////////////////////////////////////
-
+/**
+ * ARTICLES
+*/
 const articles = [
+    {
+        title: "How to Self-Host File Browser on Arch Linux with Cloudflared Tunnels",
+        description: "Learn how to set up and run File Browser on Arch Linux using Cloudflare Tunnels to access it from anywhere.",
+        link: "articles/article7.html", 
+        class: "article-one",
+        thumbnail: "./src/media/blog-thumbnails/self-host-filebrowser-tunnels-arch.png",
+        date: "September 10, 2025"
+    },
     {
         title: "My Music Setup on PC and Phone",
         description: "The music apps I use on PC and phone, how I make them work for me, and what I think about them.",
@@ -61,10 +76,97 @@ const articles = [
     }
 ];
 
+/**
+ * WELCOME / RANDOM WORDS
+*/
 
+ const phrases = [
+    "this text is random.",
+    "a nerd's basement.",
+    "a blog.",
+    "i code sometimes.",
+    "made with a keyboard.",
+    "man i jus realized i added so many $uicideboy$ songs in here 😭",
+    "honestly, who reads this stuff?",
+    "you ever just.. stare at the screen?",
+    "me, pretending to be productive.",
+    "wrote this instead of sleeping.",
+    "i'm not a professional writer.",
+    "i'm just a guy who likes to write sometimes.",
+    "just me messing around with text.",
+    "00101110011110000111100101111010", /* dont forget to update this too... :( */
+    "just another day in the void.",
+    "another day, another line of code. :[",
+    "Smoked Out, Scoped Out",
+    "Not Even Ghosts Are This Empty",
+    "Newport Reds",
+    "Aphrodite (The Aquatic Ape Theory)",
+    "Prettyleaf",
+    "Noxygen",
+    "Grey Boys",
+    "Mega Zeph",
+    "Meet Mr. NICEGUY",
+    "122 Days",
+    "King Tulip",
+    "CLYDE (I Hope At Least One Of My Ex-Girlfriends Hears This)",
+    "In Constant Sorrow",
+    "Shattered Amethyst",
+    "Fold",
+    "Flodgin'",
+    "I Can't Fold (feat. $uicideboy$)",
+    "Runnin' Thru the 7th with My Woadies",
+    "I Miss My Dead Friends",
+    "Paper Bag Mask",
+    "Mannequins Are My Best of Friends",
+    "Handzum $uicide",
+    "Jon Voight (Live Fast, Die Young)",
+    "Aokigahara",
+    "Am/Pm",
+    "#1 Stunna",
+    "close the world. open the next."
+];
+
+/**
+ * RANDOM PHRASES FUNCTION
+*/
+function getRandomPhrase() {
+    let lastPhrase = localStorage.getItem('lastPhrase');
+    let newPhrase;
+
+    do {
+        newPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+    } while (newPhrase === lastPhrase); // Ensure a new phrase is chosen
+
+    localStorage.setItem('lastPhrase', newPhrase); // Store the new phrase
+    return newPhrase;
+}
+
+/**
+ * ADD GLITCH FOR SPECIAL PHRASE
+*/
+document.addEventListener('DOMContentLoaded', function() {
+    // Welcome text setup
+    const welcomeText = document.querySelector('.welcome');
+    if (welcomeText) {
+        const randomPhrase = getRandomPhrase();
+
+        if (randomPhrase === "00101110011110000111100101111010") {
+            const numberSpan = document.createElement('span');
+            numberSpan.classList.add('glitch');
+            numberSpan.setAttribute('data-text', randomPhrase);
+            numberSpan.textContent = randomPhrase;
+            welcomeText.appendChild(numberSpan);
+        } else {
+            welcomeText.textContent = randomPhrase;
+        }
+    }
+
+/**
+ * ARTICLE GENERATION
+*/
 const articleSection = document.getElementById("article-section");
-
-
+if (articleSection) {
+    
 articleSection.innerHTML = '';
 
 articles.forEach((article) => {
@@ -83,7 +185,9 @@ articles.forEach((article) => {
         <div class="read-more-container">
             <a href="${article.link}" class="read-more">Read More</a>
         </div>
-    `;
+            `;
 
     articleSection.appendChild(articleDiv);
+        });
+    }
 });

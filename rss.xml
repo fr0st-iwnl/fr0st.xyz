@@ -5,9 +5,18 @@
         <link>https://fr0st.xyz</link>
         <description>Recent content in fr0st's Webpage</description>
         <language>en-us</language>
-        <lastBuildDate>Sun, 6 July 2025 12:26:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 10 Sep 2025 10:47:00 GMT</lastBuildDate>
         <managingEditor>fr0st.xyz@tuta.io (fr0st)</managingEditor>
         <webMaster>fr0st.xyz@tuta.io (fr0st)</webMaster>
+
+        <item>
+            <title>How to Self-Host File Browser on Arch Linux with Cloudflared Tunnels</title>
+            <link>https://fr0st.xyz/articles/article7.html</link>
+            <description>Learn how to set up and run File Browser on Arch Linux using Cloudflare Tunnels to access it from anywhere.</description>
+            <author>fr0st.xyz@tuta.io (fr0st)</author>
+            <pubDate>Wed, 10 Sep 2025 10:47:00 GMT</pubDate>
+            <guid>https://fr0st.xyz/articles/article7.html</guid>
+        </item>
 
         <item>
             <title>My Music Setup on PC and Phone</title>

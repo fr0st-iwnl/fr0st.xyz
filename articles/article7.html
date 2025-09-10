@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-----METAS----->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+	<meta name="author" content="fr0st-iwnl, fr0st">
+	<meta name="theme-color" content="#72B6FF">
+	<meta proberty="og:title" content="fr0st">
+    <meta property="og:image" content="https://fr0st.xyz/src/media/blog-thumbnails/self-host-filebrowser-tunnels-arch.png">
+	<meta property="og:site_name" content="fr0st.xyz">
+	<meta proberty="og:description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+	<meta proberty="og:url" content="https://fr0st.xyz">
+	<meta name="keywords" content="fr0st-iwnl, frost, fr0st, frostiwnl, kiyokosmacros, frostiwnldev, frost github, self-host filebrowser, self-host, self-hosting, self-host filebrower with cloudflared tunnels, selfhost filebrowser, self-host file-browser, archlinux, arch-linux, setup">
+	<meta name="robots" content="index, follow">
+	<meta name="revisit-after" content="7 days">
+	<!-----TITLE------>
+	<title>fr0st - How to Self-Host File Browser on Arch Linux with Cloudflared Tunnels</title>
+
+	<!-----SCRIPT-JS------>
+	<script src="/src/js/components/base.js" type="module" defer></script>
+    <script src="/blog/blog-script.js" type="module" defer></script>
+    <script src="/articles/articles-script.js" type="module" defer></script>
+
+    <!-----LINKS------>
+	<link rel="icon" href="../src/media/favicons/favicon.ico">
+	<link rel="preload" as="font" href="src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
+	<link rel="stylesheet" href="/articles/articles-styles.css">
+	<link rel="alternate" type="application/rss+xml" title="fr0st&#39;s Webpage RSS" href="https://fr0st.xyz/rss.xml">
+	<!---FONT AWESOME------->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+	<!-- GLIGHTBOX CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+	
+	<!-- PRISM.JS FOR SYNTAX HIGHLIGHTING -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+	<!----noise.mp4---->
+	<!---src="https://files.catbox.moe/hop8wg.mp4"--->
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.65;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="noise_vid"
+		src="/src/media/noise.mp4"
+		poster="/src/media/noise_static.png"
+		>
+	</video>
+
+	<!----rain_bg.mp4---->
+	<!---src="https://files.catbox.moe/i7le27.mp4"--->
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.85;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="rain_vid"
+		src="/src/media/rain_bg.mp4"
+		poster="/src/media/rain_bg_static.png"
+		>
+	</video>
+
+	<div id="snow-container"></div>
+	<div class="vignette"></div>
+	<div id="videohue"></div>
+	<div id="canvas">
+		<header>
+			<pre id="title">
+    ____       ____         __ 
+   / __/_____ / __ \ _____ / /_
+  / /_ / ___// / / // ___// __/
+ / __// /   / /_/ /(__  )/ /_  
+/_/  /_/    \____//____/ \__/  
+			</pre>
+            <div>
+			<p class="welcome"></p>
+		<br>
+		<p class="effects" id="changeEffects">Want some fancy effects? Click <a id="changeEffectsLink">HERE</a> to turn them on.</p>
+		</header>
+		<br>
+
+        <!--------- NAVBAR ------------->
+        <nav id="nav_tabs">
+			<ul>
+				<li><a href="/blog.html"><i class="fa-solid fa-less-than-equal"></i></a></li>
+                <li><a href="https://github.com/fr0st-iwnl" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+			</ul>
+		</nav>
+
+<!--
+		📌 Blog Classes Reference
+
+		General:
+		- article-container-normal → main container for each article
+		- article-title → big title of the blog
+		- article-date → publish date
+		- article-content → wraps all article text and elements
+		- article-footer → footer area with share buttons / last updated date
+
+		Views:
+		- fa-solid fa-eye → views icon
+
+		Headings:
+		- h2 → section titles
+		- h3 with <a class="anchor"> → sub-section with an anchor link
+
+		Code Blocks:
+		- blog-code-block → wrapper for code sections
+		- code-header → top bar of the code box
+		- code-title → text "Code"
+		- copy-btn → copy button for code
+		- code-content → the actual code block
+		- language-bash / language-yaml → code highlighting types
+
+		Notes / Features:
+		- feature-list → list with features or prerequisites
+		- feature-intro → intro text for the feature list
+		- note-block → whole note block
+		- note-block-header → header of the note
+		- note-block-icon → info icon
+		- note-block-title → title text
+		- note-block-content → content of the note
+
+		Images:
+		- glightbox-wrapper → wrapper for screenshots/images with Lightbox
+		- glightbox → image popup/lightbox class
+
+		Other:
+		- bold → makes text bold (used inline)
+-->
+
+
+
+        <!--------- ARTICLE ------------->
+        <div class="article-container-normal">
+            <h1 class="article-title">How to Self-Host File Browser on Arch Linux with Cloudflared Tunnels</h1>
+			<!----Go to → https://freehitcounters.org/ then choose the one in the bottom right (transparent one) and just copy the link of the view counter
+			      and replace it with the one that is in the src ----->
+			<p><i class="fa-solid fa-eye"></i> ‒ Views: <script type="text/javascript" src="https://freehitcounters.org/count/ik1v"></script><br></p>
+			<br>
+			<br>
+            <p class="article-date">Published on: September 8, 2025</p>
+            <div class="article-content">
+                
+                <p><a href="https://filebrowser.org/index.html" target="_blank">File Browser</a> is a lightweight web-based file manager that lets you access and manage your files from any device. In this guide, 
+				I'll show you how to host it on Arch Linux using Cloudflared Tunnels.</p>
+
+				<p><b>A quick note before we dive in:</b> <span class="bold">vulnerabilities always exist, and nothing on the internet is completely secure.</span> I personally recommend not storing personal or sensitive information in your File Browser. Of course, it's your choice, and I'm not responsible if anything happens to your File Browser after following this guide.</p>
+				
+                <h2>1. Prerequisites</h2>
+				<div class="feature-list">
+                    <p class="feature-intro">Before we start, make sure you have the following:</p>
+
+                    <p>Arch Linux installed on a <a href="https://en.wikipedia.org/wiki/Virtual_private_server" target="_blank">VPS</a>, another PC, or any computer you want to use</p>
+					<p>A domain you control</p>
+					<p>Cloudflare account (free plan works)</p>
+                    <p>A little bit of experience with Linux commands</p>
+                </div>
+
+				
+				<h2>2. Point your domain to Cloudflare</h2>
+				
+				<p>
+				If you've never pointed a domain to Cloudflare before, check out this 
+				<a href="https://blogmaker.app/guide/cloudflare" target="_blank">step-by-step guide</a> for a detailed walkthrough.</p>
+
+				
+				<h2>3. Setup File Browser</h2>
+				
+
+				<h3 id="create-directories"><a class="anchor"> # Create directories</a></h3>
+                <p>First, lets create some directories to keep things organized. This is how I like to set up File Browser before running it. Open your terminal and run these commands:</p>
+                
+				<div class="blog-code-block">
+					<div class="code-header">
+						<div class="code-title">
+							<i class="fa-solid fa-code"></i>
+							Code
+						</div>
+						<button class="copy-btn" onclick="copyCode(this)">
+							<i class="fa-solid fa-copy"></i>
+							Copy
+						</button>
+					</div>
+					<div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+						<pre><code class="language-bash">mkdir -p /home/$USER/.local/share/filebrowser/branding/img/icons
+mkdir -p /home/$USER/Desktop/filebrowser-data</code></pre>
+					</div>
+				</div>
+
+				<!---<p><b>First command</b> → <span class="bold">creates a folder structure for File Browser's database and branding assets (like custom icons and images).</span></p>--->
+				<!---<p><b>Second command</b> → <span class="bold">creates a filebrowser-data folder on your Desktop where File Browser will store and manage your files.</span></p>--->
+				
+				<h3 id="install-filebrowser"><a class="anchor"> # Install File Browser</a></h3>
+                <p>After creating the directories, lets now install <b>File Browser</b>. Run the following command in your terminal:</p>
+                
+                <div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+                        <pre><code class="language-bash">curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash</code></pre>
+                    </div>
+                </div>
+
+				<h3 id="initialize-file-browser"><a class="anchor"> # Initialize File Browser database</a></h3>
+
+                <p>Next, lets initialize the <b>File Browser database</b> in the directory we just created. Run this command to create a new configuration file and set up the database:</p>
+                
+                <div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">filebrowser -d /home/$USER/.local/share/filebrowser/filebrowser.db config init</code></pre>
+                    </div>
+                </div>
+
+				<h3 id="create-admin-user"><a class="anchor"> # Create admin user</a></h3>
+
+				<p>Now, let's create a new admin user for File Browser. Run the following command, replacing <b>admin</b> with your desired username and <b>"YourChosenP@ss"</b> with a secure password of your choice:</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+                        <pre><code class="language-bash">filebrowser -d /home/$USER/.local/share/filebrowser/filebrowser.db users add admin 'YourChosenP@ss' --perm.admin</code></pre>
+                    </div>
+                </div>
+
+				<p>To verify that the user was created successfully, run:</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">filebrowser -d /home/$USER/.local/share/filebrowser/filebrowser.db users ls</code></pre>
+                    </div>
+                </div>
+
+				<h3 id="custom-branding"><a class="anchor"> # Custom branding</a></h3>
+
+				<p>Give your File Browser a custom name (replace <b>fr0st</b> with any name you like) and use the branding folder we created earlier. Run:</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">filebrowser -d /home/$USER/.local/share/filebrowser/filebrowser.db \
+  config set --branding.name "fr0st" \
+             --branding.files "/home/$USER/.local/share/filebrowser/branding"</code></pre>
+                    </div>
+                </div>
+				
+				<p>This sets the interface title to your chosen name and uses the branding folder we created for custom <b>icons/images</b>. If you want to update your favicon or other branding assets, you can check the folder structure <a href="https://github.com/filebrowser/filebrowser/tree/master/frontend/public/img" target="_blank">here</a> and for more detailed information, read the <a href="https://filebrowser.org/configuration.html#custom-branding" target="_blank">File Browser documentation on custom branding</a></p>
+
+
+				<h3 id="use-recaptcha-for-login"><a class="anchor"> # Use reCAPTCHA for Login</a></h3>
+
+				<p>It is recommended to add a reCAPTCHA to your File Browser login page to prevent automated login attempts.</p>
+
+				<div class="feature-list">
+                    <p class="feature-intro">To set up reCAPTCHA for your File Browser login, follow these steps:</p>
+
+					<span><b>1.</b> Go to the <a href="https://www.google.com/recaptcha/admin/create" target="_blank">Google reCAPTCHA Admin Console</a></span>
+					<br>
+					<span><b>2.</b> Create a new site and add these:</span>
+					<p><b>Label:</b> FileBrowser</p>
+					<p><b>reCAPTCHA type:</b> reCAPTCHA v2 → "I'm not a robot" Checkbox</p>
+					<p><b>Domain:</b> Enter the subdomain <b>data</b> because that's what we'll use in this guide, then replace <b>yourdomain.com</b> with your actual domain e.g., <b>data.yourdomain.com</b>.</p>
+                    <div class="glightbox-wrapper">
+						<span>Here's a screenshot showing how it should look in <span class="bold">Google reCAPTCHA</span>:</span>
+						<!--Just Replace the images with urs---->
+						<a href="https://i.postimg.cc/SRGxz4Fj/captcha.png" class="glightbox" data-gallery="gallery1">
+							<img src="https://i.postimg.cc/SRGxz4Fj/captcha.png" width="auto">
+						</a>
+						</div>
+					<p>Click <b>Submit</b>.</p>
+					<span><b>3.</b> Copy your keys:</span>
+					<p>Site Key → used in the browser for the captcha widget</p>
+					<p>Secret Key → used by File Browser to verify captcha responses</p>
+					<span><b>4.</b> Run the following command to set your File Browser keys (make sure to replace <b>YOUR-SITE-KEY</b> and <b>YOUR-SECRET-KEY</b> with the keys you copied from Google):</span>
+					
+					<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">filebrowser -d /home/$USER/.local/share/filebrowser/filebrowser.db \
+  config set --auth.method=json \
+             --recaptcha.key YOUR-SITE-KEY \
+             --recaptcha.secret YOUR-SECRET-KEY</code></pre>
+                    </div>
+                </div>
+
+				<!---<span><b>5.</b> Restart File Browser by pressing <b>CTRL + C</b> in the terminal where its running, then re-run the command:</span></span>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+                        <pre><code class="language-bash">filebrowser -d /home/$USER/.local/share/filebrowser/filebrowser.db \ -a 127.0.0.1 -p 8081 -r /home/$USER/Desktop/filebrowser-data</code></pre>
+                    </div>
+                </div>-->
+                </div>
+
+				<h3 id="run-file-browser-locally"><a class="anchor"> # Run File Browser locally</a></h3>
+
+				<p>Finally, lets run File Browser on your local machine. Use the following command to start it on <b>localhost</b> at port <b>8081</b>, using the files from the directory we created:</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">filebrowser -d /home/$USER/.local/share/filebrowser/filebrowser.db -a 127.0.0.1 -p 8081 -r /home/$USER/Desktop/filebrowser-data</code></pre>
+                    </div>
+                </div>
+
+				<p>Once its running, open your browser and go to: <a href="http://127.0.0.1:8081/" target="_blank">http://127.0.0.1:8081/</a></p>
+
+    <!-- Default Note -->
+    <div class="note-block">
+        <div class="note-block-header">
+            <i class="fa-solid fa-circle-info note-block-icon"></i>
+            <div class="note-block-title">Note</div>
+        </div>
+        <div class="note-block-content">
+            <p>If you see the reCAPTCHA, saying
+            <b>"Localhost is not in the list of supported domains for this site key."</b>
+            That's normal, you need to run File Browser online on your <a href="https://en.wikipedia.org/wiki/Subdomain" target="_blank">subdomain</a> for the keys to work.</p>
+        </div>
+    </div>
+
+				
+
+				<h2>4. Setup Cloudflared Tunnels</h2>
+				
+
+				<h3 id="install-cloudflared"><a class="anchor"> # Install Cloudflared</a></h3>
+				
+				<p>Lets install <b>Cloudflared</b> so you can run it online on your <a href="https://en.wikipedia.org/wiki/Subdomain" target="_blank">subdomain</a> and create a tunnel. Open a new terminal and run:</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">sudo pacman -S cloudflared</code></pre>
+                    </div>
+				</div>
+
+				<h3 id="create-cloudflared-tunnel"><a class="anchor"> # Create a Cloudflared Tunnel</a></h3>
+
+				<p>First, log in to Cloudflare on your system by running:</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">cloudflared tunnel login</code></pre>
+                    </div>
+				</div>
+
+				<p>This will open a browser window asking you to log in to your Cloudflare account. Once logged in, select your domain and click <span class="bold">Authorize</span>. Your system is now authorized to create and manage tunnels.</p>
+
+				<p>After logging in, run this command to create a tunnel for File Browser:</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">cloudflared tunnel create filebrowser</code></pre>
+                    </div>
+				</div>
+
+				<p>When you run the tunnel command, it prints a <b>UUID</b> in the terminal (something like <b>12345678-90ab-cdef-1234-567890abcdef</b>). Copy that you'll need it for your <b>DNS</b>. <span class="bold">..but if you're like me and sometimes clear the terminal by mistake (I feel this urge to always clear it after seeing so much shit on the screen), just run:</span></p>
+
+                <div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">cloudflared tunnel list</code></pre>
+                    </div>
+				</div>
+
+                <p>This will show all your tunnels so you can copy the <b>UUID</b> for the <b>filebrowser tunnel</b>.</p>
+
+                <h3 id="point-your-subdomain-to-the-cloudflared-tunnel"><a class="anchor"> # Point your subdomain to the Cloudflared tunnel</a></h3>
+
+				<div class="feature-list">
+                    <p class="feature-intro">Now that you have the <b>UUID</b>, Open your <a href="https://dash.cloudflare.com" target="_blank">Cloudflare Dashboard</a>, go to <b>DNS</b> → <b>Add record</b>, and enter the following details:</p>
+
+					<p>Type: <b>CNAME</b></p>
+					<p>Name: <b>data</b> → <span class="bold">data.yourdomain.com</span></p>
+					<p>Target: <b>YOURUUID.cfargotunnel.com</b> (replace <b>YOURUUID</b> with the UUID you copied from your tunnel)</p>
+					<p>Proxy status: <b>Proxied (orange cloud)</b></p>
+					<p>Click <b>Save</b></p>
+					<div class="glightbox-wrapper">
+						<span>Here's how it should look (My UUID is hidden, but you get the idea):</span>
+						<!--Just Replace the images with urs---->
+						<a href="https://i.postimg.cc/Gm3FGmGW/cname.png" class="glightbox" data-gallery="gallery1">
+							<img src="https://i.postimg.cc/Gm3FGmGW/cname.png" width="auto">
+						</a>
+						</div>
+                </div>
+
+				<h3 id="configure-the-tunnel"><a class="anchor"> # Configure the tunnel</a></h3>
+
+				<p>I'll use <a href="https://www.vim.org/" target="_blank">vim</a> to create the configuration file for the Cloudflared Tunnel, but you can use any text editor you prefer:</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">vim /home/$USER/.cloudflared/filebrowser-tunnel.yml</code></pre>
+                    </div>
+				</div>
+
+				<p>Then add the following content, replacing <b>YOUR-UUID-HERE</b> with your UUID and <b>data.yourdomain.com</b> with your actual domain:</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+                        <pre><code class="language-yaml">tunnel: YOUR-UUID-HERE
+credentials-file: /home/$USER/.cloudflared/YOUR-UUID-HERE.json
+
+ingress:
+  - hostname: data.yourdomain.com
+    service: http://127.0.0.1:8081
+  - service: http_status:404
+</code></pre>
+                    </div>
+				</div>
+
+                <p>Don't forget to save the file brodie. 😉</p>
+
+
+				<h3 id="run-the-tunnel"><a class="anchor"># Run the tunnel</a></h3>
+
+                <p>Now, run the tunnel in another terminal using the command below to make your File Browser accessible online:</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">/usr/bin/cloudflared tunnel --config /home/$USER/.cloudflared/filebrowser-tunnel.yml run filebrowser</code></pre>
+                    </div>
+				</div>
+
+				<p>And finally visit <b>https://data.yourdomain.com</b> and you should see File Browser login.</p>
+
+                <p><b>YIPEEEEEEE 😁</b> <span class="bold">But.. we're not done yet..</span></p>
+
+				
+				<h2>5. Systemd service (File Browser + Tunnel)</h2>
+
+                <h3 id="create-systemd-service"><a class="anchor"># Create Systemd Service</a></h3>
+
+				<p>Lets create a systemd service to run <b>File Browser</b> together with the <b>Cloudflared Tunnel</b> always on startup, so you don't have to open terminals and start them manually every time. I'll use <a href="https://www.vim.org/" target="_blank">vim</a>, but you can use your preferred text editor:</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">sudo vim /etc/systemd/system/filebrowser.service</code></pre>
+                    </div>
+				</div>
+
+				<p>Then paste the following content, but replace <b>$USER</b> with your actual Linux username (since <b>$USER</b> doesn't work in systemd service files):</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">[Unit]
+Description=FileBrowser + Cloudflare Tunnel
+After=network.target
+
+[Service]
+Type=simple
+User=$USER
+WorkingDirectory=/home/$USER
+ExecStart=/bin/bash -c "/usr/bin/cloudflared tunnel --config /home/$USER/.cloudflared/filebrowser-tunnel.yml run filebrowser & \
+filebrowser -d /home/$USER/.local/share/filebrowser/filebrowser.db -a 127.0.0.1 -p 8081 -r /home/$USER/Desktop/filebrowser-data"
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+                    </div>
+				</div>
+
+                <h3 id="enable-and-start-the-service"><a class="anchor"># Enable and Start the service</a></h3>
+
+				<p>Run the following commands to enable and start the service:</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">sudo systemctl daemon-reload
+sudo systemctl enable filebrowser.service
+sudo systemctl start filebrowser.service</code></pre>
+                    </div>
+				</div>
+
+				<p>To check if everything is working, run:</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">sudo systemctl status filebrowser.service</code></pre>
+                    </div>
+				</div>
+
+                <p>If it says <b>Active: active (running)</b>, you're all set 🥹 (yes its finally over) that's it!</p>
+
+                <h2>6. Updating File Browser</h2>
+
+                <h3 id="how-to-update-filebrowser"><a class="anchor"> # How to update FileBrowser</a></h3>
+
+                <p>To get the latest version of File Browser, just install it again:</p>
+
+                <div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash</code></pre>
+                    </div>
+				</div>
+
+                <p>Then restart the service to apply the update:</p>
+
+                <div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-bash">sudo systemctl restart filebrowser.service</code></pre>
+                    </div>
+				</div>
+                
+                <h2>＠ Final Thoughts</h2>
+                <p>Setting up File Browser with a Cloudflared tunnel might seem like a lot at first, but once it's running, you've got a web-accessible file manager you can reach from anywhere.</p>
+
+                <p><b>Remember: nothing is 100% safe online</b>, so avoid storing sensitive personal data. I'd also recommend keeping an eye on the <a href="https://github.com/filebrowser/filebrowser" target="_blank">File Browser GitHub Repo</a> for new releases and security alerts, you can do this by pressing the <b>Watch</b> button.</p>
+
+                <p>Now that it's all set up, you can now manage your files from anywhere and customize your folders, branding, and themes however you want.</p>
+
+                <p>Enjoy your self-hosted File Browser, <b>Comrade!</b> </p>
+
+                <div class="article-footer">
+					<p class="lastupdated">＃ Last updated on: <b>September 10, 2025</b></p>
+					<div class="button-container">
+					  <button onclick="shareLink(this)" class="share-button">
+						<i class="fa-solid fa-share"></i>
+						Share
+					  </button>
+					  <a href="/rss.xml" target="_blank" class="rss-icon">
+						<i class="fa-solid fa-rss"></i>
+					  </a>
+					</div>
+				  </div>
+
+		<!-- GLIGHTBOX LIBRARY -->
+			<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+			<script>
+			const lightbox = GLightbox({ selector: '.glightbox' });
+			</script>
+
+		<!-- PRISM.JS FOR SYNTAX HIGHLIGHTING -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+        <!---------THEMES------------->
+						<div id="theme_selector">
+							<div id="theme_list"></div>
+						</div>
+        
+</body>
+</html>

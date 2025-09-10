@@ -1,6 +1,8 @@
 /**
  * RESOURCES-SCRIPT.JS
- */
+ * ----------------------------------------------------------------------
+ * Handles functionality for the resources.html page
+*/
 
 import '/src/js/components/base.js';
 

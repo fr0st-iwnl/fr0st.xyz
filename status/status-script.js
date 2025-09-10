@@ -1,4 +1,10 @@
 /**
+ * STATUS-SCRIPT.JS
+ * -----------------------------------------------------------------------
+ * Primarily used for the functionality of status.html and index.html.
+*/
+
+/**
  * i fucking hated working on this...
  */
 
