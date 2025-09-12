@@ -84,6 +84,30 @@ function changeTheme(theme) {
         }
     })
 
+
+/* Update Favicon based on the theme */ 
+function updateFavicon(theme) {
+    const faviconPath = `/src/media/favicons/favicon-${theme}.png`;
+    let link = document.getElementById("favicon");
+
+    if (!link) {
+        link = document.createElement("link");
+        link.id = "favicon";
+        link.rel = "icon";
+        link.type = "image/png";
+        document.head.appendChild(link);
+    }
+
+        // force browser to reload favicon by appending a query param
+        link.href = faviconPath + "?v=" + new Date().getTime();
+    }
+
+    updateFavicon(theme); // call the function
+
+
+
+
+
     // Hide any existing snowflakes
     const snowflakeContainer = document.getElementById('snow-container');
     if (snowflakeContainer) {

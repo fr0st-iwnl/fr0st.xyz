@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
             statusDiv.innerHTML = `
-                <img class="pfp" src="/src/media/pfp.jpg" alt="Profile Picture">
+                <img class="pfp" src="/src/media/PFPs/pfp-2.png" alt="Profile Picture">
                 <div class="content">
                     <h3>${status.title}<span class="emoji-container">${status.emoji}</span></h3>
                     ${content}
