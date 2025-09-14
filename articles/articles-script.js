@@ -39,42 +39,37 @@ function shareLink(button) {
  * COPY BUTTON FUNCTIONALITY FOR CODEBLOCKS IN BLOGS
 */
 
-// Copy functionality with spam protection
-let copyClickCount = 0;
-let isButtonLocked = false;
-let lockTimeout = null;
-
-const spamMessages = [
-    "Copied again!",
-    "Okay paste it somewhere",
-    "DUDE ITS COPIED",
-    ":("
-];
-
 function copyCode(button) {
-    // if button is locked show spam message
-    if (isButtonLocked) {
-        if (copyClickCount < spamMessages.length) {
-            button.innerHTML = `<i class="fa-solid fa-copy"></i> ${spamMessages[copyClickCount]}`;
-            copyClickCount++;
+    // Check if this specific button is locked
+    if (button.dataset.locked === 'true') {
+        const currentCount = parseInt(button.dataset.spamCount || '0');
+        const spamMessages = [
+            "Copied again!",
+            "Okay paste it somewhere", 
+            "DUDE ITS COPIED",
+            ":("
+        ];
+        
+        if (currentCount < spamMessages.length) {
+            button.innerHTML = `<i class="fa-solid fa-copy"></i> ${spamMessages[currentCount]}`;
+            button.dataset.spamCount = (currentCount + 1).toString();
         } else {
             button.innerHTML = `<i class="fa-solid fa-copy"></i> :(`;
         }
         
-        // reset the timeout to extend the lock
-        if (lockTimeout) {
-            clearTimeout(lockTimeout);
+        // Reset this button's timeout
+        if (button.lockTimeout) {
+            clearTimeout(button.lockTimeout);
         }
         
-        lockTimeout = setTimeout(() => {
-            const originalContent = '<i class="fa-solid fa-copy"></i> Copy';
-            button.innerHTML = originalContent;
+        button.lockTimeout = setTimeout(() => {
+            button.innerHTML = '<i class="fa-solid fa-copy"></i> Copy';
             button.style.background = 'transparent';
             button.style.borderColor = 'var(--main-color)';
             button.style.color = 'var(--main-color)';
-            isButtonLocked = false;
-            copyClickCount = 0;
-            lockTimeout = null;
+            button.dataset.locked = 'false';
+            button.dataset.spamCount = '0';
+            button.lockTimeout = null;
         }, 3000);
         
         return;
@@ -84,29 +79,35 @@ function copyCode(button) {
     const codeElement = codeBlock.querySelector('code');
     const textToCopy = codeElement.textContent || codeElement.innerText;
     
-    // lock the button and start spam counter
-    isButtonLocked = true;
-    copyClickCount = 0; // start from 0 for next spam sequence
+    // RESET ALL OTHER BUTTONS' SPAM COUNTS when copying from a new button
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        if (btn !== button && btn.dataset.locked !== 'true') {
+            btn.dataset.spamCount = '0';
+        }
+    });
+    
+    // Lock this specific button
+    button.dataset.locked = 'true';
+    button.dataset.spamCount = '0'; // Start fresh for this button
     
     navigator.clipboard.writeText(textToCopy).then(() => {
-        const originalContent = button.innerHTML;
         button.innerHTML = '<i class="fa-solid fa-copy"></i> Copied!';
         
-        // set timeout to unlock
-        lockTimeout = setTimeout(() => {
+        // Set timeout to unlock this button
+        button.lockTimeout = setTimeout(() => {
             button.innerHTML = '<i class="fa-solid fa-copy"></i> Copy';
             button.style.background = 'transparent';
             button.style.borderColor = 'var(--main-color)';
             button.style.color = 'var(--main-color)';
-            isButtonLocked = false;
-            copyClickCount = 0;
-            lockTimeout = null;
+            button.dataset.locked = 'false';
+            button.dataset.spamCount = '0';
+            button.lockTimeout = null;
         }, 3000);
         
     }).catch(err => {
         console.error('Failed to copy: ', err);
-        isButtonLocked = false;
-        copyClickCount = 0;
+        button.dataset.locked = 'false';
+        button.dataset.spamCount = '0';
     });
 }
 
