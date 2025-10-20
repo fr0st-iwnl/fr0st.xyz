@@ -10,7 +10,9 @@ let effectsDisabled = localStorage.getItem('effectsDisabled') === 'true';
 
 // Add 'effects-disabled' class to body if effects are disabled
 if (effectsDisabled) {
-    document.body.classList.add('effects-disabled');
+    document.body.classList.add('effects-disabled'); // keep it for other CSS effects
+    const updateContents = document.querySelectorAll('.update-content');
+    updateContents.forEach(el => el.style.animation = 'none'); // stop current animations
 } else {
     document.body.classList.remove('effects-disabled');
 }
