@@ -27,7 +27,7 @@
 #profile img {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
+    border-radius: 50%; /* keep it to 50% */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -52,7 +52,7 @@
     padding: 15px;
     background: rgba(0, 0, 0, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
+    border-radius: 0px; /* was 8px */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     overflow: hidden; /* Prevent overflow */
     max-width: 100%; /* Ensure the container doesn't exceed the parent width */
@@ -62,7 +62,7 @@
 .status .pfp {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 50%; /* keep it to 50% */
     margin-right: 15px;
     flex-shrink: 0;
 }
@@ -72,7 +72,7 @@
     width: 100%;
     max-width: 100%;
     height: auto;
-    border-radius: 0;
+    border-radius: 0; /* was always 0px */
     margin-top: 15px;
     margin-bottom: 10px;
 }
@@ -83,7 +83,7 @@
     padding: 5px;
     background: rgba(0, 0, 0, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
+    border-radius: 10px; /* was 10px */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     text-shadow: none;
 }
@@ -125,7 +125,7 @@
     .status .status-image {
         width: 95%;
         height: auto;
-        border-radius: 0px;
+        border-radius: 0px; /* was always 0px */
         margin-top: 10px;
         margin-bottom: 10px;
     }

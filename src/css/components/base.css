@@ -323,7 +323,7 @@ nav ul li:not(:last-child) {
 nav ul li a {
     display: block;
     text-decoration: underline;
-    border-radius: 10px;
+    border-radius: 0px; /* was 10px */
     padding: 0.2em 0.3em;
 
     transition: background-color 0.1s ease-out;
@@ -375,7 +375,7 @@ nav ul li a {
 
 
 a{
-    border-radius: 2.5px;
+    border-radius: 0px; /* was 2.5px */
 }
 
 /* PRINT ANIMATION */

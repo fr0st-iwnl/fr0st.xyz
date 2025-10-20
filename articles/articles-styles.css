@@ -13,7 +13,7 @@
 
 .article-container {
     position: relative;
-    border-radius: 15px;
+    border-radius: 0px; /* was 15 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     padding: 30px 20px;
     margin: 20px auto;
@@ -40,7 +40,7 @@
 
 .article-container2 {
     position: relative;
-    border-radius: 15px;
+    border-radius: 0px; /* was 15 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     padding: 30px 20px;
     margin: 20px auto;
@@ -67,7 +67,7 @@
 
 .article-container3 {
     position: relative;
-    border-radius: 15px;
+    border-radius: 0px; /* was 15 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     padding: 30px 20px;
     margin: 20px auto;
@@ -95,7 +95,7 @@
 
 .article-container4 {
     position: relative;
-    border-radius: 15px;
+    border-radius: 0px; /* was 15 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     padding: 30px 20px;
     margin: 20px auto;
@@ -123,7 +123,7 @@
 
 .article-container5 {
     position: relative;
-    border-radius: 15px;
+    border-radius: 0px; /* was 15 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     padding: 30px 20px;
     margin: 20px auto;
@@ -151,7 +151,7 @@
 
 .article-container6 {
     position: relative;
-    border-radius: 15px;
+    border-radius: 0px; /* was 15 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     padding: 30px 20px;
     margin: 20px auto;
@@ -178,7 +178,7 @@
 
 .article-container7 {
     position: relative;
-    border-radius: 15px;
+    border-radius: 0px; /* was 15 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     padding: 30px 20px;
     margin: 20px auto;
@@ -206,7 +206,7 @@
 
 .article-container-normal {
     position: relative;
-    border-radius: 15px;
+    border-radius: 0px; /* was 15 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     padding: 30px 20px;
     margin: 20px auto;
@@ -271,7 +271,7 @@
     border-left: 3px solid var(--main-color);
     background: linear-gradient(90deg, rgba(var(--main-color-rgb), 0.1), transparent 50%);
     padding: 12px 0 12px 15px;
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 0px 0px 0; /* was 0 8px 8px 0 */
     transition: all 0.3s ease;
 }
 
@@ -325,7 +325,7 @@
     color: #fff;
     border: 2px solid var(--main-color);
     padding: 8px 16px;
-    border-radius: 8px;
+    border-radius: 0px; /* was 8px */
     cursor: pointer;
     font-family: inherit;
     display: flex;
@@ -400,7 +400,7 @@
     margin-bottom : -15px;
     background-color: rgba(0, 0, 0, 0.1);
     border: 2px solid var(--main-color);
-    border-radius: 8px;
+    border-radius: 0px; /* was 8px */
     transform: scale(0.9);
     transform-origin: bottom;
 }
@@ -434,7 +434,7 @@ a[href*="freehitcounters.org"] {
 .feature-list {
     background-color: rgba(0, 0, 0, 0.7);
     border: 1px solid var(--main-color);
-    border-radius: 5px;
+    border-radius: 0px; /* was 5px */
     padding: 15px 20px;
     margin: 20px 0;
     position: relative;
@@ -507,7 +507,7 @@ a[href*="freehitcounters.org"] {
     background: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(var(--main-color-rgb), 0.3);
     border-left: 4px solid var(--main-color);
-    border-radius: 8px;
+    border-radius: 0px; /* was 8px */
     padding: 20px 20px 20px 25px;
     margin: 20px 0;
     position: relative;
@@ -524,7 +524,7 @@ a[href*="freehitcounters.org"] {
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 30% 30%, rgba(var(--main-color-rgb), 0.05), transparent);
-    border-radius: 8px;
+    border-radius: 0px; /* was 8px */
     z-index: -1;
 }
 
@@ -576,7 +576,7 @@ a[href*="freehitcounters.org"] {
 .article-content img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 0px; /* was 8px */
     margin: 15px 0;
     display: block;
 }
@@ -586,7 +586,7 @@ a[href*="freehitcounters.org"] {
 @media (max-width: 600px) {
     .article-content img {
         margin: 15px 0;
-        border-radius: 8px;
+        border-radius: 0px; /* was 8px */
     }
 }
 
@@ -620,7 +620,7 @@ a[href*="freehitcounters.org"] {
 .blog-code-block {
     background: rgba(0, 0, 0, 0.8);
     border: 1px solid var(--main-color);
-    border-radius: 8px;
+    border-radius: 0px; /* was 8px */
     overflow: hidden;
     margin: 20px 0;
     position: relative;
@@ -649,7 +649,7 @@ a[href*="freehitcounters.org"] {
     color: var(--main-color);
     border: 1px solid var(--main-color);
     padding: 4px 8px;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     cursor: pointer;
     font-family: inherit;
     font-size: 0.8em;

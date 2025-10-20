@@ -10,7 +10,7 @@ const fade_in_delay = 27 // lower values makes the elements show faster on site 
 let effectsDisabled = localStorage.getItem('effectsDisabled') === 'true';
 
 document.addEventListener('DOMContentLoaded', function() {
-    initTooltips();
+    /** 
     // Get all hidden update elements
     const hiddenUpdates = document.querySelectorAll('.hidden-update');
     
@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    */
     
     // COMMENTED: SO IF I DONT LIKE IT I CAN REMOVE IT
     // ADD: SMALL DELAY TO ENSURE ELEMENTS ARE LOADED BEFORE SCROLLING
@@ -72,8 +73,9 @@ function changeTab(tab) {
             document.getElementById(tab).scrollIntoView({behavior: 'smooth', block: 'start'});
         }, 100);
         
-        // Show elements of the selected tab
-        let elements = document.getElementById(tab).querySelectorAll('*');
+        // Show elements of the selected tab, but EXCLUDE those inside BCUZ IT TAKES SO MUCH TO FUCKING LOAD FUCK U --> .update-content I HATE U
+        let allElements = document.getElementById(tab).querySelectorAll('*');
+        let elements = Array.from(allElements).filter(el => !el.closest('.update-content'));  // Filter out hidden update content
         
         if (!effectsDisabled) {
             let delay = 0;
@@ -177,6 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
  * SHOW MORE FOR LATEST UPDATES
 */
 
+/**
 document.getElementById("show-more-btn").addEventListener("click", function() {
     const hiddenUpdates = document.querySelectorAll(".hidden-update");
     const button = this;
@@ -198,7 +201,7 @@ document.getElementById("show-more-btn").addEventListener("click", function() {
         button.textContent = " < Show More >"; // Restore button text
     }
 });
-
+*/
 
 
 /**
@@ -306,6 +309,7 @@ function initTooltips() {
     });
 }
 
+initTooltips();
 
 /**
  * REAL TIME AGE CALCULATOR

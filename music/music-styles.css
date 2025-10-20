@@ -16,7 +16,7 @@
 .stats-container {
     background: rgba(0, 0, 0, 0.7);
     padding: 1.5rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     margin-bottom: 2rem;
     display: flex;
     justify-content: space-around;
@@ -54,7 +54,7 @@
     background: rgba(0, 0, 0, 0.7);
     border: 1px solid var(----main-color);
     padding: 1.5rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
 }
 
 .artist-header {
@@ -123,12 +123,12 @@
     width: 8px !important;
     display: block !important;
     background: #222 !important;
-    border-radius: 4px !important;
+    border-radius: 0px !important; /* was 4px */
 }
 
 .scrollable-list::-webkit-scrollbar-thumb {
     background: var(--main-color, #409CFF) !important;
-    border-radius: 4px !important;
+    border-radius: 0px !important; /* was 4px */
 }
 
 .song-item {
@@ -171,7 +171,7 @@
 .song-thumbnail {
     width: 40px;
     height: 40px;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     object-fit: cover;
 }
 
@@ -195,7 +195,7 @@
     color: #1CC859;
     font-size: 1.2rem;
     padding: 0.4rem 0.8rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -222,7 +222,7 @@
     color: #1DB954;
     text-decoration: none;
     padding: 0.5rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
@@ -245,7 +245,7 @@
     color: #FF7B72;
     font-size: 1.2rem;
     padding: 0.4rem 0.8rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -260,7 +260,7 @@
     color: #8E8EE5;
     font-size: 1.2rem;
     padding: 0.4rem 0.8rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -275,7 +275,7 @@
     color: #41B0DB;
     font-size: 1.2rem;
     padding: 0.4rem 0.8rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -438,7 +438,7 @@
     cursor: pointer;
     color: var(----main-color);
     padding: 0.5rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     transition: all 0.3s ease;
     position: relative;
 }
@@ -464,7 +464,7 @@
     background: rgba(0, 0, 0, 0.9);
     color: white;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     font-size: 1.2rem;
     white-space: nowrap;
     opacity: 0;
@@ -516,7 +516,7 @@
 
 .video-container {
     background: #000;
-    border-radius: 8px;
+    border-radius: 0px; /* was 8px */
     overflow: hidden;
     width: 100%;
     aspect-ratio: 16/9;
@@ -541,7 +541,7 @@
 .video-js .vjs-big-play-button {
     background-color: rgba(0, 0, 0, 0.45);
     border-color: #fff;
-    border-radius: 50%;
+    border-radius: 0%; /* was 50% */
     width: 60px;
     height: 60px;
     line-height: 60px;
@@ -561,7 +561,7 @@
     color: white;
     width: 48px;
     height: 48px;
-    border-radius: 50%;
+    border-radius: 0%; /* was 50% */
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -592,7 +592,7 @@
     z-index: 2;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 0%; /* was 50% */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -686,7 +686,7 @@
     background: rgba(0, 0, 0, 0.7);
     border: 1px solid var(----main-color);
     padding: 1.5rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     margin-bottom: 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -698,7 +698,7 @@
     flex-direction: column;
     gap: 0.8rem;
     padding: 0.5rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     transition: background-color 0.2s ease;
 }
 
@@ -728,7 +728,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     padding: 0.6rem 1rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     min-width: 200px;
     cursor: pointer;
     transition: border-color 0.2s ease, background 0.2s ease;
@@ -757,7 +757,7 @@
     gap: 0.5rem;
     cursor: pointer;
     padding: 0.3rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     transition: background 0.2s ease;
 }
 
@@ -812,7 +812,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     padding: 0.6rem 1rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     cursor: pointer;
     transition: all 0.2s ease;
     font-size: 1.1rem;
@@ -883,7 +883,7 @@
     color: white;
     text-decoration: none;
     padding: 0.8rem 1.5rem;
-    border-radius: 4px;
+    border-radius: 0px; /* was 4px */
     border: 1px solid #333;
     font-size: 1.2rem;
     font-weight: 500;
@@ -908,7 +908,7 @@
 
 .welcome-section {
     background: rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
+    border-radius: 0px; /* was 8px */
     padding: 40px;
     margin-bottom: 30px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -992,7 +992,7 @@
     height: 40px;
     background: rgba(0, 0, 0, 0.7);
     border: 1px solid var(----main-color);
-    border-radius: 50%;
+    border-radius: 0%; /* was 50% */
     color: var(----main-color);
     cursor: pointer;
     display: flex;
