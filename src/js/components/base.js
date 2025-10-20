@@ -11,9 +11,6 @@ let effectsDisabled = localStorage.getItem('effectsDisabled') === 'true';
 // Add 'effects-disabled' class to body if effects are disabled
 if (effectsDisabled) {
     document.body.classList.add('effects-disabled');
-    // I NEED TO TEST TO SEE IF THIS WORKS I HAVE NO IDEA I NEED TO REMOVE THE 2 LINES FROM BELOW
-    const updateContents = document.querySelectorAll('.update-content');
-    updateContents.forEach(el => el.style.animation = 'none'); // stop current animations
 } else {
     document.body.classList.remove('effects-disabled');
 }
