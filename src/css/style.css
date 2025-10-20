@@ -655,11 +655,6 @@ a{
     background: rgba(var(--bg-color), 0.1);
 }
 
-.latest-updates {
-    max-width: 100%;
-    overflow: hidden;
-}
-
 #update-list {
     max-height: 350px;
     overflow-y: auto;
