@@ -655,6 +655,31 @@ a{
     background: rgba(var(--bg-color), 0.1);
 }
 
+.latest-updates {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+#update-list {
+    max-height: 350px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color) rgba(var(--bg-color), 0.2);
+}
+
+#update-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#update-list::-webkit-scrollbar-track {
+    background: rgba(var(--bg-color), 0.1);
+}
+
+#update-list::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 4px;
+}
+
 summary {
     color: var(--main-color);
     font-size: 1em;
