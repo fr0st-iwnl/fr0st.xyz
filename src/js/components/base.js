@@ -36,6 +36,10 @@ let nfbText = document.getElementById('changeEffects');
 
 // Turn off major effects on default for mobile devices (performance issues on some mobile browsers)
 if (window.matchMedia("(max-width: 767px)").matches && !('effectsDisabled' in localStorage)) {
+    /*
+    effectsDisabled = true;
+    localStorage.setItem('effectsDisabled', 'true');
+    */
     localStorage.setItem('effectsDisabled', 'true');
     location.reload();
 }
