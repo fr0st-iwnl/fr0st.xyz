@@ -710,7 +710,7 @@ details[open] summary::before {
 }
 
 .update-content {
-    padding: 0.4em 0.8em;
+    padding: 0.6em 0.8em;
     border-top: 1px dotted var(--main-color);
 }
 
