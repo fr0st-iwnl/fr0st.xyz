@@ -35,7 +35,10 @@ link.href = '/effects.css';
 let nfbText = document.getElementById('changeEffects');
 
 // Turn off major effects on default for mobile devices (performance issues on some mobile browsers)
-if (window.matchMedia("(max-width: 767px)").matches && !('effectsDisabled' in localStorage)) { effectsDisabled = true;}
+if (window.matchMedia("(max-width: 767px)").matches && !('effectsDisabled' in localStorage)) {
+    localStorage.setItem('effectsDisabled', 'true');
+    location.reload();
+}
 if (!effectsDisabled) { document.head.appendChild(link); nfbText.innerHTML = 'Don\'t like the effects? Click <a id="changeEffectsLink">HERE</a> to turn them off.';}
 
 // FUNCTION to change effects
