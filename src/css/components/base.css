@@ -76,6 +76,10 @@ a:link:not(.tab_active, a:hover), a:visited:not(.tab_active, a:visited:hover), e
     color: var(--main-color);
 }
 
+a {
+    color: var(--main-color)
+}
+
 #canvas {
     font-size: 1.75em;
     padding: 1.8em;
