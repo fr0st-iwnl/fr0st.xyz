@@ -7,14 +7,14 @@
 import '/src/js/components/base.js';
 
 const ARTIST_CONFIG = {
-    "$uicideboy$": 267,
+    "$uicideboy$": 274,
     "Stromae": 40,
     "Bakar": 45,
     "fakemink": 67,
-    "Artemas": 42,
+    "Artemas": 54,
     "Killa Fonic": 116,
     "Mareux": 26,
-    "Joji": 37
+    "Joji": 38
 };
 
 const artistData = [
@@ -306,6 +306,14 @@ const artistData = [
                 isAlbum: false
             },
             {
+                title: "Radical $uicide",
+                spotifyUrl: "https://open.spotify.com/album/1W7VBnHCvLa2cG9yWZT52t?si=8QtXjj9bSJWV2mYSDpU50Q",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273993b06c184a1f8ee1f070cbe",
+                duration: "10:17",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
                 title: "Black $uicide",
                 spotifyUrl: "https://open.spotify.com/album/3ZGK4y6cOXAsWYO9bYAYDm?si=25HIAVKOTWqlDGXBiB51kg",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273d060318e0c8cb5730a215386",
@@ -326,6 +334,14 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/album/5JPMrbyhWdReHLXNa0V1Vs?si=4kXn1P5HRCSG0udZxnGaDQ",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273cca7bd4bd84247cbe790ca3b",
                 duration: "15:54",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "Antarctica",
+                spotifyUrl: "https://open.spotify.com/album/2uSbIkeZ2TszTDfbzmkhyL?si=sjZJkCzoSF6ysAstdeqorA",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273fed01cae4350805103c24cc7",
+                duration: "2:06",
                 isObsessed: true,
                 isAlbum: false
             },
@@ -379,6 +395,13 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/album/5tNhTXfldKPoTERG8BUoXa?si=RjYG3BvtTJuXdXFDSqvL-A",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273ffa5895a19d8b40082967f54",
                 duration: "1:58",
+                isObsessed: true,
+            },
+            {
+                title: "Psychedelic $uicide",
+                spotifyUrl: "https://open.spotify.com/album/3MIm3KXRmdu7U5yS1LzRq5?si=V9O4xcR8Q-KzzPfvLsV-4A",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273a43a24ee7c3e0c4692f9869a",
+                duration: "3:03",
                 isObsessed: true,
             },
             {
@@ -1002,6 +1025,14 @@ const artistData = [
                 isAlbum: true
             },
             {
+                title: "LOVERCORE",
+                spotifyUrl: "https://open.spotify.com/album/75FM00r9Lgdi0YHv7vvzzB?si=Ivzb56nEQAWVnMSdeZ6aVQ",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273da3289aebc6af6e12d089c6d",
+                duration: "35:54 ",
+                isObsessed: true,
+                isAlbum: true
+            },
+            {
                 title: "southbound / test drive",
                 spotifyUrl: "https://open.spotify.com/album/4Uh9XOh5hmX0Cw7JREc0AU?si=6PmDrvWZT8yLo9uC5dqC3A",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b2738ae0235c22283aa1a54ddfb2",
@@ -1022,14 +1053,6 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/album/073p1oabjQBPOYrAMWOrge?si=Gr9ZL-wkQTW3Tr0K3zQSiQ",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273a5d1584c74776a69ad4991cc",
                 duration: "4:04 ",
-                isObsessed: true,
-                isAlbum: false
-            },
-            {
-                title: "eat me alive / u don't have to tell me",
-                spotifyUrl: "https://open.spotify.com/album/3mxQzFNEhn2XAr2UvCt2bI?si=I6M0yJGJTXuuCi0ZdPLkTg",
-                thumbnail: "https://i.scdn.co/image/ab67616d0000b27362466a87d21d5cb7435f9e4c",
-                duration: "4:37 ",
                 isObsessed: true,
                 isAlbum: false
             },
@@ -1349,6 +1372,13 @@ const artistData = [
                 duration: "2:49",
                 isFavorite: true,
             },
+            {
+                title: "PIXELATED KISSES",
+                spotifyUrl: "https://open.spotify.com/album/3FLlai6YTV9IwCU0KolG1w?si=LN66kRFpQguo2uMI-IzJhg",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734a66ee1a8cdd72378eb56765",
+                duration: "1:50",
+                isFavorite: true,
+            },
         ]
     },
 ];
@@ -1605,7 +1635,7 @@ function createFilterMenu() {
                 </div>
                 <p>This is where I share my favorite artists and songs. You'll find a mix of different genres and styles that I enjoy listening to. Feel free to explore my music taste and discover some great tunes!</p>
                 <div class="last-updated">
-                    Last updated: September 10th 2025
+                    Last updated: October 29 2025
                 </div>
             </div>
         </div>

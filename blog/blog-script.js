@@ -89,7 +89,6 @@ const articles = [
     "man i jus realized i added so many $uicideboy$ songs in here 😭",
     "honestly, who reads this stuff?",
     "you ever just.. stare at the screen?",
-    "me, pretending to be productive.",
     "wrote this instead of sleeping.",
     "i'm not a professional writer.",
     "i'm just a guy who likes to write sometimes.",
@@ -123,6 +122,19 @@ const articles = [
     "Aokigahara",
     "Am/Pm",
     "#1 Stunna",
+    "Lo-Fi (Kill' Em All)",
+    "Dejection",
+    "Sleepy Hollow - Slopped & Chewed",
+    "Whoa, I'm Woeful",
+    "A Death in the Ocean Would Be Beautiful",
+    "April Mourning",
+    "Life Is but a Stream~",
+    "Pontiac Sunfire",
+    "Behold a Pale Horse",
+    "Heavily Medicated",
+    "Lettuce",
+    "Magazine",
+    "Stop Calling Us Horrorcore",
     "close the world. open the next."
 ];
 
