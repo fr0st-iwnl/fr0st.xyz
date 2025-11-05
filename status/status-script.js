@@ -39,8 +39,23 @@ function formatDatetime(dateTimeString) {
     });
 }
 
+function setVideoVolume(root = document) {
+    const videos = root.querySelectorAll("video.status-video");
+    videos.forEach((video) => {
+        video.volume = 0.3; // volume for videos (nearly went deaf if i wasn't adding this)
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    // need to make a json file for these (soon) man ts shi tiring
     const statuses = [
+        {
+            title: "fr0st - ",
+            emoji: "😭",
+            message: "I DO WAT I WANT WHATEVA",
+            video: "https://files.catbox.moe/3jobom.mp4",
+            datetime: fixedDatetime("2025", "11", "05", "11", "14"),
+        },
         {
             title: "fr0st - ",
             emoji: "✌️",
@@ -117,7 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const content = `
                 ${status.message ? `<p>${status.message}</p>` : ""}
-                ${status.image ? `<img class="status-image" src="${status.image}" alt="Status Image">` : ""}
+                ${status.image ? `<img class="status-image" src="${status.image}" alt="Image Failed To Load">` : ""}
+                ${status.video ? `<video class="status-video" src="${status.video}" alt="Video Failed To Load" controls preload="metadata" playsinline></video>` : ""}
             `;
 
             statusDiv.innerHTML = `
@@ -140,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Only render statuses if the container exists
     if (document.getElementById("status_container")) {
         renderStatuses(statuses);
+        setVideoVolume();
     }
 });
 
@@ -158,6 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const content = `
             ${status.message ? `<p>${status.message}</p>` : ""}
             ${status.image ? `<img class="status-image" src="${status.image}" alt="Status Image">` : ""}
+            ${status.video ? `<video class="status-video" src="${status.video}" controls preload="metadata" playsinline></video>` : ""}
         `;
 
         statusBox.innerHTML = `
@@ -168,6 +186,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 <small class="time-ago">Posted on: ${formatDatetime(status.datetime)}</small>
             </div>
         `;
+
+        setVideoVolume(statusBox);
     } else {
         statusBox.innerHTML = "<p>No status available.</p>";
     }
