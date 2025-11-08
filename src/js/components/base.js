@@ -185,6 +185,7 @@ function updateFavicon(theme) {
             document.documentElement.style.setProperty('--selection', '#6e6e6e');
             if (g59Overlay) {
                 g59Overlay.style.display = 'block';
+                g59Overlay.style.opacity = effectsDisabled ? 0.3 : 0.5;
             }
             break;
         case 'neon':
