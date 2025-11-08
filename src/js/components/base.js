@@ -127,6 +127,10 @@ function updateFavicon(theme) {
     document.documentElement.style.setProperty('--bg-opacity', '0.31');
     rain_vid.style.display = 'none';
     noise_vid.style.opacity = 0.5; // Normal opacity for noise_vid
+    let g59Overlay = document.getElementById('g59_overlay');
+    if (g59Overlay) {
+        g59Overlay.style.display = 'none';
+    }
     if (!document.head.contains(link) && !effectsDisabled) {document.head.appendChild(link);}
     switch (theme) { 
         case 'ocean':
@@ -173,6 +177,16 @@ function updateFavicon(theme) {
             document.documentElement.style.setProperty('--main-color-rgb', '164, 205, 248');
             document.documentElement.style.setProperty('--selection', '#3b6d8b');
             rain_vid.style.display = 'block'; // This adds the rain background
+            break;
+        case 'g59':
+            document.documentElement.style.setProperty('--bg-color', '10, 10, 10');
+            document.documentElement.style.setProperty('--main-color', '#dcdcdc');
+            document.documentElement.style.setProperty('--main-color-rgb', '220, 220, 220');
+            document.documentElement.style.setProperty('--selection', '#6e6e6e');
+            if (g59Overlay) {
+                g59Overlay.style.display = 'block';
+                g59Overlay.style.opacity = effectsDisabled ? 0.3 : 0.5;
+            }
             break;
         case 'neon':
             document.documentElement.style.setProperty('--bg-color', '62, 73, 232');
