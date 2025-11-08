@@ -321,12 +321,6 @@ pre, p, li, h1, h2, h3, h4, td{
     bottom: auto;
     object-fit: cover;
     object-position: top right;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    opacity: 0.5;
-    filter: drop-shadow(0 0 35px rgba(0, 0, 0, 0.65));
-    transition: opacity 0.3s ease;
-    image-rendering: auto;
 }
 
 @media (max-width: 1200px) {
@@ -352,11 +346,6 @@ pre, p, li, h1, h2, h3, h4, td{
         opacity: 0.85;
         transform-origin: top right;
     }
-}
-
-body.effects-disabled #g59_overlay {
-    mix-blend-mode: normal;
-    opacity: 0.3;
 }
 
 /* NAV BAR */
