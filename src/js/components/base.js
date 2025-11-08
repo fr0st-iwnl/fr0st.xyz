@@ -6,7 +6,15 @@
 
 const fade_in_delay = 27 // lower values makes the elements show faster on site loading and while changing tabs
 
-let effectsDisabled = localStorage.getItem('effectsDisabled') === 'true';
+const storedEffectsPreference = localStorage.getItem('effectsDisabled');
+let effectsDisabled = storedEffectsPreference === 'true';
+const shouldAutoDisableEffects = window.matchMedia("(max-width: 767px)").matches;
+
+// Turn off major effects on default for mobile devices (performance issues on some mobile browsers)
+if (storedEffectsPreference === null && shouldAutoDisableEffects) {
+    effectsDisabled = true;
+    localStorage.setItem('effectsDisabled', 'true');
+}
 
 // Add 'effects-disabled' class to body if effects are disabled
 if (effectsDisabled) {
@@ -33,16 +41,6 @@ link.type = 'text/css';
 link.href = '/effects.css';
 
 let nfbText = document.getElementById('changeEffects');
-
-// Turn off major effects on default for mobile devices (performance issues on some mobile browsers)
-if (window.matchMedia("(max-width: 767px)").matches && !('effectsDisabled' in localStorage)) {
-    /*
-    effectsDisabled = true;
-    localStorage.setItem('effectsDisabled', 'true');
-    */
-    localStorage.setItem('effectsDisabled', 'true');
-    location.reload();
-}
 if (!effectsDisabled) { document.head.appendChild(link); nfbText.innerHTML = 'Don\'t like the effects? Click <a id="changeEffectsLink">HERE</a> to turn them off.';}
 
 // FUNCTION to change effects
