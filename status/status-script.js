@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "fr0st - ",
             emoji: "😭",
             message: "I DO WAT I WANT WHATEVA",
-            video: "https://files.catbox.moe/3jobom.mp4",
+            video: "https://files.fr0st.xyz/uploads/status/3jobom.mp4",
             datetime: fixedDatetime("2025", "11", "05", "11", "14"),
         },
         {
