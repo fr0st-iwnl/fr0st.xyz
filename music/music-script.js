@@ -13,7 +13,7 @@ const ARTIST_CONFIG = {
     "fakemink": 67,
     "Artemas": 54,
     "Killa Fonic": 116,
-    "Mareux": 26,
+    "Mareux": 27,
     "Joji": 38
 };
 
@@ -1298,6 +1298,14 @@ const artistData = [
                 isNostalgic: false
             },
             {
+                title: "Scorpio",
+                spotifyUrl: "https://open.spotify.com/album/7g0ipnMIsC5CqlHkAh5rEj?si=NzQSH1BxROCA3ZoVtD0d9w",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273d0590d6416fb26ed4ae54730",
+                duration: "3:41",
+                isObsessed: true,
+                isNostalgic: false
+            },
+            {
                 title: "Blackout",
                 spotifyUrl: "https://open.spotify.com/track/7HMPSmje7Q1wu4XvfuvJZp?si=3f45d326ccd04f59",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b27322de2f10c176dc8152047c17",
@@ -1635,7 +1643,7 @@ function createFilterMenu() {
                 </div>
                 <p>This is where I share my favorite artists and songs. You'll find a mix of different genres and styles that I enjoy listening to. Feel free to explore my music taste and discover some great tunes!</p>
                 <div class="last-updated">
-                    Last updated: October 29 2025
+                    Last updated: November 9 2025
                 </div>
             </div>
         </div>
