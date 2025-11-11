@@ -84,6 +84,13 @@ const articles = [
     }
 ];
 
+const normalizePath = (path) => {
+    if (path.length > 1 && path.endsWith('/')) {
+        return path.slice(0, -1);
+    }
+    return path;
+};
+
 /**
  * WELCOME / RANDOM WORDS
 */
@@ -208,6 +215,24 @@ articles.forEach((article) => {
             `;
 
     articleSection.appendChild(articleDiv);
+        });
+    }
+
+    /**
+     * ARTICLE PAGE TITLE + HEADING SYNC
+     */
+    const currentPath = normalizePath(window.location.pathname);
+    const matchingArticle = articles.find((article) => {
+        const articlePath = normalizePath(new URL(article.link, window.location.origin).pathname);
+        return articlePath === currentPath;
+    });
+
+    if (matchingArticle) {
+        document.title = `fr0st - ${matchingArticle.title}`;
+
+        const articleTitleElements = document.querySelectorAll('h1.article-title');
+        articleTitleElements.forEach((titleEl) => {
+            titleEl.textContent = matchingArticle.title;
         });
     }
 });
