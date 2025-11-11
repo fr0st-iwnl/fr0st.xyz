@@ -228,8 +228,6 @@ articles.forEach((article) => {
     });
 
     if (matchingArticle) {
-        document.title = `fr0st - ${matchingArticle.title}`;
-
         const articleTitleElements = document.querySelectorAll('h1.article-title');
         articleTitleElements.forEach((titleEl) => {
             titleEl.textContent = matchingArticle.title;
