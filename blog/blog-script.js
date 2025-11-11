@@ -91,6 +91,17 @@ const normalizePath = (path) => {
     return path;
 };
 
+const updateMetaContent = (selector, value) => {
+    if (!value) {
+        return;
+    }
+
+    const metaTag = document.querySelector(selector);
+    if (metaTag) {
+        metaTag.setAttribute('content', value);
+    }
+};
+
 /**
  * WELCOME / RANDOM WORDS
 */
@@ -237,5 +248,9 @@ articles.forEach((article) => {
                 titleEl.textContent = matchingArticle.title;
             }
         });
+
+        // updates meta tag for og:title and twitter:title
+        updateMetaContent('meta[property="og:title"]', matchingArticle.title);
+        updateMetaContent('meta[name="twitter:title"]', matchingArticle.title);
     }
 });
