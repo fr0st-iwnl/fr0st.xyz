@@ -11,6 +11,14 @@ import '/src/js/components/base.js';
 */
 const articles = [
     {
+        title: "How to Install and Set Up AtlasOS on Windows",
+        description: "Learn how to install AtlasOS, activate Windows, and get your PC ready without bloat.",
+        link: "articles/article8.html", 
+        class: "article-one",
+        thumbnail: "./src/media/blog-thumbnails/atlasos.png",
+        date: "November 11, 2025"
+    },
+    {
         title: "How to Self-Host File Browser on Arch Linux with Cloudflared Tunnels",
         description: "Learn how to set up and run File Browser on Arch Linux using Cloudflare Tunnels to access it from anywhere.",
         link: "articles/article7.html", 

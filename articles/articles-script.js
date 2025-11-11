@@ -178,13 +178,25 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /**
- * Updates heading anchor (.anchor) links to point to the heading's ID
-*/
+ * Give each heading an ID (if it doesn't have one) and update its anchor link
+ */
 document.querySelectorAll('h2, h3, h4, h5, h6').forEach(heading => {
-    const anchor = heading.querySelector('.anchor');
-    if (anchor) {
-        anchor.href = `#${heading.id}`;
-    }
+  // If no ID, generate one from the heading text
+  if (!heading.id) {
+    heading.id = heading.textContent
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, '')     // remove special chars
+      .replace(/\s+/g, '-')         // replace spaces with dashes
+      .replace(/-+/g, '-')          // collapse multiple dashes
+      .replace(/^-+|-+$/g, '');     // remove leading/trailing dashes
+  }
+
+  // Update anchor if present
+  const anchor = heading.querySelector('.anchor');
+  if (anchor) {
+    anchor.href = `#${heading.id}`;
+  }
 });
 
 // make functions global so onclick can access them

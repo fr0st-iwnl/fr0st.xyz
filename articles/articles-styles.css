@@ -203,6 +203,33 @@
     z-index: 0;
 }
 
+.article-container-8 {
+    position: relative;
+    border-radius: 0px; /* was 15 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    color: #ffffff;
+    text-align: left;
+    overflow: hidden;
+}
+
+.article-container-8::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #182E4C;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: 0;
+}
+
 
 .article-container-normal {
     position: relative;
@@ -469,6 +496,23 @@ a[href*="freehitcounters.org"] {
     font-weight: bold;
 }
 
+.feature-list p.no-icon::before {
+  content: none;
+}
+
+.feature-list .no-icon {
+    padding-left: 0;
+    margin-left: 0;
+    white-space: wrap;
+}
+
+.highlight-text {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  word-wrap: break-word;
+}
+
+
 .feature-list .feature-intro {
     margin-bottom: 15px;
     padding-left: 0;
@@ -571,13 +615,154 @@ a[href*="freehitcounters.org"] {
 
 
 /*--------------------------------------------------------------
+# WARNING DESIGN
+--------------------------------------------------------------*/
+.warning-block {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(var(--main-color-rgb), 0.1);
+    border-left: 4px solid #d9534f;
+    border-radius: 0px; /* was 8px */
+    padding: 20px 20px 20px 25px;
+    margin: 20px 0;
+    position: relative;
+    color: #e0e0e0;
+    font-family: 'Terminus', 'Courier New', monospace;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.warning-block::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(var(--main-color-rgb), 0.05), transparent);
+    border-radius: 0px; /* was 8px */
+    z-index: -1;
+}
+
+.warning-block-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(var(--main-color-rgb), 0.2);
+}
+
+.warning-block-icon {
+    color: #d9534f;
+    font-size: 1.2em;
+    text-shadow: none;
+}
+
+.warning-block-title {
+    color: #d9534f;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 5px rgba(var(--main-color-rgb), 0.3);
+}
+
+.warning-block-content {
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.warning-block-content p {
+    margin: 10px 0;
+}
+
+.warning-block-content p:first-child {
+    margin-top: 0;
+}
+
+.warning-block-content p:last-child {
+    margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# TIP DESIGN
+--------------------------------------------------------------*/
+.tip-block {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(var(--main-color-rgb), 0.1);
+    border-left: 4px solid #EEB879;
+    border-radius: 0px; /* was 8px */
+    padding: 20px 20px 20px 25px;
+    margin: 20px 0;
+    position: relative;
+    color: #e0e0e0;
+    font-family: 'Terminus', 'Courier New', monospace;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tip-block::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(var(--main-color-rgb), 0.05), transparent);
+    border-radius: 0px; /* was 8px */
+    z-index: -1;
+}
+
+.tip-block-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(var(--main-color-rgb), 0.2);
+}
+
+.tip-block-icon {
+    color: #EEB879;
+    font-size: 1.2em;
+    text-shadow: none;
+}
+
+.tip-block-title {
+    color: #EEB879;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 5px rgba(var(--main-color-rgb), 0.3);
+}
+
+.tip-block-content {
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.tip-block-content p {
+    margin: 10px 0;
+}
+
+.tip-block-content p:first-child {
+    margin-top: 0;
+}
+
+.tip-block-content p:last-child {
+    margin-bottom: 0;
+}
+
+
+
+/*--------------------------------------------------------------
 # ARTICLE IMAGES
 --------------------------------------------------------------*/
 .article-content img {
     max-width: 100%;
     height: auto;
     border-radius: 0px; /* was 8px */
-    margin: 15px 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
     display: block;
 }
 
@@ -585,10 +770,48 @@ a[href*="freehitcounters.org"] {
 /* Mobile tweaks */
 @media (max-width: 600px) {
     .article-content img {
-        margin: 15px 0;
+        margin-top: 15px;
+        margin-bottom: 15px;
         border-radius: 0px; /* was 8px */
     }
 }
+
+.video-wrapper {
+  position: relative;
+}
+
+.video-wrapper::after {
+  content: "▶";
+  font-size: 48px;
+  color: var(--main-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.8;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+
+.article-content video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  display: block;
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .article-content video {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    border-radius: 0px;
+  }
+}
+
 
 .image-container img {
   max-width: 100%;
@@ -607,9 +830,9 @@ a[href*="freehitcounters.org"] {
     background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
-.glightbox-wrapper {
+.image-wrapper {
   display: inline-block;       /* keeps the wrapper tight around image */
-  margin: 10px;                /* spacing between images */
+  margin: 0px;                /* spacing between images */
 }
 
 
@@ -792,6 +1015,181 @@ a[href*="freehitcounters.org"] {
     cursor: pointer;
 }
 
+/*         GLIGHTBOX LIBRARY PLAYER STYLING
+   (holy fuck my head bro. shi took so long to style) */
+
+/* ================================
+   PLYR CUSTOM COLOR STYLING
+   ================================ */
+
+/* Overlay play button */
+.plyr__control--overlaid {
+  background: var(--main-color) !important;
+  
+}
+
+/* Overlay play icon (slightly soft white so it looks good on any color) */
+.plyr__control--overlaid svg {
+  fill: black !important;
+}
+
+/* Volume slider color */
+input[data-plyr="volume"][type="range"] {
+  --plyr-range-fill-background: var(--main-color) !important;
+}
+
+/* Seek (progress) bar color */
+input[data-plyr="seek"][type="range"] {
+  --plyr-range-fill-background: var(--main-color) !important;
+}
+
+/* Optional: change thumb color too (the little circle on both sliders) */
+input[data-plyr="volume"][type="range"]::-webkit-slider-thumb,
+input[data-plyr="seek"][type="range"]::-webkit-slider-thumb {
+  background: var(--main-color) !important;
+}
+
+input[data-plyr="volume"][type="range"]::-moz-range-thumb,
+input[data-plyr="seek"][type="range"]::-moz-range-thumb {
+  background: var(--main-color) !important;
+}
+
+input[data-plyr="volume"][type="range"]::-ms-thumb,
+input[data-plyr="seek"][type="range"]::-ms-thumb {
+  background: var(--main-color) !important;
+}
+
+/* ================================
+   PLYR CONTROL BUTTON HOVER STYLE
+   ================================ */
+
+.plyr__controls__item.plyr__control {
+  transition: background 0.2s ease, transform 0.1s ease;
+  border-radius: 0px;
+}
+
+/* Hover effect */
+.plyr__controls__item.plyr__control:hover {
+  background: var(--main-color) !important;
+  border-radius: 0px;
+}
+
+/* Icon color inside the button (makes sure it's visible on your color) */
+.plyr__controls__item.plyr__control:hover svg {
+  fill: black !important;
+}
+
+
+/* ================================
+   PLYR MUTE BUTTON HOVER STYLE
+   ================================ */
+
+button.plyr__control[data-plyr="mute"] {
+  transition: background 0.2s ease, transform 0.1s ease;
+  border-radius: 0px;
+}
+
+/* Hover effect */
+button.plyr__control[data-plyr="mute"]:hover {
+  background: var(--main-color) !important;
+  border-radius: 0px;
+}
+
+/* Icon color when hovered */
+button.plyr__control[data-plyr="mute"]:hover svg {
+  fill: black !important;
+}
+
+
+/* ================================
+   PLYR SETTINGS BUTTON FULL STYLE
+   ================================ */
+
+button.plyr__control[data-plyr="settings"]{
+    border-radius: 0px;
+}
+
+/* Hover effect */
+button.plyr__control[data-plyr="settings"]:hover {
+  background: var(--main-color) !important;
+  border-radius: 0px;
+}
+
+/* Force icon color to black on hover */
+button.plyr__control[data-plyr="settings"]:hover svg {
+  fill: black !important;
+  border-radius: 0px;
+}
+
+/* Hover and active (menu open) background */
+button.plyr__control[data-plyr="settings"]:hover,
+button.plyr__control[data-plyr="settings"][aria-expanded="true"],
+button.plyr__control[data-plyr="settings"].plyr__control--pressed {
+  background: var(--main-color) !important;
+  border-radius: 0px;
+}
+
+/* Icon color on hover and active */
+button.plyr__control[data-plyr="settings"]:hover svg,
+button.plyr__control[data-plyr="settings"][aria-expanded="true"] svg,
+button.plyr__control[data-plyr="settings"].plyr__control--pressed svg {
+  fill: black !important;
+}
 
 
 
+
+/* ================================
+   PLYR SETTINGS MENU STYLING
+   ================================ */
+
+/* The container (the dropdown itself) */
+.plyr__menu__container {
+  background: var(--main-color) !important;
+  backdrop-filter: blur(6px);
+  border-radius: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 5px 0;
+}
+
+/* Change the arrow color under the settings menu */
+.plyr__menu__container::after {
+  border-top-color: var(--main-color) !important;
+}
+
+/* Make the arrow next to 'Speed' black */
+button.plyr__control--forward::after {
+  border-left-color: black !important;
+}
+
+/* Make the back arrow black */
+button.plyr__control--back::after {
+  border-right-color: black !important;
+}
+
+
+/* The individual setting buttons inside the menu */
+.plyr__menu__container .plyr__control {
+  background: transparent !important;
+  color: black !important;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.plyr__menu__container .plyr__control:hover {
+  background: var(--selection)!important;
+  border-radius: 0px;
+}
+
+/* ================================
+   PLYR TOOLTIP STYLING
+   ================================ */
+
+.plyr__tooltip {
+  background: var(--main-color) !important;
+  color: black !important;;
+  border-radius: 0px;
+}
+/* Tooltip arrow (the little triangle under it) */
+.plyr__tooltip::before {
+  border-top-color: var(--main-color) !important;
+}

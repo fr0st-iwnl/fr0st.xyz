@@ -10,6 +10,15 @@
         <webMaster>fr0st.xyz@tuta.io (fr0st)</webMaster>
 
         <item>
+            <title>How to Install and Set Up AtlasOS on Windows</title>
+            <link>https://fr0st.xyz/articles/article8.html</link>
+            <description>Learn how to install AtlasOS, activate Windows, and get your PC ready.</description>
+            <author>fr0st.xyz@tuta.io (fr0st)</author>
+            <pubDate>Tue, 11 Nov 2025 06:47:00 GMT</pubDate>
+            <guid>https://fr0st.xyz/articles/article8.html</guid>
+        </item>
+
+        <item>
             <title>How to Self-Host File Browser on Arch Linux with Cloudflared Tunnels</title>
             <link>https://fr0st.xyz/articles/article7.html</link>
             <description>Learn how to set up and run File Browser on Arch Linux using Cloudflare Tunnels to access it from anywhere.</description>

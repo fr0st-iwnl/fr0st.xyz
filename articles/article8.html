@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-----METAS----->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+	<meta name="author" content="fr0st-iwnl, fr0st">
+	<meta name="theme-color" content="#72B6FF">
+	<meta proberty="og:title" content="fr0st">
+    <meta property="og:image" content="https://fr0st.xyz/src/media/blog-thumbnails/self-host-filebrowser-tunnels-arch.png">
+	<meta property="og:site_name" content="fr0st.xyz">
+	<meta proberty="og:description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
+	<meta proberty="og:url" content="https://fr0st.xyz">
+	<meta name="keywords" content="fr0st-iwnl, frost, fr0st, frostiwnl, kiyokosmacros, frostiwnldev, frost github, self-host filebrowser, self-host, self-hosting, self-host filebrower with cloudflared tunnels, selfhost filebrowser, self-host file-browser, archlinux, arch-linux, setup">
+	<meta name="robots" content="index, follow">
+	<meta name="revisit-after" content="7 days">
+	<!-----TITLE------>
+	<title>fr0st - How to Self-Host File Browser on Arch Linux with Cloudflared Tunnels</title>
+
+	<!-----SCRIPT-JS------>
+	<script src="/src/js/components/base.js" type="module" defer></script>
+    <script src="/blog/blog-script.js" type="module" defer></script>
+    <script src="/articles/articles-script.js" type="module" defer></script>
+
+    <!-----LINKS------>
+	<link rel="icon" type="image/png" href="/src/media/favicons/favicon-ocean.png" id="favicon">
+	<link rel="preload" as="font" href="src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
+	<link rel="stylesheet" href="/articles/articles-styles.css">
+	<link rel="alternate" type="application/rss+xml" title="fr0st&#39;s Webpage RSS" href="https://fr0st.xyz/rss.xml">
+	<!---FONT AWESOME------->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+	<!-- GLIGHTBOX CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+	
+	<!-- PRISM.JS FOR SYNTAX HIGHLIGHTING -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+	<!----noise.mp4---->
+	<!---src="https://files.catbox.moe/hop8wg.mp4"--->
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.65;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="noise_vid"
+		src="/src/media/noise.mp4"
+		poster="/src/media/noise_static.png"
+		>
+	</video>
+
+	<!----rain_bg.mp4---->
+	<!---src="https://files.catbox.moe/i7le27.mp4"--->
+	<video
+		preload="none"
+		onloadstart="this.playbackRate = 0.85;"
+		autoplay
+		muted
+		loop
+		playsinline
+		id="rain_vid"
+		src="/src/media/rain_bg.mp4"
+		poster="/src/media/rain_bg_static.png"
+		>
+	</video>
+
+		<img
+			id="g59_overlay"
+			src="/src/media/g59.png"
+			alt="G59"
+			width="1920"
+			height="1080"
+			loading="eager"
+			decoding="async"
+			fetchpriority="high"
+		>
+	<div id="snow-container"></div>
+	<div class="vignette"></div>
+	<div id="videohue"></div>
+	<div id="canvas">
+		<header>
+			<pre id="title">
+    ____       ____         __ 
+   / __/_____ / __ \ _____ / /_
+  / /_ / ___// / / // ___// __/
+ / __// /   / /_/ /(__  )/ /_  
+/_/  /_/    \____//____/ \__/  
+			</pre>
+            <div>
+			<p class="welcome"></p>
+		<br>
+		<p class="effects" id="changeEffects">Want some fancy effects? Click <a id="changeEffectsLink">HERE</a> to turn them on.</p>
+		</header>
+		<br>
+
+        <!--------- NAVBAR ------------->
+        <nav id="nav_tabs">
+			<ul>
+				<li><a href="/blog.html"><i class="fa-solid fa-less-than-equal"></i></a></li>
+                <li><a href="https://github.com/fr0st-iwnl" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+			</ul>
+		</nav>
+
+<!--
+		📌 Blog Classes Reference
+
+		General:
+		- article-container-normal → main container for each article
+		- article-title → big title of the blog
+		- article-date → publish date
+		- article-content → wraps all article text and elements
+		- article-footer → footer area with share buttons / last updated date
+
+		Views:
+		- fa-solid fa-eye → views icon
+
+		Headings:
+		- h2 → section titles
+		- h3 with <a class="anchor"> → sub-section with an anchor link
+
+		Code Blocks:
+		- blog-code-block → wrapper for code sections
+		- code-header → top bar of the code box
+		- code-title → text "Code"
+		- copy-btn → copy button for code
+		- code-content → the actual code block
+		- language-bash / language-yaml → code highlighting types
+
+		Notes / Features:
+		- feature-list → list with features or prerequisites
+		- feature-intro → intro text for the feature list
+		- note-block → whole note block
+		- note-block-header → header of the note
+		- note-block-icon → info icon
+		- note-block-title → title text
+		- note-block-content → content of the note
+
+		Images / Videos:
+		- image-wrapper → wrapper for screenshots/images with Lightbox
+		- video-wrapper → wrapper for videos with Lightbox
+		- glightbox → video/image popup/lightbox class
+
+		Other:
+		- bold → makes text bold (used inline)
+-->
+
+
+
+        <!--------- ARTICLE ------------->
+        <div class="article-container-8">
+            <h1 class="article-title">How to Install and Set Up AtlasOS on Windows</h1>
+			<!----Go to → https://freehitcounters.org/ then choose the one in the bottom right (transparent one) and just copy the link of the view counter
+			      and replace it with the one that is in the src ----->
+			<p><i class="fa-solid fa-eye"></i> ‒ Views: <script type="text/javascript" src="https://freehitcounters.org/count/iwmu"></script><br></p>
+			<br>
+			<br>
+            <p class="article-date">Published on: November 11, 2025</p>
+            <div class="article-content">
+                
+                <p>Welp hey there and welcome to this blog! In this one I'll show you how to install <a href="https://atlasos.net/" target="_blank">AtlasOS</a> on your Windows machine and make your system <b>WAY better</b> than the normal Windows experience. 
+                <b>Since AtlasOS gets updated from time to time, just like other apps, a few setup steps might change along the way. I'll do my best to keep this post updated.</b></p>
+
+                <!---<p>If you already know what <a href="https://atlasos.net/" target="_blank">AtlasOS</a> is, you can skip to the tutorial part. If you don't know what AtlasOS is, keep reading!</p>--->
+
+                <h3 id="what-is-atlasos"><a class="anchor"> # What is AtlasOS ?</a></h3>
+
+                <p>Alright so, <a href="https://atlasos.net/" target="_blank">AtlasOS</a> isn't really an <b>"OS" (Operating System)</b>. 
+				It's actually a modified version of Windows. A lot of people, even some of my friends, think it's a completely different system just because it has <span class="bold">"OS"</span> in the name, which is funny, but nah,
+				<b>it's basically a custom Windows that removes bloat and makes your PC run smoother and faster. </b></p>
+
+                <h3 id="why-should-you-switch-to-atlasos"><a class="anchor"> # Why should YOU switch to AtlasOS ?</a></h3>
+                <p><span class="bold">Now you might be wondering, why should you even switch to <a href="https://atlasos.net/" target="_blank">AtlasOS</a>?</span> 
+                Simple, it removes all the useless junk that slows down your system. 
+                The devs working on it actually know what they're doing, and honestly, if AtlasOS didn't exist, I'd probably have ditched Windows for Linux by now. 
+                <b>But <a href="https://atlasos.net/" target="_blank">AtlasOS</a> makes Windows feel 10x better, no joke.</b></p>
+
+                <p><span class="bold">One thing I love about <a href="https://atlasos.net/" target="_blank">AtlasOS</a> is that it completely removes Windows Defender (the default Microsoft antivirus)</span>. 
+                Don't get me wrong, <b>Defender is honestly one of the best antivirus options out there if you actually want one</b>. It's built into Windows, it's reliable, and you should only use that as your antivirus, no need for any of those sketchy third party ones.
+                But man, it eats up so much system resources, and you can't even turn it off completely, that's what pisses me off the most.
+                Back when I was on Windows 10 with a trash PC, that thing made my setup run like a snail. If you know what you're doing and can handle your PC safely, removing Defender is honestly a blessing.</p>
+
+                <p>However, if you don't really know what you're doing and can't handle your PC safely <b>(like downloading random stuff or clicking unknown links)</b>, then <span class="bold">DO NOT</span> remove it. Keep it <span class="bold">ON</span>, because it'll save you from a lot of headaches later.</p>
+                <p>And that's not all, <a href="https://atlasos.net/" target="_blank">AtlasOS</a> also gives you a bunch of new settings and tweaks that make Windows faster and lighter, and more private. 
+				which you can configure through a <b>folder</b> for now, but soon this folder will be replaced by a more <b>user-friendly GUI app</b>.</p>
+
+				<p>Also, here's an official benchmark made by them on the game <b>VALORANT</b>.</p>
+
+				<div class="image-wrapper">
+						<!--Just Replace the images with urs---->
+						<a href="https://files.fr0st.xyz/uploads/blogs/atlasos/benchmark.png" class="glightbox" data-gallery="gallery1">
+							<img src="https://files.fr0st.xyz/uploads/blogs/atlasos/benchmark.png" alt="Benchmark Image" width="auto">
+						</a>
+				</div>
+
+				<p>If you want to see more details about it, <a href="https://github.com/orgs/Atlas-OS/discussions/1161" target="_blank">click here</a></p>
+
+				<!-- Default Note -->
+				<div class="note-block">
+					<div class="note-block-header">
+						<i class="fa-solid fa-circle-info note-block-icon"></i>
+						<div class="note-block-title">Note</div>
+					</div>
+					<div class="note-block-content">
+						<p>Before we start, just a quick heads-up. Once you install AtlasOS, 
+						the regular <b>Reset this PC</b> option in Windows will not work like it normally does. 
+						AtlasOS disables it because it is not a true reinstall of Windows and can cause serious issues 
+						or leave your system in an unstable state.</p>
+
+						<p>If you ever need to start fresh, fix problems, or remove AtlasOS entirely, 
+						the correct and supported method is to perform a clean reinstall using the official <a href="https://docs.atlasos.net/general-faq/resetting-atlas/" target="_blank">Atlas Installation Guide</a>. 
+						Make sure to back up your files before you begin, and have a <a href="https://docs.atlasos.net/getting-started/reverting-atlas/#__tabbed_1_2" target="_blank">Windows USB installer ready</a> in case you need it. 
+						You can also <a href="https://docs.atlasos.net/getting-started/reverting-atlas/#__tabbed_1_1" target="_blank">reinstall Windows without a USB drive</a> by mounting the ISO file and running the setup directly, 
+						but using a USB installer is still the safer and more reliable option.</p>
+
+						<p>If your goal is simply to go back to a standard version of Windows, 
+						follow the <a href="https://docs.atlasos.net/getting-started/reverting-atlas/" target="_blank">Reverting Atlas Guide</a>, which walks you through fully reinstalling stock Windows.</p>
+					</div>
+				</div>
+
+				<!-- Default Tip -->
+				<div class="tip-block">
+					<div class="tip-block-header">
+						<i class="fa-solid fa-lightbulb tip-block-icon"></i>
+						<div class="tip-block-title">Tip</div>
+					</div>
+					<div class="tip-block-content">
+						<p>For the best results, install AtlasOS right after a clean Windows install 
+						so nothing from your old setup gets in the way. But if you don't want to, that's alright, 
+						you can still install it normally.</p>
+					</div>
+				</div>
+
+				<p>Alright, now that you know what to expect, let's start with choosing the right version of AtlasOS for your system.</p>
+
+                <h3 id="choosing-the-right-version"><a class="anchor"> # Choosing the Right Version</a></h3>
+
+                <!---<p>Well, since this blog is based on the AtlasOS update for the Windows 11 version 25H2, we'll use that one for the tutorial.</p>--->
+
+                <p>First, check what Windows version you're on. Just open <b>About Settings</b> <em>(search "about your pc" in the Windows search bar and you'll find it)</em>.
+                Once you're there, you should see your <b>Windows version</b> listed.</p>
+
+				<div class="image-wrapper">
+						<!--Just Replace the images with urs---->
+						<a href="https://files.fr0st.xyz/uploads/blogs/atlasos/windowsversion.png" class="glightbox" data-gallery="gallery1">
+							<img src="https://files.fr0st.xyz/uploads/blogs/atlasos/windowsversion.png" alt="Windows Version Image" width="auto">
+						</a>
+				</div>
+
+                <!----<p>If you have 25H2 nice, you're right where you need to be.</p>
+                <p>If you don't have that specific version, don't worry! You can still install the AtlasOS version that supports your build.</p>--->
+
+                <div class="feature-list">
+  <p class="feature-intro" id="source-info">
+    <!-- This text is dynamically inserted by JavaScript depending on which option (Quick Setup or Manual Setup) is selected -->
+  </p>
+
+  <div class="download-toggle">
+    <label>
+      <input type="radio" name="download" value="quicksetup" id="quicksetup-radio" onchange="toggleDownload(this.value)">
+      Quick Setup
+    </label>
+    <label>
+      <input type="radio" name="download" value="manualsetup" onchange="toggleDownload(this.value)">
+      Manual Setup
+    </label>
+  </div>
+
+  <!-- Manual Setup Section -->
+  <div id="manualsetup" class="download-section" style="display:none;">
+    <h4>Windows 11</h4>
+    <p>If you're on <span class="bold">25H2</span>, choose <span class="bold">0.5.0-hotfix</span></p>
+    <p>If you're on <span class="bold">24H2</span>, choose <span class="bold">0.4.1</span></p>
+    <p>If you're on <span class="bold">23H2</span>, choose <span class="bold">0.4.0</span></p>
+    <p>If you're on an older version, I'm not really sure which one works for it, but I recommend updating to a newer version.</p>
+
+    <h4>Windows 10</h4>
+    <p>If you're on <span class="bold">22H2</span>, choose <span class="bold">0.4.1</span></p>
+    <p>If you're on an older version, I'm not really sure which one works for it, but I recommend updating to a newer version.</p>
+
+    <p class="feature-intro"><b>After finding your version, install these files:</b></p>
+
+    <p class="highlight-text">AtlasPlaybook_your_version.apbx</p>
+    <p class="highlight-text">Disable.Automatic.Driver.Installation.reg</p>
+    <p>And let's not forget about the <a href="https://download.ameliorated.io/AME%20Beta.zip">Ameliorated App</a>! Just click the link and it should automatically start downloading from the official Ameliorated website. <b>After you've downloaded it, don't forget to extract it, since it comes in a ZIP file.</b></p>
+
+    <p class="no-icon">- Good, after you've installed and extracted all the stuff I told you about, <b>make a new folder anywhere you want (your Desktop or Downloads is fine) and name it "Atlas Installation".</b></p>
+
+    <p class="no-icon">- Once you've created the folder, drag and drop all the files you just downloaded into it.</p>
+  </div>
+
+  <!-- Quick Setup Section -->
+  <div id="quicksetup" class="download-section">
+    <h4>Windows 11</h4>
+    <p>If you're on <span class="bold">25H2</span>, <a href="https://github.com/fr0st-iwnl/public-releases/releases/download/atlasos/0.5.0-hotfix.zip" class="download-link">[DOWNLOAD NOW]</a></p>
+    <p>If you're on <span class="bold">24H2</span>, <a href="https://github.com/fr0st-iwnl/public-releases/releases/download/atlasos/0.4.1.zip" class="download-link">[DOWNLOAD NOW]</a></p>
+    <p>If you're on <span class="bold">23H2</span>, <a href="https://github.com/fr0st-iwnl/public-releases/releases/download/atlasos/0.4.0.zip" class="download-link">[DOWNLOAD NOW]</a></p>
+    <p>If you're on an older version, I'm not really sure which one works for it, but I recommend updating to a newer version.</p>
+
+    <h4>Windows 10</h4>
+    <p>If you're on <span class="bold">22H2</span>, <a href="https://github.com/fr0st-iwnl/public-releases/releases/download/atlasos/0.4.1.zip" class="download-link">[DOWNLOAD NOW]</a></p>
+    <p>If you're on an older version, I'm not really sure which one works for it, but I recommend updating to a newer version.</p>
+
+	<p class="feature-intro"></p>
+    <p class="no-icon">- <b>Once downloaded, extract the ZIP file</b> and you'll automatically get an <b>"Atlas Installation"</b> folder with everything ready to go.</p>
+    <p class="no-icon">- All files in this ZIP come directly from the <b>official AtlasOS and Ameliorated sources</b>. I just bundled them together to make the process faster and easier. If you'd rather do it yourself, <b>use the Manual Setup option above.</b></p>
+  </div>
+</div>
+
+<p>Here is how your <b>"Atlas Installation"</b> folder should look in the end:</p>
+
+<div class="image-wrapper">
+  <a href="https://files.fr0st.xyz/uploads/blogs/atlasos/folder.png" class="glightbox" data-gallery="gallery1">
+    <img src="https://files.fr0st.xyz/uploads/blogs/atlasos/folder.png" alt="Folder Structure Image" width="auto">
+  </a>
+</div>
+
+<script>
+function toggleDownload(choice) {
+  document.querySelectorAll('.download-section').forEach(section => section.style.display = 'none');
+  document.getElementById(choice).style.display = 'block';
+
+  const sourceInfo = document.getElementById('source-info');
+  if (choice === 'manualsetup') {
+    sourceInfo.innerHTML = '<b>Now go to their <a href="https://github.com/Atlas-OS/Atlas/releases" target="_blank">GitHub Releases Page</a>, scroll down, and pick the version that matches your Windows build.</b>';
+  } else {
+    sourceInfo.innerHTML = "<b>The pre-packaged version has everything you need in one download. Choose your Windows version below and download the ready-to-use package.</b>";
+  }
+}
+
+// Always default Quick Setup on page load
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('quicksetup-radio').checked = true;
+  toggleDownload('quicksetup');
+});
+</script>
+
+<style>
+	.download-toggle {
+	margin: 10px 0;
+	display: flex;
+	gap: 15px;
+	}
+
+	.download-toggle label {
+	cursor: pointer;
+	font-weight: bold;
+	}
+
+	.download-toggle input {
+		cursor: pointer;
+	margin-right: 5px;
+	}
+
+	.download-toggle input:focus {
+		outline: none;
+	}
+
+	/* Hide browser default radio */
+	.download-toggle input[type="radio"] {
+	appearance: none;
+	-webkit-appearance: none;
+	width: 14px;
+	height: 14px;
+	border: 1.5px solid var(--main-color);
+	border-radius: 50%;
+	background: transparent;
+	cursor: pointer;
+	vertical-align: middle;
+	position: relative;
+	transform: translateY(-3.5px);
+	transition: background 0.15s ease, border-color 0.15s ease;
+	}
+
+	/* Checked look — small dot inside */
+	.download-toggle input[type="radio"]:checked::after {
+	content: "";
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: var(--main-color);
+	}
+</style>
+
+				<p>Perfect, now after you've put everything into a folder, double click on <span class="highlight-text">Disable.Automatic.Driver.Installation.reg</span> and press <b>Run</b>, then click <b>Yes</b> when it asks for confirmation.</p>
+
+				<p>This registry file basically stops Windows from automatically installing drivers during the setup process. It prevents Windows Update from messing with your drivers while AtlasOS is being installed and just keeps things clean and smooth.</p>
+                
+				<p>After that, open the <span class="highlight-text">AME Beta.exe</span> app. It should launch a GUI-based program (a window with buttons and stuff), and at the top left you'll see something that says <b>"Drag and drop .apbx or .iso files"</b>.</p>
+
+				<p>Now, just drag and drop your <span class="highlight-text">AtlasPlaybook_your_version.apbx</span> file into that box, and you should see AtlasOS appear inside the app.</p>
+
+				<h3 id=""><a class="anchor"> # Installing AtlasOS in the Ameliorated App</a></h3>
+
+				<p>Welp, really happy to see you here. You've just finished the basic setup part where we installed all the needed files. 
+				Now it's time to actually install AtlasOS on your system.</p>
+
+				<p>So first, go into the <b>AME Beta App</b>. 
+				Like I mentioned before, you should see AtlasOS appear inside it, along with a button that says 
+				<b>Run Action to Disable the Security (Windows Defender).</b> That's the one you need to click to turn off Windows Defender.</p>
+
+				<p><span class="bold">Now, you might be thinking why do we need to do this?</span><br> Well, Windows Defender blocks some of the changes AtlasOS needs to make in your system, so turning it off is important for the setup to work properly.</p>
+
+				<p><b>Click on that button, disable everything it shows, then press Next, just like I did in the video below:</b></p>
+
+				<div class="video-wrapper">
+						<!--Just Replace the video with urs---->
+						<a href="https://files.fr0st.xyz/uploads/blogs/atlasos/disable_antivirus_atlasos.mp4" class="glightbox" data-gallery="gallery1">
+							<video src="https://files.fr0st.xyz/uploads/blogs/atlasos/disable_antivirus_atlasos.mp4" alt="Disable Windows Defender Video" width="auto">
+						</a>
+				</div>
+
+				<p>Good, after you've done this and pressed <b>Next</b>, the GUI might say <b>Requirements not met</b>, 
+				and there are a few things that could cause that. 
+				<span class="bold">If you don't see this message, you can skip this part since you don't have this issue.</span></p>
+
+				<!-- Default Note -->
+				<div class="warning-block">
+					<div class="warning-block-header">
+						<i class="fa-solid fa-triangle-exclamation warning-block-icon"></i>
+						<div class="warning-block-title">REQUIREMENTS NOT MET</div>
+					</div>
+					<div class="warning-block-content">
+						<p>Here are some of the issues I know about for the <b>"Requirements not met"</b> message. Read through them and see if any of these apply to you:</p>
+
+						<p>1. Sometimes the app will restart your system to get things ready for the installation.</p>
+
+						<p>2. It might also say that your system needs an update. If that happens, open <b>Check for updates</b> from the Windows search bar, then click on the <b>Check for updates / Install Now</b> button, and wait for it to finish.</p>
+
+						<p>3. It could also say that your <b>system is too old</b>, and if that happens, you'll see a small <b>Bypass</b> 
+						button. Just click that to skip the check and continue.</p>
+
+						<p>So yeah, these are all the issues I know about for now.</p>
+					</div>
+				</div>
+
+				<p>Alright, so if you didn't run into any of these issues, or you already fixed them using what I said above, then you're good to move on.</p>
+
+				<p>Now you might see a <b>license agreement</b> for <b>AME Core</b> and <b>AME GUI</b>. Accept both of them by clicking <b>Next</b>, then press <b>Accept</b> to confirm the license agreement.</p>
+
+				<h3 id="configuring-the-playbook"><a class="anchor"> # Configuring the Playbook</a></h3>
+
+				<p>Alright, now we're getting to the fun part where you set up your playbook. 
+				I'll show you the settings I recommend, and for anything I don't cover, you can look it up later if you're curious.</p>
+
+				<p>I'm mostly going to focus on the important options, the ones that actually make a difference. 
+				Some smaller tweaks that Atlas disables by default aren't that important, so I won't go over every single one here. 
+				Whenever you're choosing your options, there's also a <b>Learn more</b> button that takes you 
+				straight to the official docs explaining what each setting does.</p>
+
+				<p><b>Let's start.</b> After you've accepted the license agreement, you'll see a <b>Configure Options</b> window to set up the playbook functionality with a <b>Select Options</b> button. Click that and let's begin.</p>
+
+				<!-- Default Note -->
+				<div class="note-block">
+					<div class="note-block-header">
+						<i class="fa-solid fa-circle-info note-block-icon"></i>
+						<div class="note-block-title">Note</div>
+					</div>
+					<div class="note-block-content">
+						<p>First, just so you know, these settings can always be changed later in the Atlas folder. So if you pick something wrong, don't worry, you can reconfigure it anytime after Atlas installs.</p>
+					</div>
+				</div>
+				<p>The first option is about <b>Windows Defender</b>. Like I mentioned earlier when we talked about the antivirus, I personally recommend turning it <b>OFF</b> <span class="bold">only if you know what you're doing and have some experience with Windows</span>. If you're not that familiar with the system, just keep it <b>ENABLED</b>.</p>
+
+				<p>Next up are the <b>Mitigations</b>. 
+				Disabling these can improve performance on older CPUs, but it doesn't make a big difference on modern ones. 
+				I recommend keeping the default Windows mitigations <b>ON</b> if you have a good CPU, and if you have a really old one, 
+				I suggest searching online to see if you should disable them or not. <b>It's safer to leave them enabled.</b></p>
+
+				<p>Now for <b>Updates</b>, I definitely recommend disabling automatic updates. 
+				Windows updates are known for being messy and sometimes breaking stuff, so turning them <b>OFF</b> is a solid choice in my opinion.</p>
+
+				<p>After that, you'll see options like 
+				<b>Disable Hibernation</b>, <b>Maximum Performance (Disable Power Saving)</b>, and <b>Disable Core Isolation</b>. 
+				They come checked by default, and I just leave them like that since that's how I prefer it. 
+				If you're not sure what something does, you can always click the <b>Learn More</b> button next to it to read about it.</p>
+
+				<p>Then we get to the last part of the setup. 
+				You'll see options like <b>Remove Snipping Tool App</b>, and I always remove it because the <b>Snipping Tool just isn't great.</b> 
+				I recommend using <a href="https://flameshot.org/" target="_blank">Flameshot</a> instead since it's open source, lightweight, and just works better.
+				I also remove <b>Microsoft Edge</b> since it's not a browser I like at all, 
+				and choose Install a Browser since I want to install something else instead of Edge. 
+				After that, just press <b>Next</b>.</p>
+
+				<p>
+				There's also a new option called <b>Install Atlas Toolbox</b>, which is an app made by the Atlas team to replace the folder system and make it more user-friendly. 
+				I always select that too since it's made by them, so why not.</p>
+
+				<p>After that, it'll ask you to choose your browser. 
+				The options are <b>Brave</b>, <b>Librewolf</b>, <b>Firefox</b>, and <b>Chrome</b>. 
+				I usually go with <b>Firefox</b>, and I honestly recommend it. 
+				It's the best browser I've ever used. 
+				If you want something more privacy-focused, go with <b>Librewolf</b>, it's basically Firefox 
+				but built for privacy and already comes with <a href="https://ublockorigin.com/" target="_blank">uBlock Origin</a> installed.</p>
+
+				<p>So yeah, I recommend either <b>Firefox</b> or <b>Librewolf</b>.</p>
+
+				<p>After that, press <b>Next</b>, and <span class="bold">you're done</span>. 
+				Just sit back and wait for AtlasOS to finish the setup. 
+				Your computer will restart automatically, so don't close or touch anything, just let it do its job.</p>
+
+				<h3 id="whats-next?"><a class="anchor"> # What's Next?</a></h3>
+
+				<p><b>Nice! Now you might be wondering what's next?</b> 🤔 
+				Well, there are a few quick but important things to do to finish setting up your system. 
+				We'll start by activating Windows, changing its edition if needed, and then installing your graphic drivers.</p>
+
+				<h3 id=""><a class="anchor"> # Activating and Changing Your Windows Edition</a></h3>
+
+				<p><b>First, open <a href="https://en.wikipedia.org/wiki/PowerShell" target="_blank">PowerShell</a> and paste the command from below.</b></p>
+
+				<p><span class="bold">But hold up..! You might be wondering what this command does, right?</span>
+				<br>
+				It's from <a href="https://massgrave.dev/" target="_blank">MAS (Massgrave)</a>, an open source project that 
+				lets you safely activate Windows, change editions, and more.</p>
+				</p>
+
+				<div class="blog-code-block">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <i class="fa-solid fa-code"></i>
+                            Code
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="code-content">
+						<!-- Change language to whatever u want it will auto-detect it automatically -->
+                        <pre><code class="language-powershell">irm https://get.activated.win | iex</code></pre>
+                    </div>
+				</div>
+
+				<p>After you run the command, a new <a href="https://en.wikipedia.org/wiki/Cmd.exe" target="_blank">CMD</a> window will open with multiple options.</p>
+
+				<p>Before activating, check which edition of Windows you're on:</p>
+
+				<p><b>
+					1. Search About your PC in the Windows search bar.
+					<br>
+					2. If it says Home, you'll need to switch to Pro.
+				</b></p>
+
+				<div class="image-wrapper">
+						<!--Just Replace the images with urs---->
+						<a href="https://files.fr0st.xyz/uploads/blogs/atlasos/home.png" class="glightbox" data-gallery="gallery1">
+							<img src="https://files.fr0st.xyz/uploads/blogs/atlasos/home.png" alt="Home Image" width="auto">
+						</a>
+				</div>
+
+				<p class="bold">If you're already on Pro, you can skip this part and move straight to activating Windows. 
+				Just read a bit further down and you'll see how to do that.</p>
+
+				<p>To change your edition, go back to the <b>MAS window</b> and you'll see something like this:</p>
+
+				<div class="image-wrapper">
+						<!--Just Replace the images with urs---->
+						<a href="https://files.fr0st.xyz/uploads/blogs/atlasos/mas.png" class="glightbox" data-gallery="gallery1">
+							<img src="https://files.fr0st.xyz/uploads/blogs/atlasos/mas.png" alt="MAS Image" width="auto">
+						</a>
+				</div>
+
+				<p>Press <b>[7] Change Windows Edition</b> to start changing your edition. 
+				Then you'll see several options, choose <b>Professional</b> from the list by pressing that specific number on your keyboard.</p>
+
+				<p>After that, it should say <b>[SUCCESSFUL]</b> and might mention that a reboot is required to apply the changes, 
+				<span class="bold">but before restarting, lets activate Windows too.</span></p>
+				
+				<p>Press any key to return to the main <b>MAS</b> menu, then press <b>[1] HWID</b> to activate your system.</p>
+				
+				<p>Wait for it to finish and once it says <b>[SUCCESSFUL]</b>, you're good to go. Now you can restart your PC to apply everything.</p>
+
+				<h3 id=""><a class="anchor"> # Installing Graphic Drivers for Your System</a></h3>
+
+				<p>Alright, now that Windows is activated and everything's set, it's time to install your graphic drivers.
+				<br>
+				<b>This step is really important if you want your games or apps to run smoothly.</b>
+				</p>
+
+				<div class="feature-list">
+                    <p class="feature-intro"><b>Before installing your drivers, you need to know what GPU you have.</b></p>
+					<p>Open <b>Task Manager</b> (search for it or just press <b>Ctrl + Shift + Esc</b>)</p>
+					<p>Go to the <b>Performance</b> tab</p>
+					<p>Click on the <b>GPU</b> tab on the left side, and in the <b>top right</b> you'll see your GPU name 
+					(like <span class="bold">NVIDIA</span> or <span class="bold">AMD</span>).</p>
+					<p class="no-icon">Just like I showed in the video below:</p>
+					<div class="video-wrapper">
+						<!--Just Replace the video with urs---->
+						<a href="https://files.fr0st.xyz/uploads/blogs/atlasos/taskmanager.mp4" class="glightbox" data-gallery="gallery1">
+							<video src="https://files.fr0st.xyz/uploads/blogs/atlasos/taskmanager.mp4" alt="Find GPU in Task Manager Video" width="auto">
+						</a>
+				</div>
+                </div>
+
+
+				<p>
+				<span class="bold">Now that you've found your GPU name, it's time to install your drivers.</span>
+				<br>	
+				The cool part is that the <b>AtlasOS</b> team actually made guides that show you how to install your GPU drivers 
+				without any of the useless bloat that usually comes with them.</p>
+
+
+				<div class="feature-list">
+                    <p class="feature-intro"><b>Pick the one that matches your graphics card:</b></p>
+
+					<p><a href="https://docs.atlasos.net/getting-started/post-installation/drivers/amd/" target="_blank">AMD</a></p>
+					<p><a href="https://docs.atlasos.net/getting-started/post-installation/drivers/nvidia/" target="_blank">NVIDIA</a></p>
+                </div>
+
+                <h2>You're Done!</h2>
+
+				<p>And that's it, you've fully set up your system with <b>AtlasOS</b>!
+				<br>
+				Your Windows should now be faster, lighter, and way cleaner than before.
+				</p>
+
+				<p>Go ahead and install your favorite apps, tweak a few settings, and enjoy the speed boost. If you ran into any problems or want me to add something to this guide, contact me on
+				<a href="https://frostiwnl.netlify.app/discord" target="_blank">Discord</a> or
+				<a href="mailto:fr0st.xyz@tuta.io">Email Me</a>. I'd love to hear your feedback!</p>
+
+                <div class="article-footer">
+					<p class="lastupdated">＃ Last updated on: <b>November 11, 2025</b></p>
+					<div class="button-container">
+					  <button onclick="shareLink(this)" class="share-button">
+						<i class="fa-solid fa-share"></i>
+						Share
+					  </button>
+					  <a href="/rss.xml" target="_blank" class="rss-icon">
+						<i class="fa-solid fa-rss"></i>
+					  </a>
+					</div>
+				  </div>
+
+		<!-- GLIGHTBOX LIBRARY -->
+			<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+			<script>
+			const lightbox = GLightbox({ selector: '.glightbox' });
+			</script>
+
+		<!-- PRISM.JS FOR SYNTAX HIGHLIGHTING -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+        <!---------THEMES------------->
+						<div id="theme_selector">
+							<div id="theme_list"></div>
+						</div>
+        
+</body>
+</html>
