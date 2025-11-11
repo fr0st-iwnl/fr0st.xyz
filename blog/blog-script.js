@@ -218,9 +218,9 @@ articles.forEach((article) => {
         });
     }
 
-    /**
-     * ARTICLE PAGE TITLE + HEADING SYNC
-     */
+/**
+ * ARTICLE PAGE TITLE + HEADING SYNC
+*/
     const currentPath = normalizePath(window.location.pathname);
     const matchingArticle = articles.find((article) => {
         const articlePath = normalizePath(new URL(article.link, window.location.origin).pathname);
@@ -230,7 +230,12 @@ articles.forEach((article) => {
     if (matchingArticle) {
         const articleTitleElements = document.querySelectorAll('h1.article-title');
         articleTitleElements.forEach((titleEl) => {
-            titleEl.textContent = matchingArticle.title;
+            const isCustomTitle =
+                titleEl.hasAttribute('custom-title');
+
+            if (!isCustomTitle) {
+                titleEl.textContent = matchingArticle.title;
+            }
         });
     }
 });
