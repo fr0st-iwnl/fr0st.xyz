@@ -489,12 +489,14 @@ a[href*="freehitcounters.org"] {
 }
 
 .feature-list p::before {
-    content: "○";
-    color: var(--main-color);
-    position: absolute;
-    font-size: 2rem;
-    left: 0;
-    font-weight: bold;
+  font-family: "Font Awesome 6 Free";
+  content: "\f1ce";
+  font-weight: 900; /* solid */
+  font-size: 1rem;
+  color: var(--main-color);
+  position: absolute;
+  left: 0;
+  top: 7px;
 }
 
 .feature-list p.no-icon::before {
