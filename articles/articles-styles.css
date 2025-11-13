@@ -492,6 +492,7 @@ a[href*="freehitcounters.org"] {
     content: "○";
     color: var(--main-color);
     position: absolute;
+    font-size: 2rem;
     left: 0;
     font-weight: bold;
 }
