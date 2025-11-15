@@ -420,14 +420,44 @@
 }
 
 /*--------------------------------------------------------------
-# COUNTER
+# COUNTER (voux.fr0st.xyz)
 --------------------------------------------------------------*/
 
+
+.counter-box {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border: 2px solid var(--main-color);
+    font-size: 16px;
+}
+
+
+.counter-box i {
+    color: var(--main-color);
+    font-size: 16px;
+}
+
+.counter-box .counter {
+    font-weight: bold;
+    color: white !important;
+}
+
+
+
+/*--------------------------------------------------------------
+# COUNTER WE DONT USE FREEHITCOUNTER.ORG ANYMORE!
+--------------------------------------------------------------*/
+
+/* 
 #besucherzaehler2 {
     margin-bottom : -15px;
     background-color: rgba(0, 0, 0, 0.1);
     border: 2px solid var(--main-color);
-    border-radius: 0px; /* was 8px */
+    border-radius: 0px; /* was 8px (remove the space if u wanna uncomment it) --> * / 
     transform: scale(0.9);
     transform-origin: bottom;
 }
@@ -437,23 +467,26 @@ a[href*="freehitcounters.org"] {
     cursor: default;
 }
 
-
 #besucherzaehler2 text {
     font-size: 12px;
 }
 
 #besucherzaehler2 text:nth-of-type(1) {
-    transform: translate(0px, 0px); /* Adjust second text (Total) */
+    transform: translate(0px, 0px);
     font-size: 12px;
 }
 
 #besucherzaehler2 text:nth-of-type(2) {
-    transform: translate(0px, 0px); /* Adjust second text (Visitors) */
+    transform: translate(0px, 0px);
 }
 
 #besucherzaehler2 rect {
-    fill: var(--main-color); /* Theme color for bars */
+    fill: var(--main-color);
 }
+
+*/
+
+
 
 /*--------------------------------------------------------------
 # FEATURE LIST
