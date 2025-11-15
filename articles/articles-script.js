@@ -34,6 +34,80 @@ function shareLink(button) {
     });
 }
 
+/**
+ * DETECTION IF VIEWS ARE DOWN (VOUX.FR0ST.XYZ)
+ */
+const VIEW_COUNTER_HOST = 'voux.fr0st.xyz';
+const VIEW_COUNTER_TIMEOUT = 1000;
+
+function initViewCounters() {
+    const counters = document.querySelectorAll('.counter-box .counter');
+
+    counters.forEach(counterEl => {
+        const viewScript = counterEl.querySelector(`script[src*="${VIEW_COUNTER_HOST}/embed/"]`);
+
+        if (!viewScript || viewScript.dataset.viewCounterInit === 'true') {
+            return;
+        }
+
+        viewScript.dataset.viewCounterInit = 'true';
+
+        const hasContent = () => counterEl.textContent.trim().length > 0;
+
+        if (hasContent()) {
+            return;
+        }
+
+        let fallbackTimer = null;
+        let observer = null;
+
+        const cleanup = () => {
+            if (fallbackTimer) {
+                clearTimeout(fallbackTimer);
+                fallbackTimer = null;
+            }
+
+            if (observer) {
+                observer.disconnect();
+                observer = null;
+            }
+        };
+
+        const showError = () => {
+            cleanup();
+            counterEl.textContent = `${VIEW_COUNTER_HOST} is down :(`;
+        };
+
+        observer = new MutationObserver(() => {
+            if (hasContent()) {
+                cleanup();
+            }
+        });
+
+        observer.observe(counterEl, {
+            childList: true,
+            subtree: true,
+            characterData: true,
+        });
+
+        fallbackTimer = window.setTimeout(() => {
+            if (!hasContent()) {
+                showError();
+            } else {
+                cleanup();
+            }
+        }, VIEW_COUNTER_TIMEOUT);
+
+        viewScript.addEventListener('error', showError, { once: true });
+
+        viewScript.addEventListener('load', () => {
+            if (hasContent()) {
+                cleanup();
+            }
+        }, { once: true });
+    });
+}
+
 
 /**
  * COPY BUTTON FUNCTIONALITY FOR CODEBLOCKS IN BLOGS
@@ -175,6 +249,7 @@ function detectAndUpdateLanguages() {
 */
 document.addEventListener('DOMContentLoaded', function () {
     detectAndUpdateLanguages();
+    initViewCounters();
 });
 
 /**
