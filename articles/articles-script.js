@@ -110,6 +110,36 @@ function initViewCounters() {
 
 
 /**
+ * AUTO-SET LAST UPDATED DATE USING FILE'S LAST MODIFIED TIMESTAMP
+ */
+function updateLastUpdatedDates() {
+    const lastUpdatedParagraphs = Array.from(document.querySelectorAll('.article-footer p'))
+        .filter(p => p.textContent.toLowerCase().includes('last updated'));
+
+    if (!lastUpdatedParagraphs.length) {
+        return;
+    }
+
+    const lastModified = new Date(document.lastModified);
+    const formattedDate = Number.isNaN(lastModified.getTime())
+        ? null
+        : lastModified.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        });
+
+    lastUpdatedParagraphs.forEach(paragraph => {
+        paragraph.classList.add('last-updated');
+
+        const valueElement = paragraph.querySelector('b') || paragraph.appendChild(document.createElement('b'));
+        valueElement.classList.add('last-updated-value');
+        valueElement.textContent = formattedDate || document.lastModified || '';
+    });
+}
+
+
+/**
  * COPY BUTTON FUNCTIONALITY FOR CODEBLOCKS IN BLOGS
  */
 function copyCode(button) {
@@ -250,6 +280,30 @@ function detectAndUpdateLanguages() {
 document.addEventListener('DOMContentLoaded', function () {
     detectAndUpdateLanguages();
     initViewCounters();
+    updateLastUpdatedDates();
+
+    // back to top button
+    const existingBtn = document.getElementById('back-to-top');
+    let backToTopBtn = existingBtn;
+
+    if (!backToTopBtn) {
+        backToTopBtn = document.createElement('button');
+        backToTopBtn.id = 'back-to-top';
+        backToTopBtn.setAttribute('aria-label', 'Back to top');
+        backToTopBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+        document.body.appendChild(backToTopBtn);
+    }
+
+    const toggleBackToTop = () => {
+        backToTopBtn.classList.toggle('visible', window.scrollY > 300);
+    };
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', toggleBackToTop);
+    toggleBackToTop();
 });
 
 /**

@@ -1219,6 +1219,10 @@ i {
     z-index: 10000;
 }
 
+#birthday-popup.is-closing {
+    animation: popupFadeOut 0.3s ease-out forwards;
+}
+
 .birthday-popup-overlay {
     position: absolute;
     top: 0;
@@ -1263,6 +1267,15 @@ i {
     flex: 1;
 }
 
+.birthday-divider {
+    border: 0;
+    width: 100%;
+    height: 0;
+    margin: 0 0 18px;
+    border-top: 2px solid var(--main-color);
+    background: none;
+}
+
 .birthday-close-btn {
     background: none;
     border: 1px solid var(--main-color);
@@ -1284,6 +1297,11 @@ i {
     box-shadow: 0 0 10px rgba(var(--main-color-rgb), 0.6);
 }
 
+.birthday-close-btn:focus,
+.birthday-close-btn:focus-visible {
+    outline: none;
+}
+
 
 .birthday-popup-body {
     padding: 25px;
@@ -1294,6 +1312,7 @@ i {
 .birthday-age {
     font-size: 1.8em;
     margin-bottom: 15px;
+    margin-top: -15px;
 }
 
 .age-highlight {
@@ -1317,7 +1336,7 @@ i {
 }
 
 .birthday-btn {
-    background: rgba(var(--main-color-rgb), 0.1);
+    background: none  !important;
     border: 1px solid var(--main-color);
     color: var(--main-color);
     border-radius: 0px; /* was 1px */
@@ -1335,8 +1354,7 @@ i {
 .birthday-btn:hover {
     background: rgba(var(--main-color-rgb), 0.2);
     color: #fff;
-    box-shadow: 0 0 15px rgba(var(--main-color-rgb), 0.4);
-    transform: translateY(-2px);
+    box-shadow: none !important;
 }
 
 .birthday-btn:focus{
@@ -1378,7 +1396,7 @@ i {
     }
 
     .birthday-popup-header h2 {
-        font-size: 1.3em;
+        font-size: 1.4em;
     }
 
     .birthday-popup-body {

@@ -315,11 +315,13 @@ initTooltips();
  * REAL TIME AGE CALCULATOR
 */
 
+// month starts with 0
+const BIRTH_DATE = new Date(2007, 11, 25); // December 25, 2007 (Replace this with yours)
+
 function calculateAge() {
-    const birthDate = new Date(2007, 11, 25); // December 25, 2007 (Replace this with urs)
     const now = new Date();
     
-    const diffInMs = now.getTime() - birthDate.getTime();
+    const diffInMs = now.getTime() - BIRTH_DATE.getTime();
     const ageInYears = diffInMs / (365.25 * 24 * 60 * 60 * 1000);
     
     return ageInYears;
@@ -339,14 +341,18 @@ function updateAge() {
 
 function isBirthday() {
     const today = new Date();
-    return today.getMonth() === 11 && today.getDate() === 25; // December 25 POPUP BIRTHDAY (Replace this with urs)
+    return today.getMonth() === BIRTH_DATE.getMonth() &&
+           today.getDate() === BIRTH_DATE.getDate();
 }
 
 let scrollPosition = 0;
+let birthdayPopupIsClosing = false;
 
 function createBirthdayPopup(age) {
     const existingPopup = document.getElementById('birthday-popup');
     if (existingPopup) existingPopup.remove();
+
+    birthdayPopupIsClosing = false;
 
     // Lock body scroll
     scrollPosition = window.scrollY || document.documentElement.scrollTop;
@@ -367,6 +373,7 @@ function createBirthdayPopup(age) {
                     <h2>🎉 It's fr0st's Birthday! 🎉</h2>
                     <button class="birthday-close-btn" onclick="closeBirthdayPopup()">×</button>
                 </div>
+                <hr class="birthday-divider">
                 <div class="birthday-popup-body">
                     <p class="birthday-age">fr0st is now <span class="age-highlight">${age}</span> years old!</p>
                     <p class="birthday-message">Want to send a birthday message?</p>
@@ -387,14 +394,7 @@ function createBirthdayPopup(age) {
     document.body.appendChild(popup);
 }
 
-function closeBirthdayPopup() {
-    const popup = document.getElementById('birthday-popup');
-    if (popup) {
-        popup.style.animation = 'popupFadeOut 0.3s ease-out';
-        setTimeout(() => popup.remove(), 300);
-    }
-
-    // Restore scrolling
+function restoreScrollAfterPopup() {
     document.body.style.position = '';
     document.body.style.top = '';
     document.body.style.left = '';
@@ -402,6 +402,26 @@ function closeBirthdayPopup() {
     document.body.style.width = '';
     document.body.style.overflow = '';
     window.scrollTo(0, scrollPosition);
+}
+
+function closeBirthdayPopup() {
+    const popup = document.getElementById('birthday-popup');
+    if (!popup) {
+        restoreScrollAfterPopup();
+        return;
+    }
+
+    if (birthdayPopupIsClosing) return;
+    birthdayPopupIsClosing = true;
+
+    popup.classList.add('is-closing');
+    popup.style.pointerEvents = 'none';
+
+    setTimeout(() => {
+        popup.remove();
+        restoreScrollAfterPopup();
+        birthdayPopupIsClosing = false;
+    }, 300);
 }
 
 

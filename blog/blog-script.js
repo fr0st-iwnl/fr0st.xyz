@@ -84,6 +84,10 @@ const articles = [
     }
 ];
 
+const ARTICLES_PER_PAGE = 8;
+let currentPage = 1;
+let currentSearch = '';
+
 const normalizePath = (path) => {
     if (path.length > 1 && path.endsWith('/')) {
         return path.slice(0, -1);
@@ -204,13 +208,10 @@ document.addEventListener('DOMContentLoaded', function() {
 */
 const articleSection = document.getElementById("article-section");
 if (articleSection) {
-    
-articleSection.innerHTML = '';
 
-articles.forEach((article) => {
+const createArticleCard = (article) => {
     const articleDiv = document.createElement("div");
     articleDiv.className = `article ${article.class}`;
-
     articleDiv.innerHTML = `
         <div class="article-thumbnail-container">
             <img src="${article.thumbnail}" alt="${article.title} thumbnail" class="article-thumbnail">
@@ -223,11 +224,141 @@ articles.forEach((article) => {
         <div class="read-more-container">
             <a href="${article.link}" class="read-more">Read More</a>
         </div>
-            `;
+    `;
+    return articleDiv;
+};
 
-    articleSection.appendChild(articleDiv);
+const getTotalPages = () => Math.max(1, Math.ceil(articles.length / ARTICLES_PER_PAGE));
+
+const getInitialPage = (totalPages) => {
+    const params = new URLSearchParams(window.location.search);
+    const pageParam = parseInt(params.get('page'), 10);
+    if (!Number.isInteger(pageParam) || pageParam < 1) return 1;
+    if (pageParam > totalPages) return totalPages;
+    return pageParam;
+};
+
+const getFilteredArticles = () => {
+    const term = currentSearch.trim().toLowerCase();
+    if (!term) return [...articles];
+
+    return articles.filter((article) => {
+        const haystack = `${article.title} ${article.description}`.toLowerCase();
+        return haystack.includes(term);
+    });
+};
+
+const updatePageInUrl = (page) => {
+    const url = new URL(window.location.href);
+    if (page > 1) {
+        url.searchParams.set('page', page);
+    } else {
+        url.searchParams.delete('page');
+    }
+    history.replaceState({}, '', url);
+};
+
+const renderPagination = (currentPage, totalPages, onPageChange) => {
+    let pagination = document.getElementById('pagination');
+    if (!pagination) {
+        pagination = document.createElement('div');
+        pagination.id = 'pagination';
+        articleSection.insertAdjacentElement('afterend', pagination);
+    }
+
+    pagination.innerHTML = '';
+    pagination.hidden = totalPages <= 1;
+
+    if (pagination.hidden) return;
+
+    const pageInfo = document.createElement('span');
+    pageInfo.className = 'pagination-info';
+    pageInfo.textContent = `${currentPage} / ${totalPages}`;
+
+    const prevButton = document.createElement('button');
+    prevButton.className = 'pagination-button';
+    prevButton.textContent = '←';
+    prevButton.disabled = currentPage === 1;
+    prevButton.addEventListener('click', () => onPageChange(currentPage - 1));
+
+    const nextButton = document.createElement('button');
+    nextButton.className = 'pagination-button';
+    nextButton.textContent = '→';
+    nextButton.disabled = currentPage === totalPages;
+    nextButton.addEventListener('click', () => onPageChange(currentPage + 1));
+
+    pagination.appendChild(prevButton);
+    pagination.appendChild(pageInfo);
+    pagination.appendChild(nextButton);
+};
+
+const renderArticles = (page) => {
+    const filtered = getFilteredArticles();
+    const totalPages = Math.max(1, Math.ceil(filtered.length / ARTICLES_PER_PAGE));
+    const safePage = Math.min(Math.max(page, 1), totalPages);
+    const startIndex = (safePage - 1) * ARTICLES_PER_PAGE;
+    const visibleArticles = filtered.slice(startIndex, startIndex + ARTICLES_PER_PAGE);
+
+    articleSection.innerHTML = '';
+    if (!visibleArticles.length) {
+        const emptyState = document.createElement('p');
+        emptyState.className = 'articles-empty';
+        emptyState.textContent = 'No articles match your search yet.';
+        articleSection.appendChild(emptyState);
+    } else {
+        visibleArticles.forEach((article) => {
+            articleSection.appendChild(createArticleCard(article));
         });
     }
+
+    renderPagination(safePage, totalPages, (newPage) => {
+        currentPage = newPage;
+        renderArticles(newPage);
+        updatePageInUrl(newPage);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    if (safePage !== page) {
+        updatePageInUrl(safePage);
+    }
+};
+
+/**
+ * CLEAR SEARCH BUTTON (X)
+*/
+const searchInput = document.getElementById('article-search');
+const clearSearchButton = document.getElementById('article-search-clear');
+if (searchInput) {
+    const syncClearButton = () => {
+        if (!clearSearchButton) return;
+        clearSearchButton.hidden = searchInput.value.trim().length === 0;
+    };
+
+    searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value;
+        currentPage = 1;
+        renderArticles(currentPage);
+        syncClearButton();
+    });
+
+    if (clearSearchButton) {
+        clearSearchButton.addEventListener('click', () => {
+            searchInput.value = '';
+            currentSearch = '';
+            currentPage = 1;
+            renderArticles(currentPage);
+            syncClearButton();
+            searchInput.focus();
+        });
+    }
+
+    syncClearButton();
+}
+
+currentPage = getInitialPage(getTotalPages());
+renderArticles(currentPage);
+
+}
 
 /**
  * ARTICLE PAGE TITLE + HEADING SYNC

@@ -1229,3 +1229,61 @@ button.plyr__control--back::after {
 .plyr__tooltip::before {
   border-top-color: var(--main-color) !important;
 }
+
+/*--------------------------------------------------------------
+# BACK TO TOP BUTTON
+--------------------------------------------------------------*/
+#back-to-top {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 25, 45, 0.25);
+  border: 1px solid rgba(var(--main-color-rgb, 114, 182, 255), 0.5);
+  color: var(--main-color);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  z-index: 200;
+  box-sizing: border-box;
+}
+
+#back-to-top:focus,
+#back-to-top:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (max-width: 980px) {
+  #back-to-top {
+    border: none;
+    width: 100%;
+    background: none;
+    right: 0px;
+    bottom: 1px;
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 900px) {
+  #back-to-top {
+    border: none;
+    width: 100%;
+    background: none;
+    right: -9px;
+    bottom: 1px;
+    width: 34px;
+    height: 34px;
+  }
+}
