@@ -94,10 +94,6 @@
     display: none !important;
 }
 
-.search-clear:hover {
-    color: #fff;
-}
-
 .search-clear:focus,
 .search-clear:focus-visible {
     outline: none;
