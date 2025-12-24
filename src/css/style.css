@@ -1459,6 +1459,84 @@ i {
     font-weight: bold;
 }
 
+
+/*--------------------------------------------------------------
+# WEBRING WIDGET
+--------------------------------------------------------------*/
+#webring-widget {
+  position:static;
+  text-align: center;
+  font-size: 1.4em;
+  margin-top: -10px;
+  padding: 0em; 
+  z-index: 9999;
+}
+
+.widget-container {
+  position: relative;
+}
+
+#webring-widget img {
+  height: 1.3em;
+  vertical-align: middle;
+  opacity: 0.9;
+  margin-bottom: 3.5px;
+  transition: opacity 0.2s ease;
+}
+
+#webring-widget img:hover {
+  opacity: 1;
+}
+
+#webring-widget a:hover:has(img) {
+  text-decoration: none;
+}
+
+#webring-widget .icon {
+  display: inline-block;
+  height: 1.4em;
+  line-height: 1.4em;
+  vertical-align: middle;
+  margin-bottom: 2px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+  text-shadow: none;
+}
+
+
+
+#webring-widget .icon:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* prevent underline on icon link */
+#webring-widget a:hover .icon {
+  text-decoration: none;
+}
+
+
+#webring-widget a {
+  text-decoration: none;
+  /* transition: color 0.2s ease; */ /* small transition but nah im good */
+  outline: none !important;
+  background: none !important;
+}
+
+#webring-widget a:hover {
+  color: white;
+  text-decoration: underline;
+  background: none;
+  box-shadow: none;
+}
+
+#webring-widget a:link,
+#webring-widget a:visited,
+#webring-widget a:hover,
+#webring-widget a:active {
+  color: var(--main-color);
+}
+
 /*--------------------------------------------------------------
 # MOBILE
 --------------------------------------------------------------*/
@@ -1497,6 +1575,11 @@ i {
 }
 
 @media screen and (max-width: 600px) {
+    /* WEBRING @MEDIA */
+    #webring-widget {
+        font-size: 1.1em;
+        margin-top: 5px;
+    }
     .contact_link {
         margin-top: .5em;
     }
@@ -1520,6 +1603,14 @@ i {
     }
     .show-more-btn{
         margin-top: 20px;
+    }
+}
+
+/* WEBRING @MEDIA */
+@media screen and (max-width: 1050px) {
+    #webring-widget {
+        font-size: 1.3em;
+        margin-top: 5px;
     }
 }
 

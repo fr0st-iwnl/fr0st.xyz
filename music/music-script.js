@@ -7,7 +7,7 @@
 import '/src/js/components/base.js';
 
 const ARTIST_CONFIG = {
-    "$uicideboy$": 274,
+    "$uicideboy$": 287,
     "Stromae": 40,
     "Bakar": 45,
     "fakemink": 67,
@@ -35,6 +35,15 @@ const artistData = [
             },
         ],
         songs: [
+            {
+                title: "THY WILL BE DONE",
+                spotifyUrl: "https://open.spotify.com/album/28YFhAjRnmhlhKIuTupUv2?si=-nVLjZKcQqCnlnyYxMd2UQ",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b273f1b0aaa9ec3c0c71766721d0",
+                duration: "29:46",
+                isFavorite: false,
+                isObsessed: true,
+                isAlbum: true
+            },
             {
                 title: "THY KINGDOM COME",
                 spotifyUrl: "https://open.spotify.com/album/7HxLze2RiYrM9f2un8HZUp?si=M8-Do8eNSgiGVAOE9DodaA",
@@ -270,6 +279,14 @@ const artistData = [
                 spotifyUrl: "https://open.spotify.com/album/1VJbqV5tHd4wP7n5iJhYIY?si=z07FWj42RI23FUQ2fe4BsA",
                 thumbnail: "https://i.scdn.co/image/ab67616d0000b273af1033945c0e113118ec5e05",
                 duration: "7:12",
+                isObsessed: true,
+                isAlbum: false
+            },
+            {
+                title: "KILL YOURSELF Part XVIII: The Fall of Idols Saga",
+                spotifyUrl: "https://open.spotify.com/album/0EvGBNEwjHND7km7tRuctQ?si=kzBdHiZORaasd7XpbpXDYw",
+                thumbnail: "https://i.scdn.co/image/ab67616d0000b2734a4885ff6a0c0d4ca9c299a7",
+                duration: "6:12",
                 isObsessed: true,
                 isAlbum: false
             },
@@ -1643,7 +1660,7 @@ function createFilterMenu() {
                 </div>
                 <p>This is where I share my favorite artists and songs. You'll find a mix of different genres and styles that I enjoy listening to. Feel free to explore my music taste and discover some great tunes!</p>
                 <div class="last-updated">
-                    Last updated: November 9 2025
+                    Last updated: December 24 2025
                 </div>
             </div>
         </div>
