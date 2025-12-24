@@ -320,11 +320,22 @@ const BIRTH_DATE = new Date(2007, 11, 25); // December 25, 2007 (Replace this wi
 
 function calculateAge() {
     const now = new Date();
-    
-    const diffInMs = now.getTime() - BIRTH_DATE.getTime();
-    const ageInYears = diffInMs / (365.25 * 24 * 60 * 60 * 1000);
-    
-    return ageInYears;
+    const birthYear = BIRTH_DATE.getFullYear();
+    const birthMonth = BIRTH_DATE.getMonth();
+    const birthDay = BIRTH_DATE.getDate();
+
+    let years = now.getFullYear() - birthYear;
+    const thisYearsBirthday = new Date(now.getFullYear(), birthMonth, birthDay);
+
+    if (now < thisYearsBirthday) {
+        years -= 1;
+    }
+
+    const lastBirthday = new Date(now.getFullYear() - (now < thisYearsBirthday ? 1 : 0), birthMonth, birthDay);
+    const nextBirthday = new Date(lastBirthday.getFullYear() + 1, birthMonth, birthDay);
+    const yearProgress = (now - lastBirthday) / (nextBirthday - lastBirthday);
+
+    return years + yearProgress;
 }
 
 function updateAge() {
