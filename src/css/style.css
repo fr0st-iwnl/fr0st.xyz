@@ -797,6 +797,10 @@ details[open] .update-content {
     font-size: 1.2em;
 }
 
+.latest-status .status-emoji {
+    text-shadow: none;
+}
+
 .latest-status .emoji-container {
     white-space: nowrap;
     margin-bottom: 20px;
@@ -808,10 +812,34 @@ details[open] .update-content {
     text-shadow: none;
 }
 .latest-status a {
-    color: var(--main-color);
-    text-decoration: underline;
-    text-underline-offset: 5px;
+    color: var(--main-color) !important;
+    text-decoration: underline !important;
+    text-underline-offset: 5px !important;
+    display: inline-block !important;
+    width: fit-content !important;
 }
+
+.latest-status a h3 {
+    display: inline-block;
+}
+
+.latest-status a:link,
+.latest-status a:visited,
+.latest-status a:hover,
+.latest-status a:active,
+.latest-status a:link h3,
+.latest-status a:visited h3,
+.latest-status a:hover h3,
+.latest-status a:active h3 {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: var(--main-color) !important;
+    outline: none !important;
+    text-decoration: underline !important;
+    text-underline-offset: 5px !important;
+}
+
+
 
 .latest-status img.status-image {
     max-width: 100%;
@@ -830,11 +858,14 @@ details[open] .update-content {
 }
 
 .latest-status .time-ago {
-    
     font-size: 1.2rem;
     color: #888;
     display: block;
     margin-top: 15px;
+}
+
+.latest-status:has(img.status-image, video.status-video) .time-ago {
+  margin-top: 0px;
 }
 
 

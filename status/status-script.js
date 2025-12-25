@@ -134,6 +134,24 @@ function normalizeStatuses(statuses) {
     });
 }
 
+
+/**
+ * escape html tags cuz y not
+ */
+function escapeHtml(value) {
+    return value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+}
+
+function formatStatusMessage(message) {
+    const safeMessage = escapeHtml(message);
+    return safeMessage.replace(/(\p{Extended_Pictographic}\uFE0F?)/gu, '<span class="status-emoji">$1</span>');
+}
+
 function setVideoVolume(root = document) {
     const videos = root.querySelectorAll("video.status-video");
     videos.forEach((video) => {
@@ -186,7 +204,7 @@ function renderStatuses(statuses) {
         statusDiv.dataset.index = index;
 
         const content = `
-            ${status.message ? `<p>${status.message}</p>` : ""}
+            ${status.message ? `<p>${formatStatusMessage(status.message)}</p>` : ""}
             ${status.image ? `<img class="status-image" src="${status.image}" alt="Image Failed To Load">` : ""}
             ${status.video ? `<video class="status-video" src="${status.video}" alt="Video Failed To Load" controls preload="metadata" playsinline></video>` : ""}
         `;
@@ -220,7 +238,7 @@ function renderLatestStatus(status) {
     }
 
     const content = `
-        ${status.message ? `<p>${status.message}</p>` : ""}
+        ${status.message ? `<p>${formatStatusMessage(status.message)}</p>` : ""}
         ${status.image ? `<img class="status-image" src="${status.image}" alt="Status Image">` : ""}
         ${status.video ? `<video class="status-video" src="${status.video}" controls preload="metadata" playsinline></video>` : ""}
     `;

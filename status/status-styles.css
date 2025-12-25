@@ -105,6 +105,10 @@
     max-width: calc(100% - 65px); /* Ensure content stays within the container */
 }
 
+.status .status-emoji {
+    text-shadow: none;
+}
+
 .status h3 {
     margin: 0;
     font-size: 18px;
