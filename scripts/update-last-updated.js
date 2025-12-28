@@ -95,6 +95,22 @@ const getGitDate = (filePath) => {
     }
 };
 
+const getChangedFilesInHead = () => {
+    try {
+        const result = execSync("git diff-tree --no-commit-id --name-only -r HEAD -- articles", {
+            cwd: repoRoot,
+            stdio: ["ignore", "pipe", "ignore"],
+        })
+            .toString()
+            .split(/\r?\n/)
+            .map((entry) => entry.trim())
+            .filter(Boolean);
+        return new Set(result);
+    } catch (error) {
+        return new Set();
+    }
+};
+
 const updateFile = (filePath) => {
     const raw = readFileSync(filePath, "utf8");
     const relativePath = relative(repoRoot, filePath);
@@ -123,6 +139,7 @@ const files = walkHtmlFiles(articlesDir);
 let updatedCount = 0;
 const updatedFiles = [];
 const skippedFiles = [];
+const changedFiles = getChangedFilesInHead();
 
 if (!LAST_UPDATED_ENABLED) {
     logWarn("update-last-updated.js is OFF.");
@@ -143,9 +160,15 @@ files.forEach((file) => {
 
 if (updatedCount > 0) {
     logInfo(`Updated last updated dates in ${updatedCount} article(s).`);
-    updatedFiles.forEach((file) => {
-        logMuted(`- ${file}`);
-    });
+    if (changedFiles.size > 0) {
+        const touched = updatedFiles.filter((file) => changedFiles.has(file));
+        if (touched.length > 0) {
+            logMuted("Updated in latest commit:");
+            touched.forEach((file) => {
+                logMuted(`- ${file}`);
+            });
+        }
+    }
 }
 
 if (skippedFiles.length > 0) {
