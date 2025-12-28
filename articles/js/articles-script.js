@@ -38,7 +38,7 @@ function shareLink(button) {
  * DETECTION IF VIEWS ARE DOWN (VOUX.FR0ST.XYZ)
  */
 const VIEW_COUNTER_HOST = 'voux.fr0st.xyz';
-const VIEW_COUNTER_TIMEOUT = 1000;
+const VIEW_COUNTER_TIMEOUT = 9000;
 
 function initViewCounters() {
     const counters = document.querySelectorAll('.counter-box .counter');
@@ -52,19 +52,29 @@ function initViewCounters() {
 
         viewScript.dataset.viewCounterInit = 'true';
 
-        const hasContent = () => counterEl.textContent.trim().length > 0;
+        const hasContent = (placeholderEl) => {
+            const placeholderText = placeholderEl ? placeholderEl.textContent : '';
+            const text = counterEl.textContent.replace(placeholderText, '').trim();
+            return /\d/.test(text);
+        };
 
-        if (hasContent()) {
+        if (hasContent(null)) {
             return;
         }
 
         let fallbackTimer = null;
         let observer = null;
+        let mutationTimer = null;
 
         const cleanup = () => {
             if (fallbackTimer) {
                 clearTimeout(fallbackTimer);
                 fallbackTimer = null;
+            }
+
+            if (mutationTimer) {
+                clearTimeout(mutationTimer);
+                mutationTimer = null;
             }
 
             if (observer) {
@@ -73,16 +83,34 @@ function initViewCounters() {
             }
         };
 
-        const showError = () => {
+        const showError = (placeholderEl) => {
             cleanup();
-            counterEl.textContent = `${VIEW_COUNTER_HOST} is down :(`;
+            if (placeholderEl) {
+                placeholderEl.textContent = `${VIEW_COUNTER_HOST} is down :(`;
+            }
         };
 
-        observer = new MutationObserver(() => {
-            if (hasContent()) {
-                cleanup();
+        let placeholderEl = counterEl.querySelector('.counter-placeholder');
+        if (!placeholderEl) {
+            placeholderEl = document.createElement('span');
+            placeholderEl.className = 'counter-placeholder';
+            placeholderEl.textContent = 'Loading views...';
+            counterEl.insertBefore(placeholderEl, viewScript);
+        }
+
+        const scheduleCheck = () => {
+            if (mutationTimer) {
+                clearTimeout(mutationTimer);
             }
-        });
+            mutationTimer = window.setTimeout(() => {
+                if (hasContent(placeholderEl)) {
+                    placeholderEl.remove();
+                    cleanup();
+                }
+            }, 50);
+        };
+
+        observer = new MutationObserver(scheduleCheck);
 
         observer.observe(counterEl, {
             childList: true,
@@ -91,17 +119,18 @@ function initViewCounters() {
         });
 
         fallbackTimer = window.setTimeout(() => {
-            if (!hasContent()) {
-                showError();
-            } else {
-                cleanup();
+            if (!hasContent(placeholderEl)) {
+                showError(placeholderEl);
+                return;
             }
+            cleanup();
         }, VIEW_COUNTER_TIMEOUT);
 
-        viewScript.addEventListener('error', showError, { once: true });
+        viewScript.addEventListener('error', () => showError(placeholderEl), { once: true });
 
         viewScript.addEventListener('load', () => {
-            if (hasContent()) {
+            if (hasContent(placeholderEl)) {
+                placeholderEl.remove();
                 cleanup();
             }
         }, { once: true });

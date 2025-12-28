@@ -63,6 +63,10 @@ body {
     overflow-x: hidden;
 
     color: var(--main-color);
+    
+    /* Disable ligatures so sequences like "..." render as typed (no ellipsis substitution). */
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0;
 }
 
 b{
