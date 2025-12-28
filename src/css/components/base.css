@@ -26,11 +26,29 @@
     font-size: 10px;
 }
 
+/*--------------------------------------------------------------
+# SCROLLBAR
+--------------------------------------------------------------*/
+
 html {
     /* For Firefox */
     overflow-y: scroll;
     scrollbar-width: thin; /* Options: auto | thin | none */
     scrollbar-color: var(--main-color) #222; /* thumb | track */
+    /* scrollbar-color: var(--main-color) rgba(var(--bg-color), 0.2);*/
+}
+
+/* Chrome / Edge / Safari */
+html::-webkit-scrollbar {
+    width: 5px;
+}
+
+html::-webkit-scrollbar-track {
+    background: rgba(var(--bg-color), 0.2);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--main-color);
 }
 
 pre:not(#title), code {
@@ -139,27 +157,6 @@ a {
     100% {
         transform: translateX(-20vw) translateY(110vh);
     }
-}
-
-
-/*--------------------------------------------------------------
-# SCROLLBAR
---------------------------------------------------------------*/
-
-body::-webkit-scrollbar {
-    width: 5px;
-}
-
-body::-webkit-scrollbar-track {
-    background: var(--bg-color); /* Background of the track */
-}
-
-body::-webkit-scrollbar-thumb {
-    background: var(--main-color); /* Color of the scrollbar thumb */
-}
-
-body::-webkit-scrollbar-thumb:hover {
-    background: var(--selection); /* Slightly different on hover */
 }
 
 

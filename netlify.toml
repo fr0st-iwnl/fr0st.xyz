@@ -1,0 +1,6 @@
+# Scripts
+# /scripts folder
+
+[build]
+command = "node scripts/update-last-updated.js && node scripts/update-rss.js"
+publish = "."

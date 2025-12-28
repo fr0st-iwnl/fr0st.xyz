@@ -9,81 +9,28 @@ import '/src/js/components/base.js';
 /**
  * ARTICLES
 */
-const articles = [
-    {
-        title: "How to Install and Set Up AtlasOS on Windows",
-        description: "Learn how to install AtlasOS, activate Windows, and get your PC ready without bloat.",
-        link: "articles/article8.html", 
-        class: "article-one",
-        thumbnail: "./src/media/blog-thumbnails/atlasos.png",
-        date: "November 11, 2025"
-    },
-    {
-        title: "How to Self-Host File Browser on Arch Linux with Cloudflared Tunnels",
-        description: "Learn how to set up and run File Browser on Arch Linux using Cloudflare Tunnels to access it from anywhere.",
-        link: "articles/article7.html", 
-        class: "article-one",
-        thumbnail: "./src/media/blog-thumbnails/self-host-filebrowser-tunnels-arch.png",
-        date: "September 10, 2025"
-    },
-    {
-        title: "My Music Setup on PC and Phone",
-        description: "The music apps I use on PC and phone, how I make them work for me, and what I think about them.",
-        link: "articles/article6.html", 
-        class: "article-one",
-        thumbnail: "./src/media/blog-thumbnails/music-setup.png",
-        date: "August 18, 2025"
-    },
-    /*{
-        title: "Appreciation Is Rare, and That's the Problem",
-        description: "This isn't life advice. Just me sharing how it feels when people act like they don't care. Support and appreciation matter more than most people realize.",
-        link: "articles/article6.html", 
-        class: "article-one",
-        thumbnail: "./src/media/blog-thumbnails/appreciationisrare.png",
-        date: "July 6, 2025"
-    },*/
-    {
-        title: "WinMacros: Custom Windows Macros",
-        description: "A tool I made to automate tasks and control my system with simple macros.",
-        link: "articles/article5.html", 
-        class: "article-one",
-        thumbnail: "./src/media/blog-thumbnails/winmacros.png",
-        date: "February 26, 2025"
-    },
-    {
-        title: "WinConfigs: Simplifying Windows Setup",
-        description: "A script that I made to simplify Windows setup using automation and system tweaks.",
-        link: "articles/article4.html", 
-        class: "article-one",
-        thumbnail: "./src/media/blog-thumbnails/winconfigs.png",
-        date: "February 5, 2025"
-    },
-    {
-        title: "Why Tailwind CSS Isn't for Me",
-        description: "Sharing my thoughts on why I just don't like Tailwind CSS.",
-        link: "articles/article3.html", 
-        class: "article-one",
-        thumbnail: "./src/media/blog-thumbnails/tailwind2.png",
-        date: "November 6, 2024"
-    },
-    {
-        title: "My first Linux experience",
-        description: "Journey of a Linux newbie.",
-        link: "articles/article2.html", 
-        class: "article-two",
-        thumbnail: "./src/media/blog-thumbnails/linux.png",
-        date: "October 22, 2024"
-    },
-    {
-        title: "Hello World, may I say?",
-        description: "The blog is now here with updates about my journey.",
-        link: "articles/article1.html", 
-        class: "article-one",
-        thumbnail: "./src/media/blog-thumbnails/lain.jpg",
-        date: "October 20, 2024"
-    }
-];
+let articles = [];
 
+const loadArticles = async () => {
+    try {
+        const response = await fetch('/blog/articles.json', { cache: 'no-cache' });
+        if (!response.ok) {
+            throw new Error(`Failed to load articles: ${response.status}`);
+        }
+        const data = await response.json();
+        if (!Array.isArray(data)) {
+            throw new Error('Articles JSON is not an array.');
+        }
+        articles = data;
+    } catch (error) {
+        console.error('Error loading articles:', error);
+        articles = [];
+    }
+};
+
+/**
+ * PAGINATION SETTINGS
+ */
 const ARTICLES_PER_PAGE = 8;
 let currentPage = 1;
 let currentSearch = '';
@@ -95,6 +42,10 @@ const normalizePath = (path) => {
     return path;
 };
 
+/**
+ * UPDATE META TAG CONTENT
+ * used for title, description, etc
+ */
 const updateMetaContent = (selector, value) => {
     if (!value) {
         return;
@@ -104,6 +55,17 @@ const updateMetaContent = (selector, value) => {
     if (metaTag) {
         metaTag.setAttribute('content', value);
     }
+};
+
+/**
+ * UPDATE ARTICLE PUBLISHED DATE ON PAGE
+ */
+const updatePublishedDate = (dateText) => {
+    if (!dateText) return;
+    const dateNodes = document.querySelectorAll('.article-date');
+    dateNodes.forEach((node) => {
+        node.textContent = `Published on: ${dateText}`;
+    });
 };
 
 /**
@@ -186,7 +148,7 @@ function getRandomPhrase() {
 /**
  * ADD GLITCH FOR SPECIAL PHRASE
 */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     // Welcome text setup
     const welcomeText = document.querySelector('.welcome');
     if (welcomeText) {
@@ -202,6 +164,8 @@ document.addEventListener('DOMContentLoaded', function() {
             welcomeText.textContent = randomPhrase;
         }
     }
+
+    await loadArticles();
 
 /**
  * ARTICLE GENERATION
@@ -228,7 +192,17 @@ const createArticleCard = (article) => {
     return articleDiv;
 };
 
+/**
+ * CALCULATE TOTAL NUMBER OF PAGES
+ */
+
 const getTotalPages = () => Math.max(1, Math.ceil(articles.length / ARTICLES_PER_PAGE));
+
+
+/**
+ * GET INITIAL PAGE FROM URL
+ * keeps page value in a valid range
+ */
 
 const getInitialPage = (totalPages) => {
     const params = new URLSearchParams(window.location.search);
@@ -238,6 +212,10 @@ const getInitialPage = (totalPages) => {
     return pageParam;
 };
 
+
+/**
+ * FILTER ARTICLES BY SEARCH TERM
+ */
 const getFilteredArticles = () => {
     const term = currentSearch.trim().toLowerCase();
     if (!term) return [...articles];
@@ -248,6 +226,10 @@ const getFilteredArticles = () => {
     });
 };
 
+/**
+ * UPDATE PAGE PARAM IN URL
+ * avoids page=1 clutter
+ */
 const updatePageInUrl = (page) => {
     const url = new URL(window.location.href);
     if (page > 1) {
@@ -258,6 +240,9 @@ const updatePageInUrl = (page) => {
     history.replaceState({}, '', url);
 };
 
+/**
+ * RENDER PAGINATION CONTROLS
+ */
 const renderPagination = (currentPage, totalPages, onPageChange) => {
     let pagination = document.getElementById('pagination');
     if (!pagination) {
@@ -292,6 +277,9 @@ const renderPagination = (currentPage, totalPages, onPageChange) => {
     pagination.appendChild(nextButton);
 };
 
+/**
+ * RENDER ARTICLES FOR CURRENT PAGE
+ */
 const renderArticles = (page) => {
     const filtered = getFilteredArticles();
     const totalPages = Math.max(1, Math.ceil(filtered.length / ARTICLES_PER_PAGE));
@@ -300,6 +288,15 @@ const renderArticles = (page) => {
     const visibleArticles = filtered.slice(startIndex, startIndex + ARTICLES_PER_PAGE);
 
     articleSection.innerHTML = '';
+    if (!articles.length) {
+        const emptyState = document.createElement('p');
+        emptyState.className = 'articles-empty';
+        emptyState.textContent = 'No articles published yet :(';
+        articleSection.appendChild(emptyState);
+        renderPagination(1, 1, () => {});
+        return;
+    }
+
     if (!visibleArticles.length) {
         const emptyState = document.createElement('p');
         emptyState.className = 'articles-empty';
@@ -379,6 +376,8 @@ renderArticles(currentPage);
                 titleEl.textContent = matchingArticle.title;
             }
         });
+
+        updatePublishedDate(matchingArticle.date);
 
         // updates meta tag for og:title and twitter:title
         updateMetaContent('meta[property="og:title"]', matchingArticle.title);

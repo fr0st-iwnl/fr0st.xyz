@@ -32,12 +32,12 @@
 	<!-----SCRIPT-JS------>
 	<script src="/src/js/components/base.js" type="module" defer></script>
 	<script src="/blog/blog-script.js" type="module" defer></script>
-	<script src="/articles/articles-script.js" type="module" defer></script>
+	<script src="/articles/js/articles-script.js" type="module" defer></script>
 
     <!-----LINKS------>
 	<link rel="icon" type="image/png" href="/src/media/favicons/favicon-ocean.png" id="favicon">
 	<link rel="preload" as="font" href="src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
-	<link rel="stylesheet" href="/articles/articles-styles.css">
+	<link rel="stylesheet" href="/articles/css/articles-styles.css">
 	<link rel="alternate" type="application/rss+xml" title="fr0st&#39;s Webpage RSS" href="https://fr0st.xyz/rss.xml">
 	<!---FONT AWESOME------->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -115,51 +115,7 @@
 			</ul>
 		</nav>
 
-<!--
-		📌 Blog Classes Reference
-
-		General:
-		- article-container-normal → main container for each article
-		- article-title → big title of the blog
-		- article-date → publish date
-		- article-content → wraps all article text and elements
-		- article-footer → footer area with share buttons / last updated date
-
-		Views:
-		- fa-solid fa-eye → views icon
-
-		Headings:
-		- h2 → section titles
-		- h3 with <a class="anchor"> → sub-section with an anchor link
-
-		Code Blocks:
-		- blog-code-block → wrapper for code sections
-		- code-header → top bar of the code box
-		- code-title → text "Code"
-		- copy-btn → copy button for code
-		- code-content → the actual code block
-		- language-bash / language-yaml → code highlighting types
-
-		Notes / Features:
-		- feature-list → list with features or prerequisites
-		- feature-intro → intro text for the feature list
-		- note-block → whole note block
-		- note-block-header → header of the note
-		- note-block-icon → info icon
-		- note-block-title → title text
-		- note-block-content → content of the note
-
-		Images:
-		- image-wrapper → wrapper for screenshots/images with Lightbox
-		- video-wrapper → wrapper for videos with Lightbox
-		- glightbox → video/image popup/lightbox class
-
-		Other:
-		- bold → makes text bold (used inline)
-		- custom-title → add this attribute to set your own title instead of auto-sync
--->
-
-        <!--------- SECOND ARTICLE ------------->
+        <!--------- ARTICLE ------------->
         <div class="article-container4">
             <h1 class="article-title">WinConfigs: Simplifying Windows Setup</h1>
 			<p class="counter-box">
@@ -171,7 +127,7 @@
 			</p>
 			<br>
 			<br>
-            <p class="article-date">Published on: February 5, 2025</p>
+            <p class="article-date"><!-- pulled from blog/articles.json --></p>
             <div class="article-content">
                 <p>One day, I was thinking, what if I create my own automation tool/script that simplifies Windows setup with tweaks, package managers, and custom repositories? I decided to give it a try because I already knew <b>batch</b> scripting.</p>
                 <p>The script I created is primarily written in <b>batch</b>, and while it was exciting, the process wasn't easy. I had to set up several virtual machines to test all of the tweaks and processes on Windows 10 and 11. It was a bit frustrating, but I stuck with it, and the result is something I'm really proud of.

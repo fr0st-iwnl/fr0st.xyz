@@ -1,3 +1,19 @@
+# Netlify (_redirects)
+# if u dont use Netlify u can delete this file.
+
 /winconfigs  https://raw.githubusercontent.com/fr0st-iwnl/WinConfigs/refs/heads/master/Scripts/1.%20Setup/install.ps1 301
 https://fr0st.netlify.app/* https://fr0st.xyz/:splat 301!
 /* /404.html 404
+
+# old article URLs from fr0st.xyz
+# only needed for my site because these URLs are already published online
+# SAFE to delete if you are using this repo for your own site
+
+/articles/article1.html /articles/hello-world-may-i-say.html 301
+/articles/article2.html /articles/my-first-linux-experience.html 301
+/articles/article3.html /articles/why-tailwind-css-isnt-for-me.html 301
+/articles/article4.html /articles/winconfigs-simplifying-windows-setup.html 301
+/articles/article5.html /articles/winmacros-custom-windows-macros.html 301
+/articles/article6.html /articles/my-music-setup-on-pc-and-phone.html 301
+/articles/article7.html /articles/self-host-file-browser-arch-cloudflared.html 301
+/articles/article8.html /articles/install-and-set-up-atlasos-windows.html 301
